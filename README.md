@@ -9,32 +9,32 @@ This project is compatible with a large number of devices depending on your appl
 
 Barcode Readers
 Any barcode reader that is supported through OPOS. Current readers tested:
-Honeywell 3310g
-Honeywell 3320g
+Honeywell 3310g, 
+Honeywell 3320g, 
 Codecorp cr1000
 
 Fingerprint Readers
 Digital Persona 4500
 
 Credit Card Reader
-Magtek Dynamag(USATech Injection key)
-OTI Trio(USATech Injection key)
-IDTech Vendi(USATech Injection key)
-Nayax VPOS(ePoint cc200 required)
+Magtek Dynamag(USATech Injection key), 
+OTI Trio(USATech Injection key), 
+IDTech Vendi(USATech Injection key), 
+Nayax VPOS(ePoint cc200 required), 
 
 A large number of bill and coin acceptors including MDB, ccTalk, and priority protocol
 
 Bill Acceptor
-MEI MPOST 110v and 24v
-MEI 2500 MDB(ePoint cc200 or Coinco MDB to USB required)
-MEI 2700 MDB(ePoint cc200 or Coinco MDB to USB required)
-MEI 2700R MDB(ePoint cc200 required)
-Coinco Vantage MDB(ePoint cc200 or Coinco MDB to USB required)
-Conlux
-MEI SC Advanced(ePoint cc200 required)
+MEI MPOST 110v and 24v, 
+MEI 2500 MDB(ePoint cc200 or Coinco MDB to USB required), 
+MEI 2700 MDB(ePoint cc200 or Coinco MDB to USB required), 
+MEI 2700R MDB(ePoint cc200 required), 
+Coinco Vantage MDB(ePoint cc200 or Coinco MDB to USB required), 
+Conlux(ePoint cc200 or Coinco MDB to USB required), 
+MEI SC Advanced(ePoint cc200 required), 
 
 Coin Acceptor
-MEI 7512i MDB(ePoint cc200 or Coinco MDB to USB required)
-Conlux MCM MDB(ePoint cc200 or Coinco MDB to USB required)
-ITL Smart Hopper(ePoint cc200 required)
+MEI 7512i MDB(ePoint cc200 or Coinco MDB to USB required), 
+Conlux MCM MDB(ePoint cc200 or Coinco MDB to USB required), 
+ITL Smart Hopper(ePoint cc200 required), 
 Coinco Vantage(ePoint cc200 required)
