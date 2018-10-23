@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="deORO.Views.AdministationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:converter="clr-namespace:deORO.Converters"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:vm="clr-namespace:deORO.ViewModels"
+             xmlns:extensions="http://wpflocalizeextension.codeplex.com"
+             xmlns:lex ="clr-namespace:WPFLocalizeExtension.Engine;assembly=WPFLocalizeExtension"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             lex:LocalizeDictionary.DesignCulture="fr"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             extensions:ResxLocalizationProvider.DefaultAssembly="deORO"
+             extensions:ResxLocalizationProvider.DefaultDictionary="Strings"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="BoolToVisible"></converter:BoolToVisibilityConverter>
+    </UserControl.Resources>
+    <Grid>
+        <TabControl>
+            <!--<TabItem Header="Users">
+                <TabItem.Content>
+                    <vm:UsersViewModel></vm:UsersViewModel>
+                </TabItem.Content>
+            </TabItem>-->
+            <TabItem Header="{extensions:Loc Administration.Items}">
+                <TabItem.Content>
+                    <vm:ItemsViewModel></vm:ItemsViewModel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="{extensions:Loc Administration.Service}">
+                <vm:USBRelayViewModel></vm:USBRelayViewModel>
+            </TabItem>
+            <!--<TabItem Header="Discounts">
+                <vm:DiscountsViewModel></vm:DiscountsViewModel>
+            </TabItem>-->
+            <TabItem Header="{extensions:Loc Administration.SyncInfo}" Visibility="{Binding IsAdminTabVisible, Converter={StaticResource BoolToVisible}}">
+                <vm:SyncLogViewModel></vm:SyncLogViewModel>
+            </TabItem>
+            <TabItem Header="Hardware" Visibility="{Binding IsAdminTabVisible, Converter={StaticResource BoolToVisible}}">
+                <vm:HardwareViewModel></vm:HardwareViewModel>
+            </TabItem>
+            <TabItem Header="{extensions:Loc Administration.FileTransfer}" Visibility="{Binding IsAdminTabVisible, Converter={StaticResource BoolToVisible}}">
+                <vm:FileTransferViewModel></vm:FileTransferViewModel>
+            </TabItem>
+            <TabItem Header="{extensions:Loc Administration.Ftp}" Visibility="{Binding IsAdminTabVisible, Converter={StaticResource BoolToVisible}}">                
+                <vm:FtpViewModel></vm:FtpViewModel>
+            </TabItem>
+            <TabItem Header="{extensions:Loc Administration.ApplicationSettings}" Visibility="{Binding IsAdminTabVisible, Converter={StaticResource BoolToVisible}}">
+                <TabItem.Content>
+                    <vm:ApplicationSettingsViewModel></vm:ApplicationSettingsViewModel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="{extensions:Loc Administration.Shutdown}" Visibility="{Binding IsAdminTabVisible, Converter={StaticResource BoolToVisible}}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseUp">
+                        <i:InvokeCommandAction Command="{Binding ShutdownCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TabItem>
+            <TabItem Header="Unlock" Visibility="{Binding IsHiddenVisible, Converter={StaticResource BoolToVisible}}">
+                <TabItem.Content>
+                    <vm:UnlockViewModel></vm:UnlockViewModel>
+                </TabItem.Content>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</UserControl>

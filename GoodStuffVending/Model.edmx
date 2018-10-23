@@ -1,0 +1,1557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="deORO_ConversionModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="deORO_ConversionModelStoreContainer">
+          <EntitySet Name="aspnet_Applications" EntityType="deORO_ConversionModel.Store.aspnet_Applications" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_Applications">
+            <DefiningQuery>SELECT 
+      [aspnet_Applications].[ApplicationName] AS [ApplicationName], 
+      [aspnet_Applications].[LoweredApplicationName] AS [LoweredApplicationName], 
+      [aspnet_Applications].[ApplicationId] AS [ApplicationId], 
+      [aspnet_Applications].[Description] AS [Description]
+      FROM [dbo].[aspnet_Applications] AS [aspnet_Applications]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Membership" EntityType="deORO_ConversionModel.Store.aspnet_Membership" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_Membership">
+            <DefiningQuery>SELECT 
+      [aspnet_Membership].[ApplicationId] AS [ApplicationId], 
+      [aspnet_Membership].[UserId] AS [UserId], 
+      [aspnet_Membership].[Password] AS [Password], 
+      [aspnet_Membership].[PasswordFormat] AS [PasswordFormat], 
+      [aspnet_Membership].[PasswordSalt] AS [PasswordSalt], 
+      [aspnet_Membership].[MobilePIN] AS [MobilePIN], 
+      [aspnet_Membership].[Email] AS [Email], 
+      [aspnet_Membership].[LoweredEmail] AS [LoweredEmail], 
+      [aspnet_Membership].[PasswordQuestion] AS [PasswordQuestion], 
+      [aspnet_Membership].[PasswordAnswer] AS [PasswordAnswer], 
+      [aspnet_Membership].[IsApproved] AS [IsApproved], 
+      [aspnet_Membership].[IsLockedOut] AS [IsLockedOut], 
+      [aspnet_Membership].[CreateDate] AS [CreateDate], 
+      [aspnet_Membership].[LastLoginDate] AS [LastLoginDate], 
+      [aspnet_Membership].[LastPasswordChangedDate] AS [LastPasswordChangedDate], 
+      [aspnet_Membership].[LastLockoutDate] AS [LastLockoutDate], 
+      [aspnet_Membership].[FailedPasswordAttemptCount] AS [FailedPasswordAttemptCount], 
+      [aspnet_Membership].[FailedPasswordAttemptWindowStart] AS [FailedPasswordAttemptWindowStart], 
+      [aspnet_Membership].[FailedPasswordAnswerAttemptCount] AS [FailedPasswordAnswerAttemptCount], 
+      [aspnet_Membership].[FailedPasswordAnswerAttemptWindowStart] AS [FailedPasswordAnswerAttemptWindowStart], 
+      [aspnet_Membership].[Comment] AS [Comment]
+      FROM [dbo].[aspnet_Membership] AS [aspnet_Membership]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_MoMoney" EntityType="deORO_ConversionModel.Store.aspnet_MoMoney" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_MoMoney">
+            <DefiningQuery>SELECT 
+      [aspnet_MoMoney].[ApplicationId] AS [ApplicationId], 
+      [aspnet_MoMoney].[UserId] AS [UserId], 
+      [aspnet_MoMoney].[CurrentCash] AS [CurrentCash], 
+      [aspnet_MoMoney].[UploadHistory] AS [UploadHistory], 
+      [aspnet_MoMoney].[itemIncrement] AS [itemIncrement], 
+      [aspnet_MoMoney].[salesIncrement] AS [salesIncrement], 
+      [aspnet_MoMoney].[creationDate] AS [creationDate], 
+      [aspnet_MoMoney].[lastModified] AS [lastModified]
+      FROM [dbo].[aspnet_MoMoney] AS [aspnet_MoMoney]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Paths" EntityType="deORO_ConversionModel.Store.aspnet_Paths" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_Paths">
+            <DefiningQuery>SELECT 
+      [aspnet_Paths].[ApplicationId] AS [ApplicationId], 
+      [aspnet_Paths].[PathId] AS [PathId], 
+      [aspnet_Paths].[Path] AS [Path], 
+      [aspnet_Paths].[LoweredPath] AS [LoweredPath]
+      FROM [dbo].[aspnet_Paths] AS [aspnet_Paths]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="deORO_ConversionModel.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_PersonalizationAllUsers">
+            <DefiningQuery>SELECT 
+      [aspnet_PersonalizationAllUsers].[PathId] AS [PathId], 
+      [aspnet_PersonalizationAllUsers].[PageSettings] AS [PageSettings], 
+      [aspnet_PersonalizationAllUsers].[LastUpdatedDate] AS [LastUpdatedDate]
+      FROM [dbo].[aspnet_PersonalizationAllUsers] AS [aspnet_PersonalizationAllUsers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="deORO_ConversionModel.Store.aspnet_PersonalizationPerUser" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_PersonalizationPerUser">
+            <DefiningQuery>SELECT 
+      [aspnet_PersonalizationPerUser].[Id] AS [Id], 
+      [aspnet_PersonalizationPerUser].[PathId] AS [PathId], 
+      [aspnet_PersonalizationPerUser].[UserId] AS [UserId], 
+      [aspnet_PersonalizationPerUser].[PageSettings] AS [PageSettings], 
+      [aspnet_PersonalizationPerUser].[LastUpdatedDate] AS [LastUpdatedDate]
+      FROM [dbo].[aspnet_PersonalizationPerUser] AS [aspnet_PersonalizationPerUser]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Profile" EntityType="deORO_ConversionModel.Store.aspnet_Profile" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_Profile">
+            <DefiningQuery>SELECT 
+      [aspnet_Profile].[UserId] AS [UserId], 
+      [aspnet_Profile].[PropertyNames] AS [PropertyNames], 
+      [aspnet_Profile].[PropertyValuesString] AS [PropertyValuesString], 
+      [aspnet_Profile].[PropertyValuesBinary] AS [PropertyValuesBinary], 
+      [aspnet_Profile].[LastUpdatedDate] AS [LastUpdatedDate]
+      FROM [dbo].[aspnet_Profile] AS [aspnet_Profile]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Roles" EntityType="deORO_ConversionModel.Store.aspnet_Roles" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_Roles">
+            <DefiningQuery>SELECT 
+      [aspnet_Roles].[ApplicationId] AS [ApplicationId], 
+      [aspnet_Roles].[RoleId] AS [RoleId], 
+      [aspnet_Roles].[RoleName] AS [RoleName], 
+      [aspnet_Roles].[LoweredRoleName] AS [LoweredRoleName], 
+      [aspnet_Roles].[Description] AS [Description]
+      FROM [dbo].[aspnet_Roles] AS [aspnet_Roles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="deORO_ConversionModel.Store.aspnet_SchemaVersions" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_SchemaVersions">
+            <DefiningQuery>SELECT 
+      [aspnet_SchemaVersions].[Feature] AS [Feature], 
+      [aspnet_SchemaVersions].[CompatibleSchemaVersion] AS [CompatibleSchemaVersion], 
+      [aspnet_SchemaVersions].[IsCurrentVersion] AS [IsCurrentVersion]
+      FROM [dbo].[aspnet_SchemaVersions] AS [aspnet_SchemaVersions]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_Users" EntityType="deORO_ConversionModel.Store.aspnet_Users" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_Users">
+            <DefiningQuery>SELECT 
+      [aspnet_Users].[ApplicationId] AS [ApplicationId], 
+      [aspnet_Users].[UserId] AS [UserId], 
+      [aspnet_Users].[UserName] AS [UserName], 
+      [aspnet_Users].[LoweredUserName] AS [LoweredUserName], 
+      [aspnet_Users].[MobileAlias] AS [MobileAlias], 
+      [aspnet_Users].[IsAnonymous] AS [IsAnonymous], 
+      [aspnet_Users].[LastActivityDate] AS [LastActivityDate], 
+      [aspnet_Users].[itemIncrement] AS [itemIncrement], 
+      [aspnet_Users].[salesIncrement] AS [salesIncrement], 
+      [aspnet_Users].[lastModified] AS [lastModified]
+      FROM [dbo].[aspnet_Users] AS [aspnet_Users]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="deORO_ConversionModel.Store.aspnet_UsersInRoles" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_UsersInRoles">
+            <DefiningQuery>SELECT 
+      [aspnet_UsersInRoles].[UserId] AS [UserId], 
+      [aspnet_UsersInRoles].[RoleId] AS [RoleId]
+      FROM [dbo].[aspnet_UsersInRoles] AS [aspnet_UsersInRoles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="deORO_ConversionModel.Store.aspnet_WebEvent_Events" store:Type="Tables" store:Schema="dbo" store:Name="aspnet_WebEvent_Events">
+            <DefiningQuery>SELECT 
+      [aspnet_WebEvent_Events].[EventId] AS [EventId], 
+      [aspnet_WebEvent_Events].[EventTimeUtc] AS [EventTimeUtc], 
+      [aspnet_WebEvent_Events].[EventTime] AS [EventTime], 
+      [aspnet_WebEvent_Events].[EventType] AS [EventType], 
+      [aspnet_WebEvent_Events].[EventSequence] AS [EventSequence], 
+      [aspnet_WebEvent_Events].[EventOccurrence] AS [EventOccurrence], 
+      [aspnet_WebEvent_Events].[EventCode] AS [EventCode], 
+      [aspnet_WebEvent_Events].[EventDetailCode] AS [EventDetailCode], 
+      [aspnet_WebEvent_Events].[Message] AS [Message], 
+      [aspnet_WebEvent_Events].[ApplicationPath] AS [ApplicationPath], 
+      [aspnet_WebEvent_Events].[ApplicationVirtualPath] AS [ApplicationVirtualPath], 
+      [aspnet_WebEvent_Events].[MachineName] AS [MachineName], 
+      [aspnet_WebEvent_Events].[RequestUrl] AS [RequestUrl], 
+      [aspnet_WebEvent_Events].[ExceptionType] AS [ExceptionType], 
+      [aspnet_WebEvent_Events].[Details] AS [Details]
+      FROM [dbo].[aspnet_WebEvent_Events] AS [aspnet_WebEvent_Events]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Category" EntityType="deORO_ConversionModel.Store.Category" store:Type="Tables" store:Schema="dbo" store:Name="Category">
+            <DefiningQuery>SELECT 
+      [Category].[categoryID] AS [categoryID], 
+      [Category].[kioskID] AS [kioskID], 
+      [Category].[categoryName] AS [categoryName], 
+      [Category].[categoryDescription] AS [categoryDescription], 
+      [Category].[creationDate] AS [creationDate], 
+      [Category].[modifiedDate] AS [modifiedDate]
+      FROM [dbo].[Category] AS [Category]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CategoryType" EntityType="deORO_ConversionModel.Store.CategoryType" store:Type="Tables" store:Schema="dbo" store:Name="CategoryType">
+            <DefiningQuery>SELECT 
+      [CategoryType].[CategoryTypeId] AS [CategoryTypeId], 
+      [CategoryType].[Name] AS [Name], 
+      [CategoryType].[Description] AS [Description], 
+      [CategoryType].[DateCreated] AS [DateCreated], 
+      [CategoryType].[DateLastModified] AS [DateLastModified], 
+      [CategoryType].[WhoLastModified] AS [WhoLastModified]
+      FROM [dbo].[CategoryType] AS [CategoryType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="InboundMeiData" EntityType="deORO_ConversionModel.Store.InboundMeiData" store:Type="Tables" store:Schema="dbo" store:Name="InboundMeiData">
+            <DefiningQuery>SELECT 
+      [InboundMeiData].[InboundHistoryID] AS [InboundHistoryID], 
+      [InboundMeiData].[UserName] AS [UserName], 
+      [InboundMeiData].[Amount] AS [Amount], 
+      [InboundMeiData].[arrivalDate] AS [arrivalDate], 
+      [InboundMeiData].[kioskID] AS [kioskID], 
+      [InboundMeiData].[lastModified] AS [lastModified], 
+      [InboundMeiData].[processed] AS [processed], 
+      [InboundMeiData].[hasErrors] AS [hasErrors], 
+      [InboundMeiData].[errorDesc] AS [errorDesc]
+      FROM [dbo].[InboundMeiData] AS [InboundMeiData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="InboundSecureData" EntityType="deORO_ConversionModel.Store.InboundSecureData" store:Type="Tables" store:Schema="dbo" store:Name="InboundSecureData">
+            <DefiningQuery>SELECT 
+      [InboundSecureData].[InboundHistoryID] AS [InboundHistoryID], 
+      [InboundSecureData].[UserName] AS [UserName], 
+      [InboundSecureData].[Amount] AS [Amount], 
+      [InboundSecureData].[arrivalDate] AS [arrivalDate], 
+      [InboundSecureData].[kioskID] AS [kioskID], 
+      [InboundSecureData].[lastModified] AS [lastModified], 
+      [InboundSecureData].[processed] AS [processed], 
+      [InboundSecureData].[hasErrors] AS [hasErrors], 
+      [InboundSecureData].[errorDesc] AS [errorDesc], 
+      [InboundSecureData].[commID] AS [commID], 
+      [InboundSecureData].[responseCode] AS [responseCode]
+      FROM [dbo].[InboundSecureData] AS [InboundSecureData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Inventory" EntityType="deORO_ConversionModel.Store.Inventory" store:Type="Tables" store:Schema="dbo" store:Name="Inventory">
+            <DefiningQuery>SELECT 
+      [Inventory].[inventoryID] AS [inventoryID], 
+      [Inventory].[name] AS [name], 
+      [Inventory].[barcode] AS [barcode], 
+      [Inventory].[dateEntered] AS [dateEntered], 
+      [Inventory].[lastModified] AS [lastModified], 
+      [Inventory].[price] AS [price], 
+      [Inventory].[tax] AS [tax], 
+      [Inventory].[category] AS [category], 
+      [Inventory].[crv] AS [crv], 
+      [Inventory].[description] AS [description], 
+      [Inventory].[uniqueInsertID] AS [uniqueInsertID]
+      FROM [dbo].[Inventory] AS [Inventory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Location" EntityType="deORO_ConversionModel.Store.Location" store:Type="Tables" store:Schema="dbo" store:Name="Location">
+            <DefiningQuery>SELECT 
+      [Location].[kioskID] AS [kioskID], 
+      [Location].[location] AS [location], 
+      [Location].[address] AS [address], 
+      [Location].[city] AS [city], 
+      [Location].[state] AS [state], 
+      [Location].[zip] AS [zip], 
+      [Location].[phone] AS [phone], 
+      [Location].[contact1] AS [contact1], 
+      [Location].[contact2] AS [contact2], 
+      [Location].[description] AS [description], 
+      [Location].[talkID] AS [talkID], 
+      [Location].[merchantID] AS [merchantID], 
+      [Location].[vUser] AS [vUser], 
+      [Location].[nPass] AS [nPass], 
+      [Location].[cshID] AS [cshID], 
+      [Location].[SecureLink] AS [SecureLink], 
+      [Location].[resetPassword] AS [resetPassword], 
+      [Location].[lastResetTime] AS [lastResetTime], 
+      [Location].[resetStatus] AS [resetStatus]
+      FROM [dbo].[Location] AS [Location]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ServiceHistory" EntityType="deORO_ConversionModel.Store.ServiceHistory" store:Type="Tables" store:Schema="dbo" store:Name="ServiceHistory">
+            <DefiningQuery>SELECT 
+      [ServiceHistory].[serviceID] AS [serviceID], 
+      [ServiceHistory].[serviceDate] AS [serviceDate], 
+      [ServiceHistory].[serviceByUser] AS [serviceByUser], 
+      [ServiceHistory].[inventoryServiced] AS [inventoryServiced], 
+      [ServiceHistory].[kioskID] AS [kioskID]
+      FROM [dbo].[ServiceHistory] AS [ServiceHistory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Stock" EntityType="deORO_ConversionModel.Store.Stock" store:Type="Tables" store:Schema="dbo" store:Name="Stock">
+            <DefiningQuery>SELECT 
+      [Stock].[stockID] AS [stockID], 
+      [Stock].[inventoryID] AS [inventoryID], 
+      [Stock].[kioskID] AS [kioskID], 
+      [Stock].[countOnShelf] AS [countOnShelf], 
+      [Stock].[area] AS [area], 
+      [Stock].[totalCountSold] AS [totalCountSold], 
+      [Stock].[incrementSold] AS [incrementSold], 
+      [Stock].[weeklyGoal] AS [weeklyGoal], 
+      [Stock].[dateEntered] AS [dateEntered], 
+      [Stock].[expiration] AS [expiration], 
+      [Stock].[lastModified] AS [lastModified], 
+      [Stock].[name] AS [name], 
+      [Stock].[description] AS [description], 
+      [Stock].[price] AS [price], 
+      [Stock].[tax] AS [tax], 
+      [Stock].[crv] AS [crv], 
+      [Stock].[category] AS [category], 
+      [Stock].[isUnit] AS [isUnit], 
+      [Stock].[isCase] AS [isCase], 
+      [Stock].[maximum] AS [maximum], 
+      [Stock].[minimum] AS [minimum], 
+      [Stock].[SuggestionToStock] AS [SuggestionToStock], 
+      [Stock].[categoryID] AS [categoryID], 
+      [Stock].[isVisible] AS [isVisible]
+      FROM [dbo].[Stock] AS [Stock]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TransactionHistory" EntityType="deORO_ConversionModel.Store.TransactionHistory" store:Type="Tables" store:Schema="dbo" store:Name="TransactionHistory">
+            <DefiningQuery>SELECT 
+      [TransactionHistory].[historyID] AS [historyID], 
+      [TransactionHistory].[dateOfPurchase] AS [dateOfPurchase], 
+      [TransactionHistory].[cash] AS [cash], 
+      [TransactionHistory].[credit] AS [credit], 
+      [TransactionHistory].[debit] AS [debit], 
+      [TransactionHistory].[total] AS [total], 
+      [TransactionHistory].[tax] AS [tax], 
+      [TransactionHistory].[crv] AS [crv], 
+      [TransactionHistory].[userID] AS [userID], 
+      [TransactionHistory].[what] AS [what], 
+      [TransactionHistory].[isError] AS [isError], 
+      [TransactionHistory].[errorMessage] AS [errorMessage], 
+      [TransactionHistory].[kioskID] AS [kioskID], 
+      [TransactionHistory].[transactionID] AS [transactionID]
+      FROM [dbo].[TransactionHistory] AS [TransactionHistory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="User" EntityType="deORO_ConversionModel.Store.User" store:Type="Tables" store:Schema="dbo" store:Name="User">
+            <DefiningQuery>SELECT 
+      [User].[userID] AS [userID], 
+      [User].[first] AS [first], 
+      [User].[last] AS [last], 
+      [User].[phone] AS [phone], 
+      [User].[empNum] AS [empNum], 
+      [User].[email] AS [email], 
+      [User].[bank] AS [bank], 
+      [User].[pin] AS [pin], 
+      [User].[itemIncrement] AS [itemIncrement], 
+      [User].[salesIncrement] AS [salesIncrement], 
+      [User].[creationDate] AS [creationDate], 
+      [User].[lastModified] AS [lastModified], 
+      [User].[lat] AS [lat], 
+      [User].[lng] AS [lng], 
+      [User].[kioskID] AS [kioskID]
+      FROM [dbo].[User] AS [User]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_Applications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationName" />
+            <PropertyRef Name="LoweredApplicationName" />
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_Membership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="PasswordFormat" />
+            <PropertyRef Name="PasswordSalt" />
+            <PropertyRef Name="IsApproved" />
+            <PropertyRef Name="IsLockedOut" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="LastLoginDate" />
+            <PropertyRef Name="LastPasswordChangedDate" />
+            <PropertyRef Name="LastLockoutDate" />
+            <PropertyRef Name="FailedPasswordAttemptCount" />
+            <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+            <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+            <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="smalldatetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="smalldatetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_MoMoney' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_MoMoney">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CurrentCash" Type="float" />
+          <Property Name="UploadHistory" Type="xml" />
+          <Property Name="itemIncrement" Type="int" />
+          <Property Name="salesIncrement" Type="int" />
+          <Property Name="creationDate" Type="smalldatetime" />
+          <Property Name="lastModified" Type="smalldatetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_Paths' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="PathId" />
+            <PropertyRef Name="Path" />
+            <PropertyRef Name="LoweredPath" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredPath" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_PersonalizationAllUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+            <PropertyRef Name="PageSettings" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_PersonalizationPerUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PageSettings" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PathId" Type="uniqueidentifier" />
+          <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="PageSettings" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_Profile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="PropertyNames" />
+            <PropertyRef Name="PropertyValuesString" />
+            <PropertyRef Name="PropertyValuesBinary" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PropertyNames" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
+          <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="RoleName" />
+            <PropertyRef Name="LoweredRoleName" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_SchemaVersions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+            <PropertyRef Name="IsCurrentVersion" />
+          </Key>
+          <Property Name="Feature" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="CompatibleSchemaVersion" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="LoweredUserName" />
+            <PropertyRef Name="IsAnonymous" />
+            <PropertyRef Name="LastActivityDate" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="itemIncrement" Type="int" />
+          <Property Name="salesIncrement" Type="money" />
+          <Property Name="lastModified" Type="smalldatetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_UsersInRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.aspnet_WebEvent_Events' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="EventTimeUtc" />
+            <PropertyRef Name="EventTime" />
+            <PropertyRef Name="EventType" />
+            <PropertyRef Name="EventSequence" />
+            <PropertyRef Name="EventOccurrence" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="EventDetailCode" />
+            <PropertyRef Name="MachineName" />
+          </Key>
+          <Property Name="EventId" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="EventTimeUtc" Type="smalldatetime" Nullable="false" />
+          <Property Name="EventTime" Type="smalldatetime" Nullable="false" />
+          <Property Name="EventType" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="EventSequence" Type="decimal" Nullable="false" Precision="19" />
+          <Property Name="EventOccurrence" Type="decimal" Nullable="false" Precision="19" />
+          <Property Name="EventCode" Type="int" Nullable="false" />
+          <Property Name="EventDetailCode" Type="int" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ApplicationPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ApplicationVirtualPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="MachineName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="RequestUrl" Type="nvarchar" MaxLength="1024" />
+          <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
+          <Property Name="Details" Type="ntext" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.Category' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="categoryID" />
+            <PropertyRef Name="kioskID" />
+            <PropertyRef Name="creationDate" />
+            <PropertyRef Name="modifiedDate" />
+          </Key>
+          <Property Name="categoryID" Type="int" Nullable="false" />
+          <Property Name="kioskID" Type="int" Nullable="false" />
+          <Property Name="categoryName" Type="nvarchar" MaxLength="200" />
+          <Property Name="categoryDescription" Type="nvarchar" MaxLength="1000" />
+          <Property Name="creationDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="modifiedDate" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.CategoryType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="CategoryType">
+          <Key>
+            <PropertyRef Name="CategoryTypeId" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateLastModified" />
+            <PropertyRef Name="WhoLastModified" />
+          </Key>
+          <Property Name="CategoryTypeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="DateCreated" Type="smalldatetime" Nullable="false" />
+          <Property Name="DateLastModified" Type="smalldatetime" Nullable="false" />
+          <Property Name="WhoLastModified" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.InboundMeiData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="InboundMeiData">
+          <Key>
+            <PropertyRef Name="InboundHistoryID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="arrivalDate" />
+            <PropertyRef Name="processed" />
+            <PropertyRef Name="hasErrors" />
+          </Key>
+          <Property Name="InboundHistoryID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="arrivalDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="kioskID" Type="int" />
+          <Property Name="lastModified" Type="smalldatetime" />
+          <Property Name="processed" Type="bit" Nullable="false" />
+          <Property Name="hasErrors" Type="bit" Nullable="false" />
+          <Property Name="errorDesc" Type="varchar" MaxLength="1500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.InboundSecureData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="InboundSecureData">
+          <Key>
+            <PropertyRef Name="InboundHistoryID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="arrivalDate" />
+          </Key>
+          <Property Name="InboundHistoryID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="arrivalDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="kioskID" Type="int" />
+          <Property Name="lastModified" Type="smalldatetime" />
+          <Property Name="processed" Type="bit" />
+          <Property Name="hasErrors" Type="bit" />
+          <Property Name="errorDesc" Type="varchar" MaxLength="1500" />
+          <Property Name="commID" Type="nvarchar" MaxLength="50" />
+          <Property Name="responseCode" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.Inventory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="inventoryID" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="barcode" />
+            <PropertyRef Name="dateEntered" />
+          </Key>
+          <Property Name="inventoryID" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="barcode" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="dateEntered" Type="smalldatetime" Nullable="false" />
+          <Property Name="lastModified" Type="smalldatetime" />
+          <Property Name="price" Type="float" />
+          <Property Name="tax" Type="float" />
+          <Property Name="category" Type="nvarchar" MaxLength="50" />
+          <Property Name="crv" Type="float" />
+          <Property Name="description" Type="nvarchar" MaxLength="300" />
+          <Property Name="uniqueInsertID" Type="uniqueidentifier" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.Location' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="kioskID" />
+            <PropertyRef Name="location" />
+            <PropertyRef Name="talkID" />
+          </Key>
+          <Property Name="kioskID" Type="int" Nullable="false" />
+          <Property Name="location" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="2" />
+          <Property Name="zip" Type="int" />
+          <Property Name="phone" Type="int" />
+          <Property Name="contact1" Type="nvarchar" MaxLength="50" />
+          <Property Name="contact2" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="200" />
+          <Property Name="talkID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="merchantID" Type="nvarchar" MaxLength="50" />
+          <Property Name="vUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="nPass" Type="nvarchar" MaxLength="50" />
+          <Property Name="cshID" Type="uniqueidentifier" />
+          <Property Name="SecureLink" Type="nvarchar" MaxLength="200" />
+          <Property Name="resetPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastResetTime" Type="smalldatetime" />
+          <Property Name="resetStatus" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.ServiceHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ServiceHistory">
+          <Key>
+            <PropertyRef Name="serviceID" />
+            <PropertyRef Name="serviceDate" />
+            <PropertyRef Name="kioskID" />
+          </Key>
+          <Property Name="serviceID" Type="int" Nullable="false" />
+          <Property Name="serviceDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="serviceByUser" Type="nvarchar" MaxLength="256" />
+          <Property Name="inventoryServiced" Type="xml" />
+          <Property Name="kioskID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.Stock' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="stockID" />
+            <PropertyRef Name="inventoryID" />
+            <PropertyRef Name="kioskID" />
+            <PropertyRef Name="countOnShelf" />
+            <PropertyRef Name="totalCountSold" />
+            <PropertyRef Name="incrementSold" />
+            <PropertyRef Name="weeklyGoal" />
+            <PropertyRef Name="dateEntered" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="price" />
+          </Key>
+          <Property Name="stockID" Type="int" Nullable="false" />
+          <Property Name="inventoryID" Type="int" Nullable="false" />
+          <Property Name="kioskID" Type="int" Nullable="false" />
+          <Property Name="countOnShelf" Type="int" Nullable="false" />
+          <Property Name="area" Type="nvarchar" MaxLength="100" />
+          <Property Name="totalCountSold" Type="int" Nullable="false" />
+          <Property Name="incrementSold" Type="int" Nullable="false" />
+          <Property Name="weeklyGoal" Type="int" Nullable="false" />
+          <Property Name="dateEntered" Type="smalldatetime" Nullable="false" />
+          <Property Name="expiration" Type="smalldatetime" />
+          <Property Name="lastModified" Type="smalldatetime" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="300" />
+          <Property Name="price" Type="money" Nullable="false" />
+          <Property Name="tax" Type="money" />
+          <Property Name="crv" Type="money" />
+          <Property Name="category" Type="nvarchar" MaxLength="50" />
+          <Property Name="isUnit" Type="bit" />
+          <Property Name="isCase" Type="bit" />
+          <Property Name="maximum" Type="int" />
+          <Property Name="minimum" Type="int" />
+          <Property Name="SuggestionToStock" Type="int" />
+          <Property Name="categoryID" Type="int" />
+          <Property Name="isVisible" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.TransactionHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TransactionHistory">
+          <Key>
+            <PropertyRef Name="historyID" />
+            <PropertyRef Name="dateOfPurchase" />
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="kioskID" />
+          </Key>
+          <Property Name="historyID" Type="int" Nullable="false" />
+          <Property Name="dateOfPurchase" Type="smalldatetime" Nullable="false" />
+          <Property Name="cash" Type="bit" />
+          <Property Name="credit" Type="bit" />
+          <Property Name="debit" Type="bit" />
+          <Property Name="total" Type="money" />
+          <Property Name="tax" Type="decimal" Scale="2" />
+          <Property Name="crv" Type="decimal" Scale="2" />
+          <Property Name="userID" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="what" Type="xml" />
+          <Property Name="isError" Type="bit" />
+          <Property Name="errorMessage" Type="text" />
+          <Property Name="kioskID" Type="int" Nullable="false" />
+          <Property Name="transactionID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Conversion.dbo.User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="pin" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="first" Type="nvarchar" MaxLength="50" />
+          <Property Name="last" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="empNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="bank" Type="float" />
+          <Property Name="pin" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="itemIncrement" Type="int" />
+          <Property Name="salesIncrement" Type="money" />
+          <Property Name="creationDate" Type="smalldatetime" />
+          <Property Name="lastModified" Type="smalldatetime" />
+          <Property Name="lat" Type="nvarchar" MaxLength="50" />
+          <Property Name="lng" Type="nvarchar" MaxLength="50" />
+          <Property Name="kioskID" Type="int" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="deORO_ConversionModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="deORO_SourceEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Applications" EntityType="deORO_ConversionModel.aspnet_Applications" />
+          <EntitySet Name="aspnet_Membership" EntityType="deORO_ConversionModel.aspnet_Membership" />
+          <EntitySet Name="aspnet_MoMoney" EntityType="deORO_ConversionModel.aspnet_MoMoney" />
+          <EntitySet Name="aspnet_Paths" EntityType="deORO_ConversionModel.aspnet_Paths" />
+          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="deORO_ConversionModel.aspnet_PersonalizationAllUsers" />
+          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="deORO_ConversionModel.aspnet_PersonalizationPerUser" />
+          <EntitySet Name="aspnet_Profile" EntityType="deORO_ConversionModel.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="deORO_ConversionModel.aspnet_Roles" />
+          <EntitySet Name="aspnet_SchemaVersions" EntityType="deORO_ConversionModel.aspnet_SchemaVersions" />
+          <EntitySet Name="aspnet_Users" EntityType="deORO_ConversionModel.aspnet_Users" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="deORO_ConversionModel.aspnet_UsersInRoles" />
+          <EntitySet Name="aspnet_WebEvent_Events" EntityType="deORO_ConversionModel.aspnet_WebEvent_Events" />
+          <EntitySet Name="Categories" EntityType="deORO_ConversionModel.Category" />
+          <EntitySet Name="CategoryTypes" EntityType="deORO_ConversionModel.CategoryType" />
+          <EntitySet Name="InboundMeiDatas" EntityType="deORO_ConversionModel.InboundMeiData" />
+          <EntitySet Name="InboundSecureDatas" EntityType="deORO_ConversionModel.InboundSecureData" />
+          <EntitySet Name="Inventories" EntityType="deORO_ConversionModel.Inventory" />
+          <EntitySet Name="Locations" EntityType="deORO_ConversionModel.Location" />
+          <EntitySet Name="ServiceHistories" EntityType="deORO_ConversionModel.ServiceHistory" />
+          <EntitySet Name="Stocks" EntityType="deORO_ConversionModel.Stock" />
+          <EntitySet Name="TransactionHistories" EntityType="deORO_ConversionModel.TransactionHistory" />
+          <EntitySet Name="Users" EntityType="deORO_ConversionModel.User" />
+        </EntityContainer>
+        <EntityType Name="aspnet_Applications">
+          <Key>
+            <PropertyRef Name="ApplicationName" />
+            <PropertyRef Name="LoweredApplicationName" />
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="PasswordFormat" />
+            <PropertyRef Name="PasswordSalt" />
+            <PropertyRef Name="IsApproved" />
+            <PropertyRef Name="IsLockedOut" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="LastLoginDate" />
+            <PropertyRef Name="LastPasswordChangedDate" />
+            <PropertyRef Name="LastLockoutDate" />
+            <PropertyRef Name="FailedPasswordAttemptCount" />
+            <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+            <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+            <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="MobilePIN" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredEmail" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Comment" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="aspnet_MoMoney">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="CurrentCash" Type="Double" />
+          <Property Name="UploadHistory" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="itemIncrement" Type="Int32" />
+          <Property Name="salesIncrement" Type="Int32" />
+          <Property Name="creationDate" Type="DateTime" Precision="0" />
+          <Property Name="lastModified" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="aspnet_Paths">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="PathId" />
+            <PropertyRef Name="Path" />
+            <PropertyRef Name="LoweredPath" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationAllUsers">
+          <Key>
+            <PropertyRef Name="PathId" />
+            <PropertyRef Name="PageSettings" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="PathId" Type="Guid" Nullable="false" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="aspnet_PersonalizationPerUser">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="PageSettings" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="PathId" Type="Guid" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="aspnet_Profile">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="PropertyNames" />
+            <PropertyRef Name="PropertyValuesString" />
+            <PropertyRef Name="PropertyValuesBinary" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PropertyValuesString" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="RoleName" />
+            <PropertyRef Name="LoweredRoleName" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="aspnet_SchemaVersions">
+          <Key>
+            <PropertyRef Name="Feature" />
+            <PropertyRef Name="CompatibleSchemaVersion" />
+            <PropertyRef Name="IsCurrentVersion" />
+          </Key>
+          <Property Name="Feature" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="CompatibleSchemaVersion" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="LoweredUserName" />
+            <PropertyRef Name="IsAnonymous" />
+            <PropertyRef Name="LastActivityDate" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="MobileAlias" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+          <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+          <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="itemIncrement" Type="Int32" />
+          <Property Name="salesIncrement" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="lastModified" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_WebEvent_Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+            <PropertyRef Name="EventTimeUtc" />
+            <PropertyRef Name="EventTime" />
+            <PropertyRef Name="EventType" />
+            <PropertyRef Name="EventSequence" />
+            <PropertyRef Name="EventOccurrence" />
+            <PropertyRef Name="EventCode" />
+            <PropertyRef Name="EventDetailCode" />
+            <PropertyRef Name="MachineName" />
+          </Key>
+          <Property Name="EventId" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="true" />
+          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EventTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EventType" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="EventSequence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventOccurrence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="EventCode" Type="Int32" Nullable="false" />
+          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="MachineName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="RequestUrl" Type="String" MaxLength="1024" Unicode="true" FixedLength="false" />
+          <Property Name="ExceptionType" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="categoryID" />
+            <PropertyRef Name="kioskID" />
+            <PropertyRef Name="creationDate" />
+            <PropertyRef Name="modifiedDate" />
+          </Key>
+          <Property Name="categoryID" Type="Int32" Nullable="false" />
+          <Property Name="kioskID" Type="Int32" Nullable="false" />
+          <Property Name="categoryName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="categoryDescription" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="modifiedDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="CategoryType">
+          <Key>
+            <PropertyRef Name="CategoryTypeId" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="DateCreated" />
+            <PropertyRef Name="DateLastModified" />
+            <PropertyRef Name="WhoLastModified" />
+          </Key>
+          <Property Name="CategoryTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateLastModified" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="WhoLastModified" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="InboundMeiData">
+          <Key>
+            <PropertyRef Name="InboundHistoryID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="arrivalDate" />
+            <PropertyRef Name="processed" />
+            <PropertyRef Name="hasErrors" />
+          </Key>
+          <Property Name="InboundHistoryID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="arrivalDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="kioskID" Type="Int32" />
+          <Property Name="lastModified" Type="DateTime" Precision="0" />
+          <Property Name="processed" Type="Boolean" Nullable="false" />
+          <Property Name="hasErrors" Type="Boolean" Nullable="false" />
+          <Property Name="errorDesc" Type="String" MaxLength="1500" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="InboundSecureData">
+          <Key>
+            <PropertyRef Name="InboundHistoryID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="arrivalDate" />
+          </Key>
+          <Property Name="InboundHistoryID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="arrivalDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="kioskID" Type="Int32" />
+          <Property Name="lastModified" Type="DateTime" Precision="0" />
+          <Property Name="processed" Type="Boolean" />
+          <Property Name="hasErrors" Type="Boolean" />
+          <Property Name="errorDesc" Type="String" MaxLength="1500" Unicode="false" FixedLength="false" />
+          <Property Name="commID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="responseCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="inventoryID" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="barcode" />
+            <PropertyRef Name="dateEntered" />
+          </Key>
+          <Property Name="inventoryID" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="barcode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="dateEntered" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="lastModified" Type="DateTime" Precision="0" />
+          <Property Name="price" Type="Double" />
+          <Property Name="tax" Type="Double" />
+          <Property Name="category" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="crv" Type="Double" />
+          <Property Name="description" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="uniqueInsertID" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="kioskID" />
+            <PropertyRef Name="location1" />
+            <PropertyRef Name="talkID" />
+          </Key>
+          <Property Name="kioskID" Type="Int32" Nullable="false" />
+          <Property Name="location1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="city" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="state" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="zip" Type="Int32" />
+          <Property Name="phone" Type="Int32" />
+          <Property Name="contact1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="contact2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="talkID" Type="Guid" Nullable="false" />
+          <Property Name="merchantID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="vUser" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="nPass" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="cshID" Type="Guid" />
+          <Property Name="SecureLink" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="resetPassword" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lastResetTime" Type="DateTime" Precision="0" />
+          <Property Name="resetStatus" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ServiceHistory">
+          <Key>
+            <PropertyRef Name="serviceID" />
+            <PropertyRef Name="serviceDate" />
+            <PropertyRef Name="kioskID" />
+          </Key>
+          <Property Name="serviceID" Type="Int32" Nullable="false" />
+          <Property Name="serviceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="serviceByUser" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="inventoryServiced" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="kioskID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="stockID" />
+            <PropertyRef Name="inventoryID" />
+            <PropertyRef Name="kioskID" />
+            <PropertyRef Name="countOnShelf" />
+            <PropertyRef Name="totalCountSold" />
+            <PropertyRef Name="incrementSold" />
+            <PropertyRef Name="weeklyGoal" />
+            <PropertyRef Name="dateEntered" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="price" />
+          </Key>
+          <Property Name="stockID" Type="Int32" Nullable="false" />
+          <Property Name="inventoryID" Type="Int32" Nullable="false" />
+          <Property Name="kioskID" Type="Int32" Nullable="false" />
+          <Property Name="countOnShelf" Type="Int32" Nullable="false" />
+          <Property Name="area" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="totalCountSold" Type="Int32" Nullable="false" />
+          <Property Name="incrementSold" Type="Int32" Nullable="false" />
+          <Property Name="weeklyGoal" Type="Int32" Nullable="false" />
+          <Property Name="dateEntered" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="expiration" Type="DateTime" Precision="0" />
+          <Property Name="lastModified" Type="DateTime" Precision="0" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="tax" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="crv" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="category" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="isUnit" Type="Boolean" />
+          <Property Name="isCase" Type="Boolean" />
+          <Property Name="maximum" Type="Int32" />
+          <Property Name="minimum" Type="Int32" />
+          <Property Name="SuggestionToStock" Type="Int32" />
+          <Property Name="categoryID" Type="Int32" />
+          <Property Name="isVisible" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TransactionHistory">
+          <Key>
+            <PropertyRef Name="historyID" />
+            <PropertyRef Name="dateOfPurchase" />
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="kioskID" />
+          </Key>
+          <Property Name="historyID" Type="Int32" Nullable="false" />
+          <Property Name="dateOfPurchase" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="cash" Type="Boolean" />
+          <Property Name="credit" Type="Boolean" />
+          <Property Name="debit" Type="Boolean" />
+          <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="tax" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="crv" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="what" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="isError" Type="Boolean" />
+          <Property Name="errorMessage" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="kioskID" Type="Int32" Nullable="false" />
+          <Property Name="transactionID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="pin" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="first" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="last" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="empNum" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="bank" Type="Double" />
+          <Property Name="pin" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="itemIncrement" Type="Int32" />
+          <Property Name="salesIncrement" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="creationDate" Type="DateTime" Precision="0" />
+          <Property Name="lastModified" Type="DateTime" Precision="0" />
+          <Property Name="lat" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="lng" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="kioskID" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="deORO_ConversionModelStoreContainer" CdmEntityContainer="deORO_SourceEntities">
+          <EntitySetMapping Name="aspnet_Applications">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_Applications">
+              <MappingFragment StoreEntitySet="aspnet_Applications">
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_MoMoney">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_MoMoney">
+              <MappingFragment StoreEntitySet="aspnet_MoMoney">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CurrentCash" ColumnName="CurrentCash" />
+                <ScalarProperty Name="UploadHistory" ColumnName="UploadHistory" />
+                <ScalarProperty Name="itemIncrement" ColumnName="itemIncrement" />
+                <ScalarProperty Name="salesIncrement" ColumnName="salesIncrement" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="lastModified" ColumnName="lastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Paths">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_Paths">
+              <MappingFragment StoreEntitySet="aspnet_Paths">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_PersonalizationAllUsers">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_PersonalizationPerUser">
+              <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PathId" ColumnName="PathId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Profile">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_Profile">
+              <MappingFragment StoreEntitySet="aspnet_Profile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+                <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+                <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_SchemaVersions">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_SchemaVersions">
+              <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+                <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="itemIncrement" ColumnName="itemIncrement" />
+                <ScalarProperty Name="salesIncrement" ColumnName="salesIncrement" />
+                <ScalarProperty Name="lastModified" ColumnName="lastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_UsersInRoles">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_UsersInRoles">
+              <MappingFragment StoreEntitySet="aspnet_UsersInRoles">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_WebEvent_Events">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.aspnet_WebEvent_Events">
+              <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+                <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+                <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+                <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="kioskID" ColumnName="kioskID" />
+                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+                <ScalarProperty Name="categoryDescription" ColumnName="categoryDescription" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryTypes">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.CategoryType">
+              <MappingFragment StoreEntitySet="CategoryType">
+                <ScalarProperty Name="CategoryTypeId" ColumnName="CategoryTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+                <ScalarProperty Name="WhoLastModified" ColumnName="WhoLastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InboundMeiDatas">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.InboundMeiData">
+              <MappingFragment StoreEntitySet="InboundMeiData">
+                <ScalarProperty Name="InboundHistoryID" ColumnName="InboundHistoryID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="arrivalDate" ColumnName="arrivalDate" />
+                <ScalarProperty Name="kioskID" ColumnName="kioskID" />
+                <ScalarProperty Name="lastModified" ColumnName="lastModified" />
+                <ScalarProperty Name="processed" ColumnName="processed" />
+                <ScalarProperty Name="hasErrors" ColumnName="hasErrors" />
+                <ScalarProperty Name="errorDesc" ColumnName="errorDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InboundSecureDatas">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.InboundSecureData">
+              <MappingFragment StoreEntitySet="InboundSecureData">
+                <ScalarProperty Name="InboundHistoryID" ColumnName="InboundHistoryID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="arrivalDate" ColumnName="arrivalDate" />
+                <ScalarProperty Name="kioskID" ColumnName="kioskID" />
+                <ScalarProperty Name="lastModified" ColumnName="lastModified" />
+                <ScalarProperty Name="processed" ColumnName="processed" />
+                <ScalarProperty Name="hasErrors" ColumnName="hasErrors" />
+                <ScalarProperty Name="errorDesc" ColumnName="errorDesc" />
+                <ScalarProperty Name="commID" ColumnName="commID" />
+                <ScalarProperty Name="responseCode" ColumnName="responseCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventories">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="inventoryID" ColumnName="inventoryID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="dateEntered" ColumnName="dateEntered" />
+                <ScalarProperty Name="lastModified" ColumnName="lastModified" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="crv" ColumnName="crv" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="uniqueInsertID" ColumnName="uniqueInsertID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="kioskID" ColumnName="kioskID" />
+                <ScalarProperty Name="location1" ColumnName="location" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="contact1" ColumnName="contact1" />
+                <ScalarProperty Name="contact2" ColumnName="contact2" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="talkID" ColumnName="talkID" />
+                <ScalarProperty Name="merchantID" ColumnName="merchantID" />
+                <ScalarProperty Name="vUser" ColumnName="vUser" />
+                <ScalarProperty Name="nPass" ColumnName="nPass" />
+                <ScalarProperty Name="cshID" ColumnName="cshID" />
+                <ScalarProperty Name="SecureLink" ColumnName="SecureLink" />
+                <ScalarProperty Name="resetPassword" ColumnName="resetPassword" />
+                <ScalarProperty Name="lastResetTime" ColumnName="lastResetTime" />
+                <ScalarProperty Name="resetStatus" ColumnName="resetStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceHistories">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.ServiceHistory">
+              <MappingFragment StoreEntitySet="ServiceHistory">
+                <ScalarProperty Name="serviceID" ColumnName="serviceID" />
+                <ScalarProperty Name="serviceDate" ColumnName="serviceDate" />
+                <ScalarProperty Name="serviceByUser" ColumnName="serviceByUser" />
+                <ScalarProperty Name="inventoryServiced" ColumnName="inventoryServiced" />
+                <ScalarProperty Name="kioskID" ColumnName="kioskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="stockID" ColumnName="stockID" />
+                <ScalarProperty Name="inventoryID" ColumnName="inventoryID" />
+                <ScalarProperty Name="kioskID" ColumnName="kioskID" />
+                <ScalarProperty Name="countOnShelf" ColumnName="countOnShelf" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="totalCountSold" ColumnName="totalCountSold" />
+                <ScalarProperty Name="incrementSold" ColumnName="incrementSold" />
+                <ScalarProperty Name="weeklyGoal" ColumnName="weeklyGoal" />
+                <ScalarProperty Name="dateEntered" ColumnName="dateEntered" />
+                <ScalarProperty Name="expiration" ColumnName="expiration" />
+                <ScalarProperty Name="lastModified" ColumnName="lastModified" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="crv" ColumnName="crv" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="isUnit" ColumnName="isUnit" />
+                <ScalarProperty Name="isCase" ColumnName="isCase" />
+                <ScalarProperty Name="maximum" ColumnName="maximum" />
+                <ScalarProperty Name="minimum" ColumnName="minimum" />
+                <ScalarProperty Name="SuggestionToStock" ColumnName="SuggestionToStock" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="isVisible" ColumnName="isVisible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionHistories">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.TransactionHistory">
+              <MappingFragment StoreEntitySet="TransactionHistory">
+                <ScalarProperty Name="historyID" ColumnName="historyID" />
+                <ScalarProperty Name="dateOfPurchase" ColumnName="dateOfPurchase" />
+                <ScalarProperty Name="cash" ColumnName="cash" />
+                <ScalarProperty Name="credit" ColumnName="credit" />
+                <ScalarProperty Name="debit" ColumnName="debit" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="crv" ColumnName="crv" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="what" ColumnName="what" />
+                <ScalarProperty Name="isError" ColumnName="isError" />
+                <ScalarProperty Name="errorMessage" ColumnName="errorMessage" />
+                <ScalarProperty Name="kioskID" ColumnName="kioskID" />
+                <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="deORO_ConversionModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="first" ColumnName="first" />
+                <ScalarProperty Name="last" ColumnName="last" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="empNum" ColumnName="empNum" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="bank" ColumnName="bank" />
+                <ScalarProperty Name="pin" ColumnName="pin" />
+                <ScalarProperty Name="itemIncrement" ColumnName="itemIncrement" />
+                <ScalarProperty Name="salesIncrement" ColumnName="salesIncrement" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="lastModified" ColumnName="lastModified" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="kioskID" ColumnName="kioskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

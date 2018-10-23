@@ -1,0 +1,456 @@
+﻿@using deOROWeb.Helper;
+@model IEnumerable<deORODataAccess.DTO.LocationCreditDTO>
+
+@{
+    ViewBag.Title = @deOROWeb.Resources.Strings.LocationCredits;
+}
+
+<link href="~/Content/css/duallistbox/bootstrap-duallistbox.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/duallistbox/jquery.bootstrap-duallistbox.js"></script>
+
+<script src="~/Scripts/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="~/Scripts/js/plugins/datatables/jquery.dataTables.editable.js"></script>
+<script src="~/Scripts/js/jquery.loadJSON.js"></script>
+
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1></h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li><a href="@Request.ApplicationPath/Location">@deOROWeb.Resources.Strings.Locations</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.LocationCredits</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal" id="button-add"><i class="fa  fa-plus"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.Credit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.CustomerName</th>
+                                <th>@deOROWeb.Resources.Strings.LocationName</th>
+                                <th>@deOROWeb.Resources.Strings.Description</th>
+                                <th>@deOROWeb.Resources.Strings.Type</th>
+                                <th>@deOROWeb.Resources.Strings.Amount</th>
+                                <th>@deOROWeb.Resources.Strings.Expiry</th>
+                                <th>@deOROWeb.Resources.Strings.Interval</th>
+                                <th>@deOROWeb.Resources.Strings.EffectiveDate</th>
+                                <th>@deOROWeb.Resources.Strings.EndDate</th>
+                                <th>@deOROWeb.Resources.Strings.Active</th>
+                                <th>@deOROWeb.Resources.Strings.CreatedBy</th>
+                                <th>@deOROWeb.Resources.Strings.CreatedDate</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr>
+                                    <td>@m.customername</td>
+                                    <td>@m.locationame</td>
+                                    <td>@m.description</td>
+                                    <td>@m.type</td>
+                                    <td>@m.amount</td>
+                                    <td>@m.expiry</td>
+                                    <td>@m.interval</td>
+                                    <td>@m.effective_date</td>
+                                    <td>@m.end_date</td>
+                                    @if (@m.is_active == 1)
+                                    {
+                                        <td>@deOROWeb.Resources.Strings.True</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@deOROWeb.Resources.Strings.False</td>
+                                    }
+                                    <td>
+                                        @m.created_by
+                                    </td>
+                                    <td>
+                                        @m.created_date_time
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-edit">
+                                            <a class="btn btn-app-small" data-toggle="modal" data-id="@m.id" data-target="#popup-modal" data-action="Edit">@deOROWeb.Resources.Strings.Edit</a>
+                                        </i>
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-user">
+                                            <a class="btn btn-app-small" data-toggle="modal" data-id="@m.id" data-description="@m.description" data-target="#popup-modal-users" data-action="Edit">@deOROWeb.Resources.Strings.Users</a>
+                                        </i>
+                                    </td>
+                                    <td>
+                                        <i class="fa fa-list">
+                                            <a class="btn btn-app-small" href="@Request.ApplicationPath/LocationCreditActivity/Index/@m.id"  data-action="Edit">@deOROWeb.Resources.Strings.CreditActivity</a>
+                                        </i>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.LocationCredit</h4>
+            </div>
+            <form action="#" method="post" id="form-location-credit">
+                <div class="modal-body">
+                    <input id="input_hidden_action" type="hidden" />
+                    <input id="input_hidden_id" type="hidden" name="id" />
+                    <input id="input_hidden_customer_id" type="hidden" name="customerid" />
+                    <input id="input_hidden_location_id" type="hidden" name="locationid" />
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.CustomerName:</span>
+                            <input id="input-customer-name" class="form-control" readonly="true" name="customername" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.LocationName:</span>
+                            <input id="input-location-name" class="form-control" readonly="true" name="locationname" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.Description:</span>
+                            <input id="input_description" name="description" class="form-control" placeholder="Description">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Type</label>
+                                <select class="form-control" id="combo-type" name="type">
+                                    <option value='Once' selected="selected">@deOROWeb.Resources.Strings.Once</option>
+                                    <option value='Reccuring'>@deOROWeb.Resources.Strings.Reccuring</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Active</label>
+                                <select class="form-control" id="combo-is-active" name="is_active">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.True</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Amount:</span>
+                                    <input id="input_amount" name="amount" class="form-control" placeholder="Amount">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Expiry (@deOROWeb.Resources.Strings.Days):</span>
+                                    <input id="input_expiry" name="expiry" class="form-control" placeholder="Expiry">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Interval (@deOROWeb.Resources.Strings.Days):</span>
+                                    <input id="input_interval" name="interval" class="form-control" placeholder="Interval">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.EffectiveDate:</span>
+                                    <input id="input_effective_date" name="effective_date" class="form-control" placeholder="Effective Date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.EndDate:</span>
+                                    <input id="input_end_date" name="end_date" class="form-control" placeholder="End Date">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.CreatedBy:</span>
+                                    <input id="input_created_by" name="created_by" class="form-control" readonly="true">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.CreatedDate:</span>
+                                    <input id="input_created_date_time" name="created_date_time" class="form-control" readonly="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="button" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="popup-modal-users" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-user"></i>@deOROWeb.Resources.Strings.Add / @deOROWeb.Resources.Strings.RemoveUsers</h4>
+            </div>
+            <form action="#" method="post" id="form-users">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"> @deOROWeb.Resources.Strings.CreditDescription:</span>
+                            <input id="input-description" class="form-control" readonly="true" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>@deOROWeb.Resources.Strings.Users</label>
+                        <select multiple class="form-control" id="list-users" style="height: 350px">
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save-users"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style type="text/css" id="custom-modal">
+    .modal-lg
+    {
+        width: 650px!important;
+        margin: 0 auto;
+    }
+</style>
+
+
+<script>
+
+    var action;
+    var id;
+
+    $('#grid').dataTable({
+        "language": {
+            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+            "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+            "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+            "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+            "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+            "sSearch": "@deOROWeb.Resources.Strings.Search:",
+            "oPaginate": {
+                "sFirst": "@deOROWeb.Resources.Strings.First",
+                "sLast": "@deOROWeb.Resources.Strings.Last",
+                "sNext": "@deOROWeb.Resources.Strings.Next",
+                "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+            },
+        }
+    });
+
+    $('#popup-modal').on('show.bs.modal', function (e) {
+
+        id = $(e.relatedTarget).data('id');
+        action = $(e.relatedTarget).data('action');
+
+        $('#input_effective_date').datetimepicker({
+            timepicker: false, format: 'm/d/Y'
+        });
+
+        $('#input_end_date').datetimepicker({
+            timepicker: false, format: 'm/d/Y'
+        });
+
+        $('#input-customer-name').val('@ViewBag.LocationDTO.customername');
+        $('#input-location-name').val('@ViewBag.LocationDTO.name');
+        $('#input_hidden_customer_id').val('@ViewBag.LocationDTO.customerid');
+        $('#input_hidden_location_id').val('@ViewBag.LocationDTO.id');
+
+        $('#input_hidden_id').val(id);
+
+    }).on('shown.bs.modal', function (e) {
+        if (action == 'Edit') {
+
+            $.ajax({
+                type: "GET",
+                url: "@Request.ApplicationPath/LocationCredit/Details/" + id,
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                cache: false,
+                success: function (result) {
+                    $('#form-location-credit').loadJSON(result);
+
+                    $('#input_effective_date').val(ToJavaScriptDate(result.effective_date));
+                    $('#input_end_date').val(ToJavaScriptDate(result.end_date));
+                    $('#input_created_date_time').val(ToJavaScriptDate(result.created_date_time));
+                },
+                error: function (error) {
+                }
+            });
+        }
+    });
+
+
+    $('#popup-modal-users').on('show.bs.modal', function (e) {
+
+        id = $(e.relatedTarget).data('id');
+        description = $(e.relatedTarget).data('description');
+
+        $('#input-description').val(description);
+
+        $('#list-users').bootstrapDualListbox({
+            preserveSelectionOnMove: 'moved',
+            moveOnSelect: false,
+        });
+
+    }).on('shown.bs.modal', function (e) {
+
+        
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/User/GetUsers?customerid=@ViewBag.LocationDTO.customerid&locationid=@ViewBag.LocationDTO.id&usersshared=@ViewBag.LocationDTO.users_shared",
+            dataType: "json",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                $('#list-users').empty();
+                $.each(result, function (i, val) {
+                    $('#list-users').append(new Option(val.name+(val.barcode!=null&&val.barcode!=""?(" - "+val.barcode):""), val.id));
+                });
+            },
+            error: function (error) {
+            }
+        })
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/LocationCreditUser/GetLocationCreditUsers/" + id,
+            dataType: "json",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                $.each(result, function (i, val) {
+
+                    $("#list-users > option").each(function () {
+                        if (val.id == this.value) {
+                            $("#list-users > [value='" + this.value + "']").attr("selected", "true");
+                        }
+                    });
+                });
+            },
+            error: function (error) {
+            }
+        })
+
+        $('#list-users').bootstrapDualListbox('refresh');
+
+    });
+
+    $('#button-save').click(function () {
+
+        var postdata = JSON.stringify($('#form-location-credit').serializeObject());
+
+        if (action == 'Edit') {
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/LocationCredit/Edit",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postdata,
+                async: false,
+                cache: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                }
+            });
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/LocationCredit/Create",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postdata,
+                async: false,
+                cache: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                }
+            });
+        }
+
+        $('#popup-modal').modal('hide');
+        window.location.href = '@Request.ApplicationPath/LocationCredit/Index/@ViewBag.LocationDTO.id';
+    })
+
+    $('#button-save-users').click(function () {
+
+        var postData = JSON.stringify({
+            'creditid': id,
+            'userids': $('#list-users').val()
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/LocationCreditUser/AddRemoveUsers",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+            }
+        });
+
+    })
+
+</script>

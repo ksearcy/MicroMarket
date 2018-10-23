@@ -1,0 +1,392 @@
+﻿@model IEnumerable<deORODataAccess.schedule>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.0.2/fullcalendar.css" rel="stylesheet" type="text/css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.0.2/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print' />
+<link href="~/Content/css/datepicker/datepicker3.css" rel="stylesheet" />
+<link href="~/Content/css/AdminLTE.css" rel="stylesheet" />
+<link href="~/Content/css/datepicker/jquery.datetimepicker.css" rel="stylesheet" />
+
+<script src="~/Scripts/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="~/Scripts/js/plugins/datatables/jquery.dataTables.editable.js"></script>
+<script src="~/Scripts/js/plugins/tabletojson/jquery.tabletojson.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.0.2/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.0.2/lang-all.js" type="text/javascript"></script>
+
+
+<script src="~/Scripts/js/plugins/datepicker/jquery.datetimepicker.js"></script>
+
+<script src="~/Scripts/js/plugins/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+<link href="~/Content/css/bootstrap-multiselect/bootstrap-multiselect.css" rel="stylesheet" />
+
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.Scheduler</h1>
+        <ol class="breadcrumb">
+            <li><a href="@Request.ApplicationPath/"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.Scheduler</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal" id="button-add-schedule"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.Schedule</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-calendar"></i>&nbsp;@deOROWeb.Resources.Strings.Schedule</h4>
+            </div>
+            <form action="#" method="post" id="form-schedule">
+                <div class="modal-body">
+                    <input id="input-hidden-action" type="hidden" />
+                    @*<div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Schedule Name:</span>
+                            <input id="input-schedule-name" class="form-control" placeholder="Schedule Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Schedule Description:</span>
+                            <input id="input-schedule-description" class="form-control" placeholder="Schedule Description">
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.Schedule @deOROWeb.Resources.Strings.Date:</span>
+                            <input id="input-schedule-date" class="form-control" placeholder="Schedule Date" name="input-schedule-date">
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive" id="schedule-details">
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-edit"><i class="fa fa-edit"></i>@deOROWeb.Resources.Strings.Edit Pre-Pick</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-print"><i class="fa fa-print"></i>@deOROWeb.Resources.Strings.PrintPreview</button>
+                    <button type="submit" class="btn btn-danger pull-left" id="button-delete"><i class="fa fa-trash-o"></i>@deOROWeb.Resources.Strings.Delete @deOROWeb.Resources.Strings.Schedule</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style type="text/css" id="custom-modal">
+    .modal-lg
+    {
+        width: 1200px!important;
+        margin: 0 auto;
+    }
+</style>
+
+<script>
+
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#form-schedule').validate(
+       {
+           rules: {
+               "input-schedule-date": {
+                   required: true
+               }
+           }
+       })
+
+    $('#input-schedule-date').datetimepicker({
+        timepicker: false, format: 'm/d/Y'
+    });
+
+    var schedules;
+
+    $.ajax({
+        cache: false,
+        type: "GET",
+        url: "@Request.ApplicationPath/Schedule/GetSchedules/",
+        contentType: "application/json; charset=utf-8",
+        dataType: "text",
+        async: false,
+        success: function (result) {
+            schedules = $.parseJSON(result);
+        },
+        error: function (error) {
+        }
+    })
+
+    var date = new Date();
+    var d = date.getDate(),
+            m = date.getMonth(),
+            y = date.getFullYear();
+
+    $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        buttonText: {//This is to add icons to the visible buttons
+            prev: "<",
+            next: ">",
+            today: '@deOROWeb.Resources.Strings.Today',
+            month: '@deOROWeb.Resources.Strings.Month',
+            week: '@deOROWeb.Resources.Strings.Week'
+           //,day: dec'@deOROWeb.Resources.Strings.Day'*
+        },
+        events: schedules,
+        editable: true,
+        droppable: false,
+        eventClick: function (calEvent, jsEvent, view) {
+
+            $("#input-hidden-action").val(calEvent.id);
+            $("#popup-modal").modal();
+        },
+        eventRender: function (event, element) {
+            $(element).find(".fc-event-time").remove();
+        },
+        lang: '@deOROWeb.Resources.Strings.LanguageCode'
+    });
+
+    $('#popup-modal').on('hide.bs.modal', function (e) {
+        window.location.href = '@Request.ApplicationPath/Schedule/';
+    })
+
+    function LoadScheduleDetails() {
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/ScheduleDetail/Details",
+            contentType: "application/json; charset=utf-8",
+            dataType: "text",
+            async: false,
+            success: function (result) {
+                $('#schedule-details').html(result);
+            },
+            error: function (error) {
+            }
+        })
+    }
+
+    $('#button-add-schedule').click(function () {
+        $("#input-hidden-action").val('');
+        $("#button-print").hide();
+        $("#button-delete").hide();
+        $("#button-edit").hide();
+    });
+
+    $('#button-print').click(function () {
+
+        var id = $("#input-hidden-action").val();
+
+        window.location.href = '@Request.ApplicationPath/Schedule/PrintPreview/' + id
+        return false;
+    });
+
+
+    $('#button-edit').click(function () {
+
+        var id = $("#input-hidden-action").val();
+
+        window.location.href = '@Request.ApplicationPath/Schedule/EditPrePick/' + id
+        return false;
+    });
+
+    $('#button-delete').click(function () {
+
+        var id = $("#input-hidden-action").val();
+        var postData = '{"id":' + id + '}';
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Schedule/Delete",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+            }
+        });
+    });
+
+    $('#button-save').click(function () {
+
+        if (!$("#form-schedule").valid()) return;
+
+        var id = $("#input-hidden-action").val();
+
+        var tbl = $('#grid-schedule-detail tr:has(td)').map(function (i, v) {
+            var $td = $('td', this);
+
+            var c = String($td.eq(8).find('select').val()).replace(",", ";");
+            var p = String($td.eq(9).find('select').val()).replace(",", ";");
+
+            return {
+
+                selected: $td.eq(0).find(':checkbox').prop('checked'),
+                customerid: $td.eq(1).attr('id'),
+                locationid: $td.eq(2).attr('id'),
+                id: $td.eq(0).attr('id'),
+                username: $td.eq(3).find(':selected').text(),
+                driverid: $td.eq(3).find('option:selected').val(),
+                customername: $td.eq(1).text(),
+                locationname: $td.eq(2).text(),
+                status: $td.eq(4).find('option:selected').val(),
+                count: $td.eq(5).text(),
+                scheduleid: id,
+                excluded_categories: c,
+                excluded_planograms: p,
+            }
+
+        }).get();
+
+        var schedule = {
+            'name': $('#input-schedule-name').val(),
+            'description': $('#input-schedule-description').val(),
+            'date': $('#input-schedule-date').val(),
+            'id': id
+        }
+
+        var postData = JSON.stringify({
+            'schedule': schedule,
+            'tableData': tbl
+        });
+
+
+        if (id.length > 0) {
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Schedule/Edit",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Schedule/Create",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+
+    });
+
+    $('#popup-modal').on('show.bs.modal', function (e) {
+
+        $('.form-control').val('');
+        $("#form-schedule").validate().resetForm();
+        $(".form-group").removeClass("has-error");
+
+        var id = $("#input-hidden-action").val();
+
+        if (id.length > 0) {
+
+            $("#button-print").show();
+            $("#button-delete").show();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@Request.ApplicationPath/Schedule/Details/" + id,
+                dataType: "json",
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+
+                    $('#input-schedule-name').val(result.name);
+                    $('#input-schedule-description').val(result.description);
+                    $('#input-schedule-date').val(ToJavaScriptDate(result.date));
+                },
+                error: function (error) {
+                    //alert("There was an error getting the data from the server: " + error.responseText);
+                }
+            })
+        }
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/ScheduleDetail/Details/" + id,
+            contentType: "application/json; charset=utf-8",
+            dataType: "text",
+            async: false,
+            success: function (result) {
+                $('#schedule-details').html(result);
+            },
+            error: function (error) {
+            }
+        })
+
+        //$('.category-filter').multiselect({ includeSelectAllOption: true, maxHeight: 400, drouUp: true, enableFiltering: true });
+        //$('.planogram-filter').multiselect({ includeSelectAllOption: true, maxHeight: 400, drouUp: true, enableFiltering: true });
+
+        $('.category-filter').multiselect({
+            enableFiltering: true, maxHeight: 400,
+            onDropdownHide: function (event) {
+                var $tr = $(event.target).closest('tr');
+                applyFilter($tr);
+            }
+        });
+
+        $('.planogram-filter').multiselect({
+            enableFiltering: true, maxHeight: 400,
+            onDropdownHide: function (event) {
+                var $tr = $(event.target).closest('tr');
+                applyFilter($tr);
+            }
+        });
+    })
+
+</script>

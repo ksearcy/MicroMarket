@@ -1,0 +1,975 @@
+﻿@{
+    ViewBag.Title = "Dashboard1";
+}
+
+<script src="~/Scripts/js/AdminLTE/dashboard.js"></script>
+<link href="~/Content/css/gridster/jquery.gridster.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/gridster/jquery.gridster.js"></script>
+
+@*<script src="~/Scripts/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<link href="~/Content/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />*@
+
+<script src="~/Scripts/js/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+<link href="~/Content/css/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/jvectormap/jquery-jvectormap-us-aea.js"></script>
+<script src="~/Scripts/js/plugins/jvectormap/jquery-jvectormap-us-lcc-en.js"></script>
+
+<script src="~/Scripts/js/plugins/flot/jquery.flot.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.pie.js"></script>
+<script src="~/Scripts/js/plugins/flot/excanvas.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.categories.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.time.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>Dashboards</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">Dashboards</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-6 connectedSortable">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Locations</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive">
+                        <div id="map" style="width: auto; height: 473px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs" id="nav-tabs">
+                        <li class="active">
+                            <a href="#tab-1" data-toggle="tab">Saulsbury</a>
+                        </li>
+                        <li>
+                            <a href="#tab-2" data-toggle="tab">Conoco</a>
+                        </li>
+                        <li>
+                            <a href="#tab-3" data-toggle="tab">Medical Center Annex</a>
+                        </li>
+                        <li>
+                            <a href="#tab-4" data-toggle="tab">OXY Training</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-1">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-aqua">
+                                        <div class="inner">
+                                            <h3>6566</h3>
+                                            <p>Last 30 Days Sales</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-stats-bars"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-yellow">
+                                        <div class="inner">
+                                            <h3>1254</h3>
+                                            <p>Last 7 Days Sales</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-stats-bars"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-red">
+                                        <div class="inner">
+                                            <h3>1</h3>
+                                            <p>Last 30 Days Alerts</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-ios-bell"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Last 30 Days Top 5 Sellers</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Item Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>3 Musketeers 1.92 oz</td>
+                                                    <td><span class="badge bg-red">589</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>Coke Can 12 oz</td>
+                                                    <td><span class="badge bg-yellow">451</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>Payday 1.85 oz</td>
+                                                    <td><span class="badge bg-light-blue">325</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>Lay's Classic SS 1 oz</td>
+                                                    <td><span class="badge bg-light-blue">275</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>Dr. Pepper Can 12 oz</td>
+                                                    <td><span class="badge bg-light-blue">115</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Last 7 Days Top 5 Sellers</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Item Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>3 Musketeers 1.92 oz</td>
+                                                    <td><span class="badge bg-red">72</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>Baby Ruth 2.1 oz</td>
+                                                    <td><span class="badge bg-yellow">65</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>Coca Cola Bottle</td>
+                                                    <td><span class="badge bg-light-blue">60</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>Diet Pepsi Bottle 20 oz</td>
+                                                    <td><span class="badge bg-light-blue">52</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>Diet Coke Can 12 oz</td>
+                                                    <td><span class="badge bg-light-blue">45</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Most Recent 5 Alerts</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Alert Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>Alert 1</td>
+                                                    <td><span class="badge bg-red">1</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-2">
+                                                        <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-aqua">
+                                        <div class="inner">
+                                            <h3>6921</h3>
+                                            <p>Last 30 Days Sales</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-stats-bars"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-yellow">
+                                        <div class="inner">
+                                            <h3>1350</h3>
+                                            <p>Last 7 Days Sales</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-stats-bars"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-red">
+                                        <div class="inner">
+                                            <h3>1</h3>
+                                            <p>Last 30 Days Alerts</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-ios-bell"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Last 30 Days Top 5 Sellers</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Item Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>Dr. Pepper Can 12 oz</td>
+                                                    <td><span class="badge bg-red">548</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>Snickers 1.86 oz</td>
+                                                    <td><span class="badge bg-yellow">501</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>Pepsi Max Bottle 20 oz</td>
+                                                    <td><span class="badge bg-light-blue">457</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>Diet Coke Bottle 20 oz</td>
+                                                    <td><span class="badge bg-light-blue">402</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>Baby Ruth 2.1 oz</td>
+                                                    <td><span class="badge bg-light-blue">401</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Last 7 Days Top 5 Sellers</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Item Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>3 Musketeers 1.92 oz</td>
+                                                    <td><span class="badge bg-red">87</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>Mr. Goodbar 1.75 oz</td>
+                                                    <td><span class="badge bg-yellow">80</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>Pepsi Can 12 oz</td>
+                                                    <td><span class="badge bg-light-blue">75</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>Snickers 1.86 oz</td>
+                                                    <td><span class="badge bg-light-blue">66</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>Payday 1.85 oz</td>
+                                                    <td><span class="badge bg-light-blue">57</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Most Recent 5 Alerts</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Alert Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>Alert 1</td>
+                                                    <td><span class="badge bg-red">1</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-3">
+                                                        <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-aqua">
+                                        <div class="inner">
+                                            <h3>7888</h3>
+                                            <p>Last 30 Days Sales</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-stats-bars"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-yellow">
+                                        <div class="inner">
+                                            <h3>1998</h3>
+                                            <p>Last 7 Days Sales</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-stats-bars"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-red">
+                                        <div class="inner">
+                                            <h3>1</h3>
+                                            <p>Last 30 Days Alerts</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-ios-bell"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Last 30 Days Top 5 Sellers</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Item Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>3 Musketeers 1.92 oz</td>
+                                                    <td><span class="badge bg-red">450</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>Coke Can 12 oz</td>
+                                                    <td><span class="badge bg-yellow">338</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>Payday 1.85 oz</td>
+                                                    <td><span class="badge bg-light-blue">275</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>Lay's Classic SS 1 oz</td>
+                                                    <td><span class="badge bg-light-blue">225</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>Dr. Pepper Can 12 oz</td>
+                                                    <td><span class="badge bg-light-blue">205</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Last 7 Days Top 5 Sellers</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Item Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>3 Musketeers 1.92 oz</td>
+                                                    <td><span class="badge bg-red">98</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>Baby Ruth 2.1 oz</td>
+                                                    <td><span class="badge bg-yellow">74</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>Coca Cola Bottle</td>
+                                                    <td><span class="badge bg-light-blue">65</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>Diet Pepsi Bottle 20 oz</td>
+                                                    <td><span class="badge bg-light-blue">51</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>Diet Coke Can 12 oz</td>
+                                                    <td><span class="badge bg-light-blue">47</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Most Recent 5 Alerts</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Alert Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>Alert 1</td>
+                                                    <td><span class="badge bg-red">1</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-4">
+                                                        <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-aqua">
+                                        <div class="inner">
+                                            <h3>5245</h3>
+                                            <p>Last 30 Days Sales</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-stats-bars"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-yellow">
+                                        <div class="inner">
+                                            <h3>1052</h3>
+                                            <p>Last 7 Days Sales</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-stats-bars"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="small-box bg-red">
+                                        <div class="inner">
+                                            <h3>2</h3>
+                                            <p>Last 30 Days Alerts</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-ios-bell"></i>
+                                        </div>
+                                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Last 30 Days Top 5 Sellers</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Item Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>Lay's Classic SS 1 oz</td>
+                                                    <td><span class="badge bg-red">680</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>Coke Can 12 oz</td>
+                                                    <td><span class="badge bg-yellow">548</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>Sprite Bottle 20 0z</td>
+                                                    <td><span class="badge bg-light-blue">341</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>M&M's Peanut 1.74 oz</td>
+                                                    <td><span class="badge bg-light-blue">301</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>Kit Kat Crispy 1.61 oz</td>
+                                                    <td><span class="badge bg-light-blue">285</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Last 7 Days Top 5 Sellers</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Item Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>Butterfinger 2.1 oz</td>
+                                                    <td><span class="badge bg-red">89</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>Sierra Mist Bottle 20 oz</td>
+                                                    <td><span class="badge bg-yellow">78</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.</td>
+                                                    <td>Coke Bottle 20 oz</td>
+                                                    <td><span class="badge bg-light-blue">65</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.</td>
+                                                    <td>Dasani Bottle 20 oz</td>
+                                                    <td><span class="badge bg-light-blue">45</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5.</td>
+                                                    <td>Payday 1.85 oz</td>
+                                                    <td><span class="badge bg-light-blue">35</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Most Recent 5 Alerts</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 10px">#</th>
+                                                    <th>Alert Name</th>
+                                                    <th style="width: 40px">Count</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1.</td>
+                                                    <td>Alert 1</td>
+                                                    <td><span class="badge bg-red">1</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.</td>
+                                                    <td>Alert 3</td>
+                                                    <td><span class="badge bg-red">1</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 connectedSortable">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Hourly Sales - YTD</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive">
+                        <div id="hourly" style="width: auto; height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 connectedSortable">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Daily Sales - YTD</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive">
+                        <div id="daily" style="width: auto; height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 connectedSortable">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Weekly - YTD</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive">
+                        <div id="weekly" style="width: auto; height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 connectedSortable">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">Monthly - YTD</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body table-responsive">
+                        <div id="monthly" style="width: auto; height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<script>
+
+    //$('#map').vectorMap({
+    //    map: 'us_aea',
+    //    scaleColors: ['#C8EEFF', '#0071A4'],
+    //    normalizeFunction: 'polynomial',
+    //    hoverOpacity: 0.7,
+    //    hoverColor: false,
+    //    markerStyle: {
+    //        initial: {
+    //            fill: '#F8E23B',
+    //            stroke: '#383f47'
+    //        }
+    //    },
+    //    backgroundColor: '#383f47',
+    //    markers: [
+    //                { latLng: [38.878816, -77.4070185], name: 'Saulsbury' },
+    //                { latLng: [39.4529191, -80.1713726], name: 'Conoco' },
+    //                { latLng: [39.557847, -119.9909238], name: 'Medical Center Annex' },
+    //                { latLng: [31.8765332, -102.4836386], name: 'OXY Training' },
+
+    //    ],
+    //    onMarkerLabelShow: function (event, label, index) {
+    //        label.html(
+    //              '<u>' + label.html() + '</u><br>' +
+    //              'Sales: $' + Math.floor((Math.random() * 10000) + 1000) + '<br>' +
+    //              '# Items Sold: ' + Math.floor((Math.random() * 1000) + 100) + '<br>' +
+    //              'Account Balance: $' + Math.floor((Math.random() * 10000) + 100) + '<br>' +
+    //              '# Users: ' + Math.floor((Math.random() * 1000) + 50) + '<br>'
+    //            );
+    //    },
+    //});
+
+
+    var map = new jvm.MultiMap({
+        container: $('#map'),
+        maxLevel: 1,
+        main: {
+            map: 'us_lcc_en',
+            normalizeFunction: 'polynomial',
+            hoverOpacity: 0.7,
+            hoverColor: false,
+            markerStyle: {
+                initial: {
+                    fill: '#F8E23B',
+                    stroke: '#383f47'
+                }
+            },
+            backgroundColor: '#383f47',
+            markers: [
+                        { latLng: [32.0291332, -102.1922776], name: 'Saulsbury' },
+                        { latLng: [34.194319, -101.7457125], name: 'Conoco' },
+                        { latLng: [32.3308378, -95.4674779], name: 'Medical Center Annex' },
+                        { latLng: [31.5535453, -97.3276625], name: 'OXY Training' },
+
+            ],
+            onMarkerTipShow: function (event, label, index) {
+                label.html(
+                      '<u>' + label.html() + '</u><br>' +
+                      'Sales: $' + Math.floor((Math.random() * 10000) + 60000) + '<br>' +
+                      '# Items Sold: ' + Math.floor((Math.random() * 1000) + 1000) + '<br>' +
+                      'Account Balance: $' + Math.floor((Math.random() * 10000) + 100) + '<br>' +
+                      '# Users: ' + Math.floor((Math.random() * 1000) + 50) + '<br>'
+                    );
+            },
+        },
+    });
+
+
+    plotWeekly();
+    plotMonthly();
+    plotDaily();
+    plotHorly();
+
+    function plotWeekly() {
+
+        var d1 = [];
+        for (var i = 1; i <= 26; i += 1) {
+            d1.push([i, parseInt(Math.random() * 1000)]);
+        }
+
+        var d2 = [];
+        for (var i = 1; i <= 26; i += 1) {
+            d2.push([i, parseInt(Math.random() * 1500)]);
+        }
+
+        var d3 = [];
+        for (var i = 1; i <= 26; i += 1) {
+            d3.push([i, parseInt(Math.random() * 1000)]);
+        }
+
+        var d4 = [];
+        for (var i = 1; i <= 26; i += 1) {
+            d4.push([i, parseInt(Math.random() * 1500)]);
+        }
+
+        var stack = 0,
+			bars = true,
+			lines = false,
+			steps = false;
+
+        $.plot("#weekly", [{ label: "Saulsbury", data: d1 },
+                           { label: "Conoco", data: d2 },
+                           { label: "Medical Center Annex", data: d3 },
+                           { label: "OXY Training", data: d4 }],
+          {
+              xaxis: {
+                  axisLabel: "week#",
+                  axisLabelUseCanvas: true,
+                  axisLabelFontSizePixels: 12,
+                  axisLabelFontFamily: 'Verdana, Arial',
+                  axisLabelPadding: 10
+              },
+          });
+
+    }
+
+    function plotHorly() {
+
+        var d1 = [];
+        for (var i = 0; i <= 23; i += 1) {
+            d1.push([i, parseInt(Math.random() * 1200)]);
+        }
+
+        var d2 = [];
+        for (var i = 0; i <= 23; i += 1) {
+            d2.push([i, parseInt(Math.random() * 1800)]);
+        }
+
+        var d3 = [];
+        for (var i = 0; i <= 23; i += 1) {
+            d3.push([i, parseInt(Math.random() * 1200)]);
+        }
+
+        var d4 = [];
+        for (var i = 0; i <= 23; i += 1) {
+            d4.push([i, parseInt(Math.random() * 1800)]);
+        }
+
+        var stack = 0,
+			bars = true,
+			lines = false,
+			steps = false;
+
+        $.plot("#hourly", [{ label: "Saulsbury", data: d1 },
+                           { label: "Conoco", data: d2 },
+                           { label: "Medical Center Annex", data: d3 },
+                           { label: "OXY Training", data: d4 }],
+          {
+              axisLabel: "Hour of the Day",
+              axisLabelUseCanvas: true,
+              axisLabelFontSizePixels: 12,
+              axisLabelFontFamily: 'Verdana, Arial',
+              axisLabelPadding: 10
+          });
+
+    }
+
+    function plotDaily() {
+
+        var d1 = [];
+        for (var i = 1; i <= 31; i += 1) {
+            d1.push([i, parseInt(Math.random() * 900)]);
+        }
+
+        var d2 = [];
+        for (var i = 1; i <= 31; i += 1) {
+            d2.push([i, parseInt(Math.random() * 1200)]);
+        }
+
+        var d3 = [];
+        for (var i = 1; i <= 31; i += 1) {
+            d3.push([i, parseInt(Math.random() * 900)]);
+        }
+
+        var d4 = [];
+        for (var i = 1; i <= 31; i += 1) {
+            d4.push([i, parseInt(Math.random() * 1200)]);
+        }
+
+        var stack = 0,
+			bars = true,
+			lines = false,
+			steps = false;
+
+        $.plot("#daily", [{ label: "Saulsbury", data: d1 },
+                           { label: "Conoco", data: d2 },
+                           { label: "Medical Center Annex", data: d3 },
+                           { label: "OXY Training", data: d4 }],
+          {
+          });
+
+    }
+
+    function plotMonthly() {
+
+        var d1 = [];
+        for (var i = 1; i <= 6; i += 1) {
+            d1.push([i, parseInt(Math.random() * 4000)]);
+        }
+
+        var d2 = [];
+        for (var i = 1; i <= 6; i += 1) {
+            d2.push([i, parseInt(Math.random() * 6000)]);
+        }
+
+        var d3 = [];
+        for (var i = 1; i <= 6; i += 1) {
+            d3.push([i, parseInt(Math.random() * 4000)]);
+        }
+
+        var d4 = [];
+        for (var i = 1; i <= 6; i += 1) {
+            d4.push([i, parseInt(Math.random() * 6000)]);
+        }
+
+        var stack = 0,
+			bars = true,
+			lines = false,
+			steps = false;
+
+        $.plot("#monthly", [{ label: "Saulsbury", data: d1 },
+                           { label: "Conoco", data: d2 },
+                           { label: "Medical Center Annex", data: d3 },
+                           { label: "OXY Training", data: d4 }],
+          {
+
+          });
+
+    }
+
+
+</script>

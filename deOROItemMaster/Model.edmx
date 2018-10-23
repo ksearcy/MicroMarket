@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="deORO_ItemsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="deORO_ItemsModelStoreContainer">
+          <EntitySet Name="items" EntityType="deORO_ItemsModel.Store.items" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="items">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="UPC" Type="nvarchar" MaxLength="255" />
+          <Property Name="Item Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="255" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="255" />
+          <Property Name="Distributor" Type="nvarchar" MaxLength="255" />
+          <Property Name="GS1 Category" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Manufacturer" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Manufacturer Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Manufacturer Phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Manufacturer Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Manufacturer URL" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Distributor" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Distributor Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Distributor Phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Distributor Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Pkg Distributor URL" Type="nvarchar" MaxLength="255" />
+          <Property Name="Marketing Description" Type="ntext" />
+          <Property Name="Other Description" Type="ntext" />
+          <Property Name="Units In Package" Type="nvarchar" MaxLength="255" />
+          <Property Name="Packaging Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Packaging Size" Type="nvarchar" MaxLength="255" />
+          <Property Name="Package Information" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="nvarchar" MaxLength="255" />
+          <Property Name="Last Updated" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'deORO_Items.dbo.media' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="media">
+        <Property Name="ID" Type="nvarchar" MaxLength="255" />
+        <Property Name="UPC" Type="nvarchar" MaxLength="255" />
+        <Property Name="GS1 View" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 1 Mime Type" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 1 Date Added" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 1 Source" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 1 Description" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 1 Path" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 2 Mime Type" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 2 Date Added" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 2 Source" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 2 Description" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 2 Path" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 3 Mime Type" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 3 Date Added" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 3 Source" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 3 Description" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 3 Path" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 4 Mime Type" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 4 Date Added" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 4 Source" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 4 Description" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 4 Path" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 5 Mime Type" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 5 Date Added" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 5 Source" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 5 Description" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 5 Path" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 6 Mime Type" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 6 Date Added" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 6 Source" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 6 Description" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 6 Path" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 7 Mime Type" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 7 Date Added" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 7 Source" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 7 Description" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 7 Path" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 8 Mime Type" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 8 Date Added" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 8 Source" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 8 Description" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 8 Path" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 9 Mime Type" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 9 Date Added" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 9 Source" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 9 Description" Type="nvarchar" MaxLength="255" />
+        <Property Name="Image 9 Path" Type="nvarchar" MaxLength="255" />
+        <Property Name="Downloaded" Type="bit" />
+      </EntityType>-->
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="deORO_ItemsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="deORO_ItemsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="items" EntityType="deORO_ItemsModel.item" />
+        </EntityContainer>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="UPC" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Item_Description" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Brand" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Distributor" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="GS1_Category" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Manufacturer" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Manufacturer_Address" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Manufacturer_Phone" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Manufacturer_Email" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Manufacturer_URL" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Distributor" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Distributor_Address" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Distributor_Phone" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Distributor_Email" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Pkg_Distributor_URL" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Marketing_Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Other_Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Units_In_Package" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Packaging_Type" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Packaging_Size" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Package_Information" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Created" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Last_Updated" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="deORO_ItemsModelStoreContainer" CdmEntityContainer="deORO_ItemsEntities">
+          <EntitySetMapping Name="items">
+            <EntityTypeMapping TypeName="deORO_ItemsModel.item">
+              <MappingFragment StoreEntitySet="items">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPC" ColumnName="UPC" />
+                <ScalarProperty Name="Item_Description" ColumnName="Item Description" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+                <ScalarProperty Name="GS1_Category" ColumnName="GS1 Category" />
+                <ScalarProperty Name="Pkg_Manufacturer" ColumnName="Pkg Manufacturer" />
+                <ScalarProperty Name="Pkg_Manufacturer_Address" ColumnName="Pkg Manufacturer Address" />
+                <ScalarProperty Name="Pkg_Manufacturer_Phone" ColumnName="Pkg Manufacturer Phone" />
+                <ScalarProperty Name="Pkg_Manufacturer_Email" ColumnName="Pkg Manufacturer Email" />
+                <ScalarProperty Name="Pkg_Manufacturer_URL" ColumnName="Pkg Manufacturer URL" />
+                <ScalarProperty Name="Pkg_Distributor" ColumnName="Pkg Distributor" />
+                <ScalarProperty Name="Pkg_Distributor_Address" ColumnName="Pkg Distributor Address" />
+                <ScalarProperty Name="Pkg_Distributor_Phone" ColumnName="Pkg Distributor Phone" />
+                <ScalarProperty Name="Pkg_Distributor_Email" ColumnName="Pkg Distributor Email" />
+                <ScalarProperty Name="Pkg_Distributor_URL" ColumnName="Pkg Distributor URL" />
+                <ScalarProperty Name="Marketing_Description" ColumnName="Marketing Description" />
+                <ScalarProperty Name="Other_Description" ColumnName="Other Description" />
+                <ScalarProperty Name="Units_In_Package" ColumnName="Units In Package" />
+                <ScalarProperty Name="Packaging_Type" ColumnName="Packaging Type" />
+                <ScalarProperty Name="Packaging_Size" ColumnName="Packaging Size" />
+                <ScalarProperty Name="Package_Information" ColumnName="Package Information" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last Updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ax21="http://ec.usatech.com/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="urn:ec.usatech.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://ec.usatech.com" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="urn:ec.usatech.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:ax22="http://ec.usatech.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ec.usatech.com">
+      <xs:import namespace="http://ec.usatech.com/xsd" />
+      <xs:element name="uploadFile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="serialNumber" type="xs:string" />
+            <xs:element name="fileName" type="xs:string" />
+            <xs:element name="fileType" type="xs:int" />
+            <xs:element name="fileSize" type="xs:long" />
+            <xs:element name="fileContent" type="xs:base64Binary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="uploadFileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ax22:ECResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="processUpdates">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="serialNumber" type="xs:string" />
+            <xs:element name="updateStatus" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="processUpdatesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ax22:ECProcessUpdatesResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="chargeV3_1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="serialNumber" type="xs:string" />
+            <xs:element name="tranId" type="xs:long" />
+            <xs:element name="amount" type="xs:long" />
+            <xs:element name="cardReaderType" type="xs:int" />
+            <xs:element name="decryptedCardDataLen" type="xs:int" />
+            <xs:element name="encryptedCardDataHex" type="xs:string" />
+            <xs:element name="ksnHex" type="xs:string" />
+            <xs:element name="cardType" type="xs:string" />
+            <xs:element name="tranResult" type="xs:string" />
+            <xs:element name="tranDetails" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="chargeV3_1Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ax22:ECAuthResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="chargeV3">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="serialNumber" type="xs:string" />
+            <xs:element name="tranId" type="xs:long" />
+            <xs:element name="amount" type="xs:long" />
+            <xs:element name="cardData" type="xs:string" />
+            <xs:element name="cardType" type="xs:string" />
+            <xs:element name="tranResult" type="xs:string" />
+            <xs:element name="tranDetails" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="chargeV3Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ax22:ECAuthResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cashV3">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="serialNumber" type="xs:string" />
+            <xs:element name="tranId" type="xs:long" />
+            <xs:element name="amount" type="xs:long" />
+            <xs:element name="tranUTCTimeMs" type="xs:long" />
+            <xs:element name="tranUTCOffsetMs" type="xs:int" />
+            <xs:element name="tranResult" type="xs:string" />
+            <xs:element name="tranDetails" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cashV3Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ax22:ECResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="batchV3">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="serialNumber" type="xs:string" />
+            <xs:element name="tranId" type="xs:long" />
+            <xs:element name="amount" type="xs:long" />
+            <xs:element name="tranResult" type="xs:string" />
+            <xs:element name="tranDetails" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="batchV3Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ax22:ECResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="authV3_1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="serialNumber" type="xs:string" />
+            <xs:element name="tranId" type="xs:long" />
+            <xs:element name="amount" type="xs:long" />
+            <xs:element name="cardReaderType" type="xs:int" />
+            <xs:element name="decryptedCardDataLen" type="xs:int" />
+            <xs:element name="encryptedCardDataHex" type="xs:string" />
+            <xs:element name="ksnHex" type="xs:string" />
+            <xs:element name="cardType" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="authV3_1Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ax22:ECAuthResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="authV3">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="username" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="serialNumber" type="xs:string" />
+            <xs:element name="tranId" type="xs:long" />
+            <xs:element name="amount" type="xs:long" />
+            <xs:element name="cardData" type="xs:string" />
+            <xs:element name="cardType" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="authV3Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="ax22:ECAuthResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ec.usatech.com/xsd">
+      <xs:complexType name="ECResponse">
+        <xs:sequence>
+          <xs:element name="newPassword" type="xs:string" />
+          <xs:element name="newUsername" type="xs:string" />
+          <xs:element name="returnCode" type="xs:int" />
+          <xs:element name="returnMessage" type="xs:string" />
+          <xs:element name="serialNumber" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ECProcessUpdatesResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ax21:ECResponse">
+            <xs:sequence>
+              <xs:element name="fileContent" type="xs:base64Binary" />
+              <xs:element name="fileName" type="xs:string" />
+              <xs:element name="fileSize" type="xs:long" />
+              <xs:element name="fileType" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ECAuthResponse">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ax21:ECResponse">
+            <xs:sequence>
+              <xs:element name="approvedAmount" type="xs:long" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="uploadFileResponse">
+    <wsdl:part name="parameters" element="ns:uploadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="cashV3Request">
+    <wsdl:part name="parameters" element="ns:cashV3" />
+  </wsdl:message>
+  <wsdl:message name="chargeV3Request">
+    <wsdl:part name="parameters" element="ns:chargeV3" />
+  </wsdl:message>
+  <wsdl:message name="chargeV3Response">
+    <wsdl:part name="parameters" element="ns:chargeV3Response" />
+  </wsdl:message>
+  <wsdl:message name="authV3_1Response">
+    <wsdl:part name="parameters" element="ns:authV3_1Response" />
+  </wsdl:message>
+  <wsdl:message name="batchV3Response">
+    <wsdl:part name="parameters" element="ns:batchV3Response" />
+  </wsdl:message>
+  <wsdl:message name="authV3Response">
+    <wsdl:part name="parameters" element="ns:authV3Response" />
+  </wsdl:message>
+  <wsdl:message name="chargeV3_1Response">
+    <wsdl:part name="parameters" element="ns:chargeV3_1Response" />
+  </wsdl:message>
+  <wsdl:message name="uploadFileRequest">
+    <wsdl:part name="parameters" element="ns:uploadFile" />
+  </wsdl:message>
+  <wsdl:message name="cashV3Response">
+    <wsdl:part name="parameters" element="ns:cashV3Response" />
+  </wsdl:message>
+  <wsdl:message name="processUpdatesResponse">
+    <wsdl:part name="parameters" element="ns:processUpdatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="authV3_1Request">
+    <wsdl:part name="parameters" element="ns:authV3_1" />
+  </wsdl:message>
+  <wsdl:message name="authV3Request">
+    <wsdl:part name="parameters" element="ns:authV3" />
+  </wsdl:message>
+  <wsdl:message name="chargeV3_1Request">
+    <wsdl:part name="parameters" element="ns:chargeV3_1" />
+  </wsdl:message>
+  <wsdl:message name="batchV3Request">
+    <wsdl:part name="parameters" element="ns:batchV3" />
+  </wsdl:message>
+  <wsdl:message name="processUpdatesRequest">
+    <wsdl:part name="parameters" element="ns:processUpdates" />
+  </wsdl:message>
+  <wsdl:portType name="ecPortType">
+    <wsdl:operation name="chargeV3_1">
+      <wsdl:input wsaw:Action="urn:chargeV3_1" message="tns:chargeV3_1Request" />
+      <wsdl:output wsaw:Action="urn:chargeV3_1Response" message="tns:chargeV3_1Response" />
+    </wsdl:operation>
+    <wsdl:operation name="authV3_1">
+      <wsdl:input wsaw:Action="urn:authV3_1" message="tns:authV3_1Request" />
+      <wsdl:output wsaw:Action="urn:authV3_1Response" message="tns:authV3_1Response" />
+    </wsdl:operation>
+    <wsdl:operation name="chargeV3">
+      <wsdl:input wsaw:Action="urn:chargeV3" message="tns:chargeV3Request" />
+      <wsdl:output wsaw:Action="urn:chargeV3Response" message="tns:chargeV3Response" />
+    </wsdl:operation>
+    <wsdl:operation name="processUpdates">
+      <wsdl:input wsaw:Action="urn:processUpdates" message="tns:processUpdatesRequest" />
+      <wsdl:output wsaw:Action="urn:processUpdatesResponse" message="tns:processUpdatesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cashV3">
+      <wsdl:input wsaw:Action="urn:cashV3" message="tns:cashV3Request" />
+      <wsdl:output wsaw:Action="urn:cashV3Response" message="tns:cashV3Response" />
+    </wsdl:operation>
+    <wsdl:operation name="batchV3">
+      <wsdl:input wsaw:Action="urn:batchV3" message="tns:batchV3Request" />
+      <wsdl:output wsaw:Action="urn:batchV3Response" message="tns:batchV3Response" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadFile">
+      <wsdl:input wsaw:Action="urn:uploadFile" message="tns:uploadFileRequest" />
+      <wsdl:output wsaw:Action="urn:uploadFileResponse" message="tns:uploadFileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="authV3">
+      <wsdl:input wsaw:Action="urn:authV3" message="tns:authV3Request" />
+      <wsdl:output wsaw:Action="urn:authV3Response" message="tns:authV3Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ecSoap11Binding" type="tns:ecPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="chargeV3_1">
+      <soap:operation soapAction="urn:chargeV3_1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authV3_1">
+      <soap:operation soapAction="urn:authV3_1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chargeV3">
+      <soap:operation soapAction="urn:chargeV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processUpdates">
+      <soap:operation soapAction="urn:processUpdates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cashV3">
+      <soap:operation soapAction="urn:cashV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchV3">
+      <soap:operation soapAction="urn:batchV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadFile">
+      <soap:operation soapAction="urn:uploadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authV3">
+      <soap:operation soapAction="urn:authV3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ecSoap12Binding" type="tns:ecPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="chargeV3_1">
+      <soap12:operation soapAction="urn:chargeV3_1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authV3_1">
+      <soap12:operation soapAction="urn:authV3_1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chargeV3">
+      <soap12:operation soapAction="urn:chargeV3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processUpdates">
+      <soap12:operation soapAction="urn:processUpdates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cashV3">
+      <soap12:operation soapAction="urn:cashV3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchV3">
+      <soap12:operation soapAction="urn:batchV3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadFile">
+      <soap12:operation soapAction="urn:uploadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authV3">
+      <soap12:operation soapAction="urn:authV3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ecHttpBinding" type="tns:ecPortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="chargeV3_1">
+      <http:operation location="chargeV3_1" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authV3_1">
+      <http:operation location="authV3_1" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="chargeV3">
+      <http:operation location="chargeV3" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processUpdates">
+      <http:operation location="processUpdates" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cashV3">
+      <http:operation location="cashV3" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchV3">
+      <http:operation location="batchV3" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadFile">
+      <http:operation location="uploadFile" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authV3">
+      <http:operation location="authV3" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ec">
+    <wsdl:port name="ecHttpSoap12Endpoint" binding="tns:ecSoap12Binding">
+      <soap12:address location="https://192.168.79.163:9443/soap/ec.ecHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="ecHttpSoap11Endpoint" binding="tns:ecSoap11Binding">
+      <soap:address location="https://192.168.79.163:9443/soap/ec.ecHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="ecHttpEndpoint" binding="tns:ecHttpBinding">
+      <http:address location="https://192.168.79.163:9443/soap/ec.ecHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

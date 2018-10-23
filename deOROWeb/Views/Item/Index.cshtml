@@ -1,0 +1,1277 @@
+﻿@model IEnumerable<deORODataAccess.DTO.ItemDTO>
+@using deOROWeb.Helper
+
+@{
+    ViewBag.Title = @deOROWeb.Resources.Strings.Items;
+}
+
+<link href="~/Content/css/duallistbox/bootstrap-duallistbox.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/duallistbox/jquery.bootstrap-duallistbox.js"></script>
+<script src="~/Scripts/js/encoder.js"></script>
+<link href="~/Scripts/js/plugins/tooltips/simptip.css" rel="stylesheet" />
+
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.Items</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.Items</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal"  ><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.Item</button>
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#batch-edit-modal"><i class="fa  fa-edit"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.BatchEdit</button>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-primary btn-flat btn-sm" data-toggle="dropdown">
+                                    @deOROWeb.Resources.Strings.Show @deOROWeb.Resources.Strings.Items
+                                <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="@Request.ApplicationPath/Item/Index/1">@deOROWeb.Resources.Strings.Active</a></li>
+                                    <li><a href="@Request.ApplicationPath/Item/Index/0">@deOROWeb.Resources.Strings.Inactive</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.Name</th>
+                                <th>@deOROWeb.Resources.Strings.BarCode</th>
+                                <th>@deOROWeb.Resources.Strings.Manufacturer</th>
+                                <th>@deOROWeb.Resources.Strings.Category</th>
+                                <th>@deOROWeb.Resources.Strings.SubCategory</th>
+                                <th>@deOROWeb.Resources.Strings.Count</th>
+                                <th>@deOROWeb.Resources.Strings.UnitCost</th>
+                                <th>@deOROWeb.Resources.Strings.Taxable</th>
+                                <th>@deOROWeb.Resources.Strings.Price</th>
+                                <th>@deOROWeb.Resources.Strings.Tax %</th>
+                                <th>@deOROWeb.Resources.Strings.CRV</th>
+                                <th>@deOROWeb.Resources.Strings.Tax</th>
+                                <th>@deOROWeb.Resources.Strings.Price + @deOROWeb.Resources.Strings.CRV + @deOROWeb.Resources.Strings.Tax</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr id="@m.id-item">
+                                    <td>@m.name</td>
+                                    <td>@m.barcode</td>
+                                    <td>@m.manufacturername</td>
+                                    <td>@m.categoryname</td>
+                                    <td>@m.subcategoryname</td>
+                                    <td>@m.count</td>
+                                    <td>@m.unitcost</td>
+                                    <td>@MvcHelper.YesNoHelper.Label(m.is_taxable)</td>
+                                    <td>@m.price</td>
+                                    <td>@m.tax_percent</td>
+                                    <td>@m.crv</td>
+                                    <td>@m.tax</td>
+                                    <td>@m.price_tax_included</td>
+                                    <td>
+                                        <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="@m.id-edit">@deOROWeb.Resources.Strings.Edit</a></i>
+                                    </td>
+                                    <td>
+                                        @if (m.is_active == 1)
+                                        {
+                                            <i class="fa fa-trash-o"><a class="btn btn-app-small" id="@m.id-delete">@deOROWeb.Resources.Strings.Delete</a></i>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.Item</h4>
+            </div>
+            <form action="#" method="post" id="form-item">
+                <div class="modal-body">
+                    <input id="input_hidden_action" type="hidden" />
+                    <div class="form-group">
+                        <label>@deOROWeb.Resources.Strings.Manufacturer <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Product's Manufacturer">(?)</a></label>
+                        <select class="form-control" id="combo-manufacturer">
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Category <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Product's Category" >(?)</a></label>
+                                <select class="form-control" id="combo-category" required="required">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.SubCategory <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Product's Sub Category">(?)</a></label>
+                                <select class="form-control" id="combo-sub-category" required="required">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group" >
+                            <span class="input-group-addon"  >@deOROWeb.Resources.Strings.Name <a style="cursor:pointer;" class="simptip-position-top" data-tooltip="Product's Name">(?)</a> :</span>                     
+                                               
+                            <input id="input-name" name="input-name" class="form-control" placeholder="@deOROWeb.Resources.Strings.Name" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.Description <a style="cursor:pointer;" class="simptip-position-top" data-tooltip="Product's Description">(?)</a> :</span>
+                            <input id="input-description" name="input-description" class="form-control" placeholder="@deOROWeb.Resources.Strings.Description" required="required">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.BarCode <a style="cursor:pointer;" class="simptip-position-top simptip-multiline" data-tooltip="Product's bar code identification to use bar code reader in kiosk">(?)</a> :</span>
+                                    <input id="input_bar_code" name="input_bar_code" class="form-control" placeholder="@deOROWeb.Resources.Strings.BarCode" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    @*==================================================== UPC Named SKU For Mexico by Luis Ruiz ===============================================*@
+                         <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">SKU:</span>
+                                    <input id="input-upc" name="input-upc" class="form-control" placeholder="SKU" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Count <a style="cursor:pointer;" class="simptip-position-top" data-tooltip="Product's package size">(?)</a> :</span>
+                                    <input id="input-count" name="input-count" class="form-control" placeholder="@deOROWeb.Resources.Strings.Count" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.UnitCost <a style="cursor:pointer;" class="simptip-position-top" data-tooltip="Product's unit cost to calculate profit in reports">(?)</a> :</span>
+                                    <input id="input-unit-cost" name="input-unit-cost" class="form-control" placeholder="@deOROWeb.Resources.Strings.UnitCost" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.AverageShelfLife <a style="cursor:pointer;" class="simptip-position-top" data-tooltip="Product's Expiration Days">(?)</a> :</span>
+                                    <input id="input-avg-shelf-life" name="input-avg-shelf-life" class="form-control" placeholder="@deOROWeb.Resources.Strings.AverageShelfLife" required="required">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.PickOrder <a style="cursor:pointer;" class="simptip-position-top" data-tooltip="Product's order in refill list of drivers">(?)</a> :</span>
+                                    <input id="input-pick-order" name="input-pick-order" class="form-control" placeholder="@deOROWeb.Resources.Strings.PickOrder" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Active <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top simptip-multiline" data-tooltip="Select 'Yes' to show this product in the system, otherwise select 'No' only to save it.">(?)</a></label>
+                                <select class="form-control" id="combo-active">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label>Taxable <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top simptip-multiline" data-tooltip="Select 'Yes' and fill 'Tax %' field if the user will pay tax for the product, otherwise select 'No'.">(?)</a></label>
+                                <select class="form-control" id="combo-taxable">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.HasBarcode <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top simptip-multiline" data-tooltip="Select 'Yes' and fill 'Bar Code' field if the product has bar code identificator, otherwise select 'No'.">(?)</a></label>
+                                <select class="form-control" id="combo-has-barcode">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon" >@deOROWeb.Resources.Strings.Price <a style="cursor:pointer;" class="simptip-position-top" data-tooltip="Product's Sale Price">(?)</a> :</span>
+                                    <input id="input-price" name="input-price" class="form-control" placeholder="@deOROWeb.Resources.Strings.Price" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.CRV:</span>
+                                    <input id="input-crv" name="input-crv" class="form-control" placeholder="@deOROWeb.Resources.Strings.CRV">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Tax % <a style="cursor:pointer;" class="simptip-position-top" data-tooltip="Product's Tax %">(?)</a> :</span>
+                                    <input id="input-tax-percent" name="input-tax-percent" class="form-control" placeholder="Tax Percent">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Price + @deOROWeb.Resources.Strings.CRV + @deOROWeb.Resources.Strings.Tax:</span>
+                                    <input id="input-price-tax" name="input-price-tax" class="form-control" placeholder="@deOROWeb.Resources.Strings.Price + @deOROWeb.Resources.Strings.CRV + @deOROWeb.Resources.Strings.Tax" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Tax:</span>
+                                    <input id="input-tax" name="input-tax" class="form-control" placeholder="@deOROWeb.Resources.Strings.Tax" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.ImageFileName:</span>
+                            <input id="input-image" name="input-image" class="form-control" placeholder="@deOROWeb.Resources.Strings.ImageFileName">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="button" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>                  
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="batch-edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-user"></i>@deOROWeb.Resources.Strings.Edit @deOROWeb.Resources.Strings.Items</h4>
+            </div>
+            <form action="#" method="post" id="form-batch-edit">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>@deOROWeb.Resources.Strings.Items</label>
+                        <select multiple class="form-control" id="list-item" style="height: 350px">
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="checkbox-manufacturer">&nbsp;&nbsp;@deOROWeb.Resources.Strings.Manufacturer
+                                </span>
+                                <select class="form-control" id="combo-manufacturer-batch">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="checkbox-category">&nbsp;&nbsp;@deOROWeb.Resources.Strings.Category
+                                </span>
+                                <select class="form-control" id="combo-category-batch">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="checkbox-sub-category">&nbsp;&nbsp;@deOROWeb.Resources.Strings.SubCategory
+                                </span>
+                                <select class="form-control" id="combo-sub-category-batch">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="checkbox-taxable">&nbsp;&nbsp;@deOROWeb.Resources.Strings.Taxable
+                                </span>
+                                <select class="form-control" id="combo-taxable-batch">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="checkbox-count">&nbsp;&nbsp;@deOROWeb.Resources.Strings.Count
+                                </span>
+                                <input id="input-count-batch" name="input-count-batch" class="form-control" placeholder="@deOROWeb.Resources.Strings.Count">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="checkbox-unit-cost">&nbsp;&nbsp;@deOROWeb.Resources.Strings.UnitCost
+                                </span>
+                                <input id="input-unit-cost-batch" name="input-unit-cost-batch" class="form-control" placeholder="@deOROWeb.Resources.Strings.UnitCost">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="checkbox-price">&nbsp;&nbsp;@deOROWeb.Resources.Strings.Price
+                                </span>
+                                <input id="input-price-batch" name="input-price-batch" class="form-control" placeholder="@deOROWeb.Resources.Strings.Price">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="checkbox-tax-percent">&nbsp;&nbsp;@deOROWeb.Resources.Strings.Tax %
+                                </span>
+                                <input id="input-tax-percent-batch" name="input-tax-percent-batch" class="form-control" placeholder="@deOROWeb.Resources.Strings.Tax %">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="checkbox" id="checkbox-crv">&nbsp;&nbsp;@deOROWeb.Resources.Strings.CRV
+                                </span>
+                                <input id="input-crv-batch" name="input-crv-batch" class="form-control" placeholder="@deOROWeb.Resources.Strings.CRV">
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger"   data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="button" class="btn btn-primary pull-left" id="button-batch-save" ><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                  
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="import-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-user"></i>@deOROWeb.Resources.Strings.Import @deOROWeb.Resources.Strings.Items</h4>
+            </div>
+            <form action="#" method="post" id="form-import-item">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Select @deOROWeb.Resources.Strings.File:</label>
+                                <input type="file" id="input-file-name" style="width: 500px" accept="*.xlsx">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="button" class="btn btn-primary pull-left" id="button-import"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Import</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+<style type="text/css" id="custom-modal1">
+    .modal-lg
+    {
+        width: 1250px!important;
+        margin: 0 auto;
+    }
+</style>
+
+<style type="text/css" id="custom-modal2">
+    .modal-med > .modal-dialog
+    {
+        width: 850px!important;
+        margin: 0 auto;
+    }
+</style>
+
+<script>
+
+    var categories;
+    var subcategories;
+    var Manufactures
+    // added by Luis
+
+    $(function () {
+ 
+        LoadCategoriesSubCategories();
+        LoadManufactures
+        // added by Luis
+ 
+    });
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+            $(element).closest('.input-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+            $(element).closest('.input-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#form-item').validate(
+       {
+           rules: {
+               //"input-upc": {
+               //    required: true
+               //},
+               "input-first-name": {
+                   required: true
+               },
+               "input-name": {
+                   required: true
+               },
+               "input_bar_code": {
+                   required: true,
+                   remote: {
+                       url: "@Request.ApplicationPath/Item/IsBarcodeAvailable/",
+                       type: "post",
+                       data: {
+                           input_hidden_action: function () {
+                               return $('#input_hidden_action').val();
+                           }
+                       }
+
+                   }
+               },
+               "input-description": {
+                   required: true,
+                   minlength: 5
+               },
+               "input-count": {
+                   required: true,
+                   number: true
+               },
+               "input-unit-cost": {
+                   required: true,
+                   number: true
+               },
+               "input-avg-shelf-life": {
+                   required: false,
+                   number: true
+               },
+               "input-pick-order": {
+                   required: true,
+                   //ONLY DIGITS IN INPUT. By Luis Ruiz
+                   digits: true
+               },
+               "input-price": {
+                   required: true,
+                   number: true
+               },
+               //"input-tax": {
+               //    required: true
+               //},
+               //"input-price-tax": {
+               //    required: true
+               //},
+               "input-tax-percent": {
+                   required: false,
+                   number: true
+               }
+           },
+           messages: {
+               "input_bar_code": {
+                   remote: "Barcode already in use"
+               },
+           }
+       });
+
+
+       $('#form-batch-edit').validate(
+      {
+          rules: {
+              "input-unit-cost-batch": {
+                  number: true
+              },
+              "input-count-batch": {
+                  number: true
+              },
+              "input-price-batch": {
+                  number: true
+              },
+              "input-tax-percent-batch": {
+                  number: true
+              },
+              "input-crv-batch": {
+                  number: true
+              }
+
+          }
+      });
+
+
+       //$('#grid').dataTable({ bDestroy: true });
+
+      @* $('#grid').dataTable({
+           "dom": 'C<"clear">T<"clear">lfrtip',
+           "tableTools": {
+               "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf"
+           },
+           "bAutoWidth": true,
+           "bDestroy": true,
+           "aButtons": [
+                        {
+                            "sExtends": "xls",
+                            "sButtonText": "Save to Excel",
+                            "fnClick": function (nButton, oConfig, oFlash) {
+
+                                $.ajax({
+                                    cache: false,
+                                    type: "POST",
+                                    url: "@Request.ApplicationPath/Item/ExportItems",
+                                    dataType: "json",
+                                    contentType: "application/json; charset=utf-8",
+                                    success: function (result) {
+                                    },
+                                    error: function (error) {
+                                        alert("There was an error getting the data from the server: " + error.responseText);
+                                    }
+                                })
+
+                            }
+                        }]
+       });*@
+
+
+
+
+                    $('#batch-edit-modal').on('show.bs.modal', function (e) {
+
+                        $('#list-item').bootstrapDualListbox({
+                            preserveSelectionOnMove: 'moved',
+                            moveOnSelect: false,
+                        });
+
+                        $('#list-item').empty();
+
+             @foreach (var m in Model)
+             {
+                @:$("#list-item").append(new Option(Encoder.htmlDecode('@m.name~~~~@m.categoryname~~~~~@m.subcategoryname'), '@m.id'));
+             }
+
+                        $('#list-item').bootstrapDualListbox('refresh');
+
+                        $.ajax({
+                            async: false,
+                            type: "GET",
+                            url: "@Request.ApplicationPath/Manufacturer/GetManufacturers",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (result) {
+                                $('#combo-manufacturer-batch').empty();
+                                $('#combo-manufacturer-batch').append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+                                $.each(result, function (i, val) {
+                                    $('#combo-manufacturer-batch').append(new Option(val.name, val.id));
+                                });
+                            },
+                            error: function (error) {
+                            }
+                        })
+
+                        $('.form-control').val('');
+                        $('#combo-taxable-batch').val('1');
+                        $("#form-batch-edit").validate().resetForm();
+                        $(".form-group").removeClass("has-error");
+
+                        $('#combo-taxable-batch').val('1');
+                        $('#combo-manufacturer-batch').val('-1');
+                        FillCategories($('#combo-category-batch'));
+                        FillSubCategories($('#combo-category-batch'), $('#combo-sub-category-batch'));
+
+                    });
+
+                    $('#button-batch-save').click(function () {
+
+                        if (!$("#form-item").valid()) {
+                            return;
+                        }
+                        else {
+                            $('#batch-edit-modal').modal('hide');
+                        }
+
+                        var manufacturerid = null;
+                        var categoryid = null;
+                        var subcategoryid = null;
+                        var taxable = null;
+                        var price = null;
+                        var taxpercent = null;
+                        var unitcost = null;
+                        var crv = null;
+                        var count = null;
+
+                        if ($("#checkbox-manufacturer")[0].checked)
+                            manufacturerid = $("#combo-manufacturer-batch").val();
+
+                        if ($("#checkbox-category")[0].checked) {
+                            categoryid = $("#combo-category-batch").val();
+                            subcategoryid = $("#combo-sub-category-batch").val();
+                        }
+
+                        if ($("#checkbox-sub-category")[0].checked)
+                            subcategoryid = $("#combo-sub-category-batch").val();
+
+                        if ($("#checkbox-taxable")[0].checked)
+                            taxable = $("#combo-taxable-batch").val();
+
+                        if ($("#checkbox-price")[0].checked)
+                            price = $("#input-price-batch").val();
+
+                        if ($("#checkbox-tax-percent")[0].checked)
+                            taxpercent = $("#input-tax-percent-batch").val();
+
+                        if ($("#checkbox-unit-cost")[0].checked)
+                            unitcost = $("#input-unit-cost-batch").val();
+
+                        if ($("#checkbox-count")[0].checked)
+                            count = $("#input-count-batch").val();
+
+                        if ($("#checkbox-crv")[0].checked)
+                            crv = $("#input-crv-batch").val();
+
+                        var postData = JSON.stringify({
+                            'manufacturerid': manufacturerid,
+                            'categoryid': categoryid,
+                            'subcategoryid': subcategoryid,
+                            'taxable': taxable,
+                            'price': price,
+                            'taxpercent': taxpercent,
+                            'unitcost': unitcost,
+                            'count': count,
+                            'crv': crv,
+                            'itemids': $('#list-item').val()
+                        });
+
+                        $.ajax({
+                            type: "POST",
+                            url: "@Request.ApplicationPath/Item/BatchEdit/",
+            dataType: "json",
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+            }
+        });
+
+        window.location = '@Request.ApplicationPath/Item/';
+    });
+
+    $('#popup-modal').on('show.bs.modal', function (e) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Manufacturer/GetManufacturers",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (result) {
+                        $('#combo-manufacturer').empty();
+                        $('#combo-manufacturer').append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+                        $.each(result, function (i, val) {
+                            $('#combo-manufacturer').append(new Option(val.name, val.id));
+                        });
+
+                        //===================SORT LIST MANUFACTURERS By Luis Ruiz===================
+
+                        $("#combo-manufacturer option[value='@deOROWeb.Resources.Strings.SelectOne']").remove();
+
+                        var select_options = $("#combo-manufacturer option");
+                        var selected = $("#combo-manufacturer").val();
+
+                        select_options.sort(function (a, b) {
+                            if (a.text > b.text) return 1;
+                            if (a.text < b.text) return -1;
+                            return 0
+                        })                      
+
+                        $("#combo-manufacturer").empty()
+                        $('#combo-manufacturer').append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+                        $("#combo-manufacturer").append(select_options);
+                        $("#combo-manufacturer").val(selected);
+
+                        //======================================================================
+                    },
+                    error: function (error) {
+                        alert("There was an error getting the data from the server: " + error.responseText);
+                    }
+                })
+
+                $('.form-control').val('');
+                $('#combo-taxable').val('1');
+                $('#combo-has-barcode').val('1');
+                $('#combo-active').val('1');
+
+                $("#form-item").validate().resetForm();
+                $(".form-group").removeClass("has-error");
+
+                FillCategories($('#combo-category'));
+
+        //===================SORT LIST CATEGORY By Luis Ruiz===================
+                   
+                $("combo-category option[value='@deOROWeb.Resources.Strings.SelectOne']").remove();
+
+                var combo_category_select_options = $("#combo-category option");
+                var combo_category_selected = $("#combo-category").val();
+
+                combo_category_select_options.sort(function (a, b) {
+                    if (a.text > b.text) return 1;
+                    if (a.text < b.text) return -1;
+                    return 0
+                })
+                     
+                $("#combo-category").empty();
+                $("#combo-category").append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+                $("#combo-category").append(combo_category_select_options);
+                $("#combo-category").val(combo_category_selected);
+
+        //======================================================================
+        
+                FillSubCategories($('#combo-category'), $('#combo-sub-category'));
+
+        //===================SORT LIST SUBCATEGORY By Luis Ruiz===================
+
+                $("#combo-subcategory option[value='@deOROWeb.Resources.Strings.SelectOne']").remove();
+
+                var combo_subcategory_select_options = $("#combo-subcategory option");
+                var combo_subcategory_selected = $("#combo-subcategory").val();
+
+                combo_subcategory_select_options.sort(function (a, b) {
+                    if (a.text > b.text) return 1;
+                    if (a.text < b.text) return -1;
+                    return 0
+                })
+                    
+                $("#combo-subcategory").empty();
+                $("#combo-subcategory").append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+                $("#combo-subcategory").append(combo_subcategory_select_options);
+                $("#combo-subcategory").val(combo_subcategory_selected);
+
+        //======================================================================
+
+            })
+
+    function LoadCategoriesSubCategories() {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Category/GetCategories",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                categories = result.categories;
+                subcategories = result.subcategories;
+
+            },
+            error: function (error) {
+                alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    }
+
+        function LoadManufactures() {
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@Request.ApplicationPath/Manufacturer/GetManufacturers",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (result) {
+
+                            manufactures = result.manufactures;
+
+                        },
+                        error: function (error) {
+                            alert("There was an error getting the data from the server: " + error.responseText);
+                        }
+                    })
+     
+        }
+            // Added by Luis Load Manufactures
+
+    function FillManufactures(target) {
+
+        target.empty();
+        target.append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+        $.each(Manufactures, function (i, val) {
+            target.append(new Option(val.name, val.id));
+        });
+
+    }
+    // Added by Luis Load Manufactures
+        function FillCategories(target) {
+
+            target.empty();
+            target.append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+            $.each(categories, function (i, val) {
+                target.append(new Option(val.name, val.id));
+            });
+
+        }
+
+        function FillSubCategories(cat, sub) {
+
+            var id = cat.val();//$('#combo-category  option:selected').val();
+
+            sub.prop("disabled", true);
+            sub.empty();
+            sub.append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+            $.each(subcategories, function (i, val) {
+                if (val.parentid == id) {
+                    sub.append(new Option(val.name, val.id));
+                }
+            });
+
+          
+            sub.prop("disabled", false);
+        }
+
+        $('#combo-category').change(function () {
+            FillSubCategories($(this), $('#combo-sub-category'));
+
+            //===================SORT LIST SUBCATEGORY By Luis Ruiz===================
+
+            $("#combo-subcategory option[value='@deOROWeb.Resources.Strings.SelectOne']").remove();
+
+            var combo_subcategory_select_options = $("#combo-subcategory option");
+            var combo_subcategory_selected = $("#combo-subcategory").val();
+
+            combo_subcategory_select_options.sort(function (a, b) {
+                if (a.text > b.text) return 1;
+                if (a.text < b.text) return -1;
+                return 0
+            })
+
+            $("#combo-subcategory").empty();
+            $("#combo-subcategory").append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+            $("#combo-subcategory").append(combo_subcategory_select_options);
+            $("#combo-subcategory").val(combo_subcategory_selected);
+
+            //======================================================================
+
+        });
+
+        $('#combo-category-batch').change(function () {
+            FillSubCategories($(this), $('#combo-sub-category-batch'));
+        });
+
+        $('#button-import').click(function () {
+
+            var fd = new FormData();
+            var xhr = new XMLHttpRequest();
+            fd.append("file", document.getElementById('input-file-name').files[0]);
+
+
+            xhr.open("POST", "@Request.ApplicationPath/Item/ImportItems", true);
+            xhr.send(fd);
+
+            $('#import-modal').modal('hide');
+
+            var dialog = bootbox.dialog({
+                closeButton: false,
+                message: '<div class="overlay"><i class="fa fa-refresh fa-spin"></i></div>',
+                title: "Importing Items. Please wait...",
+                className: "modal-med",
+                buttons: {
+                    danger: {
+                        label: "Close",
+                        className: "btn-danger",
+                        disabled: "true",
+                        callback: function () {
+                            window.location = '@Request.ApplicationPath/Item/';
+                                    }
+                                }
+                            }
+                        });
+
+            dialog.find(".btn-danger").prop('disabled', true);
+            xhr.addEventListener("load", function (event) {
+
+                dialog.find(".btn-danger").prop('disabled', false);
+                dialog.find(".modal-title").text('Import Complete');
+                dialog.find(".overlay").html(event.target.response);
+
+            }, false);
+
+        });
+
+                    //$('.btn').click(function (event) {
+                    $('#grid tbody').on('click', 'tr', function (event) {
+
+                        var target = event.target.id;
+
+                        if (target.indexOf('edit') >= 0) {
+
+                            var id = target.substring(0, target.indexOf('edit') - 1);
+                            var postData = '{"id":' + id + '}';
+
+                            $("#input_hidden_action").val(id);
+
+                            $.ajax({
+                                type: "POST",
+                                url: "@Request.ApplicationPath/Item/Details/",
+                    dataType: "json",
+                    cache: false,
+                    contentType: "application/json; charset=utf-8",
+                    data: postData,
+                    success: function (result) {
+                        $("#combo-manufacturer > [value='" + result.manufacturerid + "']").attr("selected", "true");
+
+                        //FillCategories();
+                        FillCategories($('#combo-category'));
+
+                        //===================SORT LIST CATEGORY By Luis Ruiz===================
+
+                        $("combo-category option[value='@deOROWeb.Resources.Strings.SelectOne']").remove();
+
+                        var combo_category_select_options = $("#combo-category option");
+                        var combo_category_selected = $("#combo-category").val();
+
+                        combo_category_select_options.sort(function (a, b) {
+                            if (a.text > b.text) return 1;
+                            if (a.text < b.text) return -1;
+                            return 0
+                        })
+
+                        $("#combo-category").empty();
+                        $("#combo-category").append(new Option('@deOROWeb.Resources.Strings.SelectOne', -1));
+                        $("#combo-category").append(combo_category_select_options);
+                        $("#combo-category").val(combo_category_selected);
+
+                        //======================================================================
+
+                        $("#combo-category > [value='" + result.categoryid + "']").attr("selected", "true");
+
+                        //FillSubCategories();
+                        FillSubCategories($('#combo-category'), $('#combo-sub-category'));
+
+                        //===================SORT LIST SUBCATEGORY By Luis Ruiz===================
+
+                        var combo_subcategory_select_options = $("#combo-subcategory option");
+                        var combo_subcategory_selected = $("#combo-subcategory").val();
+
+                        combo_subcategory_select_options.sort(function (a, b) {
+                            if (a.text > b.text) return 1;
+                            if (a.text < b.text) return -1;
+                            return 0
+                        })
+
+                        $("#combo-subcategory").empty().append(combo_subcategory_select_options);
+                        $("#combo-subcategory").val(combo_subcategory_selected);
+
+                        //======================================================================
+
+
+                        $("#combo-sub-category > [value='" + result.subcategoryid + "']").attr("selected", "true");
+
+                        $('#input-upc').val(result.upc);
+                        $('#input-name').val(result.name);
+                        $('#input_bar_code').val(result.barcode);
+                        $('#input-description').val(result.description);
+                        $('#input-count').val(result.count);
+                        $('#input-avg-shelf-life').val(result.avgshelflife);
+                        $('#input-pick-order').val(result.pickorder);
+                        $("#combo-taxable > [value='" + result.is_taxable + "']").attr("selected", "true");
+                        $("#combo-active > [value='" + result.is_active + "']").attr("selected", "true");
+
+                        if (result.unitcost != null)
+                            $('#input-unit-cost').val(result.unitcost.toFixed(2));
+
+                        if (result.price != null)
+                            $('#input-price').val(result.price.toFixed(2));
+
+                        if (result.tax != null)
+                            $('#input-tax').val(result.tax.toFixed(2));
+
+                        if (result.price_tax_included != null)
+                            $('#input-price-tax').val(result.price_tax_included.toFixed(2));
+
+                        if (result.tax_percent != null)
+                            $('#input-tax-percent').val(result.tax_percent.toFixed(3));
+
+                        $("#combo-has-barcode > [value='" + result.has_barcode + "']").attr("selected", "true");
+
+                        if (result.crv != null)
+                            $('#input-crv').val(result.crv.toFixed(2));
+
+                        $('#input-image').val(result.image);
+                    },
+                    error: function (error) {
+                    }
+                });
+            }
+            else if (target.indexOf('delete') >= 0) {
+
+                bootbox.confirm("Are you sure you want to delete this Item?", function (result) {
+
+                    if (result) {
+                        var id = target.substring(0, target.indexOf('delete') - 1);
+                        var postData = '{"id":' + id + '}';
+
+                        $.ajax({
+                            type: "POST",
+                            url: "@Request.ApplicationPath/Item/Delete/",
+                            dataType: "json",
+                            cache: false,
+                            async: false,
+                            contentType: "application/json; charset=utf-8",
+                            data: postData,
+                            success: function (result) {
+                            },
+                            error: function (error) {
+                                //alert("There was an error posting the data to the server: " + error.responseText);
+                            }
+                        });
+
+                        dataTable.row('#' + id + '-item').remove().draw(false);
+                        //$("#form-item").submit();
+                    }
+                });
+            }
+        })
+
+    $('#button-save').click(function () {
+
+        if (!$("#form-item").valid()) {
+            return;
+        }
+        else {
+            $('#popup-modal').modal('hide');
+        }
+
+        var hidden = $("#input_hidden_action").val();
+
+        var postData = JSON.stringify({
+
+            'id': hidden,
+            'manufacturerid': $('#combo-manufacturer  option:selected').val(),
+            'categoryid': $('#combo-category  option:selected').val(),
+            'subcategoryid': $('#combo-sub-category  option:selected').val(),
+            'upc': $('#input-upc').val(),
+            'name': $('#input-name').val(),
+            'barcode': $('#input_bar_code').val(),
+            'description': $('#input-description').val(),
+            'count': $('#input-count').val(),
+            'unitcost': $('#input-unit-cost').val(),
+            'avgshelflife': $('#input-avg-shelf-life').val(),
+            'pickorder': $('#input-pick-order').val(),
+            'is_taxable': $('#combo-taxable  option:selected').val(),
+            'price': $('#input-price').val(),
+            'tax': $('#input-tax').val(),
+            'price_tax_included': $('#input-price-tax').val(),
+            'tax_percent': $('#input-tax-percent').val(),
+            'image': $('#input-image').val(),
+            'has_barcode': $('#combo-has-barcode  option:selected').val(),
+            'is_active': $('#combo-active  option:selected').val(),
+            'crv': $('#input-crv').val(),
+        });
+
+        if (hidden.length > 0) { //Edit
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Item/Edit",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                }
+            });
+        } else { // Add
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Item/Create",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                }
+            });
+        }
+
+        window.location = '@Request.ApplicationPath/Item/';
+    });
+
+
+  
+           
+
+
+    //=====POSITION CHANGE OF CONVERTION OF TABLE TO JQUERY DATA TABLE AFTER ADD ALL PROPERTIES TO THE CONTROLS TO AVOID ISSUES. By Luis Ruiz
+
+    var dataTable = $("#grid").DataTable({
+        sDom: 'C<"clear">T<"clear">lfrtip',
+        oTableTools: {
+            aButtons: [
+                        {
+                            sExtends: "text",
+                            sButtonText: "Export",
+                            fnClick: function (nButton, oConfig, oFlash) {
+                                window.location = '@Request.ApplicationPath/Item/ExportItems';
+                            }
+                        },
+                        {
+                            sExtends: "text",
+                            sButtonText: "Import",
+                            fnClick: function (nButton, oConfig, oFlash) {
+                                $('#import-modal').modal();
+                            }
+                        }
+            ]
+        },
+            initComplete: function () {
+                var i = 0;
+                this.api().columns().every(function () {
+                    if (i == 2 || i == 3 || i == 4) {
+                        var column = this;
+                        var select = $('<select><option value="NoFilter">No Filter</option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+                                column
+                                    .search(val != 'NoFilter' ? '^' + val + '$' : ' ', true, true)
+                                    .draw();
+                            });
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    }
+                    i++;
+                });
+            },
+    
+        "language": {
+            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+            "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+            "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+            "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+            "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+            "sSearch": "@deOROWeb.Resources.Strings.Search:",
+            "oPaginate": {
+                "sFirst": "@deOROWeb.Resources.Strings.First",
+                "sLast": "@deOROWeb.Resources.Strings.Last",
+                "sNext": "@deOROWeb.Resources.Strings.Next",
+                "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+            },
+        }
+    
+    });
+
+    
+
+</script>

@@ -1,0 +1,68 @@
+﻿@using deOROWeb.Helper;
+@model IEnumerable<deORODataAccess.DTO.LocationCreditActivityDTO>
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>Location Credit Activity</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="@Request.ApplicationPath/Location">Locations</a></li>
+            <li class="active">Location Credits</li>
+            <li class="active">Location Credit Activity</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.CustomerName</th>
+                                <th>@deOROWeb.Resources.Strings.LocationName</th>
+                                <th>@deOROWeb.Resources.Strings.UserName</th>
+                                <th>@deOROWeb.Resources.Strings.BarCode</th>
+                                <th>@deOROWeb.Resources.Strings.Amount</th>
+                                <th>@deOROWeb.Resources.Strings.ExpiryDate</th>
+                                <th>@deOROWeb.Resources.Strings.CreditClaimed</th>
+                                <th>@deOROWeb.Resources.Strings.CreditClaimedDate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr>
+                                    <td>@m.customername</td>
+                                    <td>@m.locationame</td>
+                                    <td>@m.username</td>
+                                    <td>@m.barcode</td>
+                                    <td>@m.amount</td>
+                                    <td>@m.expiry_date</td>
+                                    @if (@m.credit_claimed == 1)
+                                    {
+                                        <td>True</td>
+                                    }
+                                    else
+                                    {
+                                        <td>False</td>
+                                    }
+                                    <td>@m.credit_claimed_date</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<script>
+    $('#grid').dataTable();
+</script>

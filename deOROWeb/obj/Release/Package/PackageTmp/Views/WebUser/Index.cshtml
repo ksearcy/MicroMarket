@@ -1,0 +1,364 @@
+﻿@using deOROWeb.Helper;
+@model IEnumerable<deORODataAccess.webuser>
+@{
+    ViewBag.Title = @deOROWeb.Resources.Strings.WebUsers;
+}
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.WebUsers</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.WebUsers</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal" id="button-add"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.WebUser</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.UserName</th>
+                                <th>@deOROWeb.Resources.Strings.FirstName</th>
+                                <th>@deOROWeb.Resources.Strings.LastName</th>
+                                <th>@deOROWeb.Resources.Strings.Email</th>
+                                <th>@deOROWeb.Resources.Strings.Admin</th>
+                                <th>@deOROWeb.Resources.Strings.Active</th>
+                                <th></th>
+                                <th hidden="hidden"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr>
+                                    <td>@m.username</td>
+                                    <td>@m.first_name</td>
+                                    <td>@m.last_name</td>
+                                    <td>@m.email</td>
+                                    <td>@MvcHelper.TrueFlaseHelper.Label(m.is_admin)</td>
+                                    <td>@MvcHelper.TrueFlaseHelper.Label(m.is_active)</td>
+                                    <td>
+                                        <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="@m.id-edit">@deOROWeb.Resources.Strings.Edit</a></i>
+                                    </td>
+                                    <td hidden="hidden">
+                                        <i class="fa fa-trash-o"><a class="btn btn-app-small" id="@m.id-delete">@deOROWeb.Resources.Strings.Delete</a></i>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.User</h4>
+            </div>
+            <form action="#" method="post" id="form-user">
+                <div class="modal-body">
+                    <input id="input_hidden_action" type="hidden" />
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.UserName:</span>
+                            <input id="input_user_name" class="form-control" placeholder="@deOROWeb.Resources.Strings.UserName" required="required" name="input_user_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.FirstName:</span>
+                            <input id="input-first-name" class="form-control" placeholder="@deOROWeb.Resources.Strings.FirstName" required="required" name="input-first-name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.LastName:</span>
+                            <input id="input-last-name" class="form-control" placeholder="@deOROWeb.Resources.Strings.LastName" required="required" name="input-last-name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.Email:</span>
+                            <input id="input_email" class="form-control" placeholder="@deOROWeb.Resources.Strings.Email" name="input_email" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>@deOROWeb.Resources.Strings.Admin</label>
+                        <select class="form-control" id="combo-admin">
+                            <option value='1' selected="selected">@deOROWeb.Resources.Strings.True</option>
+                            <option value='0'>@deOROWeb.Resources.Strings.False</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Active</label>
+                        <select class="form-control" id="combo-active">
+                            <option value='1' selected="selected">@deOROWeb.Resources.Strings.True</option>
+                            <option value='0'>@deOROWeb.Resources.Strings.False</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.Password:</span>
+                            <input type="password" id="input-password" class="form-control" placeholder="@deOROWeb.Resources.Strings.Password" name="input-password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.ConfirmPassword:</span>
+                            <input type="password" id="input-confirm-password" class="form-control" placeholder="@deOROWeb.Resources.Strings.ConfirmPassword" name="input-confirm-password">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    $('#popup-modal').on('show.bs.modal', function (e) {
+        $('.form-control').val('').prop('readonly', false);
+        $('#combo-active').val('1');
+        $('#combo-admin').val('1');
+
+        $("#form-user").validate().resetForm();
+        $(".form-group").removeClass("has-error");
+    })
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#form-user').validate({
+        onkeyup: false,
+        rules: {
+            "input_user_name": {
+                required: true,
+                remote: {
+                    url: "@Request.ApplicationPath/WebUser/IsUsernameAvailable/",
+                    type: "post",
+                    data: {
+                        input_hidden_action: function () {
+                            return $('#input_hidden_action').val();
+                        }
+                    }
+
+                }
+            },
+            "input-first-name": {
+                required: true
+            },
+            "input-last-name": {
+                required: true
+            },
+            "input_email": {
+                required: true,
+                minlength: 6,
+                email: true,
+                remote: {
+                    url: "@Request.ApplicationPath/WebUser/IsEmailAvailable/",
+                    type: "post",
+                    data: {
+                        input_hidden_action: function () {
+                            return $('#input_hidden_action').val();
+                        }
+                    }
+
+                }
+            },
+            "input-password": {
+                required: true,
+                minlength: 5,
+                maxlength: 25
+            },
+            "input-confirm-password": {
+                required: true,
+                minlength: 5,
+                maxlength: 25,
+                equalTo: "#input-password"
+            }
+        },
+        messages: {
+            "input_user_name": {
+                remote: "User Name already in use"
+            },
+            "input_email": {
+                remote: "Email Address already in use"
+            }
+        }
+    });
+
+    $('#button-add').click(function (event) {
+        $("#input_hidden_action").val('');
+    });
+
+    //$('.btn').click(function (event) {
+    $('#grid tbody').on('click', 'tr', function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('edit') >= 0) {
+
+            var id = target.substring(0, target.indexOf('edit') - 1);
+            var postData = '{"id":' + id + '}';
+
+            $("#input_hidden_action").val(id);
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/WebUser/Details/",
+                dataType: "json",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+
+                    $('#input_user_name').val(result.username).prop('readonly', true);
+                    $('#input-first-name').val(result.first_name);
+                    $('#input-last-name').val(result.last_name);
+                    $('#input-password').val(result.password);
+                    $('#input-confirm-password').val(result.password);
+                    $('#input_email').val(result.email);
+                    $("#combo-active > [value='" + result.is_active + "']").attr("selected", "true");
+                    $("#combo-admin > [value='" + result.is_admin + "']").attr("selected", "true");
+
+                },
+                error: function (error) {
+                    alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+        else if (target.indexOf('delete') >= 0) {
+
+            bootbox.confirm("Are you sure you want to delete this Customer?", function (result) {
+
+                if (result) {
+                    var id = target.substring(0, target.indexOf('delete') - 1);
+                    var postData = '{"id":' + id + '}';
+
+                    $.ajax({
+                        type: "POST",
+                        url: "@Request.ApplicationPath/WebUser/Delete/",
+                        dataType: "json",
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        data: postData,
+                        success: function (result) {
+                        },
+                        error: function (error) {
+                            //alert("There was an error posting the data to the server: " + error.responseText);
+                        }
+                    });
+                }
+            });
+        }
+    })
+
+$('#button-save').click(function () {
+
+    if (!$("#form-user").valid()) return;
+
+    var hidden = $("#input_hidden_action").val();
+
+    var postData = JSON.stringify({
+
+        'id': hidden,
+        'username': $('#input_user_name').val(),
+        'email': $('#input_email').val(),
+        'first_name': $('#input-first-name').val(),
+        'last_name': $('#input-last-name').val(),
+        'password': $('#input-password').val(),
+        'is_active': $('#combo-active  option:selected').val(),
+        'is_admin': $('#combo-admin  option:selected').val()
+
+    });
+
+    if (hidden.length > 0) { //Edit
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/WebUser/Edit",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        } else { // Add
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/WebUser/Create",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+
+        window.location = '@Request.ApplicationPath/WebUser/';
+    });
+
+    //=====POSITION CHANGE OF CONVERTION OF TABLE TO JQUERY DATA TABLE AFTER ADD ALL PROPERTIES TO THE CONTROLS TO AVOID ISSUES. By Luis Ruiz
+
+    $('#grid').dataTable({
+        "language": {
+            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+            "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+            "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+            "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+            "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+            "sSearch": "@deOROWeb.Resources.Strings.Search:",
+            "oPaginate": {
+                "sFirst": "@deOROWeb.Resources.Strings.First",
+            "sLast": "@deOROWeb.Resources.Strings.Last",
+            "sNext": "@deOROWeb.Resources.Strings.Next",
+            "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+        },
+        }
+    });
+
+</script>

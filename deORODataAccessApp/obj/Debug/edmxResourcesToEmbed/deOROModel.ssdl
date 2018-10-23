@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="deORO_LocalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="deORO_LocalModelStoreContainer">
+    <EntitySet Name="accountbalancehistory" EntityType="deORO_LocalModel.Store.accountbalancehistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cash_collection" EntityType="deORO_LocalModel.Store.cash_collection" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cash_counter" EntityType="deORO_LocalModel.Store.cash_counter" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cash_dispense" EntityType="deORO_LocalModel.Store.cash_dispense" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cash_status" EntityType="deORO_LocalModel.Store.cash_status" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="category" EntityType="deORO_LocalModel.Store.category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="combo_discount" EntityType="deORO_LocalModel.Store.combo_discount" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="combo_discount_detail" EntityType="deORO_LocalModel.Store.combo_discount_detail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="credit" EntityType="deORO_LocalModel.Store.credit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="credit_activity" EntityType="deORO_LocalModel.Store.credit_activity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="credit_user" EntityType="deORO_LocalModel.Store.credit_user" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="device_error" EntityType="deORO_LocalModel.Store.device_error" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="discount" EntityType="deORO_LocalModel.Store.discount" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="event_log" EntityType="deORO_LocalModel.Store.event_log" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="fast_touch" EntityType="deORO_LocalModel.Store.fast_touch" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="help" EntityType="deORO_LocalModel.Store.help" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="item" EntityType="deORO_LocalModel.Store.item" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="item_group" EntityType="deORO_LocalModel.Store.item_group" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="item_group_activity" EntityType="deORO_LocalModel.Store.item_group_activity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="item_snapshot" EntityType="deORO_LocalModel.Store.item_snapshot" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="location_service" EntityType="deORO_LocalModel.Store.location_service" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="login_activity" EntityType="deORO_LocalModel.Store.login_activity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="manufacturer" EntityType="deORO_LocalModel.Store.manufacturer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="payment" EntityType="deORO_LocalModel.Store.payment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="planogram_item" EntityType="deORO_LocalModel.Store.planogram_item" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="promotion" EntityType="deORO_LocalModel.Store.promotion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="promotion_detail" EntityType="deORO_LocalModel.Store.promotion_detail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="promotion_user" EntityType="deORO_LocalModel.Store.promotion_user" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="shoppingcart" EntityType="deORO_LocalModel.Store.shoppingcart" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="shoppingcartdetail" EntityType="deORO_LocalModel.Store.shoppingcartdetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="subsidy" EntityType="deORO_LocalModel.Store.subsidy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="subsidy_detail" EntityType="deORO_LocalModel.Store.subsidy_detail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sync_data" EntityType="deORO_LocalModel.Store.sync_data" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="synclog" EntityType="deORO_LocalModel.Store.synclog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="transaction_error" EntityType="deORO_LocalModel.Store.transaction_error" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="transactionerror" EntityType="deORO_LocalModel.Store.transactionerror" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="user" EntityType="deORO_LocalModel.Store.user" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="user_snapshot" EntityType="deORO_LocalModel.Store.user_snapshot" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="users_deleted" EntityType="deORO_LocalModel.Store.users_deleted" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="accountbalancehistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="shoppingcartpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="account_balance" Type="numeric" Scale="2" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="description" Type="nvarchar" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="cash_collection">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="comments" Type="ntext" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="cash_counter">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="cashcollectionpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="cash_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="cash_dispense">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="shoppingcartpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="group" Type="nvarchar" MaxLength="255" />
+    <Property Name="type" Type="nchar" MaxLength="10" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="source" Type="nvarchar" MaxLength="100" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="cash_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar" MaxLength="255" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="count" Type="int" />
+    <Property Name="is_full" Type="tinyint" />
+    <Property Name="group" Type="nvarchar" MaxLength="255" />
+    <Property Name="event" Type="nvarchar" MaxLength="100" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="255" />
+    <Property Name="pick_order" Type="int" />
+    <Property Name="parentid" Type="int" />
+    <Property Name="image" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="combo_discount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="category" Type="nvarchar" MaxLength="255" />
+    <Property Name="type" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar" MaxLength="1024" />
+    <Property Name="date_from" Type="datetime" />
+    <Property Name="date_to" Type="datetime" />
+    <Property Name="time_from" Type="nvarchar" MaxLength="16" />
+    <Property Name="time_to" Type="nvarchar" MaxLength="16" />
+    <Property Name="monday" Type="tinyint" />
+    <Property Name="tuesday" Type="tinyint" />
+    <Property Name="wednesday" Type="tinyint" />
+    <Property Name="thursday" Type="tinyint" />
+    <Property Name="friday" Type="tinyint" />
+    <Property Name="saturday" Type="tinyint" />
+    <Property Name="sunday" Type="tinyint" />
+    <Property Name="percent" Type="numeric" Scale="2" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="is_active" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="combo_discount_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="combodiscountid" Type="int" Nullable="false" />
+    <Property Name="entityid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="credit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="255" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="expiry" Type="int" />
+    <Property Name="interval" Type="int" />
+    <Property Name="effective_date" Type="date" />
+    <Property Name="end_date" Type="date" />
+    <Property Name="is_active" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="credit_activity">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="creditid" Type="int" />
+    <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="expiry_date" Type="datetime" />
+    <Property Name="credit_claimed" Type="tinyint" />
+    <Property Name="credit_claimed_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="credit_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="creditid" Type="int" />
+    <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="device_error">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="source" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="description" Type="ntext" Nullable="false" />
+    <Property Name="created_date_time" Type="datetime" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="discount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar" MaxLength="1024" />
+    <Property Name="date_from" Type="datetime" />
+    <Property Name="date_to" Type="datetime" />
+    <Property Name="time_from" Type="nvarchar" MaxLength="16" />
+    <Property Name="time_to" Type="nvarchar" MaxLength="16" />
+    <Property Name="monday" Type="tinyint" />
+    <Property Name="tuesday" Type="tinyint" />
+    <Property Name="wednesday" Type="tinyint" />
+    <Property Name="thursday" Type="tinyint" />
+    <Property Name="friday" Type="tinyint" />
+    <Property Name="saturday" Type="tinyint" />
+    <Property Name="sunday" Type="tinyint" />
+    <Property Name="percent" Type="numeric" Scale="2" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="is_active" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="event_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="sourceid" Type="nvarchar" MaxLength="255" />
+    <Property Name="source" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="nvarchar" MaxLength="512" />
+    <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="created_date_time" Type="datetime" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="fast_touch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="itemid" Type="int" />
+    <Property Name="category" Type="nvarchar" MaxLength="50" />
+    <Property Name="image" Type="nvarchar" MaxLength="255" />
+    <Property Name="order" Type="int" />
+  </EntityType>
+  <EntityType Name="help">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="key" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="help_text" Type="ntext" Nullable="false" />
+    <Property Name="video" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="manufacturerid" Type="int" />
+    <Property Name="categoryid" Type="int" />
+    <Property Name="discountid" Type="int" />
+    <Property Name="upc" Type="nvarchar" MaxLength="255" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="barcode" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar" MaxLength="1204" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="stale" Type="int" />
+    <Property Name="short" Type="int" />
+    <Property Name="count" Type="int" />
+    <Property Name="unitcost" Type="numeric" Scale="2" />
+    <Property Name="avgshelflife" Type="nvarchar" MaxLength="255" />
+    <Property Name="pickorder" Type="int" />
+    <Property Name="is_taxable" Type="tinyint" />
+    <Property Name="price" Type="numeric" Scale="2" />
+    <Property Name="tax" Type="numeric" Scale="2" />
+    <Property Name="price_tax_included" Type="numeric" Scale="2" />
+    <Property Name="tax_percent" Type="numeric" Scale="3" />
+    <Property Name="crv" Type="numeric" Scale="2" />
+    <Property Name="has_barcode" Type="tinyint" />
+    <Property Name="image" Type="nvarchar" MaxLength="255" />
+    <Property Name="itemgroupid" Type="int" />
+  </EntityType>
+  <EntityType Name="item_group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="group" Type="nvarchar" MaxLength="100" />
+    <Property Name="camera" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="item_group_activity">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="itemgroupid" Type="int" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="item_snapshot">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="itemid" Type="int" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="manufacturerid" Type="int" />
+    <Property Name="categoryid" Type="int" />
+    <Property Name="discountid" Type="int" />
+    <Property Name="upc" Type="nvarchar" MaxLength="255" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="barcode" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar" MaxLength="1204" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="stale" Type="int" />
+    <Property Name="short" Type="int" />
+    <Property Name="count" Type="int" />
+    <Property Name="unitcost" Type="numeric" Scale="2" />
+    <Property Name="avgshelflife" Type="nvarchar" MaxLength="255" />
+    <Property Name="pickorder" Type="int" />
+    <Property Name="is_taxable" Type="tinyint" />
+    <Property Name="price" Type="numeric" Scale="2" />
+    <Property Name="tax" Type="numeric" Scale="2" />
+    <Property Name="price_tax_included" Type="numeric" Scale="2" />
+    <Property Name="tax_percent" Type="numeric" Scale="3" />
+    <Property Name="crv" Type="numeric" Scale="2" />
+    <Property Name="has_barcode" Type="tinyint" />
+    <Property Name="image" Type="nvarchar" MaxLength="255" />
+    <Property Name="itemgroupid" Type="int" />
+    <Property Name="schedule_date" Type="date" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="location_service">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="event" Type="nvarchar" MaxLength="255" />
+    <Property Name="completed" Type="tinyint" />
+    <Property Name="comments" Type="ntext" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="login_activity">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="method" Type="nvarchar" MaxLength="100" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="manufacturer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="shoppingcartpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="source" Type="nvarchar" MaxLength="100" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="routing" Type="nvarchar" MaxLength="100" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="planogram_item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="order" Type="int" />
+    <Property Name="data" Type="ntext" />
+  </EntityType>
+  <EntityType Name="promotion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="category" Type="nvarchar" MaxLength="255" />
+    <Property Name="type" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="nvarchar" MaxLength="255" />
+    <Property Name="date_from" Type="datetime" />
+    <Property Name="date_to" Type="datetime" />
+    <Property Name="amount" Type="decimal" Scale="2" />
+    <Property Name="percent" Type="decimal" Scale="2" />
+    <Property Name="is_active" Type="tinyint" />
+    <Property Name="buy_quantity" Type="int" />
+    <Property Name="get_quantity" Type="int" />
+    <Property Name="created_date_time" Type="datetime" />
+    <Property Name="modified_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="promotion_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="promotionid" Type="int" Nullable="false" />
+    <Property Name="entityid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="promotion_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="promotionid" Type="int" />
+    <Property Name="userid" Type="int" />
+    <Property Name="purchased" Type="int" />
+    <Property Name="redeemed" Type="int" />
+  </EntityType>
+  <EntityType Name="shoppingcart">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="created_date_time" Type="datetime" />
+    <Property Name="status" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="shoppingcartdetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="itemid" Type="int" />
+    <Property Name="shoppingcartpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="barcode" Type="nvarchar" MaxLength="255" />
+    <Property Name="price" Type="numeric" Scale="2" />
+    <Property Name="tax" Type="numeric" Scale="2" />
+    <Property Name="price_tax_included" Type="numeric" Scale="2" />
+    <Property Name="discount_description" Type="nvarchar" MaxLength="1024" />
+    <Property Name="discount_percentage" Type="numeric" Scale="2" />
+    <Property Name="discount_price" Type="numeric" Scale="2" />
+    <Property Name="discount_tax" Type="numeric" Scale="2" />
+    <Property Name="subsidy_description" Type="nvarchar" MaxLength="1024" />
+    <Property Name="subsidy_percentage" Type="numeric" Scale="2" />
+    <Property Name="subsidy_price" Type="numeric" Scale="2" />
+    <Property Name="subsidy_tax" Type="numeric" Scale="2" />
+    <Property Name="original_price" Type="numeric" Scale="2" />
+    <Property Name="original_tax" Type="numeric" Scale="2" />
+    <Property Name="crv" Type="numeric" Scale="2" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="subsidy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="category" Type="varchar" MaxLength="255" />
+    <Property Name="type" Type="varchar" MaxLength="255" />
+    <Property Name="description" Type="varchar" MaxLength="1024" />
+    <Property Name="percent" Type="decimal" Scale="2" />
+    <Property Name="amount" Type="decimal" Scale="2" />
+    <Property Name="is_active" Type="tinyint" />
+    <Property Name="created_date_time" Type="datetime" />
+    <Property Name="modified_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="subsidy_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="subsidyid" Type="int" Nullable="false" />
+    <Property Name="entityid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sync_data">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="100" />
+    <Property Name="status" Type="nvarchar" MaxLength="100" />
+    <Property Name="date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="synclog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="ntext" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="message" Type="ntext" />
+    <Property Name="createddatetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="transaction_error">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="sourceid" Type="nvarchar" MaxLength="255" />
+    <Property Name="source" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="nvarchar" MaxLength="512" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="created_date_time" Type="datetime" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="transactionerror">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="shoppingcartpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="source" Type="nvarchar" MaxLength="100" />
+    <Property Name="event" Type="nvarchar" MaxLength="100" />
+    <Property Name="amount" Type="numeric" Scale="2" />
+    <Property Name="created_date_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="username" Type="nvarchar" MaxLength="255" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="30" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="30" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" MaxLength="128" />
+    <Property Name="is_staff" Type="tinyint" Nullable="false" />
+    <Property Name="is_active" Type="tinyint" />
+    <Property Name="is_superuser" Type="tinyint" />
+    <Property Name="last_login" Type="datetime" />
+    <Property Name="date_joined" Type="datetime" />
+    <Property Name="applicationname" Type="nvarchar" MaxLength="255" />
+    <Property Name="is_approved" Type="tinyint" />
+    <Property Name="is_online" Type="tinyint" />
+    <Property Name="created_date_time" Type="datetime" />
+    <Property Name="last_updated_on" Type="datetime" />
+    <Property Name="last_updated_by_id" Type="int" />
+    <Property Name="is_lockedout" Type="tinyint" />
+    <Property Name="lastlockedoutdate" Type="datetime" />
+    <Property Name="failedpasswordattemptcount" Type="int" />
+    <Property Name="lastlogindate" Type="datetime" />
+    <Property Name="lastpasswordchangedate" Type="datetime" />
+    <Property Name="lastlogintype" Type="nvarchar" MaxLength="50" />
+    <Property Name="enrolled_fmd1" Type="nvarchar" />
+    <Property Name="finger_id1" Type="int" />
+    <Property Name="enrolled_fmd2" Type="nvarchar" />
+    <Property Name="finger_id2" Type="int" />
+    <Property Name="enrolled_fmd3" Type="nvarchar" />
+    <Property Name="finger_id3" Type="int" />
+    <Property Name="enrolled_fmd4" Type="nvarchar" />
+    <Property Name="finger_id4" Type="int" />
+    <Property Name="lastfmdchangeddate" Type="datetime" />
+    <Property Name="account_balance" Type="numeric" Scale="2" />
+    <Property Name="lastaccountbalancechangedamount" Type="numeric" Scale="2" />
+    <Property Name="lastaccountbalancechangeddate" Type="datetime" />
+    <Property Name="lastaccountbalancechangeddescription" Type="nvarchar" />
+    <Property Name="barcode" Type="nvarchar" MaxLength="100" />
+    <Property Name="salt" Type="nvarchar" MaxLength="50" />
+    <Property Name="payroll_balance" Type="numeric" Scale="2" />
+    <Property Name="lastpayrollbalancechangedamount" Type="numeric" Scale="2" />
+    <Property Name="lastpayrollbalancechangeddate" Type="datetime" />
+    <Property Name="lastpayrollbalancechangeddescription" Type="nvarchar" />
+    <Property Name="gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="dob" Type="date" />
+    <Property Name="sync_vector" Type="int" />
+    <Property Name="hid_card_data" Type="varchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="user_snapshot">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="username" Type="nvarchar" MaxLength="255" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="30" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="30" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" MaxLength="128" />
+    <Property Name="is_staff" Type="tinyint" Nullable="false" />
+    <Property Name="is_active" Type="tinyint" />
+    <Property Name="is_superuser" Type="tinyint" />
+    <Property Name="last_login" Type="datetime" />
+    <Property Name="date_joined" Type="datetime" />
+    <Property Name="applicationname" Type="nvarchar" MaxLength="255" />
+    <Property Name="is_approved" Type="tinyint" />
+    <Property Name="is_online" Type="tinyint" />
+    <Property Name="created_date_time" Type="datetime" />
+    <Property Name="last_updated_on" Type="datetime" />
+    <Property Name="last_updated_by_id" Type="int" />
+    <Property Name="is_lockedout" Type="tinyint" />
+    <Property Name="lastlockedoutdate" Type="datetime" />
+    <Property Name="failedpasswordattemptcount" Type="int" />
+    <Property Name="lastlogindate" Type="datetime" />
+    <Property Name="lastpasswordchangedate" Type="datetime" />
+    <Property Name="lastlogintype" Type="nvarchar" MaxLength="50" />
+    <Property Name="enrolled_fmd1" Type="nvarchar(max)" />
+    <Property Name="finger_id1" Type="int" />
+    <Property Name="enrolled_fmd2" Type="nvarchar(max)" />
+    <Property Name="finger_id2" Type="int" />
+    <Property Name="enrolled_fmd3" Type="nvarchar(max)" />
+    <Property Name="finger_id3" Type="int" />
+    <Property Name="enrolled_fmd4" Type="nvarchar(max)" />
+    <Property Name="finger_id4" Type="int" />
+    <Property Name="lastfmdchangeddate" Type="datetime" />
+    <Property Name="account_balance" Type="numeric" Scale="2" />
+    <Property Name="lastaccountbalancechangedamount" Type="numeric" Scale="2" />
+    <Property Name="lastaccountbalancechangeddate" Type="datetime" />
+    <Property Name="lastaccountbalancechangeddescription" Type="nvarchar" />
+    <Property Name="barcode" Type="nvarchar" MaxLength="100" />
+    <Property Name="salt" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="users_deleted">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="email" Type="nvarchar" MaxLength="75" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="address" Type="nvarchar" MaxLength="500" />
+    <Property Name="city" Type="nvarchar" MaxLength="255" />
+    <Property Name="state" Type="nvarchar" MaxLength="255" />
+    <Property Name="zip" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="nvarchar" MaxLength="255" />
+    <Property Name="amount_to_refund" Type="numeric" Scale="2" />
+    <Property Name="created_date_time" Type="datetime" />
+    <Property Name="created_by_id" Type="int" />
+  </EntityType>
+</Schema>

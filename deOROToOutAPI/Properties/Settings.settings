@@ -1,0 +1,43 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="deOROToOutAPI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="deORO_Server" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=.;Integrated Security=True;MultipleActiveResultSets=True;Connection Timeout=30;Connection Lifetime=0;Min Pool Size=0;Max Pool Size=2;Pooling=true;&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=.;Integrated Security=True;MultipleActiveResultSets=True;Connection Timeout=30;Connection Lifetime=0;Min Pool Size=0;Max Pool Size=2;Pooling=true;</Value>
+    </Setting>
+    <Setting Name="RUN_SERVICE_EVERY_X_MINUTES" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="SERVER_NAME" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server209</Value>
+    </Setting>
+    <Setting Name="API_URL_DOMAIN" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://vendor4.me/</Value>
+    </Setting>
+    <Setting Name="API_URL_POST_DATABASE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/deoro/report-databases/</Value>
+    </Setting>
+    <Setting Name="API_KEY" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">7bd1d4ce1a68efb08fc89922d6a4293b35ecfa56</Value>
+    </Setting>
+    <Setting Name="API_URL_GET_ITEMS_FULL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/deoro/report-item-full/</Value>
+    </Setting>
+    <Setting Name="API_URL_GET_ITEMS_CATALOG" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/deoro/report-item-catalog/</Value>
+    </Setting>
+    <Setting Name="API_URL_GET_ITEMS_LOCATIONS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/deoro/report-item-location/</Value>
+    </Setting>
+    <Setting Name="API_URL_POST_CUSTOMER_LOCATIONS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/deoro/report-customer-locations/</Value>
+    </Setting>
+    <Setting Name="API_URL_POST_SALES" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/api/deoro/report-sales/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

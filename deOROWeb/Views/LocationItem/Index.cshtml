@@ -1,0 +1,408 @@
+﻿@using deOROWeb.Helper;
+@model IEnumerable<deORODataAccess.DTO.LocationItemDTO>
+
+<link href="~/Content/css/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/datatables/jquery.dataTables.js"></script>
+<script src="~/Scripts/js/plugins/datatables/dataTables.bootstrap.js"></script>
+<script src="~/Scripts/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="~/Scripts/js/plugins/datatables/jquery.dataTables.editable.js"></script>
+<script src="~/Scripts/js/plugins/sparkline/jquery.sparkline.js"></script>
+
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>Location Items</h1>
+        <ol class="breadcrumb">
+            <li><a href="@Request.ApplicationPath/Dashboard"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li><a href="@Request.ApplicationPath/Location">@deOROWeb.Resources.Strings.Locations</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.LocationItems</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal" id="button-updated-recommened-all"><i class="fa  fa-edit"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.UpdateRecommendedPar</button>
+                            <button class="btn btn-primary btn-flat btn-sm" id="button-export-items">Excel @deOROWeb.Resources.Strings.Export</button>
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#import-modal" id="button-import-items">Excel @deOROWeb.Resources.Strings.Import</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="box-body table-responsive">
+                        <table class="table table-bordered table-striped" id="grid-location-items">
+                            <thead>
+                                <tr>
+                                    <th>@deOROWeb.Resources.Strings.CustomerName</th>
+                                    <th>@deOROWeb.Resources.Strings.LocationName</th>
+                                    <th>@deOROWeb.Resources.Strings.ItemName</th>
+                                    <th>@deOROWeb.Resources.Strings.BarCode</th>
+                                    <th># @deOROWeb.Resources.Strings.ComboDiscounts</th>
+                                    <th>@deOROWeb.Resources.Strings.Discount</th>
+                                    <th>@deOROWeb.Resources.Strings.Taxable</th>
+                                    <th>@deOROWeb.Resources.Strings.Price</th>
+                                    <th>@deOROWeb.Resources.Strings.Tax %</th>
+                                    <th>@deOROWeb.Resources.Strings.CRV</th>
+                                    <th>@deOROWeb.Resources.Strings.Tax</th>
+                                    <th>@deOROWeb.Resources.Strings.Price + @deOROWeb.Resources.Strings.CRV + @deOROWeb.Resources.Strings.Tax</th>
+                                    <th>Unit Cost</th>
+                                    <th>@deOROWeb.Resources.Strings.Quantity</th>
+                                    <th>@deOROWeb.Resources.Strings.Par</th>
+                                    <th>@deOROWeb.Resources.Strings.RecommendedPar</th>
+                                    @*<th>Last 30 Day Sales</th>*@
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var m in Model)
+                                {
+                                    <tr id="@m.id" title="@m.itemid">
+                                        <td>@m.customername</td>
+                                        <td>@m.locationame</td>
+                                        <td>@m.itemname</td>
+                                        <td>@m.barcode</td>
+                                        <td>@m.combodiscount</td>
+                                        <td>@m.discountname</td>
+                                        <td>@MvcHelper.TrueFlaseHelper.Label(m.is_taxable)</td>
+                                        <td>@m.price</td>
+                                        <td>@m.tax_percent</td>
+                                        <td>@m.crv</td>
+                                        <td>@m.tax</td>
+                                        <td>@m.price_tax_included</td>
+                                        <td>@m.unitcost</td>
+                                        <td>@m.quantity</td>
+                                        <td>@m.par</td>
+                                        <td></td>
+                                        @*<td>@m.chartdata</td>*@
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<div class="modal fade" id="import-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-med">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-user"></i>@deOROWeb.Resources.Strings.Import @deOROWeb.Resources.Strings.Items</h4>
+            </div>
+            <form action="#" method="post" id="form-import-item">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Select @deOROWeb.Resources.Strings.File:</label>
+                                <input type="file" id="input-file-name" style="width: 500px" accept="*.xlsx">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="button" class="btn btn-primary pull-left" id="button-import"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Import</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+
+
+    var oTable = $('#grid-location-items').dataTable(
+        {
+            buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+            "rowCallback": function (row, data, index) {
+
+                var postData1 = JSON.stringify({
+                    'locationid': @ViewBag.locationid,
+                    'itemid': row.title,
+                    'days': 30,
+                });
+
+                var postData2 = JSON.stringify({
+                    'locationid': @ViewBag.locationid,
+                    'itemid': row.title,
+                });
+
+             
+                $.ajax({
+                    type: "POST",
+                    url: "@Request.ApplicationPath/LocationItem/GetAdjustedPar",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: postData1,
+                    async: false,
+                    success: function (result) {
+
+                        if(parseInt(data[14]) == parseInt(result))
+                            $('td:eq(15)', row).html('<span class="badge bg-blue">' + result + '</span>');
+                        else if(parseInt(data[14]) > parseInt(result))
+                            $('td:eq(15)', row).html('<span class="badge bg-green">' + result + '</span>');
+                        else
+                            $('td:eq(15)', row).html('<span class="badge bg-red">' + result + '</span>');
+
+                    },
+                    error: function (error) {
+                    }
+                });
+
+            },           
+            "drawCallback": function (Settings) {
+                $('.spark').sparkline('html', {
+                    type: 'line'
+                });
+            },
+
+            "language": {
+                "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+                "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+                "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+                "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+                "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+                "sSearch": "@deOROWeb.Resources.Strings.Search:",
+                "oPaginate": {
+                    "sFirst": "@deOROWeb.Resources.Strings.First",
+                 "sLast": "@deOROWeb.Resources.Strings.Last",
+                 "sNext": "@deOROWeb.Resources.Strings.Next",
+                 "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+             },
+            }
+
+        });
+ 
+    $('#button-export-items').click(function () {    
+        window.location = '@Request.ApplicationPath/LocationItem/ExportLocationItems?location_id=@ViewBag.locationid';  
+        
+    });
+
+    $('#grid-location-items').dataTable().makeEditable({
+             sUpdateURL: function (value, settings) {
+            var id = this.parentNode.getAttribute('id');
+            var col = oTable.fnGetPosition(this)[2];
+            var rowId = oTable.fnGetPosition(this)[0];
+            var columnPosition = oTable.fnGetPosition(this)[1];
+            var columnId = oTable.fnGetPosition(this)[2];
+            var sColumnName = oTable.fnSettings().aoColumns[columnId].sName;
+            if (sColumnName == null || sColumnName == "")
+                sColumnName = oTable.fnSettings().aoColumns[columnId].sTitle;
+
+            var postData = JSON.stringify({
+                'id': id,
+                'value': value,
+                'columnName': sColumnName,
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/LocationItem/UpdateData",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                   
+                    var tr = $('#' + result.item.id);
+                    if (tr != null) {
+                        var $td = $('td', tr);
+                        if ($td != null) {
+                            if (result.item.price != null)
+                                $td.eq(7).text(result.item.price.toFixed(2));
+                            else
+                                $td.eq(7).text('0.00');
+
+                            if (result.item.tax_percent != null)
+                                $td.eq(8).text(result.item.tax_percent.toFixed(3));
+                            else
+                                $td.eq(8).text('0.000');
+
+                            if (result.item.crv != null)
+                                $td.eq(9).text(result.item.crv.toFixed(2));
+                            else
+                                $td.eq(9).text('0.00');
+
+                            if (result.item.tax != null)
+                                $td.eq(10).text(result.item.tax.toFixed(2));
+                            else
+                                $td.eq(10).text('0.00');
+
+                            if (result.item.price_tax_included != null)
+                                $td.eq(11).text(result.item.price_tax_included.toFixed(2));
+                            else
+                                $td.eq(11).text('0.00');
+                        }
+                    }
+
+                },
+                error: function (error) {
+                }
+            });
+
+            this.reset(value);
+            $(this).html(value);
+            return (value);
+
+             },
+        buttons: [
+             'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+
+        "bDestroy": true,
+        "rowCallback": function (row, data, index) {
+            $('td:eq(4)', row).html('<span class="spark">' + data[6] + '</span>');
+        },
+        "drawCallback": function (Settings) {
+            $('.spark').sparkline('html', {
+                type: 'bar', barColor: '#3366CC'
+            });
+        },
+        
+        "bProcessing": true,
+        "bServerSide": true,
+        "aoColumns": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                {
+                    indicator: 'Saving...',
+                    loadtext: 'loading...',
+                    type: 'select',
+                    event: 'click',
+                    loadurl: '@Request.ApplicationPath/Discount/GetDiscountsHTML',
+                    loadtype: 'GET',
+                    onblur: 'submit',
+                },
+                {
+                    indicator: 'Saving...',
+                    loadtext: 'loading...',
+                    type: 'select',
+                    event: 'click',
+                    onblur: 'submit',
+                    data: "{'1':'True','0':'False'}"
+                },
+                {
+                    indicator: 'Saving...',
+                    loadtext: 'loading...',
+                    type: 'text',
+                    event: 'click',
+                    onblur: 'submit',
+                },
+                {
+                    indicator: 'Saving...',
+                    loadtext: 'loading...',
+                    type: 'text',
+                    event: 'click',
+                    onblur: 'submit',
+                },
+                {
+                    indicator: 'Saving...',
+                    loadtext: 'loading...',
+                    type: 'text',
+                    event: 'click',
+                    onblur: 'submit',
+                },
+                null, null, null,
+                 {
+                     indicator: 'Saving...',
+                     loadtext: 'loading...',
+                     type: 'text',
+                     event: 'click',
+                     onblur: 'submit',
+                 },
+                {
+                    indicator: 'Saving...',
+                    loadtext: 'loading...',
+                    type: 'text',
+                    event: 'click',
+                    onblur: 'submit',
+                
+                },
+            
+        ]
+    });
+
+
+
+    $('#button-updated-recommened-all').click(function () {
+
+        bootbox.confirm("Are you sure you want to update all items with recommened par?", function (result) {
+            if (result) {
+                var ids = new Int16Array(0);
+
+                var postData = JSON.stringify({
+                    'locationid': @ViewBag.locationid,
+                    'ids': ids,
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Request.ApplicationPath/LocationItem/UpdateRecommendedPar",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: postData,
+                    async: false,
+                    success: function (result) {
+                        window.location.href = '@Request.ApplicationPath/LocationItem/Index/@ViewBag.locationid';
+                    },
+                    error: function (error) {
+                    }
+                });
+            }
+        });
+    });
+
+    $('#button-import').click(function () {
+
+        var fd = new FormData();
+        var xhr = new XMLHttpRequest();
+        fd.append("file", document.getElementById('input-file-name').files[0]);
+
+
+        xhr.open("POST", "@Request.ApplicationPath/LocationItem/ImportLocationItems", true);
+        xhr.send(fd);
+
+        $('#import-modal').modal('hide');
+
+        var dialog = bootbox.dialog({
+            closeButton: false,
+            message: '<div class="overlay"><i class="fa fa-refresh fa-spin"></i></div>',
+            title: "Importing Items. Please wait...",
+            className: "modal-med",
+            buttons: {
+                danger: {
+                    label: "Close",
+                    className: "btn-danger",
+                    disabled: "true",
+                    callback: function () {
+                        window.location = '@Request.ApplicationPath/LocationItem/Index/@ViewBag.locationid';
+                    }
+                }
+            }
+        });
+
+        dialog.find(".btn-danger").prop('disabled', true);
+        xhr.addEventListener("load", function (event) {
+
+            dialog.find(".btn-danger").prop('disabled', false);
+            dialog.find(".modal-title").text('Import Complete');
+            dialog.find(".overlay").html(event.target.response);
+
+        }, false);
+
+    });
+
+</script>

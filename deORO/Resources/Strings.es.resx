@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Administration.ApplicationSettings" xml:space="preserve">
+    <value>Configuración de Aplicacion</value>
+  </data>
+  <data name="Administration.Items" xml:space="preserve">
+    <value>Productos</value>
+  </data>
+  <data name="Administration.Service" xml:space="preserve">
+    <value>Servicio</value>
+  </data>
+  <data name="Administration.Shutdown" xml:space="preserve">
+    <value>Apagar</value>
+  </data>
+  <data name="Administration.SyncInfo" xml:space="preserve">
+    <value>Información de sincronización</value>
+  </data>
+  <data name="Barcode.ChangeBarcode" xml:space="preserve">
+    <value>Cambiar código de barras</value>
+  </data>
+  <data name="Barcode.CurrentBarcode" xml:space="preserve">
+    <value>Codigo de barras actual</value>
+  </data>
+  <data name="Barcode.NewBarcode" xml:space="preserve">
+    <value>Nuevo Código de Barras</value>
+  </data>
+  <data name="Barcode.Title" xml:space="preserve">
+    <value>Escriba o escanee el codigo de barras</value>
+  </data>
+  <data name="Billing.RefillAccountUsing" xml:space="preserve">
+    <value>Agregar credito usando</value>
+  </data>
+  <data name="Billing.YourAccountBalance" xml:space="preserve">
+    <value>Su balance de cuenta</value>
+  </data>
+  <data name="CashRefill.Amount" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="CashRefill.Cancel" xml:space="preserve">
+    <value>Cancelar </value>
+  </data>
+  <data name="CashRefill.DateTime" xml:space="preserve">
+    <value>Date Time</value>
+  </data>
+  <data name="CashRefill.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="CashRefill.Source" xml:space="preserve">
+    <value>Fuente</value>
+  </data>
+  <data name="CashRefill.TotalRefillAmount" xml:space="preserve">
+    <value>Total de recarga de credito</value>
+  </data>
+  <data name="ComboDiscounts.Title" xml:space="preserve">
+    <value>Especiales</value>
+  </data>
+  <data name="Config.application" xml:space="preserve">
+    <value>APLICACION</value>
+  </data>
+  <data name="Config.barcodereader" xml:space="preserve">
+    <value>LECTOR DE CODIGO DE BARRAS</value>
+  </data>
+  <data name="Config.bill" xml:space="preserve">
+    <value>Billete</value>
+  </data>
+  <data name="Config.camerafeed" xml:space="preserve">
+    <value>ADMINISTRADOR DE CAMARA</value>
+  </data>
+  <data name="Config.cardprocessor" xml:space="preserve">
+    <value>PROCESADOR DE TARJETA</value>
+  </data>
+  <data name="Config.cardreader" xml:space="preserve">
+    <value>LECTOR DE TARJETA</value>
+  </data>
+  <data name="Config.coin" xml:space="preserve">
+    <value>MONEDA</value>
+  </data>
+  <data name="Config.mail" xml:space="preserve">
+    <value>CORREO ELECTRONICO</value>
+  </data>
+  <data name="Config.refillrewards" xml:space="preserve">
+    <value>CREDITO EXTRA</value>
+  </data>
+  <data name="Config.usbrelay" xml:space="preserve">
+    <value>USB RELAY</value>
+  </data>
+  <data name="CreditCardRefill.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="CreditCardRefill.Message" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="CreditCardRefill.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="CreditCardRefill.Title" xml:space="preserve">
+    <value>Porfavor elija alguna de las siguientes opciones y seleccione "Ok"</value>
+  </data>
+  <data name="CreditCardRefill.ZipCode" xml:space="preserve">
+    <value>Código postal</value>
+  </data>
+  <data name="DeleteMe.Address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="DeleteMe.CityStateZip" xml:space="preserve">
+    <value>Ciudad, Estado, Codigo Postal</value>
+  </data>
+  <data name="DeleteMe.Deleted" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="DeleteMe.Email" xml:space="preserve">
+    <value>Correo Electrónico</value>
+  </data>
+  <data name="DeleteMe.ErrorAddress" xml:space="preserve">
+    <value>La dirección es obligatoria</value>
+  </data>
+  <data name="DeleteMe.ErrorCity" xml:space="preserve">
+    <value>La ciudad es obligatoria</value>
+  </data>
+  <data name="DeleteMe.ErrorFirstName" xml:space="preserve">
+    <value>El Nombre es Obligatorio</value>
+  </data>
+  <data name="DeleteMe.ErrorLastName" xml:space="preserve">
+    <value>Apellido Obligatorio</value>
+  </data>
+  <data name="DeleteMe.ErrorPhone" xml:space="preserve">
+    <value>Telefono Inválido</value>
+  </data>
+  <data name="DeleteMe.ErrorState" xml:space="preserve">
+    <value>El estado es obligatorio</value>
+  </data>
+  <data name="DeleteMe.ErrorZip" xml:space="preserve">
+    <value>Código Postal Inválido</value>
+  </data>
+  <data name="DeleteMe.FirstLastName" xml:space="preserve">
+    <value>Nombre / Apellido</value>
+  </data>
+  <data name="DeleteMe.Phone" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="DeleteMe.Title" xml:space="preserve">
+    <value>¿Esta seguro de que quiere eliminar su cuenta? Esta accion no podra ser cancelada. Usted debera de llenar el siguiente formulario para que usted reciba un cheque con la cantidad de {0} que es el saldo actual de su cuenta. </value>
+  </data>
+  <data name="Email.ChangeEmail" xml:space="preserve">
+    <value>Cambiar correo electrónico</value>
+  </data>
+  <data name="Email.CurrentEmail" xml:space="preserve">
+    <value>Correo electrónico actual</value>
+  </data>
+  <data name="Email.InvalidEmail" xml:space="preserve">
+    <value>Correo Electrónico Inválido</value>
+  </data>
+  <data name="Email.NewEmail" xml:space="preserve">
+    <value>Nuevo Correo Electrónico</value>
+  </data>
+  <data name="Email.Title" xml:space="preserve">
+    <value>Cambiar correo electrónico</value>
+  </data>
+  <data name="Items.AllItems" xml:space="preserve">
+    <value>Todos los productos</value>
+  </data>
+  <data name="Items.Barcode" xml:space="preserve">
+    <value>Código de Barras</value>
+  </data>
+  <data name="Items.EnterOrScanBarcode" xml:space="preserve">
+    <value>Escriba o escanee el codigo de barras para filtrar los productos</value>
+  </data>
+  <data name="Items.Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Items.OverUnder" xml:space="preserve">
+    <value>Sobre / Debajo</value>
+  </data>
+  <data name="Items.QuantityAfterService" xml:space="preserve">
+    <value>Cantidad despues del servicio</value>
+  </data>
+  <data name="Items.ServicedItems" xml:space="preserve">
+    <value>Inventario de producto</value>
+  </data>
+  <data name="Items.Stale" xml:space="preserve">
+    <value>Expirados</value>
+  </data>
+  <data name="Login.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Login.ForgotPassword" xml:space="preserve">
+    <value>Olvido su contraseña?</value>
+  </data>
+  <data name="Login.Login" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="Login.LoginMethod" xml:space="preserve">
+    <value>Método de inicio de sesión</value>
+  </data>
+  <data name="Login.Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Login.Title1" xml:space="preserve">
+    <value>Porfavor escanee su huella dactilar o ingrese usuario &amp; contraseña para iniciar sesión</value>
+  </data>
+  <data name="Login.UserName" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="MainWindow.Welcome" xml:space="preserve">
+    <value>Hola{0}</value>
+  </data>
+  <data name="Message.DeleteConfirmationMessage" xml:space="preserve">
+    <value>Esta seguro de que quiere eliminar esto?</value>
+  </data>
+  <data name="Message.DeleteConfirmationTitle" xml:space="preserve">
+    <value>Confirmacion para eliminar</value>
+  </data>
+  <data name="MyAccount.Administration" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+  <data name="MyAccount.Barcode" xml:space="preserve">
+    <value>Código de Barras</value>
+  </data>
+  <data name="MyAccount.Billing" xml:space="preserve">
+    <value>Recargar balance de cuenta</value>
+  </data>
+  <data name="MyAccount.DeleteMe" xml:space="preserve">
+    <value>Eliminar mi cuenta</value>
+  </data>
+  <data name="MyAccount.Email" xml:space="preserve">
+    <value>Correo Electrónico</value>
+  </data>
+  <data name="MyAccount.FingerPrints" xml:space="preserve">
+    <value>Huellas dactilares</value>
+  </data>
+  <data name="MyAccount.Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="MyAccount.TransactionHistory" xml:space="preserve">
+    <value>Historial de transacciones</value>
+  </data>
+  <data name="NewUser.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="NewUser.ClickBarcodeAndScan" xml:space="preserve">
+    <value>Toque icono &amp; escanee</value>
+  </data>
+  <data name="NewUser.ConfirmPassword" xml:space="preserve">
+    <value>Confirmar Contraseña</value>
+  </data>
+  <data name="NewUser.Email" xml:space="preserve">
+    <value>Correo Electrónico</value>
+  </data>
+  <data name="NewUser.Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="NewUser.Register" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="NewUser.Title" xml:space="preserve">
+    <value>Nuevo registro de usuario</value>
+  </data>
+  <data name="NewUser.UserName" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Password.ChangePassword" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="Password.ConfirmPassword" xml:space="preserve">
+    <value>Confirmar Contraseña</value>
+  </data>
+  <data name="Password.NewPassword" xml:space="preserve">
+    <value>Nueva Contraseña</value>
+  </data>
+  <data name="Password.Title" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="PaymentOptions.Title" xml:space="preserve">
+    <value>Opciones de pago</value>
+  </data>
+  <data name="Service.CashCollected" xml:space="preserve">
+    <value>Efectivo obtenido</value>
+  </data>
+  <data name="Service.LocationService" xml:space="preserve">
+    <value>Servicio de localización</value>
+  </data>
+  <data name="Service.ManageItems" xml:space="preserve">
+    <value>Administrar productos</value>
+  </data>
+  <data name="Service.Off" xml:space="preserve">
+    <value>Apagado</value>
+  </data>
+  <data name="Service.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Service.On" xml:space="preserve">
+    <value>Encendido</value>
+  </data>
+  <data name="Service.ResetService" xml:space="preserve">
+    <value>Reiniciar servicio</value>
+  </data>
+  <data name="Service.ServiceComplete" xml:space="preserve">
+    <value>Servicio completo</value>
+  </data>
+  <data name="Service.ServiceStart" xml:space="preserve">
+    <value>Inicio de servicio</value>
+  </data>
+  <data name="Service.TestMotor" xml:space="preserve">
+    <value>Prueba de motor</value>
+  </data>
+  <data name="Service.UnlockKiosk" xml:space="preserve">
+    <value>Desbloquear Kiosko</value>
+  </data>
+  <data name="ShoppingCart.Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="ShoppingCart.DiscountSavings" xml:space="preserve">
+    <value>Descuentos</value>
+  </data>
+  <data name="SyncInfo.DateTime" xml:space="preserve">
+    <value>Fecha y hora</value>
+  </data>
+  <data name="SyncInfo.Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="SyncInfo.LastDownloadDate" xml:space="preserve">
+    <value>Última Descarga</value>
+  </data>
+  <data name="SyncInfo.LastDownloadStatus" xml:space="preserve">
+    <value>Última Descarga</value>
+  </data>
+  <data name="SyncInfo.LastUploadDate" xml:space="preserve">
+    <value>Última Carga</value>
+  </data>
+  <data name="SyncInfo.LastUploadStatus" xml:space="preserve">
+    <value>Última Carga</value>
+  </data>
+  <data name="SyncInfo.Message" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="SyncInfo.Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="SyncInfo.SyncData" xml:space="preserve">
+    <value>Sincronización de datos</value>
+  </data>
+  <data name="SyncInfo.Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="SyncInfo.UpdateCreditCardAccountPassword" xml:space="preserve">
+    <value>Desbloquear contraseña de cuenta de tarjeta de credito</value>
+  </data>
+  <data name="TransactionHistory.Amount" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="TransactionHistory.ApplyDates" xml:space="preserve">
+    <value>Fechas en que aplica</value>
+  </data>
+  <data name="TransactionHistory.DateTime" xml:space="preserve">
+    <value>Fecha y hora</value>
+  </data>
+  <data name="TransactionHistory.EnterTextToFilterItems" xml:space="preserve">
+    <value>Escriba el nombre del prodcuto</value>
+  </data>
+  <data name="TransactionHistory.FromDate" xml:space="preserve">
+    <value>Fecha Inicial</value>
+  </data>
+  <data name="TransactionHistory.ToDate" xml:space="preserve">
+    <value>Fecha Final</value>
+  </data>
+  <data name="TransactionHistory.Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="TransactionHistory.UserName" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="ApplicationSettings.Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="AutoLogoff.Cancel" xml:space="preserve">
+    <value>Cancelar cierre de sesión</value>
+  </data>
+  <data name="AutoLogoff.Message" xml:space="preserve">
+    <value>Ha permanecido inactivo durante un largo periodo de tiempo. Tiene 00:00:{0} para cancelar el cierre de sesión.</value>
+  </data>
+  <data name="AutoLogoff.Title" xml:space="preserve">
+    <value>Notificación Importante</value>
+  </data>
+  <data name="Button.AccountBalance" xml:space="preserve">
+    <value>BALANCE DE CUENTA</value>
+  </data>
+  <data name="Button.Cash" xml:space="preserve">
+    <value>EFECTIVO</value>
+  </data>
+  <data name="Button.CreditCard" xml:space="preserve">
+    <value>CREDITO / DEBITO</value>
+  </data>
+  <data name="Button.DamagedBarcode" xml:space="preserve">
+    <value>CODIGO DAÑADO</value>
+  </data>
+  <data name="Button.Discounts" xml:space="preserve">
+    <value>DESCUENTOS</value>
+  </data>
+  <data name="Button.Login" xml:space="preserve">
+    <value>INICIAR SESION</value>
+  </data>
+  <data name="Button.Logout" xml:space="preserve">
+    <value>CERRAR SESION</value>
+  </data>
+  <data name="Button.MyAccount" xml:space="preserve">
+    <value>MI CUENTA</value>
+  </data>
+  <data name="Button.NoBarcode" xml:space="preserve">
+    <value>SIN CODIGO</value>
+  </data>
+  <data name="Button.Register" xml:space="preserve">
+    <value>REGISTRO</value>
+  </data>
+  <data name="Button.Shopping" xml:space="preserve">
+    <value>COMPRAS</value>
+  </data>
+  <data name="CameraFeed.NotConfigured" xml:space="preserve">
+    <value>No Configurado</value>
+  </data>
+  <data name="CashPayment.Amount" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="CashPayment.AmountDue" xml:space="preserve">
+    <value>Cantidad a pagar</value>
+  </data>
+  <data name="CashPayment.AmountInCredit" xml:space="preserve">
+    <value>Cantidad en credito</value>
+  </data>
+  <data name="CashPayment.AmountPaid" xml:space="preserve">
+    <value>Cantidad  pagada</value>
+  </data>
+  <data name="CashPayment.CancelTransaction" xml:space="preserve">
+    <value>Cancelar transacción</value>
+  </data>
+  <data name="CashPayment.LoginAndCreditChange" xml:space="preserve">
+    <value>Iniciar sesión &amp; cambiar credito</value>
+  </data>
+  <data name="CashPayment.Source" xml:space="preserve">
+    <value>Fuente</value>
+  </data>
+  <data name="Credit.Amount" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="Credit.ApplyToMyAccountBalance" xml:space="preserve">
+    <value>Aplicar a mi balance de cuenta</value>
+  </data>
+  <data name="Credit.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Credit.Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Credit.ExpiryDate" xml:space="preserve">
+    <value>Fecha de Expiración</value>
+  </data>
+  <data name="Credit.Title" xml:space="preserve">
+    <value>Haz recibido credito</value>
+  </data>
+  <data name="CreditCardPayment.AmountDue" xml:space="preserve">
+    <value>Cantidad a pagar</value>
+  </data>
+  <data name="CreditCardPayment.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="CreditCardPayment.CardReadError" xml:space="preserve">
+    <value>Error de lectura de tarjeta de credito. Porvafor seleccione "Ok" e intente de nuevo</value>
+  </data>
+  <data name="CreditCardPayment.DialogTitle" xml:space="preserve">
+    <value>Compra con tarjeta de credito</value>
+  </data>
+  <data name="CreditCardPayment.ErrorZip" xml:space="preserve">
+    <value>Porfavor ingrese codigo postal e intente de nuevo</value>
+  </data>
+  <data name="CreditCardPayment.ProcessingTransaction" xml:space="preserve">
+    <value>Procesando transacción, porfavor espere un momento</value>
+  </data>
+  <data name="CreditCardPayment.Title" xml:space="preserve">
+    <value>Porfavor deslice su tarjeta de credito</value>
+  </data>
+  <data name="CreditCardPayment.Zip" xml:space="preserve">
+    <value>Código postal</value>
+  </data>
+  <data name="DamagedBarcode.AddToShoppingCart" xml:space="preserve">
+    <value>Agregar a carrito de compras</value>
+  </data>
+  <data name="DamagedBarcode.Barcode" xml:space="preserve">
+    <value>Código de barras</value>
+  </data>
+  <data name="DamagedBarcode.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="DamagedBarcode.Category" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="DamagedBarcode.EnterTextToFilterItems" xml:space="preserve">
+    <value>Escriba el nombre del producto</value>
+  </data>
+  <data name="DamagedBarcode.LoadingData" xml:space="preserve">
+    <value>Cargando datos, porfavor espere...</value>
+  </data>
+  <data name="DamagedBarcode.Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="DamagedBarcode.Price" xml:space="preserve">
+    <value>Precio</value>
+  </data>
+  <data name="DamagedBarcode.Select" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="DispenseChange.Message" xml:space="preserve">
+    <value>Porfavor espere mientras le devolvemos el cambio</value>
+  </data>
+  <data name="DispenseChange.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="DispenseChange.Title" xml:space="preserve">
+    <value>Regresar cambio</value>
+  </data>
+  <data name="ForgotPassword.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="ForgotPassword.Email" xml:space="preserve">
+    <value>Correo Electrónico</value>
+  </data>
+  <data name="ForgotPassword.EmailPassword" xml:space="preserve">
+    <value>Enviar contraseña restaurar</value>
+  </data>
+  <data name="ForgotPassword.Error" xml:space="preserve">
+    <value>Correo Electrónico Inválido</value>
+  </data>
+  <data name="ForgotPassword.Title" xml:space="preserve">
+    <value>Olvido su contraseña?</value>
+  </data>
+  <data name="Login.Title2" xml:space="preserve">
+    <value>Porfavor escanee el codigo de barras para iniciar sesión </value>
+  </data>
+  <data name="Message.PurchaseComplete" xml:space="preserve">
+    <value>Compra realizada con éxito</value>
+  </data>
+  <data name="MessageBox.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="MessageBox.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MissingBarcodeCategories.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="MissingBarcodeCategories.Title" xml:space="preserve">
+    <value>Seleccionar una categoría</value>
+  </data>
+  <data name="MissingBarcodeItem.AddToCart" xml:space="preserve">
+    <value>Agregar a carrito</value>
+  </data>
+  <data name="MissingBarcodeItem.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="MissingBarcodeItem.ItemName" xml:space="preserve">
+    <value>Nombre del producto</value>
+  </data>
+  <data name="MissingBarcodeItem.ItemPrice" xml:space="preserve">
+    <value>Precio</value>
+  </data>
+  <data name="MissingBarcodeItem.SelectQuantity" xml:space="preserve">
+    <value>Seleccionar una cantidad</value>
+  </data>
+  <data name="MissingBarcodeItem.Tax" xml:space="preserve">
+    <value>Impuesto</value>
+  </data>
+  <data name="MissingBarcodeItem.Title" xml:space="preserve">
+    <value>Detalles del Producto</value>
+  </data>
+  <data name="MissingBarcodeItem.TotalPrice" xml:space="preserve">
+    <value>Precio Total (Impuesto Incluido)</value>
+  </data>
+  <data name="MissingBarcodeItems.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="MissingBarcodeItems.Title" xml:space="preserve">
+    <value>Seleccionar un producto</value>
+  </data>
+  <data name="MyAccountPay.AccountBalance" xml:space="preserve">
+    <value>Balance de cuenta</value>
+  </data>
+  <data name="MyAccountPay.AmountDue" xml:space="preserve">
+    <value>Cantidad a pagar</value>
+  </data>
+  <data name="MyAccountPay.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="MyAccountPay.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PaymentOptions.Account Balance" xml:space="preserve">
+    <value>Balance de cuenta</value>
+  </data>
+  <data name="Popup.Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="ReturnChangeOptions.CreateAccountAndCreditChange" xml:space="preserve">
+    <value>Crear cuenta y regresar cambio</value>
+  </data>
+  <data name="ReturnChangeOptions.CreditChangeToMyAccount" xml:space="preserve">
+    <value>Cambio de credito a mi cuenta</value>
+  </data>
+  <data name="ReturnChangeOptions.DispenseChange" xml:space="preserve">
+    <value>Regresar cambio</value>
+  </data>
+  <data name="ReturnChangeOptions.LoginAndCreditChange" xml:space="preserve">
+    <value>Iniciar sesión &amp; recibir cambio como credito</value>
+  </data>
+  <data name="ReturnChangeOptions.Title" xml:space="preserve">
+    <value>Si usted es un usuario actualmente registrado, pofavor inicie sesion para añadir ${0} a su cuenta o de click en una de las siguientes opciones. Si usted no lo hace usted perdera ${0} en credito.</value>
+  </data>
+  <data name="ShoppingCart.Barcode" xml:space="preserve">
+    <value>Código de barras</value>
+  </data>
+  <data name="ShoppingCart.ComboDiscountApplied" xml:space="preserve">
+    <value>Multi descuento aplicado</value>
+  </data>
+  <data name="ShoppingCart.CRV" xml:space="preserve">
+    <value>CRV</value>
+  </data>
+  <data name="ShoppingCart.Discount" xml:space="preserve">
+    <value>Descuento</value>
+  </data>
+  <data name="ShoppingCart.Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="ShoppingCart.OriginalPrice" xml:space="preserve">
+    <value>Precio Original </value>
+  </data>
+  <data name="ShoppingCart.Price" xml:space="preserve">
+    <value>Precio</value>
+  </data>
+  <data name="ShoppingCart.Tax" xml:space="preserve">
+    <value>Impuesto</value>
+  </data>
+  <data name="SyncData.Message" xml:space="preserve">
+    <value>Sincronización de datos en progreso, porfavor espere...</value>
+  </data>
+  <data name="NewUser.FirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="NewUser.LastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="ShoppingCart.SubsidySavings" xml:space="preserve">
+    <value>Ahorros de subsidio</value>
+  </data>
+  <data name="ShoppingCart.Subsidy" xml:space="preserve">
+    <value>Subsidio</value>
+  </data>
+  <data name="Administration.FileTransfer" xml:space="preserve">
+    <value>Transferencia de Archivo</value>
+  </data>
+  <data name="FileTransfer.Destination" xml:space="preserve">
+    <value>Destino</value>
+  </data>
+  <data name="FileTransfer.Source" xml:space="preserve">
+    <value>Fuente</value>
+  </data>
+  <data name="Service.AddMoney" xml:space="preserve">
+    <value>Agregar creditos</value>
+  </data>
+  <data name="AddMoney.Bill" xml:space="preserve">
+    <value>Estatus de reciclado de billete</value>
+  </data>
+  <data name="AddMoney.Coin" xml:space="preserve">
+    <value>Estatus de moneda intelligente</value>
+  </data>
+  <data name="AddMoney.Refresh" xml:space="preserve">
+    <value>Actualizacion de estatus</value>
+  </data>
+  <data name="AddMoney.Status" xml:space="preserve">
+    <value>Estatus</value>
+  </data>
+  <data name="ReturnChangeOptions.NoChange" xml:space="preserve">
+    <value>Sin cambios</value>
+  </data>
+  <data name="NewUser.DOB" xml:space="preserve">
+    <value>Fecha de nacimiento</value>
+  </data>
+  <data name="NewUser.Gender" xml:space="preserve">
+    <value>Sexo</value>
+  </data>
+  <data name="Administration.Ftp" xml:space="preserve">
+    <value>Ftp</value>
+  </data>
+  <data name="NewUser.DOBTexblock" xml:space="preserve">
+    <value>Toca el calendario!</value>
+  </data>
+  <data name="Billing.Ok" xml:space="preserve">
+    <value>De acuerdo</value>
+  </data>
+  <data name="Billing.PleaseScan" xml:space="preserve">
+    <value>Por favor, escanee la tarjeta de crédito</value>
+  </data>
+  <data name="MessageBox.Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Register.FingerprintHeader" xml:space="preserve">
+    <value>Rgistro de Huella Digital</value>
+  </data>
+  <data name="Register.FingerprintSaveButton" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Message.InvalidFingerprintMessage" xml:space="preserve">
+    <value>Huella Digital Invalida.</value>
+  </data>
+  <data name="Message.InvalidFingerprintTitle" xml:space="preserve">
+    <value>Huella Digital Invalida</value>
+  </data>
+  <data name="Message.LoginFailedMessage" xml:space="preserve">
+    <value>Usuario o Contraseña Invalidos.</value>
+  </data>
+  <data name="Message.LoginFailedTitle" xml:space="preserve">
+    <value>Error de Inicio de Sesion</value>
+  </data>
+  <data name="FingerPrint.CultureInfo" xml:space="preserve">
+    <value>es</value>
+  </data>
+  <data name="Gender.Female" xml:space="preserve">
+    <value>Femenino</value>
+  </data>
+  <data name="Gender.Male" xml:space="preserve">
+    <value>Masculino</value>
+  </data>
+  <data name="Message.FingerPrintRegistrationTtile" xml:space="preserve">
+    <value>Registro de huella digital</value>
+  </data>
+  <data name="Message.SuccessfulFingerPrintRegistrationMessage" xml:space="preserve">
+    <value>Rgeistro de huella digital satisfactorio</value>
+  </data>
+  <data name="Message.SuccessfulRefillMessage" xml:space="preserve">
+    <value>Recarga de cuenta realizada</value>
+  </data>
+  <data name="Message.SuccessfulRefillTitle" xml:space="preserve">
+    <value>Recarga de Cuenta</value>
+  </data>
+  <data name="Message.UnsuccessfulFingerPrintRegistrationMessage" xml:space="preserve">
+    <value>Registro de huella digital no satisfactorio</value>
+  </data>
+  <data name="Button.Addfunds" xml:space="preserve">
+    <value>Add Funds</value>
+  </data>
+  <data name="Button.PayrollBalance" xml:space="preserve">
+    <value>BALANCE DE NOMINA</value>
+  </data>
+  <data name="MyPayrollPay.AmountDue" xml:space="preserve">
+    <value>Cantidad a pagar</value>
+  </data>
+  <data name="MyPayrollPay.Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="MyPayrollPay.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MyPayrollPay.PayrollBalance" xml:space="preserve">
+    <value>Balance de Nómina</value>
+  </data>
+  <data name="PaymentOptions.Payroll Balance" xml:space="preserve">
+    <value>Balance de Nómina</value>
+  </data>
+</root>

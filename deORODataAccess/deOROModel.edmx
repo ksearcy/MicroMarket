@@ -1,0 +1,2403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="deORO_MasterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="deORO_MasterModelStoreContainer">
+          <EntitySet Name="accountbalancehistory" EntityType="deORO_MasterModel.Store.accountbalancehistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="alert" EntityType="deORO_MasterModel.Store.alert" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="alert_subscription" EntityType="deORO_MasterModel.Store.alert_subscription" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cash_collection" EntityType="deORO_MasterModel.Store.cash_collection" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cash_counter" EntityType="deORO_MasterModel.Store.cash_counter" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cash_dispense" EntityType="deORO_MasterModel.Store.cash_dispense" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cash_reconciliation" EntityType="deORO_MasterModel.Store.cash_reconciliation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="cash_status" EntityType="deORO_MasterModel.Store.cash_status" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="category" EntityType="deORO_MasterModel.Store.category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="combo_discount" EntityType="deORO_MasterModel.Store.combo_discount" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="combo_discount_detail" EntityType="deORO_MasterModel.Store.combo_discount_detail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="customer" EntityType="deORO_MasterModel.Store.customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dashboard" EntityType="deORO_MasterModel.Store.dashboard" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="device_error" EntityType="deORO_MasterModel.Store.device_error" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="discount" EntityType="deORO_MasterModel.Store.discount" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="driver" EntityType="deORO_MasterModel.Store.driver" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="event_log" EntityType="deORO_MasterModel.Store.event_log" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="item" EntityType="deORO_MasterModel.Store.item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location" EntityType="deORO_MasterModel.Store.location" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location_combo_discount" EntityType="deORO_MasterModel.Store.location_combo_discount" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location_credit" EntityType="deORO_MasterModel.Store.location_credit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location_credit_activity" EntityType="deORO_MasterModel.Store.location_credit_activity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location_credit_user" EntityType="deORO_MasterModel.Store.location_credit_user" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location_item" EntityType="deORO_MasterModel.Store.location_item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location_item_deleted" EntityType="deORO_MasterModel.Store.location_item_deleted" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location_service" EntityType="deORO_MasterModel.Store.location_service" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="location_subsidy" EntityType="deORO_MasterModel.Store.location_subsidy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="manufacturer" EntityType="deORO_MasterModel.Store.manufacturer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="metric" EntityType="deORO_MasterModel.Store.metric" store:Type="Tables" store:Schema="dbo" store:Name="metric">
+            <DefiningQuery>SELECT 
+      [metric].[id] AS [id], 
+      [metric].[name] AS [name], 
+      [metric].[query] AS [query], 
+      [metric].[widget_type] AS [widget_type], 
+      [metric].[date_range] AS [date_range]
+      FROM [dbo].[metric] AS [metric]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="payment" EntityType="deORO_MasterModel.Store.payment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="planogram" EntityType="deORO_MasterModel.Store.planogram" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="planogram_item" EntityType="deORO_MasterModel.Store.planogram_item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="schedule" EntityType="deORO_MasterModel.Store.schedule" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="schedule_detail" EntityType="deORO_MasterModel.Store.schedule_detail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="schedule_detail_item" EntityType="deORO_MasterModel.Store.schedule_detail_item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="shoppingcart" EntityType="deORO_MasterModel.Store.shoppingcart" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="shoppingcartdetail" EntityType="deORO_MasterModel.Store.shoppingcartdetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="subsidy" EntityType="deORO_MasterModel.Store.subsidy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="subsidy_detail" EntityType="deORO_MasterModel.Store.subsidy_detail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="synclog" EntityType="deORO_MasterModel.Store.synclog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="transaction_error" EntityType="deORO_MasterModel.Store.transaction_error" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="user" EntityType="deORO_MasterModel.Store.user" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="user_snapshot" EntityType="deORO_MasterModel.Store.user_snapshot" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="users_deleted" EntityType="deORO_MasterModel.Store.users_deleted" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webuser" EntityType="deORO_MasterModel.Store.webuser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="widget" EntityType="deORO_MasterModel.Store.widget" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="accountbalancehistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="userpkid" Type="varchar" MaxLength="255" />
+          <Property Name="account_balance" Type="decimal" Scale="2" />
+          <Property Name="amount" Type="decimal" Scale="2" />
+          <Property Name="description" Type="varchar" MaxLength="4000" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="alert">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="metricid" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="frequency" Type="varchar" MaxLength="50" />
+          <Property Name="period" Type="varchar" MaxLength="50" />
+          <Property Name="last_run_date" Type="date" />
+          <Property Name="next_run_date" Type="date" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="report_type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="alert_subscription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="alertid" Type="int" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="is_active" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="cash_collection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="vmachineid" Type="int" />
+          <Property Name="userpkid" Type="varchar" MaxLength="255" />
+          <Property Name="comments" Type="ntext" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="cash_counter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="vmachineid" Type="int" />
+          <Property Name="cashcollectionpkid" Type="varchar" MaxLength="255" />
+          <Property Name="cash_type" Type="varchar" MaxLength="50" />
+          <Property Name="amount" Type="numeric" Scale="2" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="cash_dispense">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="shoppingcartpkid" Type="varchar" MaxLength="255" />
+          <Property Name="group" Type="varchar" MaxLength="255" />
+          <Property Name="amount" Type="numeric" Scale="2" />
+          <Property Name="source" Type="varchar" MaxLength="100" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="cash_reconciliation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="cashcollectionpkid" Type="varchar" MaxLength="255" />
+          <Property Name="coin_total" Type="decimal" Scale="2" />
+          <Property Name="c1_total" Type="int" />
+          <Property Name="c2_total" Type="int" />
+          <Property Name="c5_total" Type="int" />
+          <Property Name="c10_total" Type="int" />
+          <Property Name="c20_total" Type="int" />
+          <Property Name="c50_total" Type="int" />
+          <Property Name="c100_total" Type="int" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="total" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="cash_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="vmachineid" Type="int" />
+          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="amount" Type="numeric" Scale="2" />
+          <Property Name="count" Type="numeric" Scale="2" />
+          <Property Name="is_full" Type="tinyint" />
+          <Property Name="group" Type="varchar" MaxLength="255" />
+          <Property Name="event" Type="varchar" MaxLength="100" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="pick_order" Type="int" />
+          <Property Name="parentid" Type="int" />
+          <Property Name="depletion_level" Type="int" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="combo_discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="varchar" MaxLength="1024" />
+          <Property Name="date_from" Type="datetime" />
+          <Property Name="date_to" Type="datetime" />
+          <Property Name="time_from" Type="varchar" MaxLength="50" />
+          <Property Name="time_to" Type="varchar" MaxLength="50" />
+          <Property Name="monday" Type="tinyint" />
+          <Property Name="tuesday" Type="tinyint" />
+          <Property Name="wednesday" Type="tinyint" />
+          <Property Name="thursday" Type="tinyint" />
+          <Property Name="friday" Type="tinyint" />
+          <Property Name="saturday" Type="tinyint" />
+          <Property Name="sunday" Type="tinyint" />
+          <Property Name="percent" Type="decimal" Scale="2" />
+          <Property Name="amount" Type="decimal" Scale="2" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="modified_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="combo_discount_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="combodiscountid" Type="int" />
+          <Property Name="entityid" Type="int" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="zip" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="fax" Type="varchar" MaxLength="50" />
+          <Property Name="email_address" Type="varchar" MaxLength="50" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="dashboard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+          <Property Name="userid" Type="int" />
+          <Property Name="order" Type="int" />
+        </EntityType>
+        <EntityType Name="device_error">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="source" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="description" Type="ntext" Nullable="false" />
+          <Property Name="created_date_time" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="varchar" MaxLength="1024" />
+          <Property Name="date_from" Type="datetime" />
+          <Property Name="date_to" Type="datetime" />
+          <Property Name="time_from" Type="varchar" MaxLength="50" />
+          <Property Name="time_to" Type="varchar" MaxLength="50" />
+          <Property Name="monday" Type="tinyint" />
+          <Property Name="tuesday" Type="tinyint" />
+          <Property Name="wednesday" Type="tinyint" />
+          <Property Name="thursday" Type="tinyint" />
+          <Property Name="friday" Type="tinyint" />
+          <Property Name="saturday" Type="tinyint" />
+          <Property Name="sunday" Type="tinyint" />
+          <Property Name="percent" Type="decimal" Scale="2" />
+          <Property Name="amount" Type="decimal" Scale="2" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="modified_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="driver">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="event_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="sourceid" Type="nvarchar" MaxLength="255" />
+          <Property Name="source" Type="nvarchar" MaxLength="100" />
+          <Property Name="description" Type="nvarchar" MaxLength="512" />
+          <Property Name="userpkid" Type="nvarchar" MaxLength="255" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="manufacturerid" Type="int" />
+          <Property Name="categoryid" Type="int" />
+          <Property Name="subcategoryid" Type="int" />
+          <Property Name="discountid" Type="int" />
+          <Property Name="upc" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="barcode" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="varchar" MaxLength="1204" />
+          <Property Name="count" Type="int" />
+          <Property Name="unitcost" Type="decimal" Scale="2" />
+          <Property Name="avgshelflife" Type="varchar" MaxLength="255" />
+          <Property Name="pickorder" Type="int" />
+          <Property Name="is_taxable" Type="tinyint" />
+          <Property Name="price" Type="decimal" Scale="2" />
+          <Property Name="tax" Type="decimal" Scale="2" />
+          <Property Name="price_tax_included" Type="decimal" Scale="2" />
+          <Property Name="tax_percent" Type="decimal" Scale="3" />
+          <Property Name="crv" Type="decimal" Scale="2" />
+          <Property Name="has_barcode" Type="tinyint" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="image" Type="varchar" MaxLength="255" />
+          <Property Name="unique_identifier" Type="varchar" MaxLength="75" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="zip" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="fax" Type="varchar" MaxLength="50" />
+          <Property Name="email_address" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="driverid" Type="nvarchar" MaxLength="255" />
+          <Property Name="service_interval" Type="int" />
+          <Property Name="last_service_date_time" Type="date" />
+          <Property Name="camera_feed_path" Type="varchar" MaxLength="1024" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="management_rate" Type="decimal" Scale="2" />
+          <Property Name="monthly_fee" Type="int" />
+          <Property Name="creditcard_rate" Type="decimal" Scale="2" />
+          <Property Name="commission_before_taxes" Type="tinyint" />
+          <Property Name="users_shared" Type="tinyint" />
+          <Property Name="serial_number" Type="varchar" MaxLength="75" />
+        </EntityType>
+        <EntityType Name="location_combo_discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="combodiscountid" Type="int" />
+        </EntityType>
+        <EntityType Name="location_credit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="amount" Type="decimal" Scale="2" />
+          <Property Name="expiry" Type="int" />
+          <Property Name="interval" Type="int" />
+          <Property Name="effective_date" Type="date" />
+          <Property Name="end_date" Type="date" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="location_credit_activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="creditid" Type="int" />
+          <Property Name="userpkid" Type="varchar" MaxLength="255" />
+          <Property Name="amount" Type="decimal" Scale="2" />
+          <Property Name="expiry_date" Type="datetime" />
+          <Property Name="credit_claimed" Type="tinyint" />
+          <Property Name="credit_claimed_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="location_credit_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="creditid" Type="int" />
+          <Property Name="userpkid" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="location_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="itemid" Type="int" />
+          <Property Name="discountid" Type="int" />
+          <Property Name="is_taxable" Type="tinyint" />
+          <Property Name="price" Type="decimal" Scale="2" />
+          <Property Name="tax" Type="decimal" Scale="2" />
+          <Property Name="price_tax_included" Type="decimal" Scale="2" />
+          <Property Name="tax_percent" Type="decimal" Scale="3" />
+          <Property Name="crv" Type="decimal" Scale="2" />
+          <Property Name="par" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="depletion_level" Type="int" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="is_active" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="location_item_deleted">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="itemid" Type="int" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="location_service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="userpkid" Type="varchar" MaxLength="255" />
+          <Property Name="comments" Type="varchar" MaxLength="255" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="location_subsidy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="subsidyid" Type="int" />
+        </EntityType>
+        <EntityType Name="manufacturer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="is_active" Type="tinyint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'deORO_Test.dbo.metric' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="metric">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="query" Type="varchar(max)" />
+          <Property Name="widget_type" Type="varchar(max)" />
+          <Property Name="date_range" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="shoppingcartpkid" Type="varchar" MaxLength="255" />
+          <Property Name="source" Type="varchar" MaxLength="100" />
+          <Property Name="amount" Type="decimal" Scale="2" />
+          <Property Name="routing" Type="varchar" MaxLength="100" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="planogram">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="order" Type="int" />
+          <Property Name="data" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="planogram_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="planogramid" Type="int" />
+          <Property Name="itemid" Type="int" />
+        </EntityType>
+        <EntityType Name="schedule">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" />
+          <Property Name="description" Type="text" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="schedule_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="scheduleid" Type="int" />
+          <Property Name="driverid" Type="nvarchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="status_updated_date_time" Type="datetime" />
+          <Property Name="count" Type="int" />
+          <Property Name="excluded_categories" Type="varchar" MaxLength="512" />
+          <Property Name="excluded_planograms" Type="varchar" MaxLength="512" />
+        </EntityType>
+        <EntityType Name="schedule_detail_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="scheduledetailid" Type="int" />
+          <Property Name="itemid" Type="int" />
+          <Property Name="quantity_at_schedule" Type="int" />
+          <Property Name="quantity_to_refill" Type="int" />
+          <Property Name="over_under" Type="int" />
+          <Property Name="tote" Type="varchar" MaxLength="255" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="shoppingcart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="userpkid" Type="varchar" MaxLength="255" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="shoppingcartdetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="itemid" Type="int" />
+          <Property Name="shoppingcartpkid" Type="varchar" MaxLength="255" />
+          <Property Name="barcode" Type="varchar" MaxLength="255" />
+          <Property Name="price" Type="decimal" Scale="2" />
+          <Property Name="tax" Type="decimal" Scale="2" />
+          <Property Name="price_tax_included" Type="decimal" Scale="2" />
+          <Property Name="discount_description" Type="varchar" MaxLength="1024" />
+          <Property Name="discount_percentage" Type="decimal" Scale="2" />
+          <Property Name="discount_price" Type="decimal" Scale="2" />
+          <Property Name="discount_tax" Type="decimal" Scale="2" />
+          <Property Name="subsidy_description" Type="varchar" MaxLength="1024" />
+          <Property Name="subsidy_percentage" Type="decimal" Scale="2" />
+          <Property Name="subsidy_price" Type="decimal" Scale="2" />
+          <Property Name="subsidy_tax" Type="decimal" Scale="2" />
+          <Property Name="original_price" Type="decimal" Scale="2" />
+          <Property Name="original_tax" Type="decimal" Scale="2" />
+          <Property Name="crv" Type="decimal" Scale="2" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="subsidy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
+          <Property Name="description" Type="varchar" MaxLength="1024" />
+          <Property Name="percent" Type="decimal" Scale="2" />
+          <Property Name="amount" Type="decimal" Scale="2" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="category" Type="varchar" MaxLength="255" />
+          <Property Name="modified_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="subsidy_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="subsidyid" Type="int" />
+          <Property Name="entityid" Type="int" />
+        </EntityType>
+        <EntityType Name="synclog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="description" Type="text" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="message" Type="text" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="transaction_error">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="sourceid" Type="varchar" MaxLength="255" />
+          <Property Name="source" Type="varchar" MaxLength="100" />
+          <Property Name="description" Type="varchar" MaxLength="512" />
+          <Property Name="amount" Type="decimal" Scale="2" />
+          <Property Name="created_date_time" Type="datetime" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="username" Type="varchar" MaxLength="255" />
+          <Property Name="first_name" Type="varchar" MaxLength="30" />
+          <Property Name="last_name" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="dob" Type="date" />
+          <Property Name="gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="128" />
+          <Property Name="is_staff" Type="tinyint" Nullable="false" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="is_superuser" Type="tinyint" />
+          <Property Name="last_login" Type="datetime" />
+          <Property Name="date_joined" Type="datetime" />
+          <Property Name="applicationname" Type="varchar" MaxLength="255" />
+          <Property Name="is_approved" Type="tinyint" />
+          <Property Name="is_online" Type="tinyint" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="last_updated_on" Type="datetime" />
+          <Property Name="last_updated_by_id" Type="int" />
+          <Property Name="is_lockedout" Type="tinyint" />
+          <Property Name="lastlockedoutdate" Type="datetime" />
+          <Property Name="failedpasswordattemptcount" Type="int" />
+          <Property Name="lastlogindate" Type="datetime" />
+          <Property Name="lastpasswordchangedate" Type="datetime" />
+          <Property Name="lastlogintype" Type="varchar" MaxLength="50" />
+          <Property Name="enrolled_fmd1" Type="varchar" MaxLength="4000" />
+          <Property Name="finger_id1" Type="int" />
+          <Property Name="enrolled_fmd2" Type="varchar" MaxLength="4000" />
+          <Property Name="finger_id2" Type="int" />
+          <Property Name="enrolled_fmd3" Type="varchar" MaxLength="4000" />
+          <Property Name="finger_id3" Type="int" />
+          <Property Name="enrolled_fmd4" Type="varchar" MaxLength="4000" />
+          <Property Name="finger_id4" Type="int" />
+          <Property Name="lastfmdchangeddate" Type="datetime" />
+          <Property Name="account_balance" Type="decimal" Scale="2" />
+          <Property Name="lastaccountbalancechangedamount" Type="decimal" Scale="2" />
+          <Property Name="lastaccountbalancechangeddate" Type="datetime" />
+          <Property Name="lastaccountbalancechangeddescription" Type="varchar" MaxLength="4000" />
+          <Property Name="barcode" Type="nvarchar" MaxLength="100" />
+          <Property Name="salt" Type="nvarchar" MaxLength="50" />
+          <Property Name="sync_vector" Type="int" />
+          <Property Name="payroll_balance" Type="numeric" Scale="2" />
+          <Property Name="lastpayrollbalancechangedamount" Type="numeric" Scale="2" />
+          <Property Name="lastpayrollbalancechangeddescription" Type="nvarchar" />
+          <Property Name="lastpayrollbalancechangeddate" Type="datetime" />
+          <Property Name="hid_card_data" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="user_snapshot">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="username" Type="varchar" MaxLength="255" />
+          <Property Name="first_name" Type="varchar" MaxLength="30" />
+          <Property Name="last_name" Type="varchar" MaxLength="30" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="128" />
+          <Property Name="is_staff" Type="tinyint" Nullable="false" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="is_superuser" Type="tinyint" />
+          <Property Name="last_login" Type="datetime" />
+          <Property Name="date_joined" Type="datetime" />
+          <Property Name="applicationname" Type="varchar" MaxLength="255" />
+          <Property Name="is_approved" Type="tinyint" />
+          <Property Name="is_online" Type="tinyint" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="last_updated_on" Type="datetime" />
+          <Property Name="last_updated_by_id" Type="int" />
+          <Property Name="is_lockedout" Type="tinyint" />
+          <Property Name="lastlockedoutdate" Type="datetime" />
+          <Property Name="failedpasswordattemptcount" Type="int" />
+          <Property Name="lastlogindate" Type="datetime" />
+          <Property Name="lastpasswordchangedate" Type="datetime" />
+          <Property Name="lastlogintype" Type="varchar" MaxLength="50" />
+          <Property Name="enrolled_fmd1" Type="varchar" MaxLength="4000" />
+          <Property Name="finger_id1" Type="int" />
+          <Property Name="enrolled_fmd2" Type="varchar" MaxLength="4000" />
+          <Property Name="finger_id2" Type="int" />
+          <Property Name="enrolled_fmd3" Type="varchar" MaxLength="4000" />
+          <Property Name="finger_id3" Type="int" />
+          <Property Name="enrolled_fmd4" Type="varchar" MaxLength="4000" />
+          <Property Name="finger_id4" Type="int" />
+          <Property Name="lastfmdchangeddate" Type="datetime" />
+          <Property Name="account_balance" Type="decimal" Scale="2" />
+          <Property Name="lastaccountbalancechangedamount" Type="decimal" Scale="2" />
+          <Property Name="lastaccountbalancechangeddate" Type="datetime" />
+          <Property Name="lastaccountbalancechangeddescription" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="users_deleted">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="varchar" MaxLength="255" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="userpkid" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="75" />
+          <Property Name="first_name" Type="varchar" MaxLength="255" />
+          <Property Name="last_name" Type="varchar" MaxLength="255" />
+          <Property Name="address" Type="varchar" MaxLength="500" />
+          <Property Name="city" Type="varchar" MaxLength="255" />
+          <Property Name="state" Type="varchar" MaxLength="255" />
+          <Property Name="zip" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="255" />
+          <Property Name="amount_to_refund" Type="decimal" Scale="2" />
+          <Property Name="created_date_time" Type="datetime" />
+          <Property Name="created_by_id" Type="int" />
+          <Property Name="refund_processed" Type="tinyint" />
+          <Property Name="refund_cleared" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="webuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="128" />
+          <Property Name="is_active" Type="tinyint" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" />
+          <Property Name="is_admin" Type="tinyint" />
+          <Property Name="user_role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="widget">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="dashboardid" Type="int" />
+          <Property Name="metricid" Type="int" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="order" Type="int" />
+          <Property Name="customerid" Type="int" />
+          <Property Name="locationid" Type="int" />
+          <Property Name="from_date" Type="date" />
+          <Property Name="to_date" Type="date" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="deORO_MasterModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="deORO_MasterEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="shoppingcarts" EntityType="deORO_MasterModel.shoppingcart" />
+          <EntitySet Name="customers" EntityType="deORO_MasterModel.customer" />
+          <EntitySet Name="users_deleted" EntityType="deORO_MasterModel.users_deleted" />
+          <EntitySet Name="dashboards" EntityType="deORO_MasterModel.dashboard" />
+          <EntitySet Name="widgets" EntityType="deORO_MasterModel.widget" />
+          <EntitySet Name="drivers" EntityType="deORO_MasterModel.driver" />
+          <EntitySet Name="schedules" EntityType="deORO_MasterModel.schedule" />
+          <EntitySet Name="categories" EntityType="deORO_MasterModel.category" />
+          <EntitySet Name="metrics" EntityType="deORO_MasterModel.metric" />
+          <AssociationSet Name="FK_widget_dashboard" Association="deORO_MasterModel.FK_widget_dashboard">
+            <End Role="dashboard" EntitySet="dashboards" />
+            <End Role="widget" EntitySet="widgets" />
+          </AssociationSet>
+          <EntitySet Name="payments" EntityType="deORO_MasterModel.payment" />
+          <EntitySet Name="synclogs" EntityType="deORO_MasterModel.synclog" />
+          <EntitySet Name="cash_status" EntityType="deORO_MasterModel.cash_status" />
+          <EntitySet Name="cash_counter" EntityType="deORO_MasterModel.cash_counter" />
+          <EntitySet Name="cash_dispense" EntityType="deORO_MasterModel.cash_dispense" />
+          <EntitySet Name="cash_collection" EntityType="deORO_MasterModel.cash_collection" />
+          <EntitySet Name="manufacturers" EntityType="deORO_MasterModel.manufacturer" />
+          <EntitySet Name="shoppingcartdetails" EntityType="deORO_MasterModel.shoppingcartdetail" />
+          <EntitySet Name="items" EntityType="deORO_MasterModel.item" />
+          <EntitySet Name="cash_reconciliation" EntityType="deORO_MasterModel.cash_reconciliation" />
+          <EntitySet Name="webusers" EntityType="deORO_MasterModel.webuser" />
+          <EntitySet Name="location_combo_discount" EntityType="deORO_MasterModel.location_combo_discount" />
+          <EntitySet Name="combo_discount_detail" EntityType="deORO_MasterModel.combo_discount_detail" />
+          <EntitySet Name="location_credit" EntityType="deORO_MasterModel.location_credit" />
+          <EntitySet Name="location_credit_user" EntityType="deORO_MasterModel.location_credit_user" />
+          <EntitySet Name="location_credit_activity" EntityType="deORO_MasterModel.location_credit_activity" />
+          <EntitySet Name="location_service" EntityType="deORO_MasterModel.location_service" />
+          <EntitySet Name="transaction_error" EntityType="deORO_MasterModel.transaction_error" />
+          <EntitySet Name="schedule_detail_item" EntityType="deORO_MasterModel.schedule_detail_item" />
+          <EntitySet Name="location_item_deleted" EntityType="deORO_MasterModel.location_item_deleted" />
+          <EntitySet Name="subsidy_detail" EntityType="deORO_MasterModel.subsidy_detail" />
+          <EntitySet Name="combo_discount" EntityType="deORO_MasterModel.combo_discount" />
+          <EntitySet Name="discounts" EntityType="deORO_MasterModel.discount" />
+          <EntitySet Name="subsidies" EntityType="deORO_MasterModel.subsidy" />
+          <EntitySet Name="accountbalancehistories" EntityType="deORO_MasterModel.accountbalancehistory" />
+          <EntitySet Name="location_subsidy" EntityType="deORO_MasterModel.location_subsidy" />
+          <EntitySet Name="location_item" EntityType="deORO_MasterModel.location_item" />
+          <EntitySet Name="device_error" EntityType="deORO_MasterModel.device_error" />
+          <EntitySet Name="planograms" EntityType="deORO_MasterModel.planogram" />
+          <EntitySet Name="planogram_item" EntityType="deORO_MasterModel.planogram_item" />
+          <EntitySet Name="schedule_detail" EntityType="deORO_MasterModel.schedule_detail" />
+          <EntitySet Name="alerts" EntityType="deORO_MasterModel.alert" />
+          <EntitySet Name="alert_subscription" EntityType="deORO_MasterModel.alert_subscription" />
+          <EntitySet Name="locations" EntityType="deORO_MasterModel.location" />
+          <EntitySet Name="event_log" EntityType="deORO_MasterModel.event_log" />
+          <EntitySet Name="users" EntityType="deORO_MasterModel.user" />
+          <EntitySet Name="user_snapshot" EntityType="deORO_MasterModel.user_snapshot" />
+        </EntityContainer>
+        <EntityType Name="shoppingcart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="pkid" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="customerid" Type="Int32" />
+          <Property Name="locationid" Type="Int32" />
+          <Property Name="userpkid" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="created_date_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="String" Name="address" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="city" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="state" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="zip" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="fax" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="email_address" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="users_deleted">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="userpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="email" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="first_name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="last_name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="address" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="city" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="state" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="zip" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="phone" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="amount_to_refund" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="Int32" Name="created_by_id" />
+          <Property Type="Byte" Name="refund_processed" />
+          <Property Type="Byte" Name="refund_cleared" />
+        </EntityType>
+        <EntityType Name="dashboard">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="title" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="userid" />
+          <Property Type="Int32" Name="order" />
+          <NavigationProperty Name="widgets" Relationship="deORO_MasterModel.FK_widget_dashboard" FromRole="dashboard" ToRole="widget" />
+        </EntityType>
+        <EntityType Name="widget">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="dashboardid" />
+          <Property Type="Int32" Name="metricid" />
+          <Property Type="String" Name="title" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="order" />
+          <NavigationProperty Name="dashboard" Relationship="deORO_MasterModel.FK_widget_dashboard" FromRole="widget" ToRole="dashboard" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="DateTime" Name="from_date" Precision="0" />
+          <Property Type="DateTime" Name="to_date" Precision="0" />
+        </EntityType>
+        <EntityType Name="driver">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="schedule">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="date" Precision="0" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="pick_order" />
+          <Property Type="Int32" Name="parentid" />
+          <Property Type="Int32" Name="depletion_level" />
+          <Property Type="String" Name="image" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="metric">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="query" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="widget_type" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="date_range" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_widget_dashboard">
+          <End Type="deORO_MasterModel.dashboard" Role="dashboard" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="deORO_MasterModel.widget" Role="widget" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dashboard">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="widget">
+              <PropertyRef Name="dashboardid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="shoppingcartpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="source" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="String" Name="routing" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="synclog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="message" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="cash_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="description" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="count" Precision="18" Scale="2" />
+          <Property Type="Byte" Name="is_full" />
+          <Property Type="String" Name="group" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="event" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="Int32" Name="vmachineid" />
+        </EntityType>
+        <EntityType Name="cash_counter">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="cashcollectionpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cash_type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="Int32" Name="vmachineid" />
+        </EntityType>
+        <EntityType Name="cash_dispense">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="shoppingcartpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="group" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="String" Name="source" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="cash_collection">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="userpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="Int32" Name="vmachineid" />
+        </EntityType>
+        <EntityType Name="manufacturer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_active" />
+        </EntityType>
+        <EntityType Name="shoppingcartdetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="Int32" Name="itemid" />
+          <Property Type="String" Name="shoppingcartpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="barcode" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="price" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="tax" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="price_tax_included" Precision="18" Scale="2" />
+          <Property Type="String" Name="discount_description" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="discount_percentage" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="discount_price" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="discount_tax" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="original_price" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="original_tax" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="crv" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="String" Name="subsidy_description" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="subsidy_percentage" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="subsidy_price" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="subsidy_tax" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="manufacturerid" />
+          <Property Type="Int32" Name="categoryid" />
+          <Property Type="Int32" Name="subcategoryid" />
+          <Property Type="Int32" Name="discountid" />
+          <Property Type="String" Name="upc" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="barcode" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="1204" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="count" />
+          <Property Type="Decimal" Name="unitcost" Precision="18" Scale="2" />
+          <Property Type="String" Name="avgshelflife" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="pickorder" />
+          <Property Type="Byte" Name="is_taxable" />
+          <Property Type="Decimal" Name="price" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="tax" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="price_tax_included" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="tax_percent" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="crv" Precision="18" Scale="2" />
+          <Property Type="Byte" Name="has_barcode" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="String" Name="image" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="unique_identifier" MaxLength="75" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cash_reconciliation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="cashcollectionpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="coin_total" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="c1_total" />
+          <Property Type="Int32" Name="c2_total" />
+          <Property Type="Int32" Name="c5_total" />
+          <Property Type="Int32" Name="c10_total" />
+          <Property Type="Int32" Name="c20_total" />
+          <Property Type="Int32" Name="c50_total" />
+          <Property Type="Int32" Name="c100_total" />
+          <Property Type="Decimal" Name="total" Precision="18" Scale="2" />
+          <Property Type="String" Name="username" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="webuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="username" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="email" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="password" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="String" Name="first_name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="last_name" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_admin" />
+          <Property Type="String" Name="user_role" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="location_combo_discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="Int32" Name="combodiscountid" />
+        </EntityType>
+        <EntityType Name="combo_discount_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="combodiscountid" />
+          <Property Type="Int32" Name="entityid" />
+        </EntityType>
+        <EntityType Name="location_credit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="description" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="expiry" />
+          <Property Type="Int32" Name="interval" />
+          <Property Type="DateTime" Name="effective_date" Precision="0" />
+          <Property Type="DateTime" Name="end_date" Precision="0" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="String" Name="created_by" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="location_credit_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="creditid" />
+          <Property Type="String" Name="userpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="location_credit_activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="creditid" />
+          <Property Type="String" Name="userpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="expiry_date" Precision="3" />
+          <Property Type="Byte" Name="credit_claimed" />
+          <Property Type="DateTime" Name="credit_claimed_date" Precision="3" />
+        </EntityType>
+        <EntityType Name="location_service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="userpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="comments" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="transaction_error">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="sourceid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="source" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="schedule_detail_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="scheduledetailid" />
+          <Property Type="Int32" Name="itemid" />
+          <Property Type="Int32" Name="quantity_at_schedule" />
+          <Property Type="Int32" Name="quantity_to_refill" />
+          <Property Type="Int32" Name="over_under" />
+          <Property Type="String" Name="tote" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="status" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="location_item_deleted">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="Int32" Name="itemid" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="subsidy_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="subsidyid" />
+          <Property Type="Int32" Name="entityid" />
+        </EntityType>
+        <EntityType Name="combo_discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="category" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="type" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="date_from" Precision="3" />
+          <Property Type="DateTime" Name="date_to" Precision="3" />
+          <Property Type="String" Name="time_from" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="time_to" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="monday" />
+          <Property Type="Byte" Name="tuesday" />
+          <Property Type="Byte" Name="wednesday" />
+          <Property Type="Byte" Name="thursday" />
+          <Property Type="Byte" Name="friday" />
+          <Property Type="Byte" Name="saturday" />
+          <Property Type="Byte" Name="sunday" />
+          <Property Type="Decimal" Name="percent" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="DateTime" Name="modified_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="discount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="type" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="date_from" Precision="3" />
+          <Property Type="DateTime" Name="date_to" Precision="3" />
+          <Property Type="String" Name="time_from" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="time_to" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="monday" />
+          <Property Type="Byte" Name="tuesday" />
+          <Property Type="Byte" Name="wednesday" />
+          <Property Type="Byte" Name="thursday" />
+          <Property Type="Byte" Name="friday" />
+          <Property Type="Byte" Name="saturday" />
+          <Property Type="Byte" Name="sunday" />
+          <Property Type="Decimal" Name="percent" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="DateTime" Name="modified_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="subsidy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="category" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="type" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="description" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="percent" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="DateTime" Name="modified_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="accountbalancehistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="userpkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="account_balance" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+          <Property Type="String" Name="description" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="location_subsidy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="Int32" Name="subsidyid" />
+        </EntityType>
+        <EntityType Name="location_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="Int32" Name="itemid" />
+          <Property Type="Int32" Name="discountid" />
+          <Property Type="Byte" Name="is_taxable" />
+          <Property Type="Decimal" Name="price" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="tax" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="price_tax_included" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="tax_percent" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="crv" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="par" />
+          <Property Type="Int32" Name="quantity" />
+          <Property Type="Int32" Name="depletion_level" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="Byte" Name="is_active" />
+        </EntityType>
+        <EntityType Name="device_error">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="source" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="created_date_time" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="planogram">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="order" />
+          <Property Type="String" Name="data" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="planogram_item">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="planogramid" />
+          <Property Type="Int32" Name="itemid" />
+        </EntityType>
+        <EntityType Name="schedule_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="scheduleid" />
+          <Property Type="String" Name="driverid" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="status" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="status_updated_date_time" Precision="3" />
+          <Property Type="Int32" Name="count" />
+          <Property Type="String" Name="excluded_categories" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="excluded_planograms" MaxLength="512" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="alert">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="metricid" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="frequency" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="period" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="last_run_date" Precision="0" />
+          <Property Type="DateTime" Name="next_run_date" Precision="0" />
+          <Property Type="String" Name="status" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="String" Name="report_type" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="alert_subscription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="alertid" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="email" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_active" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="String" Name="name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="code" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="String" Name="address" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="city" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="state" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="zip" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="fax" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="email_address" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="username" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="password" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="driverid" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="service_interval" />
+          <Property Type="DateTime" Name="last_service_date_time" Precision="0" />
+          <Property Type="String" Name="camera_feed_path" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="users_shared" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="Decimal" Name="management_rate" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="monthly_fee" />
+          <Property Type="Decimal" Name="creditcard_rate" Precision="18" Scale="2" />
+          <Property Type="Byte" Name="commission_before_taxes" />
+          <Property Type="String" Name="serial_number" MaxLength="75" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="event_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="sourceid" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="source" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="userpkid" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="username" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="first_name" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="last_name" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="email" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dob" Precision="0" />
+          <Property Type="String" Name="gender" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_staff" Nullable="false" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="Byte" Name="is_superuser" />
+          <Property Type="DateTime" Name="last_login" Precision="3" />
+          <Property Type="DateTime" Name="date_joined" Precision="3" />
+          <Property Type="String" Name="applicationname" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_approved" />
+          <Property Type="Byte" Name="is_online" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="DateTime" Name="last_updated_on" Precision="3" />
+          <Property Type="Int32" Name="last_updated_by_id" />
+          <Property Type="Byte" Name="is_lockedout" />
+          <Property Type="DateTime" Name="lastlockedoutdate" Precision="3" />
+          <Property Type="Int32" Name="failedpasswordattemptcount" />
+          <Property Type="DateTime" Name="lastlogindate" Precision="3" />
+          <Property Type="DateTime" Name="lastpasswordchangedate" Precision="3" />
+          <Property Type="String" Name="lastlogintype" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="enrolled_fmd1" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="finger_id1" />
+          <Property Type="String" Name="enrolled_fmd2" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="finger_id2" />
+          <Property Type="String" Name="enrolled_fmd3" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="finger_id3" />
+          <Property Type="String" Name="enrolled_fmd4" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="finger_id4" />
+          <Property Type="DateTime" Name="lastfmdchangeddate" Precision="3" />
+          <Property Type="Decimal" Name="account_balance" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="lastaccountbalancechangedamount" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="lastaccountbalancechangeddate" Precision="3" />
+          <Property Type="String" Name="lastaccountbalancechangeddescription" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="barcode" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="salt" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="sync_vector" />
+          <Property Type="Decimal" Name="payroll_balance" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="lastpayrollbalancechangedamount" Precision="18" Scale="2" />
+          <Property Type="String" Name="lastpayrollbalancechangeddescription" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="lastpayrollbalancechangeddate" Precision="3" />
+          <Property Type="String" Name="hid_card_data" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user_snapshot">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="pkid" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="customerid" />
+          <Property Type="Int32" Name="locationid" />
+          <Property Type="String" Name="username" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="first_name" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="last_name" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="email" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="password" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_staff" Nullable="false" />
+          <Property Type="Byte" Name="is_active" />
+          <Property Type="Byte" Name="is_superuser" />
+          <Property Type="DateTime" Name="last_login" Precision="3" />
+          <Property Type="DateTime" Name="date_joined" Precision="3" />
+          <Property Type="String" Name="applicationname" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="is_approved" />
+          <Property Type="Byte" Name="is_online" />
+          <Property Type="DateTime" Name="created_date_time" Precision="3" />
+          <Property Type="DateTime" Name="last_updated_on" Precision="3" />
+          <Property Type="Int32" Name="last_updated_by_id" />
+          <Property Type="Byte" Name="is_lockedout" />
+          <Property Type="DateTime" Name="lastlockedoutdate" Precision="3" />
+          <Property Type="Int32" Name="failedpasswordattemptcount" />
+          <Property Type="DateTime" Name="lastlogindate" Precision="3" />
+          <Property Type="DateTime" Name="lastpasswordchangedate" Precision="3" />
+          <Property Type="String" Name="lastlogintype" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="enrolled_fmd1" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="finger_id1" />
+          <Property Type="String" Name="enrolled_fmd2" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="finger_id2" />
+          <Property Type="String" Name="enrolled_fmd3" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="finger_id3" />
+          <Property Type="String" Name="enrolled_fmd4" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="finger_id4" />
+          <Property Type="DateTime" Name="lastfmdchangeddate" Precision="3" />
+          <Property Type="Decimal" Name="account_balance" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="lastaccountbalancechangedamount" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="lastaccountbalancechangeddate" Precision="3" />
+          <Property Type="String" Name="lastaccountbalancechangeddescription" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="deORO_MasterModelStoreContainer" CdmEntityContainer="deORO_MasterEntities">
+          <EntitySetMapping Name="shoppingcarts">
+            <EntityTypeMapping TypeName="deORO_MasterModel.shoppingcart">
+              <MappingFragment StoreEntitySet="shoppingcart">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="deORO_MasterModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="email_address" ColumnName="email_address" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users_deleted">
+            <EntityTypeMapping TypeName="deORO_MasterModel.users_deleted">
+              <MappingFragment StoreEntitySet="users_deleted">
+                <ScalarProperty Name="refund_cleared" ColumnName="refund_cleared" />
+                <ScalarProperty Name="refund_processed" ColumnName="refund_processed" />
+                <ScalarProperty Name="created_by_id" ColumnName="created_by_id" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="amount_to_refund" ColumnName="amount_to_refund" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dashboards">
+            <EntityTypeMapping TypeName="deORO_MasterModel.dashboard">
+              <MappingFragment StoreEntitySet="dashboard">
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="widgets">
+            <EntityTypeMapping TypeName="deORO_MasterModel.widget">
+              <MappingFragment StoreEntitySet="widget">
+                <ScalarProperty Name="to_date" ColumnName="to_date" />
+                <ScalarProperty Name="from_date" ColumnName="from_date" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="metricid" ColumnName="metricid" />
+                <ScalarProperty Name="dashboardid" ColumnName="dashboardid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drivers">
+            <EntityTypeMapping TypeName="deORO_MasterModel.driver">
+              <MappingFragment StoreEntitySet="driver">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schedules">
+            <EntityTypeMapping TypeName="deORO_MasterModel.schedule">
+              <MappingFragment StoreEntitySet="schedule">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="deORO_MasterModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="depletion_level" ColumnName="depletion_level" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="pick_order" ColumnName="pick_order" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="metrics">
+            <EntityTypeMapping TypeName="deORO_MasterModel.metric">
+              <MappingFragment StoreEntitySet="metric">
+                <ScalarProperty Name="date_range" ColumnName="date_range" />
+                <ScalarProperty Name="widget_type" ColumnName="widget_type" />
+                <ScalarProperty Name="query" ColumnName="query" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="deORO_MasterModel.payment">
+              <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="routing" ColumnName="routing" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="shoppingcartpkid" ColumnName="shoppingcartpkid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="synclogs">
+            <EntityTypeMapping TypeName="deORO_MasterModel.synclog">
+              <MappingFragment StoreEntitySet="synclog">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cash_status">
+            <EntityTypeMapping TypeName="deORO_MasterModel.cash_status">
+              <MappingFragment StoreEntitySet="cash_status">
+                <ScalarProperty Name="vmachineid" ColumnName="vmachineid" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="event" ColumnName="event" />
+                <ScalarProperty Name="group" ColumnName="group" />
+                <ScalarProperty Name="is_full" ColumnName="is_full" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cash_counter">
+            <EntityTypeMapping TypeName="deORO_MasterModel.cash_counter">
+              <MappingFragment StoreEntitySet="cash_counter">
+                <ScalarProperty Name="vmachineid" ColumnName="vmachineid" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="cash_type" ColumnName="cash_type" />
+                <ScalarProperty Name="cashcollectionpkid" ColumnName="cashcollectionpkid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cash_dispense">
+            <EntityTypeMapping TypeName="deORO_MasterModel.cash_dispense">
+              <MappingFragment StoreEntitySet="cash_dispense">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="group" ColumnName="group" />
+                <ScalarProperty Name="shoppingcartpkid" ColumnName="shoppingcartpkid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cash_collection">
+            <EntityTypeMapping TypeName="deORO_MasterModel.cash_collection">
+              <MappingFragment StoreEntitySet="cash_collection">
+                <ScalarProperty Name="vmachineid" ColumnName="vmachineid" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manufacturers">
+            <EntityTypeMapping TypeName="deORO_MasterModel.manufacturer">
+              <MappingFragment StoreEntitySet="manufacturer">
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shoppingcartdetails">
+            <EntityTypeMapping TypeName="deORO_MasterModel.shoppingcartdetail">
+              <MappingFragment StoreEntitySet="shoppingcartdetail">
+                <ScalarProperty Name="subsidy_tax" ColumnName="subsidy_tax" />
+                <ScalarProperty Name="subsidy_price" ColumnName="subsidy_price" />
+                <ScalarProperty Name="subsidy_percentage" ColumnName="subsidy_percentage" />
+                <ScalarProperty Name="subsidy_description" ColumnName="subsidy_description" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="crv" ColumnName="crv" />
+                <ScalarProperty Name="original_tax" ColumnName="original_tax" />
+                <ScalarProperty Name="original_price" ColumnName="original_price" />
+                <ScalarProperty Name="discount_tax" ColumnName="discount_tax" />
+                <ScalarProperty Name="discount_price" ColumnName="discount_price" />
+                <ScalarProperty Name="discount_percentage" ColumnName="discount_percentage" />
+                <ScalarProperty Name="discount_description" ColumnName="discount_description" />
+                <ScalarProperty Name="price_tax_included" ColumnName="price_tax_included" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="shoppingcartpkid" ColumnName="shoppingcartpkid" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="items">
+            <EntityTypeMapping TypeName="deORO_MasterModel.item">
+              <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="unique_identifier" ColumnName="unique_identifier" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="has_barcode" ColumnName="has_barcode" />
+                <ScalarProperty Name="crv" ColumnName="crv" />
+                <ScalarProperty Name="tax_percent" ColumnName="tax_percent" />
+                <ScalarProperty Name="price_tax_included" ColumnName="price_tax_included" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="is_taxable" ColumnName="is_taxable" />
+                <ScalarProperty Name="pickorder" ColumnName="pickorder" />
+                <ScalarProperty Name="avgshelflife" ColumnName="avgshelflife" />
+                <ScalarProperty Name="unitcost" ColumnName="unitcost" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="upc" ColumnName="upc" />
+                <ScalarProperty Name="discountid" ColumnName="discountid" />
+                <ScalarProperty Name="subcategoryid" ColumnName="subcategoryid" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+                <ScalarProperty Name="manufacturerid" ColumnName="manufacturerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cash_reconciliation">
+            <EntityTypeMapping TypeName="deORO_MasterModel.cash_reconciliation">
+              <MappingFragment StoreEntitySet="cash_reconciliation">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="c100_total" ColumnName="c100_total" />
+                <ScalarProperty Name="c50_total" ColumnName="c50_total" />
+                <ScalarProperty Name="c20_total" ColumnName="c20_total" />
+                <ScalarProperty Name="c10_total" ColumnName="c10_total" />
+                <ScalarProperty Name="c5_total" ColumnName="c5_total" />
+                <ScalarProperty Name="c2_total" ColumnName="c2_total" />
+                <ScalarProperty Name="c1_total" ColumnName="c1_total" />
+                <ScalarProperty Name="coin_total" ColumnName="coin_total" />
+                <ScalarProperty Name="cashcollectionpkid" ColumnName="cashcollectionpkid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webusers">
+            <EntityTypeMapping TypeName="deORO_MasterModel.webuser">
+              <MappingFragment StoreEntitySet="webuser">
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
+                <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location_combo_discount">
+            <EntityTypeMapping TypeName="deORO_MasterModel.location_combo_discount">
+              <MappingFragment StoreEntitySet="location_combo_discount">
+                <ScalarProperty Name="combodiscountid" ColumnName="combodiscountid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="combo_discount_detail">
+            <EntityTypeMapping TypeName="deORO_MasterModel.combo_discount_detail">
+              <MappingFragment StoreEntitySet="combo_discount_detail">
+                <ScalarProperty Name="entityid" ColumnName="entityid" />
+                <ScalarProperty Name="combodiscountid" ColumnName="combodiscountid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location_credit">
+            <EntityTypeMapping TypeName="deORO_MasterModel.location_credit">
+              <MappingFragment StoreEntitySet="location_credit">
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="effective_date" ColumnName="effective_date" />
+                <ScalarProperty Name="interval" ColumnName="interval" />
+                <ScalarProperty Name="expiry" ColumnName="expiry" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location_credit_user">
+            <EntityTypeMapping TypeName="deORO_MasterModel.location_credit_user">
+              <MappingFragment StoreEntitySet="location_credit_user">
+                <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+                <ScalarProperty Name="creditid" ColumnName="creditid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location_credit_activity">
+            <EntityTypeMapping TypeName="deORO_MasterModel.location_credit_activity">
+              <MappingFragment StoreEntitySet="location_credit_activity">
+                <ScalarProperty Name="credit_claimed_date" ColumnName="credit_claimed_date" />
+                <ScalarProperty Name="credit_claimed" ColumnName="credit_claimed" />
+                <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+                <ScalarProperty Name="creditid" ColumnName="creditid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location_service">
+            <EntityTypeMapping TypeName="deORO_MasterModel.location_service">
+              <MappingFragment StoreEntitySet="location_service">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transaction_error">
+            <EntityTypeMapping TypeName="deORO_MasterModel.transaction_error">
+              <MappingFragment StoreEntitySet="transaction_error">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="sourceid" ColumnName="sourceid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schedule_detail_item">
+            <EntityTypeMapping TypeName="deORO_MasterModel.schedule_detail_item">
+              <MappingFragment StoreEntitySet="schedule_detail_item">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="tote" ColumnName="tote" />
+                <ScalarProperty Name="over_under" ColumnName="over_under" />
+                <ScalarProperty Name="quantity_to_refill" ColumnName="quantity_to_refill" />
+                <ScalarProperty Name="quantity_at_schedule" ColumnName="quantity_at_schedule" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="scheduledetailid" ColumnName="scheduledetailid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location_item_deleted">
+            <EntityTypeMapping TypeName="deORO_MasterModel.location_item_deleted">
+              <MappingFragment StoreEntitySet="location_item_deleted">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subsidy_detail">
+            <EntityTypeMapping TypeName="deORO_MasterModel.subsidy_detail">
+              <MappingFragment StoreEntitySet="subsidy_detail">
+                <ScalarProperty Name="entityid" ColumnName="entityid" />
+                <ScalarProperty Name="subsidyid" ColumnName="subsidyid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="combo_discount">
+            <EntityTypeMapping TypeName="deORO_MasterModel.combo_discount">
+              <MappingFragment StoreEntitySet="combo_discount">
+                <ScalarProperty Name="modified_date_time" ColumnName="modified_date_time" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="percent" ColumnName="percent" />
+                <ScalarProperty Name="sunday" ColumnName="sunday" />
+                <ScalarProperty Name="saturday" ColumnName="saturday" />
+                <ScalarProperty Name="friday" ColumnName="friday" />
+                <ScalarProperty Name="thursday" ColumnName="thursday" />
+                <ScalarProperty Name="wednesday" ColumnName="wednesday" />
+                <ScalarProperty Name="tuesday" ColumnName="tuesday" />
+                <ScalarProperty Name="monday" ColumnName="monday" />
+                <ScalarProperty Name="time_to" ColumnName="time_to" />
+                <ScalarProperty Name="time_from" ColumnName="time_from" />
+                <ScalarProperty Name="date_to" ColumnName="date_to" />
+                <ScalarProperty Name="date_from" ColumnName="date_from" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="discounts">
+            <EntityTypeMapping TypeName="deORO_MasterModel.discount">
+              <MappingFragment StoreEntitySet="discount">
+                <ScalarProperty Name="modified_date_time" ColumnName="modified_date_time" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="percent" ColumnName="percent" />
+                <ScalarProperty Name="sunday" ColumnName="sunday" />
+                <ScalarProperty Name="saturday" ColumnName="saturday" />
+                <ScalarProperty Name="friday" ColumnName="friday" />
+                <ScalarProperty Name="thursday" ColumnName="thursday" />
+                <ScalarProperty Name="wednesday" ColumnName="wednesday" />
+                <ScalarProperty Name="tuesday" ColumnName="tuesday" />
+                <ScalarProperty Name="monday" ColumnName="monday" />
+                <ScalarProperty Name="time_to" ColumnName="time_to" />
+                <ScalarProperty Name="time_from" ColumnName="time_from" />
+                <ScalarProperty Name="date_to" ColumnName="date_to" />
+                <ScalarProperty Name="date_from" ColumnName="date_from" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subsidies">
+            <EntityTypeMapping TypeName="deORO_MasterModel.subsidy">
+              <MappingFragment StoreEntitySet="subsidy">
+                <ScalarProperty Name="modified_date_time" ColumnName="modified_date_time" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="percent" ColumnName="percent" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accountbalancehistories">
+            <EntityTypeMapping TypeName="deORO_MasterModel.accountbalancehistory">
+              <MappingFragment StoreEntitySet="accountbalancehistory">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="account_balance" ColumnName="account_balance" />
+                <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location_subsidy">
+            <EntityTypeMapping TypeName="deORO_MasterModel.location_subsidy">
+              <MappingFragment StoreEntitySet="location_subsidy">
+                <ScalarProperty Name="subsidyid" ColumnName="subsidyid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="location_item">
+            <EntityTypeMapping TypeName="deORO_MasterModel.location_item">
+              <MappingFragment StoreEntitySet="location_item">
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="depletion_level" ColumnName="depletion_level" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="par" ColumnName="par" />
+                <ScalarProperty Name="crv" ColumnName="crv" />
+                <ScalarProperty Name="tax_percent" ColumnName="tax_percent" />
+                <ScalarProperty Name="price_tax_included" ColumnName="price_tax_included" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="is_taxable" ColumnName="is_taxable" />
+                <ScalarProperty Name="discountid" ColumnName="discountid" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="device_error">
+            <EntityTypeMapping TypeName="deORO_MasterModel.device_error">
+              <MappingFragment StoreEntitySet="device_error">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="planograms">
+            <EntityTypeMapping TypeName="deORO_MasterModel.planogram">
+              <MappingFragment StoreEntitySet="planogram">
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="order" ColumnName="order" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="planogram_item">
+            <EntityTypeMapping TypeName="deORO_MasterModel.planogram_item">
+              <MappingFragment StoreEntitySet="planogram_item">
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="planogramid" ColumnName="planogramid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schedule_detail">
+            <EntityTypeMapping TypeName="deORO_MasterModel.schedule_detail">
+              <MappingFragment StoreEntitySet="schedule_detail">
+                <ScalarProperty Name="excluded_planograms" ColumnName="excluded_planograms" />
+                <ScalarProperty Name="excluded_categories" ColumnName="excluded_categories" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="status_updated_date_time" ColumnName="status_updated_date_time" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="driverid" ColumnName="driverid" />
+                <ScalarProperty Name="scheduleid" ColumnName="scheduleid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alerts">
+            <EntityTypeMapping TypeName="deORO_MasterModel.alert">
+              <MappingFragment StoreEntitySet="alert">
+                <ScalarProperty Name="report_type" ColumnName="report_type" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="next_run_date" ColumnName="next_run_date" />
+                <ScalarProperty Name="last_run_date" ColumnName="last_run_date" />
+                <ScalarProperty Name="period" ColumnName="period" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="metricid" ColumnName="metricid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alert_subscription">
+            <EntityTypeMapping TypeName="deORO_MasterModel.alert_subscription">
+              <MappingFragment StoreEntitySet="alert_subscription">
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="alertid" ColumnName="alertid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="locations">
+            <EntityTypeMapping TypeName="deORO_MasterModel.location">
+              <MappingFragment StoreEntitySet="location">
+                <ScalarProperty Name="serial_number" ColumnName="serial_number" />
+                <ScalarProperty Name="commission_before_taxes" ColumnName="commission_before_taxes" />
+                <ScalarProperty Name="creditcard_rate" ColumnName="creditcard_rate" />
+                <ScalarProperty Name="monthly_fee" ColumnName="monthly_fee" />
+                <ScalarProperty Name="management_rate" ColumnName="management_rate" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="users_shared" ColumnName="users_shared" />
+                <ScalarProperty Name="camera_feed_path" ColumnName="camera_feed_path" />
+                <ScalarProperty Name="last_service_date_time" ColumnName="last_service_date_time" />
+                <ScalarProperty Name="service_interval" ColumnName="service_interval" />
+                <ScalarProperty Name="driverid" ColumnName="driverid" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email_address" ColumnName="email_address" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="event_log">
+            <EntityTypeMapping TypeName="deORO_MasterModel.event_log">
+              <MappingFragment StoreEntitySet="event_log">
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="sourceid" ColumnName="sourceid" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="deORO_MasterModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="hid_card_data" ColumnName="hid_card_data" />
+                <ScalarProperty Name="lastpayrollbalancechangeddate" ColumnName="lastpayrollbalancechangeddate" />
+                <ScalarProperty Name="lastpayrollbalancechangeddescription" ColumnName="lastpayrollbalancechangeddescription" />
+                <ScalarProperty Name="lastpayrollbalancechangedamount" ColumnName="lastpayrollbalancechangedamount" />
+                <ScalarProperty Name="payroll_balance" ColumnName="payroll_balance" />
+                <ScalarProperty Name="sync_vector" ColumnName="sync_vector" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="lastaccountbalancechangeddescription" ColumnName="lastaccountbalancechangeddescription" />
+                <ScalarProperty Name="lastaccountbalancechangeddate" ColumnName="lastaccountbalancechangeddate" />
+                <ScalarProperty Name="lastaccountbalancechangedamount" ColumnName="lastaccountbalancechangedamount" />
+                <ScalarProperty Name="account_balance" ColumnName="account_balance" />
+                <ScalarProperty Name="lastfmdchangeddate" ColumnName="lastfmdchangeddate" />
+                <ScalarProperty Name="finger_id4" ColumnName="finger_id4" />
+                <ScalarProperty Name="enrolled_fmd4" ColumnName="enrolled_fmd4" />
+                <ScalarProperty Name="finger_id3" ColumnName="finger_id3" />
+                <ScalarProperty Name="enrolled_fmd3" ColumnName="enrolled_fmd3" />
+                <ScalarProperty Name="finger_id2" ColumnName="finger_id2" />
+                <ScalarProperty Name="enrolled_fmd2" ColumnName="enrolled_fmd2" />
+                <ScalarProperty Name="finger_id1" ColumnName="finger_id1" />
+                <ScalarProperty Name="enrolled_fmd1" ColumnName="enrolled_fmd1" />
+                <ScalarProperty Name="lastlogintype" ColumnName="lastlogintype" />
+                <ScalarProperty Name="lastpasswordchangedate" ColumnName="lastpasswordchangedate" />
+                <ScalarProperty Name="lastlogindate" ColumnName="lastlogindate" />
+                <ScalarProperty Name="failedpasswordattemptcount" ColumnName="failedpasswordattemptcount" />
+                <ScalarProperty Name="lastlockedoutdate" ColumnName="lastlockedoutdate" />
+                <ScalarProperty Name="is_lockedout" ColumnName="is_lockedout" />
+                <ScalarProperty Name="last_updated_by_id" ColumnName="last_updated_by_id" />
+                <ScalarProperty Name="last_updated_on" ColumnName="last_updated_on" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="is_online" ColumnName="is_online" />
+                <ScalarProperty Name="is_approved" ColumnName="is_approved" />
+                <ScalarProperty Name="applicationname" ColumnName="applicationname" />
+                <ScalarProperty Name="date_joined" ColumnName="date_joined" />
+                <ScalarProperty Name="last_login" ColumnName="last_login" />
+                <ScalarProperty Name="is_superuser" ColumnName="is_superuser" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_staff" ColumnName="is_staff" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_snapshot">
+            <EntityTypeMapping TypeName="deORO_MasterModel.user_snapshot">
+              <MappingFragment StoreEntitySet="user_snapshot">
+                <ScalarProperty Name="lastaccountbalancechangeddescription" ColumnName="lastaccountbalancechangeddescription" />
+                <ScalarProperty Name="lastaccountbalancechangeddate" ColumnName="lastaccountbalancechangeddate" />
+                <ScalarProperty Name="lastaccountbalancechangedamount" ColumnName="lastaccountbalancechangedamount" />
+                <ScalarProperty Name="account_balance" ColumnName="account_balance" />
+                <ScalarProperty Name="lastfmdchangeddate" ColumnName="lastfmdchangeddate" />
+                <ScalarProperty Name="finger_id4" ColumnName="finger_id4" />
+                <ScalarProperty Name="enrolled_fmd4" ColumnName="enrolled_fmd4" />
+                <ScalarProperty Name="finger_id3" ColumnName="finger_id3" />
+                <ScalarProperty Name="enrolled_fmd3" ColumnName="enrolled_fmd3" />
+                <ScalarProperty Name="finger_id2" ColumnName="finger_id2" />
+                <ScalarProperty Name="enrolled_fmd2" ColumnName="enrolled_fmd2" />
+                <ScalarProperty Name="finger_id1" ColumnName="finger_id1" />
+                <ScalarProperty Name="enrolled_fmd1" ColumnName="enrolled_fmd1" />
+                <ScalarProperty Name="lastlogintype" ColumnName="lastlogintype" />
+                <ScalarProperty Name="lastpasswordchangedate" ColumnName="lastpasswordchangedate" />
+                <ScalarProperty Name="lastlogindate" ColumnName="lastlogindate" />
+                <ScalarProperty Name="failedpasswordattemptcount" ColumnName="failedpasswordattemptcount" />
+                <ScalarProperty Name="lastlockedoutdate" ColumnName="lastlockedoutdate" />
+                <ScalarProperty Name="is_lockedout" ColumnName="is_lockedout" />
+                <ScalarProperty Name="last_updated_by_id" ColumnName="last_updated_by_id" />
+                <ScalarProperty Name="last_updated_on" ColumnName="last_updated_on" />
+                <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+                <ScalarProperty Name="is_online" ColumnName="is_online" />
+                <ScalarProperty Name="is_approved" ColumnName="is_approved" />
+                <ScalarProperty Name="applicationname" ColumnName="applicationname" />
+                <ScalarProperty Name="date_joined" ColumnName="date_joined" />
+                <ScalarProperty Name="last_login" ColumnName="last_login" />
+                <ScalarProperty Name="is_superuser" ColumnName="is_superuser" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_staff" ColumnName="is_staff" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="locationid" ColumnName="locationid" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="pkid" ColumnName="pkid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

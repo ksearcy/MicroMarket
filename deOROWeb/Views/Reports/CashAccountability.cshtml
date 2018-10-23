@@ -1,0 +1,527 @@
+﻿@{
+    ViewBag.Title = @deOROWeb.Resources.Strings.CashAccountability;
+}
+
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.CashAccountabilityReport</h1>
+        <ol class="breadcrumb">
+            <li><a href="@Request.ApplicationPath/"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li>Reports</li>
+            <li class="active">@deOROWeb.Resources.Strings.CashAccountability</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body table-responsive">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Customers</label>
+                                @Html.DropDownList("Customers", new SelectList(ViewBag.Customers, "id", "name"), @deOROWeb.Resources.Strings.SelectOne, new { id = "combo-customers", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Locations</label>
+                                <select class="form-control" multiple id="list-locations" style="height: 120px">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.ReportType</label>
+                                <select class="form-control" id="combo-report-type">
+                                    <option value="CashCollection">@deOROWeb.Resources.Strings.CashCollection</option>
+                                    <option value="CashFlow">Cash Flow</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label>@deOROWeb.Resources.Strings.DateRange</label>
+                            <div class="form-group">
+                                <input id="input-from-date" class="form-control" placeholder="From Date">
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <input id="input-to-date" class="form-control" placeholder="To Date">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>@deOROWeb.Resources.Strings.HourRange</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-from-hour">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12" selected="selected">12</option>
+                                </select>
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-to-hour">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12" selected="selected">12</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>@deOROWeb.Resources.Strings.Daytime</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-from-daytime">
+                                    <option value="AM" selected="selected">A.M.</option>
+                                    <option value="PM">P.M.</option>
+                                </select>
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-to-daytime">
+                                    <option value="AM" selected="selected">A.M.</option>
+                                    <option value="PM">P.M.</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary pull-left" id="button-process">@deOROWeb.Resources.Strings.Process</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title"></h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="box-body table-responsive">
+                                        <table id="grid" class="table table-bordered table-striped">
+                                        </table>
+                                    </div>
+                                </div>
+                                @*                    <div class="overlay" id="overlay"></div>
+                    <div class="loading-img" id="loading-img"></div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<script>
+
+    $('#input-from-date').val(new Date().getMonth() + 1 + '/1/' + new Date().getFullYear());
+    $('#input-to-date').val(new Date().getMonth() + 1 + '/' + new Date().getDate() + '/' + new Date().getFullYear());
+
+    $('#input-from-date').datetimepicker({
+        timepicker: false, format: 'm/d/Y',
+    });
+
+    $('#input-to-date').datetimepicker({
+        timepicker: false, format: 'm/d/Y'
+    });
+
+    $("#combo-customers").change(function () {
+        var id = $(this).val();
+        loadLocations(id);
+    });
+
+    function loadLocations(id) {
+
+        $('#list-locations').empty();
+        $('#list-locations').prop("disabled", true);
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Location/GetLocations/" + id,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                $('#list-locations').empty();
+                $.each(result, function (i, val) {
+                    $('#list-locations').append(new Option(val.name, val.id));
+                });
+
+                $('#list-locations').prop("disabled", false);
+            },
+            error: function (error) {
+                //alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    }
+
+    var oTable;
+
+    $('#button-process').click(function () {
+
+        $('#grid').find('thead tr th').remove();
+        $('#grid').empty();
+
+        var locationids = new Array();
+        $('#list-locations :selected').each(function (i, selected) {
+            locationids[i] = $(selected).val();
+        });
+
+        var postData = JSON.stringify({
+            'customerid': $('#combo-customers').val(),
+            'locationids': locationids,
+            'reportCategory': 'CashAccountability',
+            'reportType': $('#combo-report-type').val(),
+            'reportView': $('#combo-view-type').val(),
+            'fromDate': $('#input-from-date').val(),
+            'toDate': $('#input-to-date').val(),
+            'fromHour': $('#combo-from-hour option:selected').val(),
+            'toHour': $('#combo-to-hour option:selected').val(),
+            'fromDaytime': $('#combo-from-daytime option:selected').val(),
+            'toDaytime': $('#combo-to-daytime option:selected').val()
+        });
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "@Request.ApplicationPath/Reports/ProcessReport/",
+            dataType: "json",
+            data: postData,
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+
+                if (result != null) {
+
+                    if ($('#combo-report-type').val() == "CashCollection") {
+
+                        oTable = $('#grid').dataTable({
+                            "dom": 'BC<"clear">T<"clear">lfrtip',
+                            "tableTools": {
+                                "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf"
+                            },
+                            buttons: [
+                              'copy', 'csv', 'excel', 'pdf', 'print'
+                            ],
+                            "aaData": result.rows,
+                            "aoColumns": result.columns,
+                            "bAutoWidth": true,
+                            "bDestroy": true,
+
+                            "rowCallback": function (row, data, index) {
+
+                                var col = $('td:eq(0)', row);
+                                col.html('<button class="btn btn-primary btn-sm" id="' + data[2] + '"><i class="fa fa-plus"></i></button>')
+                                col.attr('align', 'center');
+                            },
+                        })
+
+                        var foot = $("#grid").find('tfoot');
+
+                        if (foot != null) {
+                            foot = $('<tfoot>').appendTo("#grid");
+
+                            $('#grid thead th').each(function (i) {
+                                foot.append('<td></td>');
+                            });
+
+                            foot = $('</tfoot>')
+                        }
+
+                        if (result.showTotals) {
+
+                            var table = $('#grid').DataTable();
+                            var foot = $('<tfoot>').appendTo("#grid");
+
+                            table.columns().every(function () {
+
+                                var sum = this.data().reduce(function (a, b) {
+
+                                    if (isNumeric(a)) {
+                                        return parseFloat(a) + parseFloat(b);
+                                    }
+                                });
+
+                                if (isNumeric(sum)) {
+
+                                    if (isFloat(sum)) {
+                                        foot.append('<td><b>&nbsp;&nbsp;&nbsp;' + sum.toFixed(2) + '<b></td>');
+                                    }
+                                    else {
+                                        foot.append('<td><b>&nbsp;&nbsp;&nbsp;' + sum + '<b></td>');
+                                    }
+                                }
+                                else {
+                                    foot.append('<td></td>');
+                                }
+                            });
+
+                            foot = $('</tfoot>')
+                        }
+                    } else if ($('#combo-report-type').val() == "CashFlow") {
+                        oTable = $('#grid').dataTable({
+                            "dom": 'C<"clear">T<"clear">lfrtip',
+                            "tableTools": {
+                                "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf"
+                            },
+                            //"columnDefs": [
+                            //    {
+                            //        "targets": [0],
+                            //        "visible": false,
+                            //        "searchable": false
+                            //    },
+                            //    {
+                            //        "targets": [1],
+                            //        "visible": false,
+                            //        "searchable": false
+                            //    },
+                            //],
+                            "aaData": result.rows,
+                            "aoColumns": result.columns,
+                            "bAutoWidth": true,
+                            "bDestroy": true,
+                            "language": {
+                                "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+                                "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+                                "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+                                "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+                                "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+                                "sSearch": "@deOROWeb.Resources.Strings.Search:",
+                                "oPaginate": {
+                                    "sFirst": "@deOROWeb.Resources.Strings.First",
+                                    "sLast": "@deOROWeb.Resources.Strings.Last",
+                                    "sNext": "@deOROWeb.Resources.Strings.Next",
+                                    "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+                                },
+                            },
+                            //"bServerSide": true,
+                            //"sAjaxSource": 'AjaxHandler',
+                            "bJQueryUI": true,
+                            "rowCallback": function (row, data, index) {
+
+                                //$("td", row).each(function (i) {
+
+                                //    if (data[i] == '') {
+                                //        var col = $('td:eq(' + i + ')', row);
+                                //        col.html('0.00');
+                                //        data[i] = '0.00';
+                                //    }
+                                //});
+
+                                if (result.showSparkLines)
+                                    $('td:eq(6)', row).html('<span class="spark">' + data[6] + '</span>');
+
+                                if (result.groupColumn != 0) {
+                                    var col = $('td:eq(0)', row);
+                                    //col.html('<a href="#"><img src="@Request.ApplicationPath/images/plus.png" id="' + data[2] + '" alt="expand/collapse" class="image"></a>');
+                                    //col.html('<i class="fa fa-edit"><a class="btn btn-app-small" id="' + data[2] + '">Edit</a></i>')
+                                    col.html('<button class="btn btn-primary btn-sm" id="' + data[result.groupColumn] + '"><i class="fa fa-plus"></i></button>')
+                                    col.attr('align', 'center');
+
+                                    if ($('#combo-report-type').val() == "ShoppingCartDetail") {
+                                        $('td:eq(' + result.groupColumn + ')', row).html('<a href="#" data-toggle="modal" data-target="#popup-modal-shopping-cart-detail" data-id="' + data[result.groupColumn] + '">' + data[result.groupColumn] + '</a>');
+                                    }
+                                }
+                                else {
+
+                                    if ($('#combo-report-type').val() == "ShoppingCartDetail") {
+                                        $('td:eq(2)', row).html('<a href="#" data-toggle="modal" data-target="#popup-modal-shopping-cart-detail" data-id="' + data[2] + '">' + data[2] + '</a>');
+                                    }
+                                }
+
+                            },
+                            "drawCallback": function (Settings) {
+
+                                if (result.showSparkLines)
+                                    $('.spark').sparkline('html', {
+                                        type: 'bar', barColor: '#3366CC'
+                                    });
+
+                            },
+
+                        });//.rowGrouping({ bExpandableGrouping: true, iGroupingColumnIndex:1});
+
+                        if (result.showTotals) {
+
+                            var foot = $("#grid").find('tfoot');
+
+                            if (foot != null) {
+                                foot = $('<tfoot>').appendTo("#grid");
+
+                                $('#grid thead th').each(function (i) {
+                                    foot.append('<td></td>');
+                                });
+
+                                foot = $('</tfoot>')
+                            }
+
+                            var table = $('#grid').DataTable();
+                            var foot = $('<tfoot>').appendTo("#grid");
+
+                            table.columns().every(function () {
+
+                                var sum = this.data().reduce(function (a, b) {
+
+                                    if (isNumeric(a)) {
+                                        return parseFloat(a) + parseFloat(b);
+                                    }
+                                });
+
+                                if (isNumeric(sum)) {
+
+                                    if (isFloat(sum)) {
+                                        foot.append('<td><b>&nbsp;&nbsp;&nbsp;' + sum.toFixed(2) + '<b></td>');
+                                    }
+                                    else {
+                                        foot.append('<td><b>&nbsp;&nbsp;&nbsp;' + sum + '<b></td>');
+                                    }
+                                }
+                                else {
+                                    foot.append('<td></td>');
+                                }
+                            });
+
+                            foot = $('</tfoot>')
+                        }
+                    }
+
+            }
+            else {
+                $('#no-data').show();
+            }
+
+                $('#overlay').hide();
+                $('#loading-img').hide();
+
+                //if ($('#combo-report-type').val() == "CashCollection") {
+                //    var table = $('#grid').DataTable();
+                //    table.column(0).visible(true);
+
+                //}
+                //else if ($('#combo-report-type').val() == "CashFlow") {
+                //    var table = $('#grid').DataTable();
+                //    table.column(0).visible(false);
+                //}
+
+                //=========================Translation Method==========================
+                DatatablesTitlesTranslation();
+                //===================================================================== 
+
+            },
+            error: function (error) {
+                //alert("There was an error getting the data from the server: " + error.responseText);
+
+                $('#overlay').hide();
+                $('#loading-img').hide();
+            }
+        })
+
+        $('#grid tbody').on('click', 'tr', function (event) {
+
+
+            var target = event.target.id;
+            var nTr = this;
+
+            if (target == null || target == "") return;
+
+            if (event.target.innerHTML.match('fa-minus')) {
+                event.target.innerHTML = "<i class='fa fa-plus'></i>";
+                $(event.target).attr('class', 'btn btn-primary btn-sm');
+                oTable.fnClose(nTr);
+            }
+            else {
+
+                event.target.innerHTML = "<i class='fa fa-minus'></i>";
+                $(event.target).attr('class', 'btn btn-danger btn-sm');
+
+                var postData = JSON.stringify({
+                    'pkid': target,
+                });
+
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "@Request.ApplicationPath/Reports/GetCashAccountability/",
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+                    data: postData,
+                    success: function (result) {
+                        oTable.fnOpen(nTr, result, 'details');
+                    },
+                    error: function (error) {
+                        //alert("There was an error getting the data from the server: " + error.responseText);
+                    }
+                })
+            }
+
+
+
+        });
+
+
+
+    });
+
+
+
+    ///========================LUIS REPORTS COLUMS  TITLES CHANGES==========================================================================
+
+    function DatatablesTitlesTranslation() {
+
+        var table = $('#grid').DataTable();
+
+        var TypeOfReport = $('#combo-report-type option:selected').val();
+
+
+        if (TypeOfReport == 'CashCollection') {
+
+            table.columns().eq(0).each(function (index) {
+                var column = table.column(index);
+
+                switch ($(column.header()).text()) {
+                    case 'Location':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.ReportsLocation');
+                            return;
+                        case 'User Name':
+                            $(column.header()).text('@deOROWeb.Resources.Strings.UserName');
+                         return;
+                     case 'Cash Total':
+                         $(column.header()).text('@deOROWeb.Resources.Strings.Cash Total');
+                         return;
+                     case 'Cash Collected Date':
+                         $(column.header()).text('@deOROWeb.Resources.Strings.Cash');
+                        return;
+                    default:
+                        return;
+                }
+                });
+
+        }
+
+
+    }
+    //============================================================================================================================================
+</script>

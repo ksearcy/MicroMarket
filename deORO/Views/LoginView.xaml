@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="deORO.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:conv="clr-namespace:deORO.Converters" 
+             xmlns:p="clr-namespace:deORO.Helpers"
+             xmlns:extensions="http://wpflocalizeextension.codeplex.com"
+             xmlns:lex ="clr-namespace:WPFLocalizeExtension.Engine;assembly=WPFLocalizeExtension"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             lex:LocalizeDictionary.DesignCulture="fr"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             extensions:ResxLocalizationProvider.DefaultAssembly="deORO"
+             extensions:ResxLocalizationProvider.DefaultDictionary="Strings"
+             Unloaded="UserControl_Unloaded" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"></conv:BoolToVisibilityConverter>
+    </UserControl.Resources>
+
+    <Border x:Name="Login" BorderBrush="White" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="60,25,60,35">
+        
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#f6f7f2" Offset="0" />
+                    <GradientStop Color="#f6f7f2" Offset="0.2" />
+                    <GradientStop Color="#ddded8" Offset="0.5" />
+                    <GradientStop Color="#f6f7f2" Offset="0.9" />
+                    <GradientStop Color="#f6f7f2" Offset="1" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect />
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="47"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition/>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#49a5bf" BorderThickness="0,0,0,2" Margin="0,0,0,25">
+                <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" 
+                   FontWeight="Bold" Foreground="#e73827" Text="{Binding Title}">
+                </TextBlock>
+            </Border>
+            <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource DefaultTextBlock}" Text="{extensions:Loc Login.UserName}"></TextBlock>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged}" 
+                     Name="TextUserName" Style="{StaticResource DefaultTextBox}" IsEnabled="{Binding UserNamePasswordChecked}"></TextBox>
+            <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource DefaultTextBlock}" Text="{extensions:Loc Login.Password}"></TextBlock>
+            <PasswordBox Grid.Row="2" Grid.Column="1" p:PasswordBoxAssistant.BindPassword="True"  Style="{StaticResource DefaultPasswordBox}" IsEnabled="{Binding UserNamePasswordChecked}"
+                     p:PasswordBoxAssistant.BoundPassword="{Binding Path=Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></PasswordBox>
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource DefaultTextBlock}" Visibility="{Binding BarcodeVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                       Text="{extensions:Loc Login.LoginMethod}"></TextBlock>
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+                <RadioButton Name="RadioButtonUserNamePassword" Style="{StaticResource {x:Type ToggleButton}}" Height="60" Visibility="{Binding BarcodeVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                             Command="{Binding UserNamePasswordCommand}" IsChecked="{Binding UserNamePasswordChecked}" Margin="0,10,35,10">
+                    <Image Source="/Images/UserNamePassword.png" Stretch="Fill"></Image>
+                </RadioButton>
+                <RadioButton Name="RadioButtonBarcode" Style="{StaticResource {x:Type ToggleButton}}" Visibility="{Binding BarcodeVisible, Converter={StaticResource BoolToVisibilityConverter}}"  
+                             Command="{Binding BarcodeCommand}" IsChecked="{Binding BarcodeChecked}" Height="60">
+                    <Image Source="/Images/Barcode.png" Stretch="Fill"></Image>
+                </RadioButton>
+            </StackPanel>
+            <Button Grid.Row="4" Grid.Column="0" Command="{Binding CancelCommand}" Style="{StaticResource RedButton}" Height="Auto" Margin="5" 
+                    IsEnabled="{Binding EnableCancel}" Content="{extensions:Loc Login.Cancel}"></Button>
+            <Button Grid.Row="4" Grid.Column="1" Command="{Binding LoginCommand}" Style="{StaticResource GreenButton}" Height="Auto" Margin="5" 
+                    Background="Green" Foreground="White" IsEnabled="{Binding UserNamePasswordChecked}" Content="{extensions:Loc Login.Login}"></Button>
+            <!--<TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>-->
+            <Button Grid.Row="6" Grid.ColumnSpan="2" Command="{Binding ForgotPasswordCommand}" Height="Auto" Margin="5" 
+                    Style="{StaticResource BlueButton}" Width="Auto" Content="{extensions:Loc Login.ForgotPassword}">
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,175 @@
+﻿@model IEnumerable<deORODataAccess.widget>
+
+<script src="~/Scripts/js/plugins/datepicker/jquery.datetimepicker.js"></script>
+<link href="~/Content/css/datepicker/jquery.datetimepicker.css" rel="stylesheet" />
+
+<script src="~/Scripts/js/deORO/deORO.js"></script>
+
+@foreach (var item in Model)
+{
+    if (item.type.Equals("Map"))
+    {
+        Html.RenderPartial("~/Views/Widget/MapWidget.cshtml", item);
+    }
+    else if (item.type.Contains("Chart"))
+    {
+        Html.RenderPartial("~/Views/Widget/ChartWidget.cshtml", item);
+    }
+    else if (item.type.Equals("Grid"))
+    {
+        Html.RenderPartial("~/Views/Widget/GridWidget.cshtml", item);
+    }
+
+    <script>
+
+        $('#@item.id-input-date-from').datetimepicker({
+            timepicker: false, format: 'm/d/Y'
+        });
+
+        $('#@item.id-input-date-to').datetimepicker({
+            timepicker: false, format: 'm/d/Y'
+        });
+
+        $('#@item.id-settings-modal').on('show.bs.modal', function (e) {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@Request.ApplicationPath/Customer/GetCustomers",
+                dataType: "json",
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    $('#@item.id-combo-customer').empty();
+                    $('#@item.id-combo-location').empty();
+
+                    $('#@item.id-combo-customer').append(new Option("All", -1));
+                    $('#@item.id-combo-location').append(new Option("All", -1));
+
+                    $.each(result, function (i, val) {
+                        $('#@item.id-combo-customer').append(new Option(val.name, val.id));
+                    });
+                },
+                error: function (error) {
+                    alert("There was an error getting the data from the server: " + error.responseText);
+                }
+            })
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@Request.ApplicationPath/Metric/GetMetricsByWidgetType/?widgetType=" + '@item.type',
+                dataType: "json",
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    $('#@item.id-combo-metric').empty();
+                    $.each(result, function (i, val) {
+                        $('#@item.id-combo-metric').append(new Option(val.name, val.id));
+                    });
+
+                    $("#@item.id-combo-metric > [value='@item.metricid']").attr("selected", "true");
+
+
+                },
+                error: function (error) {
+                }
+            })
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@Request.ApplicationPath/Widget/GetWidgetSettings/" + '@item.id',
+                dataType: "json",
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    $("#@item.id-combo-customer > [value='" + result.customerid + "']").attr("selected", "true");
+                    $('#@item.id-combo-customer').change();
+                    $("#@item.id-combo-location > [value='" + result.locationid + "']").attr("selected", "true");
+                },
+                error: function (error) {
+                }
+            })
+
+        });
+
+        $('#@item.id-combo-customer').change(function () {
+
+            $('#@item.id-combo-location').empty();
+
+            var id = $('#@item.id-combo-customer  option:selected').val();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@Request.ApplicationPath/Location/GetLocations/" + id,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (result) {
+                    $('#@item.id-combo-location').empty();
+                    $('#@item.id-combo-location').append(new Option("All", -1));
+                    $.each(result, function (i, val) {
+                        $('#@item.id-combo-location').append(new Option(val.name, val.id));
+                    });
+                },
+                error: function (error) {
+                    //alert("There was an error getting the data from the server: " + error.responseText);
+                }
+
+            })
+        });
+
+            $('#@item.id-button-save-setttings').click(function (e) {
+                
+            var postData = JSON.stringify({
+                'id': '@item.id',
+                'metricid': $("#@item.id-combo-metric option:selected").val(),
+                'title': $("#@item.id-grid-title").val(),
+                'order': 1,
+                'customerid': $("#@item.id-combo-customer option:selected").val(),
+                'locationid': $("#@item.id-combo-location option:selected").val(),
+                'fromdate': $("#@item.id-input-date-from").val(),
+                'todate': $("#@item.id-input-date-to").val(),
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Request.ApplicationPath/Widget/SaveSettings",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: postData,
+                    async: false,
+                    success: function (result) {
+                        //loadGridData('@Request.ApplicationPath/Widget/GetGridData', '@item.id', '@item.metricid', '@item.customerid', '@item.locationid', '@item.from_date', '@item.to_date');
+                    },
+                    error: function (error) {
+                        //alert("There was an error getting the data from the server: " + error.responseText);
+                        //loadGridData('@Request.ApplicationPath/Widget/GetGridData', '@item.id', '@item.metricid', '@item.customerid', '@item.locationid', '@item.from_date', '@item.to_date');
+                }
+                });
+            });
+
+            $('#@item.id-remove').click(function () {
+
+            var postData = JSON.stringify({
+                'id': '@item.id'
+            });
+
+              $.ajax({
+                  type: "POST",
+                  url: "@Request.ApplicationPath/Widget/Delete",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: postData,
+                    async: false,
+                    success: function (result) { },
+                    error: function (error) { }
+                });
+            });
+    </script>
+       
+}
+
+

@@ -1,0 +1,46 @@
+﻿@using deOROWeb.Helper;
+@model IEnumerable<deORODataAccess.DTO.ScheduleDetailItemDTO>
+
+
+
+
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr id="@m.id-prepick">
+                    <td style="text-align: left">@m.category</td>
+                    <td style="text-align: left">@m.name</td>
+                    <td style="text-align: center">@m.quantity_at_schedule</td>
+                    <td style="text-align: center">
+                        <input id="@m.id-qty-refill" name="input-price" class="spinner" value="@m.quantity_to_refill">
+                    </td>
+                    <td style="text-align: center">
+                        <input id="@m.id-tote" name="input-tote" value="@m.tote" class="form-control">
+                    </td>
+                    <td style="text-align: center">
+                        @*@if (m.status == "1")
+                        {
+                            <img src="~/Images/check.png" />
+                        }
+                        else
+                        {
+                           <img src="~/Images/close.png" />
+                        }
+                        @Html.*@
+
+                        @Html.Image(m.id + "-status", m.status == "1" ? "check.png" : "close.png")
+                    </td>
+                    <td style="text-align: center">
+                        <button class="btn btn-primary pull-left" id="@m.id-edit"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                    </td>
+                    <td style="text-align: center">
+                        <button class="btn btn-danger pull-left" id="@m.id-delete"><i class="fa fa-trash-o"></i>@deOROWeb.Resources.Strings.Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+<script>
+
+    
+</script>

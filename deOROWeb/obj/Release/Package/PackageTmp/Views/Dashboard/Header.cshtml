@@ -1,0 +1,15 @@
+﻿@model IEnumerable<deORODataAccess.dashboard>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="#tab-@Html.DisplayFor(modelItem => item.id)" data-toggle="tab" id="@Html.DisplayFor(modelItem => item.id)-anchor">@Html.DisplayFor(modelItem => item.title) &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="tools" id="@Html.DisplayFor(modelItem => item.id)-span">
+                    <i class="fa fa-times"></i>
+                </span>
+        </a>
+    </li>
+}

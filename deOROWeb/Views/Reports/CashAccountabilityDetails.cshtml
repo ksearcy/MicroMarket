@@ -1,0 +1,33 @@
+﻿@model IEnumerable<deORODataAccess.DTO.CashAccountabilityDTO>
+
+<div class="box-body table-responsive">
+    <table class="table table-bordered table-striped" id="grid">
+        <thead>
+            <tr>
+                <th>@deOROWeb.Resources.Strings.Source</th>
+                <th>@deOROWeb.Resources.Strings.Coins</th>
+                <th>$1s</th>
+                <th>$2s</th>
+                <th>$5s</th>
+                <th>$10s</th>
+                <th>$20s</th>
+                <th>$50s</th>
+                <th>$100s</th>
+            </tr>
+        </thead>
+
+        @foreach (var m in Model)
+        { <tr>
+            <td>@m.source</td>
+            <td>@m.coins</td>
+            <td>@m.ones</td>
+            <td>@m.twos</td>
+            <td>@m.fives</td>
+            <td>@m.tens</td>
+            <td>@m.twenties</td>
+            <td>@m.fifties</td>
+            <td>@m.hundreds</td>
+        </tr>
+        }
+    </table>
+</div>

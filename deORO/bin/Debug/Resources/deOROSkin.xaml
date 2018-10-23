@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="MainBorderBackground" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#396b89" Offset="0" />
+                        <GradientStop Color="#81a5ba" Offset="0.2" />
+                        <GradientStop Color="#81a5ba" Offset="0.9" />
+                        <GradientStop Color="#396b89" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="HelloBorder" TargetType="Border">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="1,1">
+                    <GradientStop Color="#ffffff" Offset="0.0" />
+                    <GradientStop Color="#a080c4" Offset="0.25" />
+                    <GradientStop Color="#5d3e81" Offset="0.75" />
+                    <GradientStop Color="#5d3e81" Offset="1.0" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="PurchaseBorder" TargetType="Border">
+        <Setter Property="BorderBrush" Value="White"></Setter>
+        <Setter Property="BorderThickness" Value="3"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Offset="0"  Color="#ffffff" />
+                    <GradientStop Offset="0.5" Color="#ffffff" />
+                    <GradientStop Offset="1"  Color="#ffffff" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

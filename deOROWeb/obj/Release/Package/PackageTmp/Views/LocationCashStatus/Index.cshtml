@@ -1,0 +1,23 @@
+﻿@model IEnumerable<deORODataAccess.DTO.CashStatusDTO>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>@deOROWeb.Resources.Strings.Description</th>
+            <th>@deOROWeb.Resources.Strings.Amount</th>
+            <th>@deOROWeb.Resources.Strings.Count</th>
+            <th>Is Full</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Description</td>
+                <td>@m.Amount</td>
+                <td>@m.Count</td>
+                <td>@m.IsFull</td>
+            </tr>
+        }
+    </tbody>
+</table>

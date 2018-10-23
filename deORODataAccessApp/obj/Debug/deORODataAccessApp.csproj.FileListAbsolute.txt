@@ -1,0 +1,9 @@
+C:\deORO\Rama\Code\deORODataAccessApp\bin\Debug\deORODataAccessApp.dll.config
+C:\deORO\Rama\Code\deORODataAccessApp\bin\Debug\deORODataAccessApp.dll
+C:\deORO\Rama\Code\deORODataAccessApp\bin\Debug\deORODataAccessApp.pdb
+C:\deORO\Rama\Code\deORODataAccessApp\bin\Debug\EntityFramework.dll
+C:\deORO\Rama\Code\deORODataAccessApp\bin\Debug\HashLib.dll
+C:\deORO\Rama\Code\deORODataAccessApp\bin\Debug\EntityFramework.xml
+C:\deORO\Rama\Code\deORODataAccessApp\obj\Debug\deORODataAccessApp.dll
+C:\deORO\Rama\Code\deORODataAccessApp\obj\Debug\deORODataAccessApp.pdb
+C:\deORO\Rama\Code\deORODataAccessApp\obj\Debug\deORODataAccessApp.csprojResolveAssemblyReference.cache

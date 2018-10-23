@@ -1,0 +1,30 @@
+﻿@model IEnumerable<deOROImageMaster.Models.ItemDTO>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<table class="table table-bordered table-striped" id="grid">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Barcode</th>
+            <th>Description</th>
+            <th>Manufacturer</th>
+            <th>Brand</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.id</td>
+                <td>@m.upc</td>
+                <td>@m.description</td>
+                <td>@m.manufacturer</td>
+                <td>@m.brand</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

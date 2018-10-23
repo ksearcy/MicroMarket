@@ -1,0 +1,180 @@
+﻿
+作者：陈希章 
+反馈：ares@xizhang.com
+
+===================================
+2.1 2013-3-29
+	提供了一个新的扩展，可以用来处理控件的特殊命名以及在代码中访问该控件的做法。
+	具体可以参考：http://www.cnblogs.com/chenxizhang/archive/2013/03/29/2989593.html
+
+2.0 2012-4-13
+	修正了UpdateSourceTrigger的一个问题
+
+
+1.9 2011-10-25
+	增加了一个转换器，NullVisibleConverter，它可以根据传入参数是否为空，决定是否显示某个元素
+	适用于Silverlight和WPF
+
+1.8 2011-10-21
+	修正了一个问题，如果页面很复杂，有很多Grid嵌套，并且都设置了要显示外边框的话，很容易出现问题，而且没有什么规律。
+	我分析原因可能是因为之前的做法是要把控件进行移动。所以今天修正了一下，Border只是套在外面，而不移动内部的控件。
+
+1.7 2011-9-25
+	修正了ButtonService中的一个bug,用来设置DefaultButton和CancelButton的
+
+1.6 2011-9-25 
+	修正了GridHelper中对嵌套Grid可能出现的问题，同时还修正了原先属性的一个bug，Padding和Thickness原先为Int，现在改为double
+	添加了XamlHelper，可以很方便地判断当前是否在设计视图（针对Silerlight和WPF，统一放在System.Windows.Extensions下面)
+            if(XamlHelper.IsInDesignModeStatic) return;
+
+
+1.5 2011-9-25 
+	增加了AutoUpdateBindingSource（仅针对Silverlight)
+		Silverlight里面，默认情况下，文本框如果双向绑定的话，只有当光标移出文本框的时候，才会更新后台数据源。这个特性可以在文本更改的时候就通知数据源，即便光标还在文本框里面
+		使用方式：
+		
+        <TextBox
+            Text="{Binding Title,Mode=TwoWay}"
+            ext:UpdateSourceTriggerHelper.UpdateSourceTrigger="True"></TextBox>
+
+	修改了命名空间，更加方便使用
+		GridHelper和AutoUpdateBindingSource归类到System.Windows.Extensions
+		MultiBinding归类到System.Windows.Data.Extensions
+			xmlns:data="clr-namespace:System.Windows.Data.Extensions;assembly=SilverlightExtension"
+			xmlns:ext="clr-namespace:System.Windows.Extensions;assembly=SilverlightExtension"
+
+	对GridHelper做了改进
+		可以设置边框线粗细(Thickness)，颜色(Brush)和间距(Padding)
+		ext:GridHelper.BorderBrush="Red"
+        ext:GridHelper.BorderPadding="5"
+        ext:GridHelper.BorderThickness="2"
+        ext:GridHelper.ShowBorder="True"
+
+	增加了默认按钮，取消按钮（仅针对Silverlight)
+		默认按钮就是当用户按下Enter（回车）键时自动响应的按钮
+			ext:ButtonServices.DefaultButton="{Binding ElementName=btOk}"
+		取消按钮就是当用户按下Esc（取消）键时自动响应的按钮
+			ext:ButtonServices.CancelButton="{Binding ElementName=btCancel}"
+
+	增加了几个扩展方法
+		NonCaseContains（针对字符串 string，可以不区分大小，以及不考虑空值地比较某个字符串是否包含两外一个字符串）
+		GetProperty（针对object,可以获取它的任意一个属性值，这是基于泛型的）
+		Descendants（针对所有IEnumerable，可以获取集合中元素的所有子元素，这是基于泛型的）
+
+1.4 2011-9-24 添加了多值绑定的功能(针对Silverlight)
+http://www.cnblogs.com/chenxizhang/archive/2011/09/24/2189604.html
+
+	简单格式化多个值
+	<UserControl x:Class="SilverlightApplicationSample.MainPage"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d"
+		d:DesignHeight="300" d:DesignWidth="400"
+		xmlns:data="clr-namespace:System.Windows.Data;assembly=SilverlightExtension">
+
+		<Grid x:Name="LayoutRoot" Background="White">
+			<TextBlock>
+				<data:BindingUtil.MultiBindings>
+					<data:MultiBindings>
+						<data:MultiBinding
+							TargetProperty="Text"
+							StringFormat=" {0}-{1}">
+							<data:MultiBinding.Bindings>
+								<data:BindingCollection>
+									<Binding
+										Path="Id"></Binding>
+									<Binding
+										Path="Time"></Binding>
+								</data:BindingCollection>
+							</data:MultiBinding.Bindings>
+						</data:MultiBinding>
+					</data:MultiBindings>
+				</data:BindingUtil.MultiBindings>
+			</TextBlock>
+		</Grid>
+	</UserControl>
+
+	通过多值转换器
+	首先，编写一个转换器
+	using System;
+	using System.Net;
+	using System.Windows;
+	using System.Windows.Controls;
+	using System.Windows.Documents;
+	using System.Windows.Ink;
+	using System.Windows.Input;
+	using System.Windows.Media;
+	using System.Windows.Media.Animation;
+	using System.Windows.Shapes;
+
+	using System.Windows.Data;
+
+	namespace SilverlightApplicationSample
+	{
+		public class MultiValueConverterSample:IMultiValueConverter
+		{
+
+			#region IMultiValueConverter Members
+
+			public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+			{
+				return string.Format("{0}-{1}", values);
+			}
+
+			public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
+			{
+				throw new NotImplementedException();
+			}
+
+			#endregion
+		}
+	}
+
+	在XAML中使用
+	<UserControl
+		x:Class="SilverlightApplicationSample.MainPage"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d"
+		d:DesignHeight="300"
+		d:DesignWidth="400"
+		xmlns:data="clr-namespace:System.Windows.Data;assembly=SilverlightExtension"
+		xmlns:local="clr-namespace:SilverlightApplicationSample">
+
+		<UserControl.Resources>
+			<local:MultiValueConverterSample
+				x:Key="cv"></local:MultiValueConverterSample>
+		</UserControl.Resources>
+    
+		<Grid
+			x:Name="LayoutRoot"
+			Background="White">
+			<TextBlock>
+				<data:BindingUtil.MultiBindings>
+					<data:MultiBindings>
+						<data:MultiBinding
+							TargetProperty="Text" Converter="{StaticResource cv}">
+							<data:MultiBinding.Bindings>
+								<data:BindingCollection>
+									<Binding
+										Path="Id"></Binding>
+									<Binding
+										Path="Time"></Binding>
+								</data:BindingCollection>
+							</data:MultiBinding.Bindings>
+						</data:MultiBinding>
+					</data:MultiBindings>
+				</data:BindingUtil.MultiBindings>
+			</TextBlock>
+		</Grid>
+	</UserControl>
+
+1.3 2011-9-22 修正了bug
+1.2 2011-9-22 修正了bug
+1.1 2011-9-22 修正了bug
+1.0 2011-9-22 初始化版本，提供了GridHelper,可以给Grid添加边框线
+http://www.cnblogs.com/chenxizhang/archive/2011/09/22/2185414.html

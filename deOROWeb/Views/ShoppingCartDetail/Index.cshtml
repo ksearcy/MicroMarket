@@ -1,0 +1,25 @@
+﻿@model IEnumerable<deORODataAccess.DTO.ShoppingCartItemDTO>
+
+<div class="box-body table-responsive">
+    <table class="table table-bordered table-striped" id="grid">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Barcode</th>
+                <th>Price</th>
+                <th>Tax</th>
+                <th>Price + Tax</th>
+            </tr>
+        </thead>
+
+        @foreach (var m in Model)
+        { <tr>
+            <td style="width:30%">@m.itemname</td>
+            <td style="width:20%">@m.barcode</td>
+            <td style="width:10%">@m.price</td>
+            <td style="width:10%">@m.tax</td>
+            <td style="width:30%">@m.price_tax_included</td>
+        </tr>
+        }
+    </table>
+</div>

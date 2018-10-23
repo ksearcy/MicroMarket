@@ -1,0 +1,269 @@
+﻿@model IEnumerable<deORODataAccess.manufacturer>
+
+@{
+    ViewBag.Title = @deOROWeb.Resources.Strings.Manufacturers;
+}
+
+<link href="~/Scripts/js/plugins/tooltips/simptip.css" rel="stylesheet" />
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.Manufacturers</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.Manufacturers</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.Manufacturer</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.Name</th>
+                                <th>@deOROWeb.Resources.Strings.Code</th>
+                                <th>@deOROWeb.Resources.Strings.Active</th>
+                                <th></th>
+                                <th hidden="hidden"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr>
+                                    <td>@m.name</td>
+                                    <td>@m.code</td>
+                                     @if (@m.is_active == 1)
+                                    {
+                                        <td>@deOROWeb.Resources.Strings.True</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@deOROWeb.Resources.Strings.False</td>
+                                    }
+                                    <td>
+                                        <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="@m.id-edit">@deOROWeb.Resources.Strings.Edit</a></i>
+                                    </td>
+                                    <td  hidden="hidden">
+                                        <i class="fa fa-trash-o"><a class="btn btn-app-small" id="@m.id-delete">@deOROWeb.Resources.Strings.Delete</a></i>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.Manufacturer</h4>
+            </div>
+            <form action="#" method="post" id="form-manufacturer">
+                <div class="modal-body">
+                    <input id="input-hidden-action" type="hidden" />
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.ManufacturerName <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Manufacturer's Name">(?)</a> :</span>
+                            <input id="input-manufacturer-name" name="input-manufacturer-name" class="form-control" placeholder="@deOROWeb.Resources.Strings.ManufacturerName" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.ManufacturerCode <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Manufacturer's identificator code for your company">(?)</a>:</span>
+                            <input id="input-manufacturer-code" name="input-manufacturer-code" class="form-control" placeholder="@deOROWeb.Resources.Strings.ManufacturerCode" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>@deOROWeb.Resources.Strings.Active</label>
+                        <select class="form-control" id="combo-active">
+                            <option value='1' selected="selected">@deOROWeb.Resources.Strings.True</option>
+                            <option value='0'>@deOROWeb.Resources.Strings.False</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#form-manufacturer').validate(
+       {
+           rules: {
+               "input-manufacturer-name": {
+                   required: true
+               },
+               "input-manufacturer-code": {
+                   required: true
+               }
+           }
+       });
+
+   
+
+    $('#popup-modal').on('show.bs.modal', function (e) {
+        $('.form-control').val('');
+        $("#form-manufacturer").validate().resetForm();
+        $(".form-group").removeClass("has-error");
+        $('#combo-active').val('1');
+    })
+    
+    $('#grid tbody').on('click', 'tr', function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('edit') >= 0) {
+
+            var id = target.substring(0, target.indexOf('edit') - 1);
+            var postData = '{"id":' + id + '}';
+
+            $("#input-hidden-action").val(id);
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Manufacturer/Details/",
+                dataType: "json",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+                    $('#input-manufacturer-name').val(result.name);
+                    $('#input-manufacturer-code').val(result.code);
+                    $("#combo-active > [value='" + result.is_active + "']").attr("selected", "true");
+                },
+                error: function (error) {
+                    alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+        else if (target.indexOf('delete') >= 0) {
+
+            bootbox.confirm("Are you sure you want to delete this Manufacturer?", function (result) {
+
+                if (result) {
+                    var id = target.substring(0, target.indexOf('delete') - 1);
+                    var postData = '{"id":' + id + '}';
+
+                    $.ajax({
+                        type: "POST",
+                        url: "@Request.ApplicationPath/Manufacturer/Delete/",
+                        dataType: "json",
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        data: postData,
+                        success: function (result) {
+                        },
+                        error: function (error) {
+                            alert("There was an error posting the data to the server: " + error.responseText);
+                        }
+                    });
+                }
+            });
+        }
+    })
+
+    $('#button-save').click(function () {
+
+        if (!$("#form-manufacturer").valid()) return;
+
+        var hidden = $("#input-hidden-action").val();
+
+        var postData = JSON.stringify({
+
+            'id': hidden,
+            'name': $('#input-manufacturer-name').val(),
+            'code': $('#input-manufacturer-code').val(),
+            'is_active': $('#combo-active  option:selected').val(),
+        });
+
+        if (hidden.length > 0) { //Edit
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Manufacturer/Edit",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        } else { // Add
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Manufacturer/Create",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+    });
+
+    //=====POSITION CHANGE OF CONVERTION OF TABLE TO JQUERY DATA TABLE AFTER ADD ALL PROPERTIES TO THE CONTROLS TO AVOID ISSUES. By Luis Ruiz
+
+    $('#grid').dataTable({
+        "language": {
+            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+             "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+             "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+             "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+             "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+             "sSearch": "@deOROWeb.Resources.Strings.Search:",
+             "oPaginate": {
+                 "sFirst": "@deOROWeb.Resources.Strings.First",
+                "sLast": "@deOROWeb.Resources.Strings.Last",
+                "sNext": "@deOROWeb.Resources.Strings.Next",
+                "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+            },
+         }
+    });
+
+</script>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f1f3c16afff442ab05d7f722370a8d6" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="deOROModel.accountbalancehistory" Width="1.5" PointX="3.6672014834672222" PointY="25.781953570331424" />
+        <EntityTypeShape EntityType="deOROModel.cash_dispense" Width="1.5" PointX="11.518572695329121" PointY="2.26014343009337" />
+        <EntityTypeShape EntityType="deOROModel.category" Width="1.5" PointX="6.9422818287006951" PointY="22.471036027404963" />
+        <EntityTypeShape EntityType="deOROModel.device_error" Width="1.5" PointX="1.8127433479822908" PointY="10.247750093344482" />
+        <EntityTypeShape EntityType="deOROModel.discount" Width="1.5" PointX="3.1331617884026661" PointY="31.414997219766956" />
+        <EntityTypeShape EntityType="deOROModel.manufacturer" Width="1.5" PointX="8.1022429429470755" PointY="9.1534554851955985" />
+        <EntityTypeShape EntityType="deOROModel.payment" Width="1.5" PointX="6" PointY="11" />
+        <EntityTypeShape EntityType="deOROModel.planogram_item" Width="1.5" PointX="5.2416963527173248" PointY="7.0716574523000313" />
+        <EntityTypeShape EntityType="deOROModel.shoppingcart" Width="1.5" PointX="4.8820510380352156" PointY="1.3252997106524649" />
+        <EntityTypeShape EntityType="deOROModel.synclog" Width="1.5" PointX="2.3920170061253092" PointY="1.7673259832744142" />
+        <EntityTypeShape EntityType="deOROModel.transactionerror" Width="1.5" PointX="3.22826054842596" PointY="12.453125050502422" />
+        <EntityTypeShape EntityType="deOROModel.users_deleted" Width="1.5" PointX="10.389691996569603" PointY="30.836960538680181" />
+        <EntityTypeShape EntityType="deOROModel.cash_status" Width="1.5" PointX="11.306649880160881" PointY="18.842077711057886" />
+        <EntityTypeShape EntityType="deOROModel.cash_collection" Width="1.5" PointX="1" PointY="4" />
+        <EntityTypeShape EntityType="deOROModel.cash_counter" Width="1.5" PointX="2.1500851447461571" PointY="20.134123826461902" />
+        <EntityTypeShape EntityType="deOROModel.location_service" Width="1.5" PointX="9.5771721683336288" PointY="26.332828683002308" />
+        <EntityTypeShape EntityType="deOROModel.sync_data" Width="1.5" PointX="9.9408019939161854" PointY="2.8215326977993977" />
+        <EntityTypeShape EntityType="deOROModel.user" Width="1.5" PointX="6.375" PointY="15.375" />
+        <EntityTypeShape EntityType="deOROModel.help" Width="1.5" PointX="4.05757747593223" PointY="7.7969673163243414" />
+        <EntityTypeShape EntityType="deOROModel.item" Width="1.5" PointX="1.6753018506221948" PointY="20.539835149673667" />
+        <EntityTypeShape EntityType="deOROModel.shoppingcartdetail" Width="1.5" PointX="6.375" PointY="29.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Administration.ApplicationSettings" xml:space="preserve">
+    <value>Application Settings</value>
+  </data>
+  <data name="Administration.Items" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="Administration.Service" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="Administration.Shutdown" xml:space="preserve">
+    <value>Shutdown</value>
+  </data>
+  <data name="Administration.SyncInfo" xml:space="preserve">
+    <value>Sync Info</value>
+  </data>
+  <data name="Barcode.ChangeBarcode" xml:space="preserve">
+    <value>Change Barcode</value>
+  </data>
+  <data name="Barcode.CurrentBarcode" xml:space="preserve">
+    <value>Current Barcode</value>
+  </data>
+  <data name="Barcode.NewBarcode" xml:space="preserve">
+    <value>New Barcode</value>
+  </data>
+  <data name="Barcode.Title" xml:space="preserve">
+    <value>Enter or Scan your Barcode</value>
+  </data>
+  <data name="Billing.RefillAccountUsing" xml:space="preserve">
+    <value>Refill Account Using</value>
+  </data>
+  <data name="Billing.YourAccountBalance" xml:space="preserve">
+    <value>Your Account Balance</value>
+  </data>
+  <data name="CashRefill.Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="CashRefill.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CashRefill.DateTime" xml:space="preserve">
+    <value>Date Time</value>
+  </data>
+  <data name="CashRefill.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="CashRefill.Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="CashRefill.TotalRefillAmount" xml:space="preserve">
+    <value>Total Refill Amount:</value>
+  </data>
+  <data name="ComboDiscounts.Title" xml:space="preserve">
+    <value>Specials</value>
+  </data>
+  <data name="Config.application" xml:space="preserve">
+    <value>APPLICATION</value>
+  </data>
+  <data name="Config.barcodereader" xml:space="preserve">
+    <value>BARCODE READER</value>
+  </data>
+  <data name="Config.bill" xml:space="preserve">
+    <value>BILL</value>
+  </data>
+  <data name="Config.camerafeed" xml:space="preserve">
+    <value>CAMERA FEED</value>
+  </data>
+  <data name="Config.cardprocessor" xml:space="preserve">
+    <value>CARD PROCESSOR</value>
+  </data>
+  <data name="Config.cardreader" xml:space="preserve">
+    <value>CARD READER</value>
+  </data>
+  <data name="Config.coin" xml:space="preserve">
+    <value>COIN</value>
+  </data>
+  <data name="Config.mail" xml:space="preserve">
+    <value>MAIL</value>
+  </data>
+  <data name="Config.refillrewards" xml:space="preserve">
+    <value>REFILL REWARDS</value>
+  </data>
+  <data name="Config.usbrelay" xml:space="preserve">
+    <value>USB RELAY</value>
+  </data>
+  <data name="CreditCardRefill.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CreditCardRefill.Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="CreditCardRefill.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="CreditCardRefill.Title" xml:space="preserve">
+    <value>Please select an option below and press OK</value>
+  </data>
+  <data name="CreditCardRefill.ZipCode" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="DeleteMe.Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="DeleteMe.CityStateZip" xml:space="preserve">
+    <value>City, State, Zip</value>
+  </data>
+  <data name="DeleteMe.Deleted" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteMe.Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="DeleteMe.ErrorAddress" xml:space="preserve">
+    <value>Address Cannot be Empty</value>
+  </data>
+  <data name="DeleteMe.ErrorCity" xml:space="preserve">
+    <value>City Cannot be Empty</value>
+  </data>
+  <data name="DeleteMe.ErrorFirstName" xml:space="preserve">
+    <value>First Name Cannot be Empty</value>
+  </data>
+  <data name="DeleteMe.ErrorLastName" xml:space="preserve">
+    <value>Last Name Cannot be Empty</value>
+  </data>
+  <data name="DeleteMe.ErrorPhone" xml:space="preserve">
+    <value>Invalid Phone</value>
+  </data>
+  <data name="DeleteMe.ErrorState" xml:space="preserve">
+    <value>State Cannot be Empty</value>
+  </data>
+  <data name="DeleteMe.ErrorZip" xml:space="preserve">
+    <value>Invalid Zip</value>
+  </data>
+  <data name="DeleteMe.FirstLastName" xml:space="preserve">
+    <value>First / Last Name</value>
+  </data>
+  <data name="DeleteMe.Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="DeleteMe.Title" xml:space="preserve">
+    <value>Are you sure you want to delete your account? This action can't be undone. You must fill the following form so a check can be issued for an amount of {0} which currently is your account balance.</value>
+  </data>
+  <data name="Email.ChangeEmail" xml:space="preserve">
+    <value>Change Email</value>
+  </data>
+  <data name="Email.CurrentEmail" xml:space="preserve">
+    <value>Current Email</value>
+  </data>
+  <data name="Email.InvalidEmail" xml:space="preserve">
+    <value>Invalid Email</value>
+  </data>
+  <data name="Email.NewEmail" xml:space="preserve">
+    <value>New Email</value>
+  </data>
+  <data name="Email.Title" xml:space="preserve">
+    <value>Change Email</value>
+  </data>
+  <data name="Items.AllItems" xml:space="preserve">
+    <value>All Items</value>
+  </data>
+  <data name="Items.Barcode" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="Items.EnterOrScanBarcode" xml:space="preserve">
+    <value>Enter Or Scan Barcode to Filter Items</value>
+  </data>
+  <data name="Items.Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Items.OverUnder" xml:space="preserve">
+    <value>Over / Under</value>
+  </data>
+  <data name="Items.QuantityAfterService" xml:space="preserve">
+    <value>Quantity After Service</value>
+  </data>
+  <data name="Items.ServicedItems" xml:space="preserve">
+    <value>Serviced Items</value>
+  </data>
+  <data name="Items.Stale" xml:space="preserve">
+    <value>Stale</value>
+  </data>
+  <data name="Login.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Login.ForgotPassword" xml:space="preserve">
+    <value>Forgot Password</value>
+  </data>
+  <data name="Login.Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Login.LoginMethod" xml:space="preserve">
+    <value>Login Method</value>
+  </data>
+  <data name="Login.Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Login.Title1" xml:space="preserve">
+    <value>Please scan Fingerprint or input User Name / Password to Login</value>
+  </data>
+  <data name="Login.UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="MainWindow.Welcome" xml:space="preserve">
+    <value>Hello{0}</value>
+  </data>
+  <data name="Message.DeleteConfirmationMessage" xml:space="preserve">
+    <value>Are you sure you want to delete?</value>
+  </data>
+  <data name="Message.DeleteConfirmationTitle" xml:space="preserve">
+    <value>Delete Confirmation</value>
+  </data>
+  <data name="MyAccount.Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="MyAccount.Barcode" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="MyAccount.Billing" xml:space="preserve">
+    <value>Billing</value>
+  </data>
+  <data name="MyAccount.DeleteMe" xml:space="preserve">
+    <value>Delete Me</value>
+  </data>
+  <data name="MyAccount.Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="MyAccount.FingerPrints" xml:space="preserve">
+    <value>Fingerprints</value>
+  </data>
+  <data name="MyAccount.Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="MyAccount.TransactionHistory" xml:space="preserve">
+    <value>Transaction History</value>
+  </data>
+  <data name="NewUser.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewUser.ClickBarcodeAndScan" xml:space="preserve">
+    <value>Click Barcode and Scan</value>
+  </data>
+  <data name="NewUser.ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="NewUser.Email" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="NewUser.Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="NewUser.Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="NewUser.Title" xml:space="preserve">
+    <value>New User Registration</value>
+  </data>
+  <data name="NewUser.UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="Password.ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="Password.ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Password.NewPassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="Password.Title" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="PaymentOptions.Title" xml:space="preserve">
+    <value>Payment Options</value>
+  </data>
+  <data name="Service.CashCollected" xml:space="preserve">
+    <value>Cash Collected</value>
+  </data>
+  <data name="Service.LocationService" xml:space="preserve">
+    <value>Location Service</value>
+  </data>
+  <data name="Service.ManageItems" xml:space="preserve">
+    <value>Manage Items</value>
+  </data>
+  <data name="Service.Off" xml:space="preserve">
+    <value>OFF</value>
+  </data>
+  <data name="Service.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Service.On" xml:space="preserve">
+    <value>ON</value>
+  </data>
+  <data name="Service.ResetService" xml:space="preserve">
+    <value>Reset Service</value>
+  </data>
+  <data name="Service.ServiceComplete" xml:space="preserve">
+    <value>Service Complete</value>
+  </data>
+  <data name="Service.ServiceStart" xml:space="preserve">
+    <value>Service Start</value>
+  </data>
+  <data name="Service.TestMotor" xml:space="preserve">
+    <value>Test Motor</value>
+  </data>
+  <data name="Service.UnlockKiosk" xml:space="preserve">
+    <value>Unlock Kiosk</value>
+  </data>
+  <data name="ShoppingCart.Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="ShoppingCart.DiscountSavings" xml:space="preserve">
+    <value>Discount Savings</value>
+  </data>
+  <data name="SyncInfo.DateTime" xml:space="preserve">
+    <value>Date Time</value>
+  </data>
+  <data name="SyncInfo.Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="SyncInfo.LastDownloadDate" xml:space="preserve">
+    <value>Last Download Date</value>
+  </data>
+  <data name="SyncInfo.LastDownloadStatus" xml:space="preserve">
+    <value>Last Download Status</value>
+  </data>
+  <data name="SyncInfo.LastUploadDate" xml:space="preserve">
+    <value>Last Upload Date</value>
+  </data>
+  <data name="SyncInfo.LastUploadStatus" xml:space="preserve">
+    <value>Last Upload Status</value>
+  </data>
+  <data name="SyncInfo.Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="SyncInfo.Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SyncInfo.SyncData" xml:space="preserve">
+    <value>Sync Data</value>
+  </data>
+  <data name="SyncInfo.Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="SyncInfo.UpdateCreditCardAccountPassword" xml:space="preserve">
+    <value>Update Credit Card Account Password</value>
+  </data>
+  <data name="TransactionHistory.Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="TransactionHistory.ApplyDates" xml:space="preserve">
+    <value>Apply Dates</value>
+  </data>
+  <data name="TransactionHistory.DateTime" xml:space="preserve">
+    <value>DateTime</value>
+  </data>
+  <data name="TransactionHistory.EnterTextToFilterItems" xml:space="preserve">
+    <value>Enter Text to Filter Items</value>
+  </data>
+  <data name="TransactionHistory.FromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="TransactionHistory.ToDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="TransactionHistory.Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TransactionHistory.UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="ApplicationSettings.Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="AutoLogoff.Cancel" xml:space="preserve">
+    <value>Cancel Log off</value>
+  </data>
+  <data name="AutoLogoff.Message" xml:space="preserve">
+    <value>You have been idle for an extended period of time. You have 00:00:{0} to Cancel Auto Logoff.</value>
+  </data>
+  <data name="AutoLogoff.Title" xml:space="preserve">
+    <value>Log off Notification</value>
+  </data>
+  <data name="Button.AccountBalance" xml:space="preserve">
+    <value>ACCOUNT BALANCE</value>
+  </data>
+  <data name="Button.Cash" xml:space="preserve">
+    <value>CASH</value>
+  </data>
+  <data name="Button.CreditCard" xml:space="preserve">
+    <value>CREDIT / DEBIT</value>
+  </data>
+  <data name="Button.DamagedBarcode" xml:space="preserve">
+    <value>DAMAGED</value>
+  </data>
+  <data name="Button.Discounts" xml:space="preserve">
+    <value>DISCOUNTS</value>
+  </data>
+  <data name="Button.Login" xml:space="preserve">
+    <value>LOGIN</value>
+  </data>
+  <data name="Button.Logout" xml:space="preserve">
+    <value>LOGOUT</value>
+  </data>
+  <data name="Button.MyAccount" xml:space="preserve">
+    <value>MY ACCOUNT</value>
+  </data>
+  <data name="Button.NoBarcode" xml:space="preserve">
+    <value>NO BARCODE</value>
+  </data>
+  <data name="Button.Register" xml:space="preserve">
+    <value>REGISTER</value>
+  </data>
+  <data name="Button.Shopping" xml:space="preserve">
+    <value>SHOPPING</value>
+  </data>
+  <data name="CameraFeed.NotConfigured" xml:space="preserve">
+    <value>Not Configured</value>
+  </data>
+  <data name="CashPayment.Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="CashPayment.AmountDue" xml:space="preserve">
+    <value>Amount Due</value>
+  </data>
+  <data name="CashPayment.AmountInCredit" xml:space="preserve">
+    <value>Amount in Credit</value>
+  </data>
+  <data name="CashPayment.AmountPaid" xml:space="preserve">
+    <value>Amount Paid</value>
+  </data>
+  <data name="CashPayment.CancelTransaction" xml:space="preserve">
+    <value>Cancel Transaction</value>
+  </data>
+  <data name="CashPayment.LoginAndCreditChange" xml:space="preserve">
+    <value>Login and Credit Change</value>
+  </data>
+  <data name="CashPayment.Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Credit.Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Credit.ApplyToMyAccountBalance" xml:space="preserve">
+    <value>Apply to my Account Balance</value>
+  </data>
+  <data name="Credit.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Credit.Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Credit.ExpiryDate" xml:space="preserve">
+    <value>Expiry Date</value>
+  </data>
+  <data name="Credit.Title" xml:space="preserve">
+    <value>Following credits are available for your to redeem</value>
+  </data>
+  <data name="CreditCardPayment.AmountDue" xml:space="preserve">
+    <value>Amount Due</value>
+  </data>
+  <data name="CreditCardPayment.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CreditCardPayment.CardReadError" xml:space="preserve">
+    <value>Credit Card Reader Error. Please press OK and retry</value>
+  </data>
+  <data name="CreditCardPayment.DialogTitle" xml:space="preserve">
+    <value>Credit Card Purchase</value>
+  </data>
+  <data name="CreditCardPayment.ErrorZip" xml:space="preserve">
+    <value>Please enter ZipCode and retry</value>
+  </data>
+  <data name="CreditCardPayment.ProcessingTransaction" xml:space="preserve">
+    <value>Processing Transaction. Please wait..</value>
+  </data>
+  <data name="CreditCardPayment.Title" xml:space="preserve">
+    <value>Please swipe your credit card</value>
+  </data>
+  <data name="CreditCardPayment.Zip" xml:space="preserve">
+    <value>Zip</value>
+  </data>
+  <data name="DamagedBarcode.AddToShoppingCart" xml:space="preserve">
+    <value>Add to Shopping Cart</value>
+  </data>
+  <data name="DamagedBarcode.Barcode" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="DamagedBarcode.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DamagedBarcode.Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="DamagedBarcode.EnterTextToFilterItems" xml:space="preserve">
+    <value>Enter Text to Filter Items</value>
+  </data>
+  <data name="DamagedBarcode.LoadingData" xml:space="preserve">
+    <value>Loading Data. Please wait..</value>
+  </data>
+  <data name="DamagedBarcode.Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="DamagedBarcode.Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="DamagedBarcode.Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="DispenseChange.Message" xml:space="preserve">
+    <value>Please wait while we dispense change</value>
+  </data>
+  <data name="DispenseChange.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="DispenseChange.Title" xml:space="preserve">
+    <value>Dispense Change</value>
+  </data>
+  <data name="ForgotPassword.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ForgotPassword.Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ForgotPassword.EmailPassword" xml:space="preserve">
+    <value>Email Password</value>
+  </data>
+  <data name="ForgotPassword.Error" xml:space="preserve">
+    <value>Invalid Email</value>
+  </data>
+  <data name="ForgotPassword.Title" xml:space="preserve">
+    <value>Forgot Password</value>
+  </data>
+  <data name="Login.Title2" xml:space="preserve">
+    <value>Please scan Barcode to Login</value>
+  </data>
+  <data name="Message.PurchaseComplete" xml:space="preserve">
+    <value>Purchase Complete</value>
+  </data>
+  <data name="MessageBox.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MessageBox.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MissingBarcodeCategories.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MissingBarcodeCategories.Title" xml:space="preserve">
+    <value>Select a Category</value>
+  </data>
+  <data name="MissingBarcodeItem.AddToCart" xml:space="preserve">
+    <value>Add to Cart</value>
+  </data>
+  <data name="MissingBarcodeItem.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MissingBarcodeItem.ItemName" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="MissingBarcodeItem.ItemPrice" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="MissingBarcodeItem.SelectQuantity" xml:space="preserve">
+    <value>Select Quantity</value>
+  </data>
+  <data name="MissingBarcodeItem.Tax" xml:space="preserve">
+    <value>Tax</value>
+  </data>
+  <data name="MissingBarcodeItem.Title" xml:space="preserve">
+    <value>Item Details</value>
+  </data>
+  <data name="MissingBarcodeItem.TotalPrice" xml:space="preserve">
+    <value>Total Price (incl. tax)</value>
+  </data>
+  <data name="MissingBarcodeItems.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MissingBarcodeItems.Title" xml:space="preserve">
+    <value>Select an Item</value>
+  </data>
+  <data name="MyAccountPay.AccountBalance" xml:space="preserve">
+    <value>Account Balance</value>
+  </data>
+  <data name="MyAccountPay.AmountDue" xml:space="preserve">
+    <value>Amount Due</value>
+  </data>
+  <data name="MyAccountPay.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MyAccountPay.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PaymentOptions.Account Balance" xml:space="preserve">
+    <value>Account Balance</value>
+  </data>
+  <data name="Popup.Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ReturnChangeOptions.CreateAccountAndCreditChange" xml:space="preserve">
+    <value>Create Account and Credit Change</value>
+  </data>
+  <data name="ReturnChangeOptions.CreditChangeToMyAccount" xml:space="preserve">
+    <value>Credit Change to My Account</value>
+  </data>
+  <data name="ReturnChangeOptions.DispenseChange" xml:space="preserve">
+    <value>Dispense Change</value>
+  </data>
+  <data name="ReturnChangeOptions.LoginAndCreditChange" xml:space="preserve">
+    <value>Login and Credit Change</value>
+  </data>
+  <data name="ReturnChangeOptions.Title" xml:space="preserve">
+    <value>If you are a registered User, Please Login to Credit ${0} to your Account Or Click on one of the following options. If you fail to do so, you will lose the ${0} in credit</value>
+  </data>
+  <data name="ShoppingCart.Barcode" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="ShoppingCart.ComboDiscountApplied" xml:space="preserve">
+    <value>Combo Discount Applied</value>
+  </data>
+  <data name="ShoppingCart.CRV" xml:space="preserve">
+    <value>CRV</value>
+  </data>
+  <data name="ShoppingCart.Discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="ShoppingCart.Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ShoppingCart.OriginalPrice" xml:space="preserve">
+    <value>Original Price</value>
+  </data>
+  <data name="ShoppingCart.Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="ShoppingCart.Tax" xml:space="preserve">
+    <value>Tax</value>
+  </data>
+  <data name="SyncData.Message" xml:space="preserve">
+    <value>Sync Data in progress. Please wait..</value>
+  </data>
+  <data name="NewUser.FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="NewUser.LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="ShoppingCart.SubsidySavings" xml:space="preserve">
+    <value>Subsidy Savings</value>
+  </data>
+  <data name="ShoppingCart.Subsidy" xml:space="preserve">
+    <value>Subsidy</value>
+  </data>
+  <data name="Administration.FileTransfer" xml:space="preserve">
+    <value>File Transfer</value>
+  </data>
+  <data name="FileTransfer.Destination" xml:space="preserve">
+    <value>Destination</value>
+  </data>
+  <data name="FileTransfer.Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Service.AddMoney" xml:space="preserve">
+    <value>Add Money</value>
+  </data>
+  <data name="AddMoney.Bill" xml:space="preserve">
+    <value>Bill Recycler Status</value>
+  </data>
+  <data name="AddMoney.Coin" xml:space="preserve">
+    <value>Smart Coin Status</value>
+  </data>
+  <data name="AddMoney.Refresh" xml:space="preserve">
+    <value>Refresh Status</value>
+  </data>
+  <data name="AddMoney.Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ReturnChangeOptions.NoChange" xml:space="preserve">
+    <value>No Change</value>
+  </data>
+  <data name="NewUser.DOB" xml:space="preserve">
+    <value>Date Of Birth</value>
+  </data>
+  <data name="NewUser.Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Administration.Ftp" xml:space="preserve">
+    <value>Ftp</value>
+  </data>
+  <data name="NewUser.DOBTexblock" xml:space="preserve">
+    <value>Tap the calendar!</value>
+  </data>
+  <data name="Billing.Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Billing.PleaseScan" xml:space="preserve">
+    <value>Please Scan Your Credit Card</value>
+  </data>
+  <data name="MessageBox.Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Register.FingerprintHeader" xml:space="preserve">
+    <value>Fingerprint Registration</value>
+  </data>
+  <data name="Register.FingerprintSaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Message.InvalidFingerprintMessage" xml:space="preserve">
+    <value>Login Failed, Invalid Fingerprint.</value>
+  </data>
+  <data name="Message.InvalidFingerprintTitle" xml:space="preserve">
+    <value>Invalid Fingerprint</value>
+  </data>
+  <data name="Message.LoginFailedMessage" xml:space="preserve">
+    <value>Login Failed, Incorrect user or password.</value>
+  </data>
+  <data name="Message.LoginFailedTitle" xml:space="preserve">
+    <value>Login Failed</value>
+  </data>
+  <data name="FingerPrint.CultureInfo" xml:space="preserve">
+    <value>en</value>
+  </data>
+  <data name="Gender.Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Gender.Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Message.FingerPrintRegistrationTtile" xml:space="preserve">
+    <value>Enroll Fingerprint</value>
+  </data>
+  <data name="Message.SuccessfulFingerPrintRegistrationMessage" xml:space="preserve">
+    <value>Fingerprint Saved Successfully</value>
+  </data>
+  <data name="Message.SuccessfulRefillMessage" xml:space="preserve">
+    <value>Account refill was successful</value>
+  </data>
+  <data name="Message.SuccessfulRefillTitle" xml:space="preserve">
+    <value>Account Refill</value>
+  </data>
+  <data name="Message.UnsuccessfulFingerPrintRegistrationMessage" xml:space="preserve">
+    <value>Failed to Save Fingerprint</value>
+  </data>
+  <data name="Button.Addfunds" xml:space="preserve">
+    <value>Add Funds</value>
+  </data>
+  <data name="MyPayrollPay.AmountDue" xml:space="preserve">
+    <value>Amount Due</value>
+  </data>
+  <data name="MyPayrollPay.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MyPayrollPay.OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MyPayrollPay.PayrollBalance" xml:space="preserve">
+    <value>Payroll Balance</value>
+  </data>
+  <data name="PaymentOptions.Payroll Balance" xml:space="preserve">
+    <value>Payroll Balance</value>
+  </data>
+  <data name="Button.PayrollBalance" xml:space="preserve">
+    <value>PAYROLL BALANCE</value>
+  </data>
+</root>

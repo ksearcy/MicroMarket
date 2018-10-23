@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e9e18fdf06e04854908f3648a6f213c4" Name="Diagram1" ZoomLevel="85" ShowGrid="false" SnapToGrid="false">
+        <EntityTypeShape EntityType="deORO_MasterModel.shoppingcart" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="deORO_MasterModel.customer" Width="1.5" PointX="11.908366793723948" PointY="29.559380962308207" />
+        <EntityTypeShape EntityType="deORO_MasterModel.users_deleted" Width="1.5" PointX="10.822492287877244" PointY="3.8582234102572421" IsExpanded="false" />
+        <EntityTypeShape EntityType="deORO_MasterModel.dashboard" Width="1.5" PointX="10.916473304348287" PointY="16.763726018724835" />
+        <EntityTypeShape EntityType="deORO_MasterModel.widget" Width="1.5" PointX="8.5716652891466687" PointY="16.066484220356905" />
+        <EntityTypeShape EntityType="deORO_MasterModel.driver" Width="1.5" PointX="3.2843137034907892" PointY="21.480392164425041" />
+        <EntityTypeShape EntityType="deORO_MasterModel.schedule" Width="1.5" PointX="2.8253954140587689" PointY="1.6024759568285552" IsExpanded="true" />
+        <EntityTypeShape EntityType="deORO_MasterModel.category" Width="1.5" PointX="2.1155262953208416" PointY="9.114237431955635" />
+        <EntityTypeShape EntityType="deORO_MasterModel.metric" Width="1.5" PointX="7.875" PointY="21" />
+        <AssociationConnector Association="deORO_MasterModel.FK_widget_dashboard" />
+        <EntityTypeShape EntityType="deORO_MasterModel.payment" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="deORO_MasterModel.synclog" Width="1.5" PointX="7.5634199695491322" PointY="11.61542158369693" />
+        <EntityTypeShape EntityType="deORO_MasterModel.cash_status" Width="1.5" PointX="3.3331687447303762" PointY="25.720844966229446" />
+        <EntityTypeShape EntityType="deORO_MasterModel.cash_counter" Width="1.5" PointX="11.372577096974746" PointY="14.442351347972803" />
+        <EntityTypeShape EntityType="deORO_MasterModel.cash_dispense" Width="1.5" PointX="0.5" PointY="15.981199156298668" />
+        <EntityTypeShape EntityType="deORO_MasterModel.cash_collection" Width="1.5" PointX="10.96277238380293" PointY="20.305937761583337" />
+        <EntityTypeShape EntityType="deORO_MasterModel.manufacturer" Width="1.5" PointX="9.25" PointY="14.125" />
+        <EntityTypeShape EntityType="deORO_MasterModel.shoppingcartdetail" Width="2.75" PointX="9" PointY="46.5" />
+        <EntityTypeShape EntityType="deORO_MasterModel.item" Width="1.5" PointX="5.125" PointY="46.5" />
+        <EntityTypeShape EntityType="deORO_MasterModel.cash_reconciliation" Width="1.5" PointX="1.9776422642341283" PointY="11.91615852495076" />
+        <EntityTypeShape EntityType="deORO_MasterModel.webuser" Width="1.5" PointX="9.5167682950098484" PointY="4.932418696416847" />
+        <EntityTypeShape EntityType="deORO_MasterModel.location_combo_discount" Width="1.5" PointX="4.5005081508019815" PointY="9.0320121648719738" />
+        <EntityTypeShape EntityType="deORO_MasterModel.combo_discount_detail" Width="1.5" PointX="3.4344512451083307" PointY="4.6448170635306294" />
+        <EntityTypeShape EntityType="deORO_MasterModel.location_credit" Width="1.5" PointX="6.0726035507733958" PointY="30.233113556277527" />
+        <EntityTypeShape EntityType="deORO_MasterModel.location_credit_user" Width="1.5" PointX="7.7580036557083965" PointY="19.479316675793061" />
+        <EntityTypeShape EntityType="deORO_MasterModel.location_credit_activity" Width="1.5" PointX="8.981263170475728" PointY="31.714283257589809" />
+        <EntityTypeShape EntityType="deORO_MasterModel.location_service" Width="1.5" PointX="1.416158497692537" PointY="5.9933943121564575" />
+        <EntityTypeShape EntityType="deORO_MasterModel.transaction_error" Width="1.5" PointX="4.5716463191914523" PointY="18.471544699934345" />
+        <EntityTypeShape EntityType="deORO_MasterModel.schedule_detail_item" Width="1.5" PointX="8.7830822899858845" PointY="23.250813599327028" />
+        <EntityTypeShape EntityType="deORO_MasterModel.location_item_deleted" Width="1.5" PointX="13.14075204792233" PointY="18.438008109914648" />
+        <EntityTypeShape EntityType="deORO_MasterModel.subsidy_detail" Width="1.5" PointX="15.735772431741838" PointY="6.4502032657724371" />
+        <EntityTypeShape EntityType="deORO_MasterModel.combo_discount" Width="1.5" PointX="3.6928838259021068" PointY="30.280898880919427" />
+        <EntityTypeShape EntityType="deORO_MasterModel.discount" Width="1.5" PointX="6.5340447408216775" PointY="24.673780487140043" />
+        <EntityTypeShape EntityType="deORO_MasterModel.subsidy" Width="1.5" PointX="1.5649050723597897" PointY="30.435216828452059" />
+        <EntityTypeShape EntityType="deORO_MasterModel.accountbalancehistory" Width="2.3384146414595222" PointX="6.8572153761279662" PointY="58.030995917784452" />
+        <EntityTypeShape EntityType="deORO_MasterModel.location_subsidy" Width="1.5" PointX="5.2296554302934819" PointY="22.34652219263209" />
+        <EntityTypeShape EntityType="deORO_MasterModel.location_item" Width="1.5" PointX="2.5637255094455598" PointY="16.473039335651791" />
+        <EntityTypeShape EntityType="deORO_MasterModel.device_error" Width="1.5" PointX="0.34593951718226984" PointY="18.533665531563418" />
+        <EntityTypeShape EntityType="deORO_MasterModel.planogram" Width="1.5" PointX="10.912511569872736" PointY="21.728046665772819" />
+        <EntityTypeShape EntityType="deORO_MasterModel.planogram_item" Width="1.5" PointX="4.95660539574763" PointY="28.413352249382694" />
+        <EntityTypeShape EntityType="deORO_MasterModel.schedule_detail" Width="1.5" PointX="7.7098577221367606" PointY="7.9308942985273472" />
+        <EntityTypeShape EntityType="deORO_MasterModel.alert" Width="1.5" PointX="11.835492392925309" PointY="30.9720712150317" />
+        <EntityTypeShape EntityType="deORO_MasterModel.alert_subscription" Width="1.5" PointX="7.8048894795611918" PointY="3.6969581710626178" />
+        <EntityTypeShape EntityType="deORO_MasterModel.location" Width="1.5" PointX="5.0992509158242658" PointY="4.2275280774715736" />
+        <EntityTypeShape EntityType="deORO_MasterModel.event_log" Width="1.5" PointX="9.3002436427866311" PointY="20.813824737823488" />
+        <EntityTypeShape EntityType="deORO_MasterModel.user" Width="2.75" PointX="0.5" PointY="22.156862737192" />
+        <EntityTypeShape EntityType="deORO_MasterModel.user_snapshot" Width="1.5" PointX="10.08578420613464" PointY="26.556372575487647" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

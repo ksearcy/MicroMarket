@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.Title = "Alerts";
+}
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>Alerts</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">Alerts</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs" id="nav-tabs">
+                    <li class="active">
+                        <a href="#tab-1" data-toggle="tab">Alerts</a>
+                    </li>
+                    <li>
+                        <a href="#tab-2" data-toggle="tab">Triggered Alerts</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab-1">
+                        <div class="box">
+                            <div class="box-header">
+                                <div class="margin">
+                                    <div class="pull-left box-tools">
+                                        <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;Add Alert</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-body table-responsive">
+                                <table class="table table-bordered table-striped" id="grid">
+                                    <thead>
+                                        <tr>
+                                            <th>Customer Name</th>
+                                            <th>Location Name</th>
+                                            <th>Name</th>
+                                            <th>Active</th>
+                                            <th>Type</th>
+                                            <th>Deliver When</th>
+                                            <th>Delivery Format </th>
+                                            <th></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>deORO Test</td>
+                                            <td>Salsbury</td>
+                                            <td>Alert 1</td>
+                                            <td>Yes</td>
+                                            <td>No Sales</td>
+                                            <td>Whenever Available</td>
+                                            <td>Text</td>
+                                            <td>
+                                                <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="id-edit">Edit</a></i>
+                                            </td>
+                                            <td hidden="hidden">
+                                                <i class="fa fa-trash-o"><a class="btn btn-app-small" id="id-delete">Delete</a></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>deORO Test</td>
+                                            <td>Conoco</td>
+                                            <td>Alert 2</td>
+                                            <td>Yes</td>
+                                            <td>No Sales</td>
+                                            <td>Whenever Available</td>
+                                            <td>HTML</td>
+                                            <td>
+                                                <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="id-edit">Edit</a></i>
+                                            </td>
+                                            <td hidden="hidden">
+                                                <i class="fa fa-trash-o"><a class="btn btn-app-small" id="id-delete">Delete</a></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>deORO Test</td>
+                                            <td>Medical Center Annex</td>
+                                            <td>Alert 3</td>
+                                            <td>Yes</td>
+                                            <td>No Sales</td>
+                                            <td>Whenever Available</td>
+                                            <td>HTML</td>
+                                            <td>
+                                                <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="id-edit">Edit</a></i>
+                                            </td>
+                                            <td hidden="hidden">
+                                                <i class="fa fa-trash-o"><a class="btn btn-app-small" id="id-delete">Delete</a></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>deORO Test</td>
+                                            <td>OXY Training</td>
+                                            <td>No Sales Alert</td>
+                                            <td>Yes</td>
+                                            <td>No Sales</td>
+                                            <td>Whenever Available</td>
+                                            <td>HTML</td>
+                                            <td>
+                                                <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="id-edit">Edit</a></i>
+                                            </td>
+                                            <td hidden="hidden">
+                                                <i class="fa fa-trash-o"><a class="btn btn-app-small" id="id-delete">Delete</a></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-2">
+                        <div class="box">
+                            <div class="box-header">
+                                <div class="margin">
+                                </div>
+                            </div>
+                            <div class="box-body table-responsive">
+                                <table class="table table-bordered table-striped" id="grid">
+                                    <thead>
+                                        <tr>
+                                            <th>Customer Name</th>
+                                            <th>Location Name</th>
+                                            <th>Alert Name</th>
+                                            <th>Triggered Date Time</th>
+                                            <th>Notification Sent</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>deORO Test</td>
+                                            <td>Salsbury</td>
+                                            <td>Alert 1</td>
+                                            <td>02/10/2016 02:00 AM</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                        <tr>
+                                             <td>deORO Test</td>
+                                            <td>Salsbury</td>
+                                            <td>Alert 2</td>
+                                            <td>02/18/2016 02:00 AM</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                        <tr>
+                                            <td>deORO Test</td>
+                                            <td>Salsbury</td>
+                                            <td>Alert 3</td>
+                                            <td>02/12/2016 02:00 AM</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                        <tr>
+                                            <td>deORO Test</td>
+                                            <td>Salsbury</td>
+                                            <td>No Sales Alert</td>
+                                            <td>02/15/2016 02:00 AM</td>
+                                            <td>Yes</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</aside>

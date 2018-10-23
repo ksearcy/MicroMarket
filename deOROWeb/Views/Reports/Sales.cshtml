@@ -1,0 +1,907 @@
+﻿@{
+    ViewBag.Title = @deOROWeb.Resources.Strings.Sales;
+}
+
+
+
+<script src="~/Scripts/js/plugins/flot/jquery.flot.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.pie.js"></script>
+<script src="~/Scripts/js/plugins/flot/excanvas.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.categories.js"></script>
+<script src="~/Scripts/js/plugins/sparkline/jquery.sparkline.js"></script>
+<script src="~/Scripts/js/plugins/blockUI/jquery.blockUI.js"></script>
+
+
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.SalesPerformanceReport</h1>
+        <ol class="breadcrumb">
+            <li><a href="@Request.ApplicationPath/"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li>@deOROWeb.Resources.Strings.Reports</li>
+            <li class="active">@deOROWeb.Resources.Strings.Sales / @deOROWeb.Resources.Strings.Performance</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body table-responsive">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Customers</label>
+                                @Html.DropDownList("Customers", new SelectList(ViewBag.Customers, "id", "name"), @deOROWeb.Resources.Strings.SelectOne, new { id = "combo-customers", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Locations</label>
+                                <select class="form-control" multiple id="list-locations" style="height: 120px">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.ReportType</label>
+                                <select class="form-control" id="combo-report-type">
+                                    <option value="Items">@deOROWeb.Resources.Strings.Items</option>
+                                    <option value="PaymentMethodByAmount">@deOROWeb.Resources.Strings.PaymentMethodByAmount</option>
+                                    <option value="PaymentMethodByItemCount">@deOROWeb.Resources.Strings.PaymentMethodByItemCount</option>
+                                    <option value="PaymentRouting">@deOROWeb.Resources.Strings.PaymentRouting</option>
+                                    <option value="Payroll">@deOROWeb.Resources.Strings.Payroll</option>
+                                    <option value="ShoppingCartDetail">@deOROWeb.Resources.Strings.ShoppingCartDetail</option>
+                                    <option value="NoSales">@deOROWeb.Resources.Strings.NoSales</option>
+                                    <option value="Inventory">Inventory</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.ViewBy</label>
+                                <select class="form-control" id="combo-view-type">
+                                    @*<option value="Default">Default</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>*@
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>@deOROWeb.Resources.Strings.DateRange</label>
+                            <div class="form-group">
+                                <input id="input-from-date" class="form-control" placeholder="From Date">
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <input id="input-to-date" class="form-control" placeholder="To Date">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>@deOROWeb.Resources.Strings.HourRange</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-from-hour">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12" selected="selected">12</option>
+                                </select>
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-to-hour">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12" selected="selected">12</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>@deOROWeb.Resources.Strings.Daytime</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-from-daytime">
+                                    <option value="AM" selected="selected">A.M.</option>
+                                    <option value="PM">P.M.</option>
+                                </select>
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-to-daytime">
+                                    <option value="AM" selected="selected">A.M.</option>
+                                    <option value="PM" >P.M.</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary pull-left" id="button-process">@deOROWeb.Resources.Strings.Process</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title"></h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="box-body table-responsive">
+                                        <table id="grid" class="table table-bordered table-striped">
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="row-chart">
+                        <div class="col-md-12">
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title"></h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body" id="box-body-chart">
+                                    <div class="box-body table-responsive">
+                                        <div id="chart" style="width: 100%; height: 400px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<div class="modal fade" id="popup-modal-shopping-cart-detail" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body" id="modal-shopping-cart-detail-body">
+            </div>
+            <div class="modal-footer clearfix">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css" id="custom-modal">
+    .modal-lg {
+        width: 850px!important;
+        margin: 0 auto;
+    }
+</style>
+
+<script>
+
+
+    $('#row-chart').hide();
+
+    manageDates($('#combo-view-type').val());
+
+    $("#combo-customers").change(function () {
+        var id = $(this).val();
+        loadLocations(id);
+    });
+
+    loadReportViewType($('#combo-report-type').val());
+
+    $('#combo-report-type').change(function () {
+        loadReportViewType($(this).val());
+    });
+
+    $('#combo-view-type').change(function () {
+        manageDates($(this).val());
+    });
+
+
+    $('#popup-modal-shopping-cart-detail').on('shown.bs.modal', function (e) {
+
+        var shoppingcartPkid = $(e.relatedTarget).data('id');
+
+        var postData = JSON.stringify({
+            'pkid': shoppingcartPkid
+        });
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "@Request.ApplicationPath/ShoppingCart/GetShoppingCartFullDetail/",
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            data: postData,
+            success: function (result) {
+                $('#modal-shopping-cart-detail-body').html(result);
+            },
+            error: function (error) {
+                //alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+
+    });
+
+    function manageDates(viewType) {
+        if (viewType == "Weekly" || viewType == "Monthly") {
+
+            $('#input-to-date').prop("disabled", true);
+            $('#input-to-date').val('12/31/' + new Date($('#input-from-date').val()).getFullYear());
+
+            $('#input-from-date').datetimepicker({
+                timepicker: false, format: 'm/d/Y'
+            });
+        }
+        else {
+            $('#input-to-date').prop("disabled", false);
+
+            $('#input-from-date').val(new Date().getMonth() + 1 + '/1/' + new Date().getFullYear());
+            $('#input-to-date').val(new Date().getMonth() + 1 + '/' + new Date().getDate() + '/' + new Date().getFullYear());
+        }
+    }
+
+    $('#input-from-date').datetimepicker({
+        timepicker: false, format: 'm/d/Y',
+        onChangeYear: function (c, $i) {
+
+            if ($('#combo-view-type').val() == "Weekly" || $('#combo-view-type').val() == "Monthly") {
+                $('#input-to-date').val('12/31/' + c.getFullYear());
+            }
+        }
+    });
+
+    $('#input-to-date').datetimepicker({
+        timepicker: false, format: 'm/d/Y'
+    });
+
+
+    function loadReportViewType(reportType) {
+
+        $('#combo-view-type').empty();
+
+        if (reportType == 'Items') {
+            $('#combo-view-type').append(new Option('Default', 'Default'));
+            $('#combo-view-type').append(new Option('Daily', 'Daily'));
+            $('#combo-view-type').append(new Option('Hourly', 'Hourly'));
+            $('#combo-view-type').append(new Option('Day of Week', 'Day of Week'));
+            $('#combo-view-type').append(new Option('Weekly', 'Weekly'));
+            $('#combo-view-type').append(new Option('Monthly', 'Monthly'));
+        }
+        else if (reportType == "ShoppingCartDetail") {
+            $('#combo-view-type').append(new Option('Default', 'Default'));
+            $('#combo-view-type').append(new Option('Item Name', 'GroupByItem'));
+            $('#combo-view-type').append(new Option('Payment Source', 'GroupByPayment'));
+        }
+        else if (reportType == "PaymentMethodByAmount" || reportType == "PaymentMethodByItemCount" || reportType == "Payroll") {
+            $('#combo-view-type').append(new Option('Both', 'Both'));
+            $('#combo-view-type').append(new Option('Pay', 'Pay'));
+            $('#combo-view-type').append(new Option('Refill', 'Refill'));
+            if (reportType == "Payroll") {
+                $('#combo-view-type').append(new Option('Users', 'Users'));
+            }
+        }
+        else if (reportType == "NoSales") {
+            $('#combo-view-type').append(new Option('Default', 'Default'));
+        }       
+        else if (reportType == "PaymentRouting") {
+            $('#combo-view-type').append(new Option('Default', 'Default'));
+        }
+        else if (reportType == "Inventory") {
+            $('#combo-view-type').append(new Option('Default', 'Default'));
+            $('#combo-view-type').append(new Option('Total Refill', 'TotalRefill'));
+        }
+    }
+
+    function loadLocations(id) {
+
+        $('#list-locations').empty();
+        $('#list-locations').prop("disabled", true);
+
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Location/GetLocations/" + id,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                $('#list-locations').empty();
+                $.each(result, function (i, val) {
+                    $('#list-locations').append(new Option(val.name, val.id));
+                });
+
+                $('#list-locations').prop("disabled", false);
+            },
+            error: function (error) {
+                alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    }
+
+    function plotBarChart(data) {
+
+        if (data == null) return;
+
+        var p = $.plot("#chart", data, {
+            grid: {
+                borderWidth: 1,
+                borderColor: "#f3f3f3",
+                tickColor: "#f3f3f3"
+            },
+            series: {
+                stack: 0,
+                lines: { show: true, steps: false },
+                bars: { show: false, barWidth: 0.9, align: 'center', },
+            },
+            label: {
+                show: true,
+            },
+            xaxis: {
+                mode: "categories",
+                tickLength: 0
+            }
+        });
+    }
+
+    var oTable;
+
+    $('#button-process').click(function () {
+
+
+        $('#grid').find('thead tr th').remove();
+        $('#grid').empty();
+        $('#chart').empty();
+
+        var locationids = new Array();
+        $('#list-locations :selected').each(function (i, selected) {
+            locationids[i] = $(selected).val();
+        });
+
+        var postData = JSON.stringify({
+            'customerid': $('#combo-customers').val(),
+            'locationids': locationids,
+            'reportCategory': 'Sales',
+            'reportType': $('#combo-report-type').val(),
+            'reportView': $('#combo-view-type').val(),
+            'fromDate': $('#input-from-date').val(),
+            'toDate': $('#input-to-date').val(),
+            'fromHour': $('#combo-from-hour option:selected').val(),
+            'toHour': $('#combo-to-hour option:selected').val(),
+            'fromDaytime': $('#combo-from-daytime option:selected').val(),
+            'toDaytime': $('#combo-to-daytime option:selected').val()
+        });
+
+
+        $.blockUI({
+            css: {
+                border: 'none',
+                padding: '15px',
+                backgroundColor: '#3c8dbc',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .75,
+                color: '#fff'
+            }
+        });
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "@Request.ApplicationPath/Reports/ProcessReport/",
+            dataType: "json",
+            data: postData,
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                if (result != null) {
+
+                    oTable = $('#grid').dataTable({
+                        "dom": 'BC<"clear">T<"clear">lfrtip',
+                        "tableTools": {
+                            "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf"
+                         },
+                        buttons: [
+                          'copy', 'csv', 'excel', 'pdf', 'print'
+                        ],
+                        //"columnDefs": [
+                        //    {
+                        //        "targets": [0],
+                        //        "visible": false,
+                        //        "searchable": false
+                        //    },
+                        //    {
+                        //        "targets": [1],
+                        //        "visible": false,
+                        //        "searchable": false
+                        //    },
+                        //],
+                        "aaData": result.rows,
+                        "aoColumns": result.columns,
+                        "bAutoWidth": true,
+                        "bDestroy": true,
+                        "language": {
+                            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+                            "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+                            "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+                            "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+                            "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+                            "sSearch": "@deOROWeb.Resources.Strings.Search:",
+                            "oPaginate": {
+                                "sFirst": "@deOROWeb.Resources.Strings.First",
+                                "sLast": "@deOROWeb.Resources.Strings.Last",
+                                "sNext": "@deOROWeb.Resources.Strings.Next",
+                                "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+                            },
+                        },
+                        //"bServerSide": true,
+                        //"sAjaxSource": 'AjaxHandler',
+                        "bJQueryUI": true,
+                        "rowCallback": function (row, data, index) {
+
+                            //$("td", row).each(function (i) {
+
+                            //    if (data[i] == '') {
+                            //        var col = $('td:eq(' + i + ')', row);
+                            //        col.html('0.00');
+                            //        data[i] = '0.00';
+                            //    }
+                            //});
+
+                            if (result.showSparkLines)
+                                $('td:eq(6)', row).html('<span class="spark">' + data[6] + '</span>');
+
+                            if (result.groupColumn != 0) {
+                                var col = $('td:eq(0)', row);
+                                //col.html('<a href="#"><img src="@Request.ApplicationPath/images/plus.png" id="' + data[2] + '" alt="expand/collapse" class="image"></a>');
+                                //col.html('<i class="fa fa-edit"><a class="btn btn-app-small" id="' + data[2] + '">Edit</a></i>')
+                                col.html('<button class="btn btn-primary btn-sm" id="' + data[result.groupColumn] + '"><i class="fa fa-plus"></i></button>')
+                                col.attr('align', 'center');
+
+                                if ($('#combo-report-type').val() == "ShoppingCartDetail") {
+                                    $('td:eq(' + result.groupColumn + ')', row).html('<a href="#" data-toggle="modal" data-target="#popup-modal-shopping-cart-detail" data-id="' + data[result.groupColumn] + '">' + data[result.groupColumn] + '</a>');
+                                }
+                            }
+                            else {
+
+                                if ($('#combo-report-type').val() == "ShoppingCartDetail") {
+                                    $('td:eq(2)', row).html('<a href="#" data-toggle="modal" data-target="#popup-modal-shopping-cart-detail" data-id="' + data[2] + '">' + data[2] + '</a>');
+                                }
+                            }
+
+                        },
+                        "drawCallback": function (Settings) {
+
+                            if (result.showSparkLines)
+                                $('.spark').sparkline('html', {
+                                    type: 'bar', barColor: '#3366CC'
+                                });
+
+                        },
+
+                    });//.rowGrouping({ bExpandableGrouping: true, iGroupingColumnIndex:1});
+
+                    if (result.showTotals) {
+
+                        var foot = $("#grid").find('tfoot');
+
+                        if (foot != null) {
+                            foot = $('<tfoot>').appendTo("#grid");
+
+                            $('#grid thead th').each(function (i) {
+                                foot.append('<td></td>');
+                            });
+
+                            foot = $('</tfoot>')
+                        }
+
+                        var table = $('#grid').DataTable();
+                        var foot = $('<tfoot>').appendTo("#grid");
+
+                        table.columns().every(function () {
+
+                            var sum = this.data().reduce(function (a, b) {
+
+                                if (isNumeric(a)) {
+                                    return parseFloat(a) + parseFloat(b);
+                                }
+                            });
+
+                            if (isNumeric(sum)) {
+
+                                if (isFloat(sum)) {
+                                    foot.append('<td><b>&nbsp;&nbsp;&nbsp;' + sum.toFixed(2) + '<b></td>');
+                                }
+                                else {
+                                    foot.append('<td><b>&nbsp;&nbsp;&nbsp;' + sum + '<b></td>');
+                                }
+                            }
+                            else {
+                                foot.append('<td></td>');
+                            }
+                        });
+
+                        foot = $('</tfoot>')
+                    }
+                }
+                else {
+                    $('#no-data').show();
+                }
+
+                if (result.data != null && result.data.length > 0) {
+                    $('#row-chart').show();
+                    plotBarChart(result.data);
+
+                }
+                else {
+                    $('#row-chart').hide();
+                }
+
+                $.unblockUI();
+
+                //=========================Translation Method==========================
+                DatatablesTitlesTranslation();
+                //===================================================================== 
+
+            },
+            error: function (error) {
+
+                $.unblockUI();
+
+            }
+        })
+
+
+        $('#grid tbody').on('click', 'tr', function (event) {
+
+            var target = event.target.id;
+            var nTr = this;
+
+            if (target == null || target == "") return;
+
+
+            if (event.target.innerHTML.match('fa-minus')) {
+                event.target.innerHTML = "<i class='fa fa-plus'></i>";
+                $(event.target).attr('class', 'btn btn-primary btn-sm');
+                oTable.fnClose(nTr);
+            }
+            else {
+                event.target.innerHTML = "<i class='fa fa-minus'></i>";
+                $(event.target).attr('class', 'btn btn-danger btn-sm');
+
+                if ($('#combo-report-type').val() == "User") {
+
+                    var postData = JSON.stringify({
+                        'userpkid': target,
+                        'fromDate': $('#input-from-date').val(),
+                        'toDate': $('#input-to-date').val()
+                    });
+
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "@Request.ApplicationPath/ShoppingCart/GetShoppingCarts/",
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        data: postData,
+                        success: function (result) {
+                            oTable.fnOpen(nTr, result, 'details');
+                        },
+                        error: function (error) {
+                            //alert("There was an error getting the data from the server: " + error.responseText);
+                        }
+                    })
+
+                }
+                else if ($('#combo-view-type').val() == "GroupByPayment") {
+
+                    var postData = JSON.stringify({
+                        'pkid': target
+                    });
+
+
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "@Request.ApplicationPath/Payment/GetPayments/",
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        data: postData,
+                        success: function (result) {
+                            oTable.fnOpen(nTr, result, 'details');
+                        },
+                        error: function (error) {
+                            //alert("There was an error getting the data from the server: " + error.responseText);
+                        }
+                    })
+                }
+                else {
+
+                    var postData = JSON.stringify({
+                        'pkid': target
+                    });
+
+                    $.ajax({
+                        cache: false,
+                        type: "POST",
+                        url: "@Request.ApplicationPath/ShoppingCartDetail/GetShoppingCartDetails/",
+                        contentType: "application/json; charset=utf-8",
+                        async: false,
+                        data: postData,
+                        success: function (result) {
+                            oTable.fnOpen(nTr, result, 'details');
+                        },
+                        error: function (error) {
+                            //alert("There was an error getting the data from the server: " + error.responseText);
+                        }
+                    })
+
+                }
+
+        }
+
+        });
+
+      
+
+
+    });
+
+
+    function DatatablesTitlesTranslation() {
+        ///========================LUIS REPORTS COLUMS  TITLES CHANGES==========================================================================
+
+        var table = $('#grid').DataTable();
+
+        var TypeOfReport = $('#combo-report-type option:selected').val();
+
+        if (TypeOfReport == 'Items') {
+
+            table.columns().eq(0).each(function (index) {
+                var column = table.column(index);
+
+                switch ($(column.header()).text()) {
+                    case 'Location':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.ReportsLocation');
+                    return;
+                case 'Item Name':
+                    $(column.header()).text('@deOROWeb.Resources.Strings.ItemName');
+                    return;
+                case 'Count':
+                    $(column.header()).text('@deOROWeb.Resources.Strings.Count');
+                    return;
+                case 'Price + Tax':
+                    $(column.header()).text('@deOROWeb.Resources.Strings.Price + @deOROWeb.Resources.Strings.Tax');
+                    return;
+                case 'Discounted Amount':
+                    $(column.header()).text('@deOROWeb.Resources.Strings.DiscountedAmount');
+                    return;
+                case 'Subsidized Price':
+                    $(column.header()).text('@deOROWeb.Resources.Strings.SubsidizedPrice');
+                    return;
+                case 'Last 30 Day Sales':
+                    $(column.header()).text('@deOROWeb.Resources.Strings.Last30DaysSales');
+                        return;
+                    default:
+                        return;
+                }
+        });
+
+        }
+        else if (TypeOfReport == 'PaymentMethodByAmount') {
+            table.columns().eq(0).each(function (index) {
+                var column = table.column(index);
+
+                switch ($(column.header()).text()) {
+                    case 'Location':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.ReportsLocation');
+                        return;
+                    case 'BillPay Stacked':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.BillPay');
+                        return;
+                    case 'BillRefill Stacked':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.BillRefill');
+                        return;
+                    case 'CoinPay Stacked':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.CoinPay');
+                        return;
+                    case 'CoinRefill CashBox':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.CoinRefillCashBox');
+                        return;
+                    case 'CoinRefill Stacked':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.CoinRefill');
+                        return;
+                    case 'Purchase Complete':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.PurchaseComplete');
+                        return;
+                    case 'Purchase Complete ChangeAbandoned':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.PurchaseCompleteChangeAbandoned');
+                        return;
+                    case 'Purchase Complete Dispense':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.PurchaseCompleteDispense');
+                        return;
+                    case 'Purchase Complete MyAccountPay':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.PurchaseCompleteMyAccountPay');
+                        return;
+                    case 'CreditCardPay':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.CreditCardPay');
+                        return;
+                    case 'CreditCardRefill':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.CreditCardRefill');
+                        return;
+                    case 'MyAccountPay':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.MyAccountPay');
+                         return;
+                     case 'MyPayrollPay':
+                         $(column.header()).text('@deOROWeb.Resources.Strings.MyPayrollPay');
+                         return;
+                     default:
+                         return;
+                 }
+            });
+         } else if (TypeOfReport == 'CashCollection') {
+
+             table.columns().eq(0).each(function (index) {
+                 var column = table.column(index);
+
+                 switch ($(column.header()).text()) {
+                     case 'Location':
+                         $(column.header()).text('@deOROWeb.Resources.Strings.ReportsLocation');
+                        return;
+                    case 'User Name':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.UserName');
+                        return;
+                    case 'Cash Total':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.Cash Total');
+                        return;
+                    case 'Cash Collected Date':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.Cash');
+                        return;
+                    default:
+                        return;
+                }
+            });
+
+        } else if (TypeOfReport == 'PaymentMethodByItemCount') {
+
+            table.columns().eq(0).each(function (index) {
+                var column = table.column(index);
+
+                switch ($(column.header()).text()) {
+                    case 'Location':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.ReportsLocation');
+                                       return;
+                                   case 'BillPay':
+                                       $(column.header()).text('@deOROWeb.Resources.Strings.BillPay');
+                                       return;
+                                   case 'BillRefill':
+                                       $(column.header()).text('@deOROWeb.Resources.Strings.BillRefill');
+                                           return;
+                                       case 'CoinPay':
+                                           $(column.header()).text('@deOROWeb.Resources.Strings.CoinPay');
+                                            return;
+                                        case 'CoinrRefill':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.CoinRefill');
+                                         return;
+                                     case 'CreditCardPay':
+                                         $(column.header()).text('@deOROWeb.Resources.Strings.CreditCardPay');
+                                            return;
+                                        case 'CreditCardRefill':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.CreditCardRefill');
+                                            return;
+                                        case 'MyAccountPay':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.MyAccountPay');
+                                            return;
+                                        case 'MyPayrollPay':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.MyPayrollPay');
+                                            return;
+                                        default:
+                                            return;
+                                    }
+                           });
+
+                            }
+                            else if (TypeOfReport == 'PaymentRouting') {
+
+
+
+                            }
+                            else if (TypeOfReport == 'PayRoll') {
+
+                                table.columns().eq(0).each(function (index) {
+                                    var column = table.column(index);
+
+                                    switch ($(column.header()).text()) {
+                                        case 'Location':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.ReportsLocation');
+                                            return;
+                                        case 'MyPayrollPay':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.MyPayrollPay');
+                                            return;
+                                        default:
+                                            return;
+                                    }
+                                });
+
+                            }
+                            else if (TypeOfReport == 'ShoppingCartDetail') {
+
+                                table.columns().eq(0).each(function (index) {
+                                    var column = table.column(index);
+
+                                    switch ($(column.header()).text()) {
+                                        case 'Location':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.ReportsLocation');
+                                            return;
+                                        case 'UserName':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.UserName');
+                                            return;
+                                        case 'ShoppingCartPkid':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.ShoppingCartPkid');
+                                            return;
+                                        case 'Source':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.Source');
+                                            return;
+                                        case 'ItemName':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.ItemName');
+                                            return;
+                                        case 'Category':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.ReportsCategory');
+                                            return;
+                                        case 'Price':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.Price');
+                                            return;
+                                        case 'DateTime':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.Date');
+                                            return;
+                                        default:
+                                            return;
+                                    }
+                                });
+
+                            } else if (TypeOfReport == 'NoSales') {
+                                table.columns().eq(0).each(function (index) {
+                                    var column = table.column(index);
+
+                                    switch ($(column.header()).text()) {
+                                        case 'Location':
+                                            $(column.header()).text('@deOROWeb.Resources.Strings.ReportsLocation');
+                                           return;
+                                       case 'Item Name':
+                                           $(column.header()).text('@deOROWeb.Resources.Strings.ItemName');
+                                            return;
+                                        default:
+                                            return;
+                                    }
+                               });
+
+                            }
+
+
+
+    //============================================================================================================================================
+
+
+
+}
+
+</script>

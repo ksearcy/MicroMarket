@@ -1,0 +1,335 @@
+﻿@{
+    ViewBag.Title = "OverUnder";
+}
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.OverUnderReport</h1>
+        <ol class="breadcrumb">
+            <li><a href="@Request.ApplicationPath/"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li>@deOROWeb.Resources.Strings.Reports</li>
+            <li class="active">@deOROWeb.Resources.Strings.OverUnder</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body table-responsive">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Customers</label>
+                                @Html.DropDownList("Customers", new SelectList(ViewBag.Customers, "id", "name"), "Select One", new { id = "combo-customers", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Locations</label>
+                                <select class="form-control" multiple id="list-locations" style="height: 120px">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.ReportType</label>
+                                <select class="form-control" id="combo-report-type">
+                                    <option value="ItemTotal">@deOROWeb.Resources.Strings.ItemTotal</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label>@deOROWeb.Resources.Strings.DateRange</label>
+                            <div class="form-group">
+                                <input id="input-from-date" class="form-control" placeholder="From Date">
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <input id="input-to-date" class="form-control" placeholder="To Date">
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label>@deOROWeb.Resources.Strings.HourRange</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-from-hour">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12" selected="selected">12</option>
+                                </select>
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-to-hour">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12" selected="selected">12</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>@deOROWeb.Resources.Strings.Daytime</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-from-daytime">
+                                    <option value="AM" selected="selected">A.M.</option>
+                                    <option value="PM">P.M.</option>
+                                </select>
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-to-daytime">
+                                    <option value="AM" selected="selected">A.M.</option>
+                                    <option value="PM" >P.M.</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary pull-left" id="button-process">@deOROWeb.Resources.Strings.Process</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title"></h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="box-body table-responsive">
+                                        <table id="grid" class="table table-bordered table-striped">
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<script>
+
+    $('#input-from-date').val(new Date().getMonth() + 1 + '/1/' + new Date().getFullYear());
+    $('#input-to-date').val(new Date().getMonth() + 1 + '/' + new Date().getDate() + '/' + new Date().getFullYear());
+
+    $('#input-from-date').datetimepicker({
+        timepicker: false, format: 'm/d/Y',
+    });
+
+    $('#input-to-date').datetimepicker({
+        timepicker: false, format: 'm/d/Y'
+    });
+
+    $("#combo-customers").change(function () {
+        var id = $(this).val();
+        loadLocations(id);
+    });
+
+
+    function loadLocations(id) {
+
+        $('#list-locations').empty();
+        $('#list-locations').prop("disabled", true);
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Location/GetLocations/" + id,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                $('#list-locations').empty();
+                $.each(result, function (i, val) {
+                    $('#list-locations').append(new Option(val.name, val.id));
+                });
+
+                $('#list-locations').prop("disabled", false);
+            },
+            error: function (error) {
+                //alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    }
+
+    $('#button-process').click(function () {
+
+        $('#grid').find('thead tr th').remove();
+        $('#grid').empty();
+
+        var locationids = new Array();
+        $('#list-locations :selected').each(function (i, selected) {
+            locationids[i] = $(selected).val();
+        });
+
+        var postData = JSON.stringify({
+            'customerid': $('#combo-customers').val(),
+            'locationids': locationids,
+            'reportCategory': 'OverUnder',
+            'reportType': $('#combo-report-type').val(),
+            'reportView': $('#combo-view-type').val(),
+            'fromDate': $('#input-from-date').val(),
+            'toDate': $('#input-to-date').val(),
+            'fromHour': $('#combo-from-hour option:selected').val(),
+            'toHour': $('#combo-to-hour option:selected').val(),
+            'fromDaytime': $('#combo-from-daytime option:selected').val(),
+            'toDaytime': $('#combo-to-daytime option:selected').val()
+        });
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "@Request.ApplicationPath/Reports/ProcessReport/",
+            dataType: "json",
+            data: postData,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                if (result != null) {
+                    $('#grid').dataTable({
+                        "dom": 'BC<"clear">T<"clear">lfrtip',
+                        "tableTools": {
+                            "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf"
+                        },
+                        buttons: [
+                          'copy', 'csv', 'excel', 'pdf', 'print'
+                        ],
+                        "aaData": result.rows,
+                        "aoColumns": result.columns,
+                        "bAutoWidth": true,
+                        "bDestroy": true,
+                        "rowCallback": function (row, data, index) {
+
+                            if (parseInt(data[2]) > 0)
+                                $('td:eq(2)', row).html('<span class="badge bg-green">' + data[2] + '</span>');
+                            else
+                                $('td:eq(2)', row).html('<span class="badge bg-red">' + data[2] + '</span>');
+
+                        }
+                    })
+
+                    var foot = $("#grid").find('tfoot');
+
+                    if (foot != null) {
+                        foot = $('<tfoot>').appendTo("#grid");
+
+                        $('#grid thead th').each(function (i) {
+                            foot.append('<td></td>');
+                        });
+
+                        foot = $('</tfoot>')
+                    }
+
+                    if (result.showTotals) {
+
+                        var table = $('#grid').DataTable();
+                        var foot = $('<tfoot>').appendTo("#grid");
+
+                        table.columns().every(function () {
+
+                            var sum = this.data().reduce(function (a, b) {
+
+                                if (isNumeric(a)) {
+                                    return parseFloat(a) + parseFloat(b);
+                                }
+                            });
+
+                            if (isNumeric(sum)) {
+
+                                if (isFloat(sum)) {
+                                    foot.append('<td><b>&nbsp;&nbsp;&nbsp;' + sum.toFixed(2) + '<b></td>');
+                                }
+                                else {
+                                    foot.append('<td><b>&nbsp;&nbsp;&nbsp;' + sum + '<b></td>');
+                                }
+                            }
+                            else {
+                                foot.append('<td></td>');
+                            }
+                        });
+
+                        foot = $('</tfoot>')
+                    }
+
+                }
+                else {
+                    $('#no-data').show();
+                }
+
+                $('#overlay').hide();
+                $('#loading-img').hide();
+
+                
+                //=========================Translation Method==========================
+                DatatablesTitlesTranslation();
+                //===================================================================== 
+
+
+            },
+            error: function (error) {
+                //alert("There was an error getting the data from the server: " + error.responseText);
+
+                $('#overlay').hide();
+                $('#loading-img').hide();
+            }
+        })
+
+
+
+    });
+
+
+    function DatatablesTitlesTranslation() {
+
+        var table = $('#grid').DataTable();
+
+        var TypeOfReport = $('#combo-report-type option:selected').val();
+
+        if (TypeOfReport == 'ItemTotal') {
+
+            table.columns().eq(0).each(function (index) {
+                var column = table.column(index);
+
+                switch ($(column.header()).text()) {
+                    case 'Location':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.ReportsLocation');
+                        return;
+                    case 'Name':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.ItemName');
+                        return;
+                    case 'User Name':
+                        $(column.header()).text('@deOROWeb.Resources.Strings.OverUnder');
+                        return;
+                    default:
+                        return;
+                }
+            });
+
+
+        }
+    }
+
+</script>

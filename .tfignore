@@ -1,0 +1,69 @@
+﻿################################################################################
+# This .tfignore file was automatically created by Microsoft(R) Visual Studio.
+#
+# Local items matching filespecs in this file will not be added to version
+# control. This file can be checked in to share exclusions with others.
+#
+# Wildcard characters are * and ?. Patterns are matched recursively unless the
+# pattern is prefixed by the \ character.
+#
+# You can prepend a path to a pattern to make it more specific. If you do,
+# wildcard characters are not permitted in the path portion.
+#
+# The # character at the beginning of a line indicates a comment.
+#
+# The ! prefix negates a pattern. This can be used to re-include an item after
+# it was excluded by a .tfignore file higher in the tree, or by the Team
+# Project Collection's global exclusions list.
+#
+# The / character is interpreted as a \ character on Windows platforms.
+#
+# Examples:
+#
+#  # Excludes all files ending in .txt in Alpha\Beta and all its subfolders.
+#  Alpha\Beta\*.txt
+#
+#  # Excludes all files ending in .cpp in this folder only.
+#  \*.cpp
+#
+#  # Excludes all files ending in .cpp in this folder and all subfolders.
+#  *.cpp
+#
+#  # If "Contoso" is a folder, then Contoso and all its children are excluded.
+#  # If it is a file, then only the "Contoso" in this folder is excluded.
+#  \Contoso
+#
+#  # If Help.exe is excluded by a higher .tfignore file or by the Team Project
+#  # Collection global exclusions list, then this pattern re-includes it in
+#  # this folder only.
+#  !\Help.exe    
+#
+################################################################################
+
+\deOROWeb\App_Data\Upload\635960126647844360.xlsx
+\deOROWeb\App_Data\Upload\635960128736283811.xlsx
+\deOROWeb\App_Data\Upload\635960135097917676.xlsx
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_04-01-07.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_04-01-53.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_04-02-04.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_04-03-06.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_04-03-17.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_04-09-01.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_08-44-21.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_08-44-48.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_08-45-09.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_08-46-00.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_08-47-34.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_08-47-59.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\big_buck_bunny_240p_5mb.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_04-02-52.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_04-03-11.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_04-03-22.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_04-08-24.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_08-28-26.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_08-40-03.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_08-44-15.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_08-44-38.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_08-46-22.mp4
+\deOROWeb\CameraFeed\Path-Tec\QYRFT\2_2016-02-06_08-48-04.mp4
+\deOROWeb\CameraFeed\Path-Tec\ARDSF\1_2016-02-06_13-47-59.mp4

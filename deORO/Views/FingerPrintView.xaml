@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="deORO.Views.FingerPrintView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:conv="clr-namespace:deORO.Converters" 
+             xmlns:p="clr-namespace:deORO.Helpers"
+             xmlns:extensions="http://wpflocalizeextension.codeplex.com"
+             xmlns:lex ="clr-namespace:WPFLocalizeExtension.Engine;assembly=WPFLocalizeExtension"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             lex:LocalizeDictionary.DesignCulture="fr"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             extensions:ResxLocalizationProvider.DefaultAssembly="deORO"
+             extensions:ResxLocalizationProvider.DefaultDictionary="Strings"
+             xmlns:winforms="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" 
+             x:Name="FingerPrint" Loaded="FingerPrint_Loaded">
+
+    <Border BorderBrush="Navy" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="60,25,60,35">
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="#f6f7f2" Offset="0" />
+                    <GradientStop Color="#f6f7f2" Offset="0.2" />
+                    <GradientStop Color="#ddded8" Offset="0.5" />
+                    <GradientStop Color="#f6f7f2" Offset="0.9" />
+                    <GradientStop Color="#f6f7f2" Offset="1" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Border.Effect>
+            <DropShadowEffect />
+        </Border.Effect>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="47"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#49a5bf" BorderThickness="0,0,0,2" Margin="0,0,0,25">
+                <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" 
+                   FontWeight="Bold" Foreground="#e73827" Text="{extensions:Loc Register.FingerprintHeader}">
+                </TextBlock>
+            </Border>
+            <winforms:WindowsFormsHost x:Name="winHost" Grid.Column="0" Grid.Row="1"></winforms:WindowsFormsHost>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"></RowDefinition>
+                    <RowDefinition Height="50*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Image></Image>
+                </StackPanel>
+                <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                    <Border Height="154" Width="154" Background="LightGray">
+                    <Image Height="150" Width="150" Margin="2" Name="ImageFinger" />
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+            <Label Grid.Row="1" Foreground="Red" Name="LabelError" VerticalAlignment="Center" FontWeight="Bold"  
+                   HorizontalAlignment="Center" FontSize="15"></Label>
+            <Button Grid.Row="3" Content="{extensions:Loc Register.FingerprintSaveButton}" Command="{Binding FingerPrintsCommand}" Height="Auto" Margin="5" Width="180" IsEnabled="False"
+                CommandParameter="{Binding ElementName=FingerPrint,Path=FingerPrints}" Style="{StaticResource GreenButton}" Name="ButtonSave"></Button>
+        </Grid>
+    </Border>
+
+</UserControl>

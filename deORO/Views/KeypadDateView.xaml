@@ -1,0 +1,142 @@
+﻿<Window x:Class="deORO.Views.KeypadDate"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Topmost="True"
+        xmlns:conv="clr-namespace:deORO.Converters" 
+		Title="MainWindow" Height="700" Width="450" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize" WindowStyle="None" Closing="Window_Closing">
+	<Window.Resources>
+		<DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="1" Direction="-90" BlurRadius="3" />
+		<Style TargetType="Label">
+			<Setter Property="FontSize" Value="22"/>
+			<Setter Property="Label.Effect" Value="{StaticResource DropShadowEffect}"/>
+		</Style>
+		<LinearGradientBrush x:Key="IPhoneSteelBackground" EndPoint="0.5,1.272" StartPoint="0.5,0">
+			<GradientStop Color="#FF9097A3" Offset="0"/>
+			<GradientStop Color="#FF444D5B" Offset="1"/>
+		</LinearGradientBrush>
+	
+		<Style TargetType="Button">
+			<EventSetter Event="Click" Handler="button_Click" />
+			<Setter Property="Margin" Value="4"/>
+			<Setter Property="Button.Effect" Value="{StaticResource DropShadowEffect}"/>
+			<Setter Property="FontSize" Value="35"/>
+			<Setter Property="Background" Value="WhiteSmoke"/>
+			<Setter Property="RenderTransform">
+				<Setter.Value>
+					<!-- Workaround for ATI video cards that don't render good with dropshadoweffect-->
+					<RotateTransform Angle="0.00000000001"/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>  
+	<Grid Background="{DynamicResource IPhoneSteelBackground}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height=".40*"/>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+            <RowDefinition Height=".40*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="0" Foreground="White" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center">Year</TextBlock>
+        <Calendar x:Name="calYear" DisplayMode="Decade" DisplayDateStart="1/1/1990" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" >
+        </Calendar>
+        <TextBlock Grid.Row="2" Grid.Column="0" Foreground="White" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center">Month</TextBlock>
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.Style>
+            <Style>
+                <Style.Triggers>
+                    <DataTrigger 
+                            Binding="{Binding ElementName=calYear, Path=SelectedValue}" Value="Show the Calendar">
+                        <Setter Property="Grid.Visibility" Value="Visible"></Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            </Grid.Style>
+            <!--<Calendar x:Name="calMonth" DisplayMode="Year"  DisplayDate="{Binding Path=DisplayDate, ElementName=calYear,  Converter={StaticResource conv}}">
+            </Calendar>-->
+        </Grid>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Foreground="White" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center">Day</TextBlock>
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger 
+                            Binding="{Binding ElementName=calMonth, Path=SelectedValue}" Value="Show the Calendar">
+                            <Setter Property="Grid.Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <!--<Calendar x:Name="calDay" DisplayMode="Month" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" DisplayDate="{Binding Path=DisplayDate, ElementName=Month1,  Converter={StaticResource conv}}">
+            </Calendar>-->
+        </Grid>
+
+        <!--<TextBlock Grid.Row="1" Grid.Column="0" Foreground="White" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center">Month</TextBlock>-->
+        <!--<ComboBox Grid.Row="1" VerticalContentAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="1" FontSize="48" VerticalAlignment="Center" HorizontalAlignment="Center" Height="67" Margin="0,13,0,10" Width="200">
+            <ComboBoxItem MouseMove="OnHover" Name="Jan">Jan</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Feb">Feb</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Mar">Mar</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Apr">Apr</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="May">May</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Jun">Jun</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Jul">Jul</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Aug">Aug</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Sep">Sep</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Oct">Oct</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Nov">Nov</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Dec">Dec</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Grid.Row="2" Grid.Column="0" Foreground="White" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center">Day</TextBlock>
+        <ComboBox Grid.Row="2" VerticalContentAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="1" FontSize="48" VerticalAlignment="Center" HorizontalAlignment="Center" Height="67" Margin="0,13,0,10" Width="200">
+            <ComboBoxItem MouseMove="OnHover" Name="Value1">1</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value2">2</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value3">3</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value4">4</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value5">5</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value6">6</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value7">7</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value8">8</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value9">9</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value10">10</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value11">11</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value12">12</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value13">13</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value14">14</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value15">15</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value16">16</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value17">17</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value18">18</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value19">19</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value20">20</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value21">21</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value22">22</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value23">23</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value24">24</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value25">25</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value26">26</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value27">27</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value28">28</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value29">29</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value30">30</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Value31">31</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Grid.Row="3" Grid.Column="0" Foreground="White" FontWeight="Bold" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center">Year</TextBlock>
+        <ComboBox Name="YearStart" Grid.Row="3" VerticalContentAlignment="Stretch" Grid.Column="1" Grid.RowSpan="1" FontSize="48" VerticalAlignment="Center" HorizontalAlignment="Center" Height="67" Margin="0,13,0,10" Width="120">
+            <ComboBoxItem MouseMove="OnHover" Name="Year1">19</ComboBoxItem>
+            <ComboBoxItem MouseMove="OnHover" Name="Year2">20</ComboBoxItem>
+        </ComboBox>-->
+        <!--<ComboBox Name="YearEnd" DataContext="{Binding SelectedItem, ElementName=YearEnd}" Grid.Row="3" VerticalContentAlignment="Stretch" Grid.Column="2" Grid.RowSpan="1" FontSize="48" VerticalAlignment="Center" HorizontalAlignment="Center" Height="67" Margin="0,13,0,10" Width="120" >
+        </ComboBox>-->
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" CommandParameter="RETURN" Background="Green" Content="Enter"/>
+
+        <TextBox Text="{Binding Result}" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="1" Margin="5,5,5,5" FontSize="35" Grid.Column="0" Grid.ColumnSpan="3" 
+                     HorizontalAlignment="Stretch" Height="Auto" Visibility="Visible" Name="TextBox_VKeyboard" Foreground="Black"/>
+        <Button x:Name="buttonEsc" Grid.Row="0" Grid.Column="3"	CommandParameter="ESC" Background="Red" Content="Esc"/>
+	</Grid>
+</Window>

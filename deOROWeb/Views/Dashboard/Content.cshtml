@@ -1,0 +1,13 @@
+﻿@model IEnumerable<deORODataAccess.dashboard>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="tab-pane active" id="tab-@Html.DisplayFor(modelItem => item.id)">
+        <div class="row" id="row-content">
+            @{Html.RenderAction("GetWidgets", "Widget", new { id = item.id });}
+        </div>
+    </div>
+}

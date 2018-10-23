@@ -1,0 +1,781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="deORO_MasterModelStoreContainer" CdmEntityContainer="deORO_MasterEntities">
+    <EntitySetMapping Name="shoppingcarts">
+      <EntityTypeMapping TypeName="deORO_MasterModel.shoppingcart">
+        <MappingFragment StoreEntitySet="shoppingcart">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="deORO_MasterModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="email_address" ColumnName="email_address" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users_deleted">
+      <EntityTypeMapping TypeName="deORO_MasterModel.users_deleted">
+        <MappingFragment StoreEntitySet="users_deleted">
+          <ScalarProperty Name="refund_cleared" ColumnName="refund_cleared" />
+          <ScalarProperty Name="refund_processed" ColumnName="refund_processed" />
+          <ScalarProperty Name="created_by_id" ColumnName="created_by_id" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="amount_to_refund" ColumnName="amount_to_refund" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dashboards">
+      <EntityTypeMapping TypeName="deORO_MasterModel.dashboard">
+        <MappingFragment StoreEntitySet="dashboard">
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="widgets">
+      <EntityTypeMapping TypeName="deORO_MasterModel.widget">
+        <MappingFragment StoreEntitySet="widget">
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="metricid" ColumnName="metricid" />
+          <ScalarProperty Name="dashboardid" ColumnName="dashboardid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="drivers">
+      <EntityTypeMapping TypeName="deORO_MasterModel.driver">
+        <MappingFragment StoreEntitySet="driver">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schedules">
+      <EntityTypeMapping TypeName="deORO_MasterModel.schedule">
+        <MappingFragment StoreEntitySet="schedule">
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="deORO_MasterModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="depletion_level" ColumnName="depletion_level" />
+          <ScalarProperty Name="parentid" ColumnName="parentid" />
+          <ScalarProperty Name="pick_order" ColumnName="pick_order" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="metrics">
+      <EntityTypeMapping TypeName="deORO_MasterModel.metric">
+        <MappingFragment StoreEntitySet="metric">
+          <ScalarProperty Name="date_range" ColumnName="date_range" />
+          <ScalarProperty Name="widget_type" ColumnName="widget_type" />
+          <ScalarProperty Name="query" ColumnName="query" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="deORO_MasterModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="routing" ColumnName="routing" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="shoppingcartpkid" ColumnName="shoppingcartpkid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="synclogs">
+      <EntityTypeMapping TypeName="deORO_MasterModel.synclog">
+        <MappingFragment StoreEntitySet="synclog">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cash_status">
+      <EntityTypeMapping TypeName="deORO_MasterModel.cash_status">
+        <MappingFragment StoreEntitySet="cash_status">
+          <ScalarProperty Name="vmachineid" ColumnName="vmachineid" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="event" ColumnName="event" />
+          <ScalarProperty Name="group" ColumnName="group" />
+          <ScalarProperty Name="is_full" ColumnName="is_full" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cash_counter">
+      <EntityTypeMapping TypeName="deORO_MasterModel.cash_counter">
+        <MappingFragment StoreEntitySet="cash_counter">
+          <ScalarProperty Name="vmachineid" ColumnName="vmachineid" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="cash_type" ColumnName="cash_type" />
+          <ScalarProperty Name="cashcollectionpkid" ColumnName="cashcollectionpkid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cash_dispense">
+      <EntityTypeMapping TypeName="deORO_MasterModel.cash_dispense">
+        <MappingFragment StoreEntitySet="cash_dispense">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="group" ColumnName="group" />
+          <ScalarProperty Name="shoppingcartpkid" ColumnName="shoppingcartpkid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cash_collection">
+      <EntityTypeMapping TypeName="deORO_MasterModel.cash_collection">
+        <MappingFragment StoreEntitySet="cash_collection">
+          <ScalarProperty Name="vmachineid" ColumnName="vmachineid" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="manufacturers">
+      <EntityTypeMapping TypeName="deORO_MasterModel.manufacturer">
+        <MappingFragment StoreEntitySet="manufacturer">
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shoppingcartdetails">
+      <EntityTypeMapping TypeName="deORO_MasterModel.shoppingcartdetail">
+        <MappingFragment StoreEntitySet="shoppingcartdetail">
+          <ScalarProperty Name="subsidy_tax" ColumnName="subsidy_tax" />
+          <ScalarProperty Name="subsidy_price" ColumnName="subsidy_price" />
+          <ScalarProperty Name="subsidy_percentage" ColumnName="subsidy_percentage" />
+          <ScalarProperty Name="subsidy_description" ColumnName="subsidy_description" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="crv" ColumnName="crv" />
+          <ScalarProperty Name="original_tax" ColumnName="original_tax" />
+          <ScalarProperty Name="original_price" ColumnName="original_price" />
+          <ScalarProperty Name="discount_tax" ColumnName="discount_tax" />
+          <ScalarProperty Name="discount_price" ColumnName="discount_price" />
+          <ScalarProperty Name="discount_percentage" ColumnName="discount_percentage" />
+          <ScalarProperty Name="discount_description" ColumnName="discount_description" />
+          <ScalarProperty Name="price_tax_included" ColumnName="price_tax_included" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+          <ScalarProperty Name="shoppingcartpkid" ColumnName="shoppingcartpkid" />
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="deORO_MasterModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="unique_identifier" ColumnName="unique_identifier" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="has_barcode" ColumnName="has_barcode" />
+          <ScalarProperty Name="crv" ColumnName="crv" />
+          <ScalarProperty Name="tax_percent" ColumnName="tax_percent" />
+          <ScalarProperty Name="price_tax_included" ColumnName="price_tax_included" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="is_taxable" ColumnName="is_taxable" />
+          <ScalarProperty Name="pickorder" ColumnName="pickorder" />
+          <ScalarProperty Name="avgshelflife" ColumnName="avgshelflife" />
+          <ScalarProperty Name="unitcost" ColumnName="unitcost" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="upc" ColumnName="upc" />
+          <ScalarProperty Name="discountid" ColumnName="discountid" />
+          <ScalarProperty Name="subcategoryid" ColumnName="subcategoryid" />
+          <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+          <ScalarProperty Name="manufacturerid" ColumnName="manufacturerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cash_reconciliation">
+      <EntityTypeMapping TypeName="deORO_MasterModel.cash_reconciliation">
+        <MappingFragment StoreEntitySet="cash_reconciliation">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="c100_total" ColumnName="c100_total" />
+          <ScalarProperty Name="c50_total" ColumnName="c50_total" />
+          <ScalarProperty Name="c20_total" ColumnName="c20_total" />
+          <ScalarProperty Name="c10_total" ColumnName="c10_total" />
+          <ScalarProperty Name="c5_total" ColumnName="c5_total" />
+          <ScalarProperty Name="c2_total" ColumnName="c2_total" />
+          <ScalarProperty Name="c1_total" ColumnName="c1_total" />
+          <ScalarProperty Name="coin_total" ColumnName="coin_total" />
+          <ScalarProperty Name="cashcollectionpkid" ColumnName="cashcollectionpkid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webusers">
+      <EntityTypeMapping TypeName="deORO_MasterModel.webuser">
+        <MappingFragment StoreEntitySet="webuser">
+          <ScalarProperty Name="user_role" ColumnName="user_role" />
+          <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location_combo_discount">
+      <EntityTypeMapping TypeName="deORO_MasterModel.location_combo_discount">
+        <MappingFragment StoreEntitySet="location_combo_discount">
+          <ScalarProperty Name="combodiscountid" ColumnName="combodiscountid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="combo_discount_detail">
+      <EntityTypeMapping TypeName="deORO_MasterModel.combo_discount_detail">
+        <MappingFragment StoreEntitySet="combo_discount_detail">
+          <ScalarProperty Name="entityid" ColumnName="entityid" />
+          <ScalarProperty Name="combodiscountid" ColumnName="combodiscountid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location_credit">
+      <EntityTypeMapping TypeName="deORO_MasterModel.location_credit">
+        <MappingFragment StoreEntitySet="location_credit">
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+          <ScalarProperty Name="effective_date" ColumnName="effective_date" />
+          <ScalarProperty Name="interval" ColumnName="interval" />
+          <ScalarProperty Name="expiry" ColumnName="expiry" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location_credit_user">
+      <EntityTypeMapping TypeName="deORO_MasterModel.location_credit_user">
+        <MappingFragment StoreEntitySet="location_credit_user">
+          <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+          <ScalarProperty Name="creditid" ColumnName="creditid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location_credit_activity">
+      <EntityTypeMapping TypeName="deORO_MasterModel.location_credit_activity">
+        <MappingFragment StoreEntitySet="location_credit_activity">
+          <ScalarProperty Name="credit_claimed_date" ColumnName="credit_claimed_date" />
+          <ScalarProperty Name="credit_claimed" ColumnName="credit_claimed" />
+          <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+          <ScalarProperty Name="creditid" ColumnName="creditid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location_service">
+      <EntityTypeMapping TypeName="deORO_MasterModel.location_service">
+        <MappingFragment StoreEntitySet="location_service">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transaction_error">
+      <EntityTypeMapping TypeName="deORO_MasterModel.transaction_error">
+        <MappingFragment StoreEntitySet="transaction_error">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="sourceid" ColumnName="sourceid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schedule_detail_item">
+      <EntityTypeMapping TypeName="deORO_MasterModel.schedule_detail_item">
+        <MappingFragment StoreEntitySet="schedule_detail_item">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="tote" ColumnName="tote" />
+          <ScalarProperty Name="over_under" ColumnName="over_under" />
+          <ScalarProperty Name="quantity_to_refill" ColumnName="quantity_to_refill" />
+          <ScalarProperty Name="quantity_at_schedule" ColumnName="quantity_at_schedule" />
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+          <ScalarProperty Name="scheduledetailid" ColumnName="scheduledetailid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location_item_deleted">
+      <EntityTypeMapping TypeName="deORO_MasterModel.location_item_deleted">
+        <MappingFragment StoreEntitySet="location_item_deleted">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subsidy_detail">
+      <EntityTypeMapping TypeName="deORO_MasterModel.subsidy_detail">
+        <MappingFragment StoreEntitySet="subsidy_detail">
+          <ScalarProperty Name="entityid" ColumnName="entityid" />
+          <ScalarProperty Name="subsidyid" ColumnName="subsidyid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="combo_discount">
+      <EntityTypeMapping TypeName="deORO_MasterModel.combo_discount">
+        <MappingFragment StoreEntitySet="combo_discount">
+          <ScalarProperty Name="modified_date_time" ColumnName="modified_date_time" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="percent" ColumnName="percent" />
+          <ScalarProperty Name="sunday" ColumnName="sunday" />
+          <ScalarProperty Name="saturday" ColumnName="saturday" />
+          <ScalarProperty Name="friday" ColumnName="friday" />
+          <ScalarProperty Name="thursday" ColumnName="thursday" />
+          <ScalarProperty Name="wednesday" ColumnName="wednesday" />
+          <ScalarProperty Name="tuesday" ColumnName="tuesday" />
+          <ScalarProperty Name="monday" ColumnName="monday" />
+          <ScalarProperty Name="time_to" ColumnName="time_to" />
+          <ScalarProperty Name="time_from" ColumnName="time_from" />
+          <ScalarProperty Name="date_to" ColumnName="date_to" />
+          <ScalarProperty Name="date_from" ColumnName="date_from" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="discounts">
+      <EntityTypeMapping TypeName="deORO_MasterModel.discount">
+        <MappingFragment StoreEntitySet="discount">
+          <ScalarProperty Name="modified_date_time" ColumnName="modified_date_time" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="percent" ColumnName="percent" />
+          <ScalarProperty Name="sunday" ColumnName="sunday" />
+          <ScalarProperty Name="saturday" ColumnName="saturday" />
+          <ScalarProperty Name="friday" ColumnName="friday" />
+          <ScalarProperty Name="thursday" ColumnName="thursday" />
+          <ScalarProperty Name="wednesday" ColumnName="wednesday" />
+          <ScalarProperty Name="tuesday" ColumnName="tuesday" />
+          <ScalarProperty Name="monday" ColumnName="monday" />
+          <ScalarProperty Name="time_to" ColumnName="time_to" />
+          <ScalarProperty Name="time_from" ColumnName="time_from" />
+          <ScalarProperty Name="date_to" ColumnName="date_to" />
+          <ScalarProperty Name="date_from" ColumnName="date_from" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subsidies">
+      <EntityTypeMapping TypeName="deORO_MasterModel.subsidy">
+        <MappingFragment StoreEntitySet="subsidy">
+          <ScalarProperty Name="modified_date_time" ColumnName="modified_date_time" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="percent" ColumnName="percent" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="accountbalancehistories">
+      <EntityTypeMapping TypeName="deORO_MasterModel.accountbalancehistory">
+        <MappingFragment StoreEntitySet="accountbalancehistory">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="account_balance" ColumnName="account_balance" />
+          <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location_subsidy">
+      <EntityTypeMapping TypeName="deORO_MasterModel.location_subsidy">
+        <MappingFragment StoreEntitySet="location_subsidy">
+          <ScalarProperty Name="subsidyid" ColumnName="subsidyid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="location_item">
+      <EntityTypeMapping TypeName="deORO_MasterModel.location_item">
+        <MappingFragment StoreEntitySet="location_item">
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="depletion_level" ColumnName="depletion_level" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="par" ColumnName="par" />
+          <ScalarProperty Name="crv" ColumnName="crv" />
+          <ScalarProperty Name="tax_percent" ColumnName="tax_percent" />
+          <ScalarProperty Name="price_tax_included" ColumnName="price_tax_included" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="is_taxable" ColumnName="is_taxable" />
+          <ScalarProperty Name="discountid" ColumnName="discountid" />
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="device_error">
+      <EntityTypeMapping TypeName="deORO_MasterModel.device_error">
+        <MappingFragment StoreEntitySet="device_error">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="planograms">
+      <EntityTypeMapping TypeName="deORO_MasterModel.planogram">
+        <MappingFragment StoreEntitySet="planogram">
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="planogram_item">
+      <EntityTypeMapping TypeName="deORO_MasterModel.planogram_item">
+        <MappingFragment StoreEntitySet="planogram_item">
+          <ScalarProperty Name="itemid" ColumnName="itemid" />
+          <ScalarProperty Name="planogramid" ColumnName="planogramid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schedule_detail">
+      <EntityTypeMapping TypeName="deORO_MasterModel.schedule_detail">
+        <MappingFragment StoreEntitySet="schedule_detail">
+          <ScalarProperty Name="excluded_planograms" ColumnName="excluded_planograms" />
+          <ScalarProperty Name="excluded_categories" ColumnName="excluded_categories" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="status_updated_date_time" ColumnName="status_updated_date_time" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="driverid" ColumnName="driverid" />
+          <ScalarProperty Name="scheduleid" ColumnName="scheduleid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="alerts">
+      <EntityTypeMapping TypeName="deORO_MasterModel.alert">
+        <MappingFragment StoreEntitySet="alert">
+          <ScalarProperty Name="report_type" ColumnName="report_type" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="next_run_date" ColumnName="next_run_date" />
+          <ScalarProperty Name="last_run_date" ColumnName="last_run_date" />
+          <ScalarProperty Name="period" ColumnName="period" />
+          <ScalarProperty Name="frequency" ColumnName="frequency" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="metricid" ColumnName="metricid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="alert_subscription">
+      <EntityTypeMapping TypeName="deORO_MasterModel.alert_subscription">
+        <MappingFragment StoreEntitySet="alert_subscription">
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="alertid" ColumnName="alertid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locations">
+      <EntityTypeMapping TypeName="deORO_MasterModel.location">
+        <MappingFragment StoreEntitySet="location">
+          <ScalarProperty Name="serial_number" ColumnName="serial_number" />
+          <ScalarProperty Name="commission_before_taxes" ColumnName="commission_before_taxes" />
+          <ScalarProperty Name="creditcard_rate" ColumnName="creditcard_rate" />
+          <ScalarProperty Name="monthly_fee" ColumnName="monthly_fee" />
+          <ScalarProperty Name="management_rate" ColumnName="management_rate" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="users_shared" ColumnName="users_shared" />
+          <ScalarProperty Name="camera_feed_path" ColumnName="camera_feed_path" />
+          <ScalarProperty Name="last_service_date_time" ColumnName="last_service_date_time" />
+          <ScalarProperty Name="service_interval" ColumnName="service_interval" />
+          <ScalarProperty Name="driverid" ColumnName="driverid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email_address" ColumnName="email_address" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="event_log">
+      <EntityTypeMapping TypeName="deORO_MasterModel.event_log">
+        <MappingFragment StoreEntitySet="event_log">
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="userpkid" ColumnName="userpkid" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="sourceid" ColumnName="sourceid" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="deORO_MasterModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="hid_card_data" ColumnName="hid_card_data" />
+          <ScalarProperty Name="lastpayrollbalancechangeddate" ColumnName="lastpayrollbalancechangeddate" />
+          <ScalarProperty Name="lastpayrollbalancechangeddescription" ColumnName="lastpayrollbalancechangeddescription" />
+          <ScalarProperty Name="lastpayrollbalancechangedamount" ColumnName="lastpayrollbalancechangedamount" />
+          <ScalarProperty Name="payroll_balance" ColumnName="payroll_balance" />
+          <ScalarProperty Name="sync_vector" ColumnName="sync_vector" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+          <ScalarProperty Name="lastaccountbalancechangeddescription" ColumnName="lastaccountbalancechangeddescription" />
+          <ScalarProperty Name="lastaccountbalancechangeddate" ColumnName="lastaccountbalancechangeddate" />
+          <ScalarProperty Name="lastaccountbalancechangedamount" ColumnName="lastaccountbalancechangedamount" />
+          <ScalarProperty Name="account_balance" ColumnName="account_balance" />
+          <ScalarProperty Name="lastfmdchangeddate" ColumnName="lastfmdchangeddate" />
+          <ScalarProperty Name="finger_id4" ColumnName="finger_id4" />
+          <ScalarProperty Name="enrolled_fmd4" ColumnName="enrolled_fmd4" />
+          <ScalarProperty Name="finger_id3" ColumnName="finger_id3" />
+          <ScalarProperty Name="enrolled_fmd3" ColumnName="enrolled_fmd3" />
+          <ScalarProperty Name="finger_id2" ColumnName="finger_id2" />
+          <ScalarProperty Name="enrolled_fmd2" ColumnName="enrolled_fmd2" />
+          <ScalarProperty Name="finger_id1" ColumnName="finger_id1" />
+          <ScalarProperty Name="enrolled_fmd1" ColumnName="enrolled_fmd1" />
+          <ScalarProperty Name="lastlogintype" ColumnName="lastlogintype" />
+          <ScalarProperty Name="lastpasswordchangedate" ColumnName="lastpasswordchangedate" />
+          <ScalarProperty Name="lastlogindate" ColumnName="lastlogindate" />
+          <ScalarProperty Name="failedpasswordattemptcount" ColumnName="failedpasswordattemptcount" />
+          <ScalarProperty Name="lastlockedoutdate" ColumnName="lastlockedoutdate" />
+          <ScalarProperty Name="is_lockedout" ColumnName="is_lockedout" />
+          <ScalarProperty Name="last_updated_by_id" ColumnName="last_updated_by_id" />
+          <ScalarProperty Name="last_updated_on" ColumnName="last_updated_on" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="is_online" ColumnName="is_online" />
+          <ScalarProperty Name="is_approved" ColumnName="is_approved" />
+          <ScalarProperty Name="applicationname" ColumnName="applicationname" />
+          <ScalarProperty Name="date_joined" ColumnName="date_joined" />
+          <ScalarProperty Name="last_login" ColumnName="last_login" />
+          <ScalarProperty Name="is_superuser" ColumnName="is_superuser" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_staff" ColumnName="is_staff" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_snapshot">
+      <EntityTypeMapping TypeName="deORO_MasterModel.user_snapshot">
+        <MappingFragment StoreEntitySet="user_snapshot">
+          <ScalarProperty Name="lastaccountbalancechangeddescription" ColumnName="lastaccountbalancechangeddescription" />
+          <ScalarProperty Name="lastaccountbalancechangeddate" ColumnName="lastaccountbalancechangeddate" />
+          <ScalarProperty Name="lastaccountbalancechangedamount" ColumnName="lastaccountbalancechangedamount" />
+          <ScalarProperty Name="account_balance" ColumnName="account_balance" />
+          <ScalarProperty Name="lastfmdchangeddate" ColumnName="lastfmdchangeddate" />
+          <ScalarProperty Name="finger_id4" ColumnName="finger_id4" />
+          <ScalarProperty Name="enrolled_fmd4" ColumnName="enrolled_fmd4" />
+          <ScalarProperty Name="finger_id3" ColumnName="finger_id3" />
+          <ScalarProperty Name="enrolled_fmd3" ColumnName="enrolled_fmd3" />
+          <ScalarProperty Name="finger_id2" ColumnName="finger_id2" />
+          <ScalarProperty Name="enrolled_fmd2" ColumnName="enrolled_fmd2" />
+          <ScalarProperty Name="finger_id1" ColumnName="finger_id1" />
+          <ScalarProperty Name="enrolled_fmd1" ColumnName="enrolled_fmd1" />
+          <ScalarProperty Name="lastlogintype" ColumnName="lastlogintype" />
+          <ScalarProperty Name="lastpasswordchangedate" ColumnName="lastpasswordchangedate" />
+          <ScalarProperty Name="lastlogindate" ColumnName="lastlogindate" />
+          <ScalarProperty Name="failedpasswordattemptcount" ColumnName="failedpasswordattemptcount" />
+          <ScalarProperty Name="lastlockedoutdate" ColumnName="lastlockedoutdate" />
+          <ScalarProperty Name="is_lockedout" ColumnName="is_lockedout" />
+          <ScalarProperty Name="last_updated_by_id" ColumnName="last_updated_by_id" />
+          <ScalarProperty Name="last_updated_on" ColumnName="last_updated_on" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="is_online" ColumnName="is_online" />
+          <ScalarProperty Name="is_approved" ColumnName="is_approved" />
+          <ScalarProperty Name="applicationname" ColumnName="applicationname" />
+          <ScalarProperty Name="date_joined" ColumnName="date_joined" />
+          <ScalarProperty Name="last_login" ColumnName="last_login" />
+          <ScalarProperty Name="is_superuser" ColumnName="is_superuser" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_staff" ColumnName="is_staff" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="locationid" ColumnName="locationid" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

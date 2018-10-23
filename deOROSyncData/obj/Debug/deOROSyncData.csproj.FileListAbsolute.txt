@@ -1,0 +1,17 @@
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\WinSCP.exe
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\deOROSyncData.exe.config
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\deOROSyncData.exe
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\deOROSyncData.pdb
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\deORODataAccessApp.dll
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\EntityFramework.dll
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\HashLib.dll
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\Newtonsoft.Json.dll
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\NLog.dll
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\RestSharp.dll
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\WinSCPnet.dll
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\deORODataAccessApp.pdb
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\EntityFramework.xml
+C:\deORO\Rama\Code\deOROSyncData\bin\Debug\RestSharp.xml
+C:\deORO\Rama\Code\deOROSyncData\obj\Debug\deOROSyncData.csprojResolveAssemblyReference.cache
+C:\deORO\Rama\Code\deOROSyncData\obj\Debug\deOROSyncData.exe
+C:\deORO\Rama\Code\deOROSyncData\obj\Debug\deOROSyncData.pdb

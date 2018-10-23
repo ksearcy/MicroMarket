@@ -1,0 +1,130 @@
+﻿@model IEnumerable<deORODataAccess.DTO.DeletedUserDTO>
+
+@{
+    ViewBag.Title = @deOROWeb.Resources.Strings.UsersDeleted;
+}
+
+<script src="~/Scripts/js/jquery.validate.js"></script>
+<script src="~/Scripts/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="~/Scripts/js/plugins/datatables/jquery.dataTables.editable.js"></script>
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.UsersDeleted</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.UsersDeleted</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.CustomerName</th>
+                                <th>@deOROWeb.Resources.Strings.LocationName</th>
+                                <th>@deOROWeb.Resources.Strings.FirstName</th>
+                                <th>@deOROWeb.Resources.Strings.LastName</th>
+                                <th>@deOROWeb.Resources.Strings.EmailAddress</th>
+                                <th>@deOROWeb.Resources.Strings.Address</th>
+                                <th>@deOROWeb.Resources.Strings.City</th>
+                                <th>@deOROWeb.Resources.Strings.State</th>
+                                <th>@deOROWeb.Resources.Strings.Zip</th>
+                                <th>@deOROWeb.Resources.Strings.Phone</th>
+                                <th>@deOROWeb.Resources.Strings.AmountToRefund</th>
+                                <th>@deOROWeb.Resources.Strings.RefundProcessed</th>
+                                <th>@deOROWeb.Resources.Strings.RefundCleared</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr id="@m.id">
+                                    <td>@m.customername</td>
+                                    <td>@m.locationname</td>
+                                    <td>@m.first_name</td>
+                                    <td>@m.last_name</td>
+                                    <td>@m.email</td>
+                                    <td>@m.address</td>
+                                    <td>@m.city</td>
+                                    <td>@m.state</td>
+                                    <td>@m.zip</td>
+                                    <td>@m.phone</td>
+                                    <td>@m.amount_to_refund</td>
+                                    @if (@m.refund_processed == 1)
+                                    {
+                                        <td><span class="badge bg-green">@deOROWeb.Resources.Strings.True</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="badge bg-red">@deOROWeb.Resources.Strings.False</span></td>
+                                    }
+                                    @if (@m.refund_cleared == 1)
+                                    {
+                                        <td><span class="badge bg-green">@deOROWeb.Resources.Strings.True</span></td>
+                                    }
+                                    else
+                                    {
+                                        <td><span class="badge bg-red">@deOROWeb.Resources.Strings.False</span></td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<script>
+
+    $('#grid').dataTable().makeEditable({
+        sUpdateurl: "@Request.ApplicationPath/UserDeleted/UpdateData",
+        "language": {
+            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+              "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+              "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+              "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+              "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+              "sSearch": "@deOROWeb.Resources.Strings.Search:",
+              "oPaginate": {
+                  "sFirst": "@deOROWeb.Resources.Strings.First",
+                "sLast": "@deOROWeb.Resources.Strings.Last",
+                "sNext": "@deOROWeb.Resources.Strings.Next",
+                "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+            },
+          },
+        "aoColumns": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    {
+                        indicator: 'Saving...',
+                        loadtext: 'loading...',
+                        type: 'select',
+                        onblur: 'submit',
+                        data: "{'1':'True','0':'False'}"
+                    },
+                    {
+                        indicator: 'Saving...',
+                        loadtext: 'loading...',
+                        type: 'select',
+                        onblur: 'submit',
+                        data: "{'1':'True','0':'False'}"
+                    }
+        ]
+    });
+
+</script>

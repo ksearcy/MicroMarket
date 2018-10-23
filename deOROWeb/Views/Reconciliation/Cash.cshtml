@@ -1,0 +1,227 @@
+﻿@model IEnumerable<deORODataAccess.DTO.CashCollectionDTO>
+
+@{
+    ViewBag.Title = "Cash";
+}
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.CashReconciliation</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li>@deOROWeb.Resources.Strings.Reconciliation</li>
+            <li class="active">@deOROWeb.Resources.Strings.Cash</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                @*<div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;Add Manufacturer</button>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.Customer</th>
+                                <th>@deOROWeb.Resources.Strings.Location</th>
+                                <th>@deOROWeb.Resources.Strings.CollectedDateTime</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr>
+                                    <td>@m.customername</td>
+                                    <td>@m.locationname</td>
+                                    <td>@m.dateTime</td>
+                                    <td>
+                                        <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="@m.pkid-edit">Edit</a></i>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.Cash @deOROWeb.Resources.Strings.Collected</h4>
+            </div>
+            <form action="#" method="post" id="form-cash-recon">
+                <div class="modal-body">
+                    <input id="input-customer-id" type="hidden" />
+                    <input id="input-location-id" type="hidden" />
+                    <input id="input-collection-pkid" type="hidden" />
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.CoinTotal:</span>
+                            <input id="input-coin-total" name="input-coin-total" class="form-control" placeholder="Coin Total">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">$1 Total:</span>
+                            <input id="input-1-total" name="input-1-total" class="form-control" placeholder="1 Total">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">$2 Total:</span>
+                            <input id="input-2-total" name="input-2-total" class="form-control" placeholder="2 Total">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">$5 Total:</span>
+                            <input id="input-5-total" name="input-5-total" class="form-control" placeholder="5 Total">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">$10 Total:</span>
+                            <input id="input-10-total" name="input-10-total" class="form-control" placeholder="10 Total">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">$20 Total:</span>
+                            <input id="input-20-total" name="input-20-total" class="form-control" placeholder="20 Total">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">$50 Total:</span>
+                            <input id="input-50-total" name="input-50-total" class="form-control" placeholder="50 Total">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">$100 Total:</span>
+                            <input id="input-100-total" name="input-100-total" class="form-control" placeholder="100 Total">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Total:</span>
+                            <input id="input-total" name="input-total" class="form-control" placeholder="100 Total">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $('#grid').dataTable();
+
+    $('#popup-modal').on('show.bs.modal', function (e) {
+        $('.form-control').val('');
+    })
+
+    //$('.btn').click(function (event) {
+    $('#grid tbody').on('click', 'tr', function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('edit') >= 0) {
+
+            var id = target.substring(0, target.indexOf('edit') - 1);
+            $('#input-collection-pkid').val(id);
+            $('#input-customer-id').val(0);
+            $('#input-location-id').val(0);
+
+            var postData = JSON.stringify({
+                'id': id,
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/CashReconciliation/Details/",
+                dataType: "json",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+
+                    if (result != null) {
+                        $('#input-customer-id').val(result.customerid);
+                        $('#input-location-id').val(result.locationid);
+
+                        if (result.coin_total != null)
+                            $('#input-coin-total').val(result.coin_total.toFixed(2));
+
+                        $('#input-1-total').val(result.c1_total);
+                        $('#input-2-total').val(result.c2_total);
+                        $('#input-5-total').val(result.c5_total);
+                        $('#input-10-total').val(result.c10_total);
+                        $('#input-20-total').val(result.c20_total);
+                        $('#input-50-total').val(result.c50_total);
+                        $('#input-100-total').val(result.c100_total);
+
+                        if (result.total != null)
+                            $('#input-total').val(result.total.toFixed(2));
+                    }
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+    });
+
+
+    $('#button-save').click(function () {
+
+        var postData = JSON.stringify({
+
+            'customerid': $('#input-customer-id').val(),
+            'locationid': $('#input-location-id').val(),
+            'collectionPkid': $('#input-collection-pkid').val(),
+            'coinTotal': $('#input-coin-total').val(),
+            'c1Total': $('#input-1-total').val(),
+            'c2Total': $('#input-2-total').val(),
+            'c5Total': $('#input-5-total').val(),
+            'c10Total': $('#input-10-total').val(),
+            'c20Total': $('#input-20-total').val(),
+            'c50Total': $('#input-50-total').val(),
+            'c100Total': $('#input-100-total').val(),
+            'Total': $('#input-total').val()
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/CashReconciliation/Save",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+                //alert("There was an error posting the data to the server: " + error.responseText);
+            }
+        });
+
+    });
+
+</script>

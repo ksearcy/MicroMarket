@@ -1,0 +1,602 @@
+﻿@*@model IEnumerable<deORODataAccess.planogram_item>*@
+
+
+<link href="~/Content/css/duallistbox/bootstrap-duallistbox.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/duallistbox/jquery.bootstrap-duallistbox.js"></script>
+
+<link href="~/Content/css/gridster/jquery.gridster.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/gridster/jquery.gridster.js"></script>
+<script src="~/Scripts/js/plugins/shapeShift/jquery.shapeshift.js"></script>
+<script src="~/Scripts/js/plugins/sparkline/jquery.sparkline.js"></script>
+
+<script src="~/Scripts/js/plugins/jquery.bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<link href="~/Content/css/jquery.bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" />
+
+<script src="~/Scripts/js/plugins/blockUI/jquery.blockUI.js"></script>
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>Planogram</h1>
+        <ol class="breadcrumb">
+            <li><a href="@Request.ApplicationPath/Dashboard"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li><a href="@Request.ApplicationPath/Location">@deOROWeb.Resources.Strings.Locations</a></li>
+            <li class="active">Planogram</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal-add"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;Add Planogram Item</button>
+                            <div class="btn-group" role="group" id="dropdown-button">
+                                <button type="button" class="btn btn-primary btn-flat btn-sm" data-toggle="dropdown">
+                                    Go To
+                                <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" id="dropdown-menu">
+                                    @*@foreach (var m1 in Model)
+                                    {
+                                        <li><a href="#@m1.id" id="@m1.id">@m1.name</a></li>
+                                    }*@
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body" style="min-height:80%">
+
+                    <div style="padding-top:50px">
+                        <div class="callout callout-info">
+                            <h4 class="text-center">Either click 'Add Planogram Item to create a New Item or click on 'Go To' dropdown and Select an Item to Navigate.</h4>
+                        </div>
+                    </div>
+
+                    @*<div class="scrollRow">
+                        <div id="row-data">
+                            @foreach (var m2 in Model)
+                            {
+                                Html.RenderPartial("~/Views/Planogram/PlanogramItem.cshtml", m2);
+
+                            }
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+
+<div class="modal fade" id="popup-modal-add" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-user"></i>Planogram Item</h4>
+            </div>
+            <form action="#" method="post" id="form-planogram">
+                <div class="modal-body">
+                    <input id="input-hidden-action" type="hidden" />
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Description:</span>
+                            <input id="input-description" name="input-description" class="form-control" placeholder="Description" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select class="form-control" id="combo-type">
+                            <option value='Cooler'>Cooler</option>
+                            <option value='Shelf' selected="selected">Shelf</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Cancel</button>
+                    <button type="button" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="popup-modal-item" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-user"></i>Add Item</h4>
+            </div>
+            <form action="#" method="post" id="form-driver-item">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Items</label>
+                        <select multiple class="form-control" id="list-item" style="height: 350px">
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save-item"><i class="fa fa-save"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="popup-modal-price" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-user"></i>Edit Item</h4>
+            </div>
+            <form action="#" method="post"">
+                <input id="input-hidden-id" type="hidden" />
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Price:</span>
+                            <input id="input-price" name="input-price" class="form-control" placeholder="Price" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">CRV:</span>
+                            <input id="input-crv" name="input-crv" class="form-control" placeholder="CRV">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Tax %:</span>
+                            <input id="input-tax-percent" name="input-tax-percent" class="form-control" placeholder="Tax Percent">
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Price + CRV + Tax:</span>
+                                    <input id="input-price-tax" name="input-price-tax" class="form-control" placeholder="Price + CRV + Tax" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Tax:</span>
+                                    <input id="input-tax" name="input-tax" class="form-control" placeholder="Tax" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save-price"><i class="fa fa-save"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    ​ div.scrollRow
+    {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    div.scrollRow [class*="span"]
+    {
+        display: inline-block;
+        float: none; /* Very important */
+    }
+
+    .gridster .gs-w
+    {
+        background: #FFF;
+        cursor: pointer;
+        -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+    .gridster .player
+    {
+        -webkit-box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+        box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+    }
+</style>
+
+<script>
+
+    var locationid;
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#form-planogram').validate(
+       {
+           rules: {
+               "input-description": {
+                   required: true
+               },
+           }
+       });
+
+    
+    //$(".spinner").spinner();
+
+
+    //if (spinner != null) {
+    //    alert("here");
+    //    $(".spinner").spinner("destroy");
+    //}
+    //else {
+    //    $('.spinner').spinner();
+    //}
+
+    //$('.spinner').spinner();
+
+    //$('.spinner').spinner();
+    //$(".spinner").TouchSpin({
+    //    buttondown_class: "btn btn-link",
+    //    buttonup_class: "btn btn-link",
+    //    verticalbuttons: true
+    //});
+
+    $('#dropdown-button').on('show.bs.dropdown', function () {
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Planogram/GetPlanograms/" + @ViewBag.LocationId,
+            async: true,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                $('#dropdown-menu').empty();
+                $.each(result, function (i, val) {
+                    $('#dropdown-menu').append('<li><a id="' + val.id + '">' + val.name + '</a></li>');
+                });
+
+            },
+            error: function (error) {
+            }
+        })
+
+    });
+
+    $('.dropdown-menu').click(function (event) {
+
+        var id = event.target.id;
+
+        if(id == null || id == "" || id == "dropdown-menu") return;
+
+        loadPlanogramData(id);
+    });
+
+    function loadPlanogramData(id)
+    {
+        $('.box-body').empty();
+
+        $.blockUI({
+            css: {
+                border: 'none',
+                padding: '15px',
+                backgroundColor: '#3c8dbc',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .75,
+                color: '#fff'
+            }
+        });
+
+        setTimeout(function () {
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@Request.ApplicationPath/Planogram/GetPlanogramItem/" + id,
+                async: true,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    $('.box-body').html(result);
+                    $.unblockUI();
+                    $(".sparklines").sparkline('html', { type: 'bar', barColor: 'green' });
+                },
+                error: function (error) {
+                    $.unblockUI();
+                }
+            })
+        }, 1000);
+    }
+
+    $('#popup-popup-modal-price').on('show.bs.modal', function (e) {
+        $('#input-hidden-id').val('');
+    });
+
+
+    $('#button-save-price').click(function (event) {
+        var id = $('#input-hidden-id').val();
+
+        var postData = JSON.stringify({
+            'id': id,
+            'price': $('#input-price').val(),
+            'taxPercent': $('#input-tax-percent').val(),
+            'crv': $('#input-crv').val()
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/LocationItem/UpdatePrice",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+            }
+        });
+        window.location = "@Request.ApplicationPath/Planogram/GetItems/@ViewBag.LocationId"
+    });
+
+
+    $('#button-save').click(function (event) {
+
+        var hidden = $("#input-hidden-action").val();
+        var postData = JSON.stringify({
+
+            'id': hidden,
+            'locationid': '@ViewBag.LocationId',
+            'name': $('#input-description').val(),
+            'type': $('#combo-type').val(),
+            'order': 0,
+            'data': null
+        });
+
+        if (hidden.length > 0) { //Edit
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Planogram/Edit",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        } else { // Add
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Planogram/Create",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                    loadPlanogramData(result);
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+        
+        $('#popup-modal-add').modal('hide');
+        event.preventDefault();
+    });
+
+    var categories;
+    var subcategories;
+    var modalid;
+
+    $('#popup-modal-item').on('show.bs.modal', function (e) {
+
+        //$('#list-item').append(new Option('test', 'test'))
+
+        modalid = $(e.relatedTarget).data('modal');
+
+        $('#list-item').bootstrapDualListbox({
+            preserveSelectionOnMove: 'moved',
+            moveOnSelect: false,
+        });
+
+        $('#list-item').empty();
+        $('#list-item').bootstrapDualListbox('refresh');
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/LocationItem/GetItems/" + '@ViewBag.LocationId',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            success: function (result) {
+
+                $('#list-item').empty();
+                $('#list-item').val(0)
+
+                $.each(result, function (i, val) {
+                    $('#list-item').append(new Option(val.name, val.id));
+                });
+
+                $('#list-item').bootstrapDualListbox('refresh');
+            },
+            error: function (error) {
+                //alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+
+
+        @*$.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Category/GetCategories",
+            dataType: "json",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                categories = result.categories;
+                subcategories = result.subcategories;
+
+                $('#combo-category').empty();
+                $.each(categories, function (i, val) {
+                    $('#combo-category').append(new Option(val.name, val.id));
+                });
+
+                LoadSubCategories();
+            },
+            error: function (error) {
+                alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })*@
+
+
+    })
+
+
+    $('#button-save-item').click(function (event) {
+
+        var postData = JSON.stringify({
+            'locationid': '@ViewBag.LocationId',
+            'ids': $('#list-item').val(),
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/LocationItem/GetItemsByIds/",
+              dataType: "json",
+              contentType: "application/json; charset=utf-8",
+              data: postData,
+              async: true,
+              success: function (result) {
+
+                  g = $("#gridster-" + modalid + " ul").gridster().data('gridster');
+
+                  $.each(result, function (i, val) {
+                      var id = val.itemid;
+                      //html = '<li><header><div class="small-box bg-red"><a href="#" class="small-box-footer btn-xs"><i class="fa fa-trash-o"></i></a></div></header><table align="center" border="0" valign="bottom"><tr><td align="center"><div id="' + id + '" class="sparklines"></div></td></tr><tr style="height:120px"><td align="left"><img src=' + val.image + '></td><tr><td>&nbsp;</td></tr></tr><tr><td align="left"><label>Item:&nbsp;</label><label>' + val.itemname + '</label><td></tr><tr><td align="left"><label>Quantity:&nbsp;</label><label>' + val.quantity + '</label></td></tr><tr><td><label>Par:&nbsp;</label><label>' + val.par + '</label></td></tr></table></li>';
+                      //html = '<li><header><div class="small-box bg-red"><a href="#" class="small-box-footer btn-xs"><i class="fa fa-trash-o"></i></a></div></header><table align="center" border="0" valign="bottom"><tr><td align="center"><div id="' + id + '" class="sparklines"></div></td></tr><tr style="height:120px"><td align="left"><img src=' + val.image + '></td><tr><td>&nbsp;</td></tr></tr><tr><td align="left"><label>Item:&nbsp;</label><label>' + val.itemname + '</label><td></tr><tr><td align="left"><label>Quantity:&nbsp;</label><label>' + val.quantity + '</label></td></tr><tr><td><label>Par:&nbsp;</label><label>' + val.par + '</label></td></tr></table></li>';
+                      //g.add_widget(html, 4, 3, this.col, this.row);
+                      g.add_widget(val.html, 4, 3, this.col, this.row);
+                  });
+              },
+              error: function (error) {
+                
+              }
+          });
+
+        $('#popup-modal-item').modal("hide");
+        event.preventDefault();
+
+    });
+
+
+      $('#combo-category').change(function () {
+          LoadSubCategories();
+      });
+
+      function LoadCategories() {
+          $.ajax({
+              cache: false,
+              type: "GET",
+              url: "@Request.ApplicationPath/Category/GetCategories",
+            dataType: "json",
+            async: false,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                categories = result.categories;
+                subcategories = result.subcategories;
+
+                $('#combo-category').empty();
+                $.each(categories, function (i, val) {
+                    $('#combo-category').append(new Option(val.name, val.id));
+                });
+
+                LoadSubCategories();
+            },
+            error: function (error) {
+                alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    }
+
+    function LoadSubCategories() {
+
+        $('#combo-sub-category').empty();
+        $('#combo-sub-category').append($("<option></option>").attr("value", "").text("Loading Sub Categories..."));
+        $('#combo-sub-category').prop("disabled", true);
+
+        var id = $('#combo-category  option:selected').val();
+
+        $('#combo-sub-category').empty();
+        $.each(subcategories, function (i, val) {
+            if (val.parentid == id) {
+                $('#combo-sub-category').append(new Option(val.name, val.id));
+            }
+        });
+
+        $('#combo-sub-category').prop("disabled", false);
+        LoadItems();
+    }
+
+    function LoadItems() {
+
+        var catid = $('#combo-category').val();
+        var subid = $('#combo-sub-category').val();
+
+        $('#combo-item').empty();
+
+        if (catid != null && subid != null) {
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@Request.ApplicationPath/Item/GetItemsByCategory?categoryId=" + catid + "&subcategoryId=" + subid,
+                dataType: "json",
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+
+                    $.each(result, function (i, val) {
+                        $('#combo-item').append(new Option(val.name, val.id));
+                    });
+                },
+                error: function (error) {
+                    //alert("There was an error getting the data from the server: " + error.responseText);
+                }
+            })
+        }
+    }
+
+    </script>
+

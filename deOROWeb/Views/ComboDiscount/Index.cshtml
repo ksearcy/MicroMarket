@@ -1,0 +1,624 @@
+﻿@using deOROWeb.Helper;
+@model IEnumerable<deORODataAccess.combo_discount>
+
+
+<link href="~/Content/css/duallistbox/bootstrap-duallistbox.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/duallistbox/jquery.bootstrap-duallistbox.js"></script>
+
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.ComboDiscounts</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.ComboDiscounts</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal" id="button-add"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.Discount</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.Category</th>
+                                <th>@deOROWeb.Resources.Strings.Type</th>
+                                <th>@deOROWeb.Resources.Strings.Description</th>
+                                <th>@deOROWeb.Resources.Strings.Active</th>
+                                <th>@deOROWeb.Resources.Strings.DateFrom</th>
+                                <th>@deOROWeb.Resources.Strings.DateTo</th>
+                                <th>@deOROWeb.Resources.Strings.TimeFrom</th>
+                                <th>@deOROWeb.Resources.Strings.TimeTo</th>
+                                <th>@deOROWeb.Resources.Strings.Mon</th>
+                                <th>@deOROWeb.Resources.Strings.Tue</th>
+                                <th>@deOROWeb.Resources.Strings.Wed</th>
+                                <th>@deOROWeb.Resources.Strings.Thr</th>
+                                <th>@deOROWeb.Resources.Strings.Fri</th>
+                                <th>@deOROWeb.Resources.Strings.Sat</th>
+                                <th>@deOROWeb.Resources.Strings.Sun</th>
+                                <th>@deOROWeb.Resources.Strings.Percentage</th>
+                                <th>@deOROWeb.Resources.Strings.Amount</th>
+                                <th>@deOROWeb.Resources.Strings.Created</th>
+                                <th>@deOROWeb.Resources.Strings.Modified</th>
+                                <th></th>
+                                <th hidden="hidden"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr>
+                                    <td>@m.category</td>
+                                    <td>@m.type</td>
+                                    <td>@m.description</td>
+                                    @if (@m.is_active == 1)
+                                    {
+                                        <td>@deOROWeb.Resources.Strings.True</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@deOROWeb.Resources.Strings.False</td>
+                                    }
+                                    <td>@MvcHelper.DateFormatHelper.ToShortDate(@m.date_from)</td>
+                                    <td>@MvcHelper.DateFormatHelper.ToShortDate(@m.date_to)</td>
+                                    <td>@m.time_from</td>
+                                    <td>@m.time_to</td>
+                                    <td>@MvcHelper.YesNoHelper.Label(m.monday)</td>
+                                    <td>@MvcHelper.YesNoHelper.Label(m.tuesday)</td>
+                                    <td>@MvcHelper.YesNoHelper.Label(m.wednesday)</td>
+                                    <td>@MvcHelper.YesNoHelper.Label(m.thursday)</td>
+                                    <td>@MvcHelper.YesNoHelper.Label(m.friday)</td>
+                                    <td>@MvcHelper.YesNoHelper.Label(m.saturday)</td>
+                                    <td>@MvcHelper.YesNoHelper.Label(m.sunday)</td>
+                                    <td>@m.percent</td>
+                                    <td>@m.amount</td>
+                                    <td>@m.created_date_time</td>
+                                    <td>@m.modified_date_time</td>
+                                    <td>
+                                        <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="@m.id-edit">@deOROWeb.Resources.Strings.Edit</a></i>
+                                    </td>
+                                    <td hidden="hidden">
+                                        <i class="fa fa-trash-o"><a class="btn btn-app-small" id="@m.id-delete">@deOROWeb.Resources.Strings.Delete</a></i>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.ComboDiscounts</h4>
+            </div>
+            <form action="#" method="post" id="form-discount">
+                <div class="modal-body">
+                    <input id="input-hidden-action" type="hidden" />
+                    <input id="input-hidden-created-date" type="hidden" />
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.ComboCategory</label>
+                                <select class="form-control" id="combo-category">
+                                    <option value='Item Category' selected="selected">@deOROWeb.Resources.Strings.ItemCategory</option>
+                                    <option value='Item'>Item</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Active</label>
+                                <select class="form-control" id="combo-active">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.True</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Description:</span>
+                                    <input id="input-description" name="input-description" class="form-control" placeholder="@deOROWeb.Resources.Strings.Description">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="label-category">@deOROWeb.Resources.Strings.ItemCategories</label>
+                        <select multiple class="form-control" id="list-item" style="height: 175px">
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.DateFrom:</span>
+                                    <input id="input-date-from" class="form-control" placeholder="@deOROWeb.Resources.Strings.DateFrom">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.DateTo:</span>
+                                    <input id="input-date-to" class="form-control" placeholder="@deOROWeb.Resources.Strings.DateTo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.TimeFrom:</span>
+                                    <input id="input-time-from" class="form-control" placeholder="@deOROWeb.Resources.Strings.TimeFrom">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.TimeTo:</span>
+                                    <input id="input-time-to" class="form-control" placeholder="@deOROWeb.Resources.Strings.TimeTo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group pull-left margin">
+                                <label>@deOROWeb.Resources.Strings.Monday</label>
+                                <select class="form-control" id="combo-monday">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                            <div class="form-group pull-left margin">
+                                <label>@deOROWeb.Resources.Strings.Tuesday</label>
+                                <select class="form-control" id="combo-tuesday">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                            <div class="form-group pull-left margin">
+                                <label>@deOROWeb.Resources.Strings.Wednesday</label>
+                                <select class="form-control" id="combo-wednesday">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                            <div class="form-group pull-left margin">
+                                <label>@deOROWeb.Resources.Strings.Thursday</label>
+                                <select class="form-control" id="combo-thursday">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                            <div class="form-group pull-left margin">
+                                <label>@deOROWeb.Resources.Strings.Friday</label>
+                                <select class="form-control" id="combo-friday">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                            <div class="form-group pull-left margin">
+                                <label>@deOROWeb.Resources.Strings.Saturday</label>
+                                <select class="form-control" id="combo-saturday">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                            <div class="form-group pull-left margin">
+                                <label>@deOROWeb.Resources.Strings.Sunday</label>
+                                <select class="form-control" id="combo-sunday">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Type:</span>
+                                    <select class="form-control" id="combo-type">
+                                        <option value='AMOUNT' selected="selected">@deOROWeb.Resources.Strings.Amount</option>
+                                        <option value='PERCENT'>@deOROWeb.Resources.Strings.Percentage</option>
+                                        <option value='NO DISCOUNT'>@deOROWeb.Resources.Strings.No @deOROWeb.Resources.Strings.Discount</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Percentage:</span>
+                                    <input id="input-percentage" class="form-control" placeholder="@deOROWeb.Resources.Strings.Percentage">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Amount:</span>
+                                    <input id="input-amount" class="form-control" placeholder="@deOROWeb.Resources.Strings.Amount">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style type="text/css" id="custom-modal">
+    .modal-lg {
+        width: 675px!important;
+        margin: 0 auto;
+    }
+</style>
+
+<script>
+
+
+
+    $('#input-date-from').datetimepicker({
+        timepicker: false, format: 'm/d/Y'
+    });
+
+    $('#input-date-to').datetimepicker({
+        timepicker: false, format: 'm/d/Y'
+    });
+
+    $('#input-time-from').datetimepicker({
+        datepicker: false,
+        format: 'H:i'
+    });
+
+    $('#input-time-to').datetimepicker({
+        datepicker: false,
+        format: 'H:i'
+    });
+
+    $('#combo-category').change(function () {
+
+        if ($(this).val() == 'Item') {
+            LoadItems();
+            $('#label-category').text('Items');
+        }
+        else {
+            LoadSubCategories();
+            $('#label-category').text('Item Categories');
+        }
+
+    });
+
+    $('#popup-modal').on('show.bs.modal', function (e) {
+
+        $('.form-control').val('');
+        $("#combo-monday").val('0');
+        $("#combo-tuesday").val('0');
+        $("#combo-wednesday").val('0');
+        $("#combo-thursday").val('0');
+        $("#combo-friday").val('0');
+        $("#combo-saturday").val('0');
+        $("#combo-sunday").val('0');
+        $('#combo-active').val('1');
+        $("#form-discount").validate().resetForm();
+        $('#combo-type').val('NO DISCOUNT');
+        $(".form-group").removeClass("has-error");
+        $('#combo-category').val('Item Category');
+
+        $('#list-item').bootstrapDualListbox({
+            preserveSelectionOnMove: 'moved',
+            moveOnSelect: false,
+        });
+
+
+        LoadSubCategories();
+
+    })
+
+    function LoadItems() {
+
+        $('#list-item').empty();
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Item/GetItems",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                $.each(result, function (i, val) {
+                    $('#list-item').append(new Option(val.name, val.id));
+                });
+
+                $('#list-item').bootstrapDualListbox('refresh');
+            },
+            error: function (error) {
+                alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    }
+
+    function LoadSubCategories() {
+
+        $('#list-item').empty();
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Category/GetCategories",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                $.each(result.subcategories, function (i, val) {
+                    $('#list-item').append(new Option(val.name, val.id));
+                });
+
+                $('#list-item').bootstrapDualListbox('refresh');
+            },
+            error: function (error) {
+                alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    }
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#button-add').click(function (event) {
+        $("#input-hidden-action").val('');
+        $("#input-hidden-created-date").val('');
+    });
+
+
+    $('#form-discount').validate(
+       {
+           rules: {
+               "input-description": {
+                   required: true
+               }
+           }
+       });
+
+    function ToJavaScriptDate(value) {
+
+        if (value == null)
+            return value;
+
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+
+    }
+
+    function ToJavaScriptTime(value) {
+
+        if (value == null)
+            return value;
+
+        return padDigits(value.Hours, 2) + ':' + padDigits(value.Minutes, 2) + ':' + padDigits(value.Seconds, 2);
+    }
+
+    function padDigits(number, digits) {
+        return Array(Math.max(digits - String(number).length + 1, 0)).join(0) + number;
+    }
+
+    //$('.btn').click(function (event) {
+    $('#grid tbody').on('click', 'tr', function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('edit') >= 0) {
+
+            var id = target.substring(0, target.indexOf('edit') - 1);
+            var postData = '{"id":' + id + '}';
+
+            $("#input-hidden-action").val(id);
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/ComboDiscount/Details/",
+                dataType: "json",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+
+                    $("#combo-category").val(result.category);
+                    $("#combo-type").val(result.type);
+                    $('#input-description').val(result.description);
+                    $('#input-date-from').val(ToJavaScriptDate(result.date_from));
+                    $('#input-date-to').val(ToJavaScriptDate(result.date_to));
+                    $('#input-time-from').val(result.time_from);
+                    $('#input-time-to').val(result.time_to);
+                    //$("#combo-monday > [value='" + result.monday + "']").attr("selected", "true");
+                    $("#combo-monday").val(result.monday);
+                    $("#combo-tuesday").val(result.tuesday);
+                    $("#combo-wednesday").val(result.wednesday);
+                    $("#combo-thursday").val(result.thursday);
+                    $("#combo-friday").val(result.friday);
+                    $("#combo-saturday").val(result.saturday);
+                    $("#combo-sunday").val(result.sunday);
+                    $("#combo-active").val(result.is_active);
+                    $("#input-hidden-created-date").val(ToJavaScriptDate(result.created_date_time));
+
+                    if (result.percent != null)
+                        $('#input-percentage').val(result.percent.toFixed(2));
+
+                    if (result.amount != null)
+                        $('#input-amount').val(result.amount.toFixed(2));
+
+                    if (result.category == 'Item') {
+                        LoadItems();
+                        $('#label-category').text('Items');
+                    }
+                    else {
+                        LoadSubCategories();
+                        $('#label-category').text('Item Categories');
+                    }
+                },
+                error: function (error) {
+                    
+                }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/ComboDiscount/GetComboDiscountDetails/" + id,
+                dataType: "json",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+
+                    $.each(result, function (i, val) {
+
+                        $("#list-item > option").each(function () {
+                            if (val.id == this.value) {
+                                $("#list-item > [value='" + this.value + "']").attr("selected", "true");
+                            }
+                        });
+                    });
+                },
+                error: function (error) {
+
+                }
+            });
+        }
+        else if (target.indexOf('delete') >= 0) {
+
+            bootbox.confirm("Are you sure you want to delete this Discount?", function (result) {
+
+                if (result) {
+                    var id = target.substring(0, target.indexOf('delete') - 1);
+                    var postData = '{"id":' + id + '}';
+
+                    $.ajax({
+                        type: "POST",
+                        url: "@Request.ApplicationPath/Discount/Delete/",
+                        dataType: "json",
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        data: postData,
+                        success: function (result) {
+                        },
+                        error: function (error) {
+                            alert("There was an error posting the data to the server: " + error.responseText);
+                        }
+                    });
+                }
+            });
+        }
+    })
+
+
+$('#button-save').click(function () {
+
+    if (!$("#form-discount").valid()) return;
+
+    var hidden = $("#input-hidden-action").val();
+
+    var postData = {
+
+        'id': hidden,
+        'category': $('#combo-category  option:selected').val(),
+        'type': $('#combo-type  option:selected').val(),
+        'description': $('#input-description').val(),
+        'date_from': $('#input-date-from').val(),
+        'date_to': $('#input-date-to').val(),
+        'time_from': $('#input-time-from').val(),
+        'time_to': $('#input-time-to').val(),
+        'monday': $('#combo-monday  option:selected').val(),
+        'tuesday': $('#combo-tuesday  option:selected').val(),
+        'wednesday': $('#combo-wednesday  option:selected').val(),
+        'thursday': $('#combo-thursday  option:selected').val(),
+        'friday': $('#combo-friday  option:selected').val(),
+        'saturday': $('#combo-saturday  option:selected').val(),
+        'sunday': $('#combo-sunday  option:selected').val(),
+        'percent': $('#input-percentage').val(),
+        'is_active': $('#combo-active  option:selected').val(),
+        'amount': $('#input-amount').val(),
+        'created_date_time':$("#input-hidden-created-date").val()
+    };
+
+    if (hidden.length > 0) { //Edit
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/ComboDiscount/Edit",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ 'discount': postData, 'ids':  $('#list-item').val() }),
+            async: false,
+            success: function (result) {
+
+            },
+            error: function (error) {
+                //alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        });
+    } else { // Add
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/ComboDiscount/Create",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ 'discount': postData, 'ids': $('#list-item').val() }),
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+            }
+        });
+    }
+});
+
+    //=====POSITION CHANGE OF CONVERTION OF TABLE TO JQUERY DATA TABLE AFTER ADD ALL PROPERTIES TO THE CONTROLS TO AVOID ISSUES. By Luis Ruiz
+
+    $('#grid').dataTable();
+
+</script>

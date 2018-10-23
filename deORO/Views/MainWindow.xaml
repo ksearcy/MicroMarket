@@ -1,0 +1,419 @@
+﻿<Window x:Class="deORO.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:deORO.Views" xmlns:conv="clr-namespace:deORO.Converters" 
+        xmlns:vm="clr-namespace:deORO.ViewModels"
+        Title="deORO microMarket"
+        Height="1020" Width="1035" WindowState="Maximized"
+        xmlns:extensions="http://wpflocalizeextension.codeplex.com"
+        xmlns:lex ="clr-namespace:WPFLocalizeExtension.Engine;assembly=WPFLocalizeExtension"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        lex:LocalizeDictionary.DesignCulture="fr"
+        lex:LocalizeDictionary.OutputMissingKeys="True"
+        extensions:ResxLocalizationProvider.DefaultAssembly="deORO"
+        extensions:ResxLocalizationProvider.DefaultDictionary="Strings"
+        WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Unloaded="Window_Unloaded">
+    <Window.Resources>
+        <Storyboard x:Key="sbShowLeftMenu" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-150,0,0,0" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Key="sbHideLeftMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-150,0,0,0" AccelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Key="sbShowRightMenu" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,-750,0" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Key="sbHideRightMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="0,0,-750,0" AccelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Key="sbShowBottomMenu" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,-400" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+        <Storyboard x:Key="sbHideBottomMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="0,0,0,-500" AccelerationRatio=".9" Duration="0:0:1" />
+        </Storyboard>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Resources>
+            <conv:BoolToVisibilityConverter x:Key="BoolToVisible"></conv:BoolToVisibilityConverter>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="659*"></RowDefinition>
+            <RowDefinition Height="180*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding Column1Width}"></ColumnDefinition>
+            <ColumnDefinition Width="{Binding Column2Width}"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,0" Grid.Column="0" Grid.ColumnSpan="2" Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <!--<Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#C4CBD8" Offset="0" />
+                        <GradientStop Color="#E6EAF5" Offset="0.2" />
+                        <GradientStop Color="#CFD7E2" Offset="0.9" />
+                        <GradientStop Color="#C4CBD8" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Grid.Background>-->
+            <!--<Image gif:ImageBehavior.AnimatedSource="/Images/deOROLogoAnimated.gif" Margin="0,0,0,0" Stretch="Fill"></Image>-->
+            <Image Source="/Images/deOROLogo.png" Stretch="Fill" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+            <Border Name="Version" Grid.Column="0">
+
+                <TextBlock x:Name="VersionClick" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="{Binding Version}" Margin="5"></TextBlock>
+            </Border>
+            <!--==========================ACCOUNTS EMAIL=============================-->
+            <StackPanel x:Name="showUsername" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Background="Transparent" Margin="0,0,0,0">
+                <StackPanel.Triggers>
+                    <EventTrigger RoutedEvent="StackPanel.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-200,0,0,0" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:3" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </StackPanel.Triggers>
+
+                <Border Style="{StaticResource HelloBorder}" Visibility="{Binding MyAccountVisible, Converter={StaticResource BoolToVisible}}" Height="100" Margin="4,4,0,27" CornerRadius="0,30,30,30" VerticalAlignment="Top" HorizontalAlignment="left" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="#ffffff" Offset="0.0" />
+                            <GradientStop Color="#a080c4" Offset="0.25" />
+                            <GradientStop Color="#5d3e81" Offset="0.75" />
+                            <GradientStop Color="#5d3e81" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <lex:GapTextControl  FormatString="{extensions:Loc MainWindow.Welcome}" HorizontalAlignment="Center" VerticalAlignment="Top"  Foreground="White" Grid.Row="0"
+                                    Height="80" FontWeight="Bold" Margin="10" >
+                        <lex:GapTextControl.Template>
+                            <ControlTemplate>
+                                <TextBlock FontSize="24" x:Name="PART_TextBlock" />
+                            </ControlTemplate>
+                        </lex:GapTextControl.Template>
+                        <lex:GapTextControl.Gaps>
+                            <Run Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=lex:GapTextControl}, Path=DataContext.MyAccountText}" />
+                        </lex:GapTextControl.Gaps>
+                    </lex:GapTextControl>
+                </Border>
+            </StackPanel>
+            <!--==================================================-->
+            <StackPanel  Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Background="Transparent" Margin="0,0,0,0" >
+                <RadioButton Margin="0,0,0,0" Command="{Binding ChangeLocaleCommand}" CommandParameter="en" Style="{StaticResource {x:Type ToggleButton}}" 
+                             IsChecked="{Binding TenChecked}" FontWeight="Bold" Background="Transparent">
+                    <Border CornerRadius="65,0,0,0" Width="80" Height="80" Margin="0,0,-5,-22">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Images/USA.png" />
+                        </Border.Background>
+                    </Border>
+                </RadioButton>
+                <RadioButton Command="{Binding ChangeLocaleCommand}" CommandParameter="fr" Style="{StaticResource {x:Type ToggleButton}}" 
+                             IsChecked="{Binding TenChecked}" FontWeight="Bold" Background="Transparent">
+                    <Border CornerRadius="0,0,0,60" Width="80" Height="80" Margin="0,0,-5,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Images/France.png" />
+                        </Border.Background>
+                    </Border>
+                </RadioButton>
+            </StackPanel>
+            <StackPanel  Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="2">
+                <RadioButton Command="{Binding ChangeLocaleCommand}" CommandParameter="pt" Style="{StaticResource {x:Type ToggleButton}}" 
+                             IsChecked="{Binding TenChecked}" FontWeight="Bold" Background="Transparent">
+                    <Border CornerRadius="0,65,0,0" Width="80" Height="80" Margin="0,0,0,-22">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Images/Brazil.png" />
+                        </Border.Background>
+                    </Border>
+                </RadioButton>
+                <RadioButton Command="{Binding ChangeLocaleCommand}" CommandParameter="es" Style="{StaticResource {x:Type ToggleButton}}" 
+                             IsChecked="{Binding TenChecked}" FontWeight="Bold" Background="Transparent">
+                    <Border CornerRadius="0,0,60,0" Width="80" Height="80" Margin="0,0,0,0">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Images/Mexico.png" />
+                        </Border.Background>
+                    </Border>
+                </RadioButton>
+            </StackPanel>
+        </Grid>
+
+        <!-- Added Panel Right-->
+        <StackPanel Panel.ZIndex="2"  Name="pnlRightMenu" Grid.Column="0" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,-750,0" Width="820" Background="Transparent" Grid.ColumnSpan="2">
+            <StackPanel.Resources>
+                <Style x:Key="BaseButtonStyle" TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                                    <ContentPresenter/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style x:Key="GreenButtonStyle" TargetType="Button"
+               BasedOn="{StaticResource BaseButtonStyle}">
+                    <Setter Property="Background" Value="Green"/>
+                </Style>
+                <Style x:Key="RedButtonStyle" TargetType="Button"
+               BasedOn="{StaticResource BaseButtonStyle}">
+                    <Setter Property="Background" Value="Red"/>
+                </Style>
+            </StackPanel.Resources>
+            <Grid Width="818">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="70"></ColumnDefinition>
+                    <ColumnDefinition  Width="800"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalAlignment="Left" Grid.Column="0">
+                    <Border HorizontalAlignment="Right" Height="80" Width="50">
+                        <Button Style="{StaticResource RedButtonStyle}" Grid.Row="0" HorizontalAlignment="Left" FontFamily="Marlett" FontSize="72" Name="btnRightMenuHide" Click="btnRightMenuHide_Click"  Visibility="Hidden" Content="" Background="Transparent" Foreground="Red" BorderBrush="Transparent">
+                        </Button>
+
+                    </Border>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Grid.Column="0" Height="70" Width="70">
+                    <Button Style="{StaticResource RedButtonStyle}" Visibility="{Binding IsHiddenSearchVisible, Converter={StaticResource BoolToVisible}}" IsEnabled="{Binding RightToolBarEnable}" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Name="btnRightMenuShow" Click="btnRightMenuShow_Click" Background="Transparent" BorderBrush="Transparent">
+                        <StackPanel>
+                            <Image Source="/Images/Search.png"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+
+
+                <Grid Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <!--<RowDefinition Height="100"></RowDefinition>-->
+                        </Grid.RowDefinitions>
+                        <ContentControl >
+                            <vm:DamagedBarcodeViewModel></vm:DamagedBarcodeViewModel>
+                        </ContentControl>
+                        <!--<Button Command="{Binding CancelCommand}" IsEnabled="{Binding CancelButtonEnabled}" Style="{StaticResource RedButton}" Grid.Row="1" Height="Auto" Margin="5" Content="{extensions:Loc DamagedBarcode.Cancel}" ></Button>-->
+                    </Grid>
+                </Grid>
+                </Grid>
+        </StackPanel>
+
+
+
+
+
+
+    <!--Added Panle Left -->
+        <StackPanel Panel.ZIndex="2"  Name="pnlLeftMenu" Orientation="Horizontal" HorizontalAlignment="Left" Margin="-150,0,0,0" Grid.Row="1" Width="250" Background="Transparent">
+            <StackPanel.Resources>
+                <Style x:Key="BaseButtonStyle" TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                                    <ContentPresenter/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style x:Key="GreenButtonStyle" TargetType="Button"
+               BasedOn="{StaticResource BaseButtonStyle}">
+                    <Setter Property="Background" Value="Green"/>
+                </Style>
+                <Style x:Key="RedButtonStyle" TargetType="Button"
+               BasedOn="{StaticResource BaseButtonStyle}">
+                    <Setter Property="Background" Value="Red"/>
+                </Style>
+            </StackPanel.Resources>
+            <Border BorderBrush="Transparent" BorderThickness="0" Width="150" Background="Transparent" RenderTransformOrigin="0.5,0.5" >
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.754"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.987"/>
+                    </TransformGroup>
+                </Border.RenderTransform>
+                <ContentControl>
+                    <vm:FastTouchViewModel></vm:FastTouchViewModel>
+                </ContentControl>
+            </Border>
+            <Grid Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="200"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="60"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalAlignment="Left" Grid.Row="1">
+                    <Button Style="{StaticResource RedButtonStyle}" Name="btnLeftMenuHide" Click="btnLeftMenuHide_Click" Visibility="Hidden" Background="Transparent" BorderBrush="Transparent">
+                        <StackPanel>
+                            <Image Source="/Images/CloseItems.png"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Grid.Row="1">
+                    <Button Style="{StaticResource RedButtonStyle}"  Visibility="{Binding IsHiddenAddItemsVisible, Converter={StaticResource BoolToVisible}}" IsEnabled="{Binding RightToolBarEnable}" Name="btnLeftMenuShow" Click="btnLeftMenuShow_Click" Background="Transparent" BorderBrush="Transparent">
+                        <StackPanel>
+                            <Image Source="/Images/AddItems.png"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource MainBorderBackground}" BorderThickness="0,0,0,0" BorderBrush="White">
+            <!--<Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#396b89" Offset="0" />
+                        <GradientStop Color="#81a5ba" Offset="0.2" />
+                        <GradientStop Color="#81a5ba" Offset="0.9" />
+                        <GradientStop Color="#396b89" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Border.Background>-->
+            <ContentControl Content="{Binding CurrentViewModel}" Width="800"/>
+        </Border>
+        <Border Grid.Row="1" Style="{StaticResource MainBorderBackground}" Grid.Column="1" BorderThickness="5,0,5,0" BorderBrush="White" Name="RightBorder">
+            <ContentControl Content="{Binding RightPaneViewModel}" Margin="5,-10,-5,10"/>
+
+            <!--<Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Visibility="{Binding MyAccountVisible, Converter={StaticResource BoolToVisible}}" Background="#125493" BorderBrush="White" BorderThickness="0,2,0,2">
+                    <lex:GapTextControl FormatString="{extensions:Loc MainWindow.Welcome}" HorizontalAlignment="Center" Foreground="White" Grid.Row="0"
+                                    Height="35" FontWeight="Bold" Margin="10" >
+                        <lex:GapTextControl.Template>
+                            <ControlTemplate>
+                                <TextBlock x:Name="PART_TextBlock" />
+                            </ControlTemplate>
+                        </lex:GapTextControl.Template>
+                        <lex:GapTextControl.Gaps>
+                            <Run Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=lex:GapTextControl}, Path=DataContext.MyAccountText}" />
+                        </lex:GapTextControl.Gaps>
+                    </lex:GapTextControl>
+                </Border>
+                <UniformGrid Rows="4"  Margin="15" Grid.Row="1" IsEnabled="{Binding RightToolBarEnable}">
+                    <Button Command="{Binding LoginCommand}" Height="Auto" Width="150" Margin="5,5,5,15"
+                        Visibility="{Binding LoginVisible, Converter={StaticResource BoolToVisible}}">
+                        <views:ImageWithTextControl ImageSource="/Images/Login.png" ImageText="{extensions:Loc Button.Login}" IsEnabled="{Binding RightToolBarEnable}"></views:ImageWithTextControl>
+                    </Button>
+                    <Button Command="{Binding MyAccountCommand}" Height="Auto" Width="150" Visibility="{Binding MyAccountVisible, Converter={StaticResource BoolToVisible}}"
+                                Margin="5,0,5,15">
+                        <views:ImageWithTextControl ImageSource="/Images/MyAccountLarge.png" ImageText="{extensions:Loc Button.MyAccount}" IsEnabled="{Binding RightToolBarEnable}"></views:ImageWithTextControl>
+                    </Button>
+                    <Button Command="{Binding RegisterUserCommand}" Height="Auto" Width="150" Margin="5,5,5,15" 
+                            Visibility="{Binding UserRegistrationVisible, Converter={StaticResource BoolToVisible}}" IsEnabled="{Binding UserRegistrationEnable, Converter={StaticResource BoolToVisible}}">
+                        <views:ImageWithTextControl ImageSource="/Images/Register_Big.png" ImageText="{extensions:Loc Button.Register}" IsEnabled="{Binding RightToolBarEnable}"></views:ImageWithTextControl>
+                    </Button>
+                    <Button Command="{Binding ShoppingCartCommand}" Height="Auto" Width="150" Margin="5,5,5,15" IsEnabled="{Binding ShoppingCartEnable, Converter={StaticResource BoolToVisible}}">
+                        <views:ImageWithTextControl ImageSource="/Images/Shopping_big.png" ImageText="{extensions:Loc Button.Shopping}" IsEnabled="{Binding RightToolBarEnable}"></views:ImageWithTextControl>
+                    </Button>
+                    <Button Command="{Binding LogoutCommand}" Height="Auto" Width="150" Margin="5,5,5,15" 
+                            Visibility="{Binding LogoutVisible, Converter={StaticResource BoolToVisible}}" IsEnabled="{Binding LogoutEnable, Converter={StaticResource BoolToVisible}}">
+                        <views:ImageWithTextControl ImageSource="/Images/Logout.png" ImageText="{extensions:Loc Button.Logout}" IsEnabled="{Binding RightToolBarEnable}"></views:ImageWithTextControl>
+                    </Button>
+                    <Button Command="{Binding HelpCommand}" Height="Auto" Width="150" Margin="5,5,5,15">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Ellipse Stroke="Black" StrokeThickness="0">
+                                    </Ellipse>
+                                    <views:ImageWithTextControl ImageSource="/Images/Help.png" IsEnabled="{Binding RightToolBarEnable}"></views:ImageWithTextControl>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </UniformGrid>
+            </Grid>-->
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="White">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#C4CBD8" Offset="0" />
+                        <GradientStop Color="#E6EAF5" Offset="0.2" />
+                        <GradientStop Color="#CFD7E2" Offset="0.9" />
+                        <GradientStop Color="#C4CBD8" Offset="1" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid Margin="0,148,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"></ColumnDefinition>
+                    <ColumnDefinition Width=".1*"></ColumnDefinition>
+                    <!--<ColumnDefinition Width="0.30*"></ColumnDefinition>-->
+                    <ColumnDefinition Width="{Binding CameraWidthHelp}"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Grid.ColumnSpan="2" Name="BottomBorder" Margin="0,-140,0,0">
+                    <!--<vm:DiscountsMarqueeViewModel></vm:DiscountsMarqueeViewModel>-->
+                    <ContentControl Content="{Binding BottomPaneViewModel}" Margin="0,0,-144,0"/>
+                </Border>
+                <Border Grid.Column="2" Margin="172,-140,5,10">
+                    <ContentControl Content="{Binding CameraViewModel}" />
+                </Border>
+            </Grid>
+        </Border>
+
+
+
+        <!-- Added Panel Bottom-->
+        <StackPanel Panel.ZIndex="2"  Name="pnlBottomMenu" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Margin="0,0,0,-500" Width="600" Background="Transparent" Grid.ColumnSpan="2" Height="500" Grid.RowSpan="2">
+            <StackPanel.Resources>
+                <Style x:Key="BaseButtonStyle" TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                                    <ContentPresenter/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style x:Key="GreenButtonStyle"  TargetType="Button"
+               BasedOn="{StaticResource BaseButtonStyle}">
+                    <Setter Property="Background" Value="Green"/>
+                </Style>
+                <Style x:Key="RedButtonStyle" TargetType="Button"
+               BasedOn="{StaticResource BaseButtonStyle}">
+                    <Setter Property="Background" Value="Red"/>
+                </Style>
+            </StackPanel.Resources>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid >
+                    <ContentControl>
+                        <views:MessageBoxMainView  x:Name="MessageBoxMainView"></views:MessageBoxMainView>
+                    </ContentControl>
+                </Grid>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,410 @@
+﻿@model IEnumerable<deORODataAccess.DTO.UserDTO>
+
+<script src="~/Scripts/js/plugins/datatables/jquery.dataTables.editable.js"></script>
+<link href="~/Scripts/js/plugins/tooltips/simptip.css" rel="stylesheet" />
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.Users</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li><a href="@Request.ApplicationPath/Location/"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Location</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.Users</li>
+        </ol>
+    </section>
+
+
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal-user-add" id="button-add"><i class="fa  fa-plus"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.User</button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.CustomerName</th>
+                                <th>@deOROWeb.Resources.Strings.LocationName</th>
+                                <th>@deOROWeb.Resources.Strings.FirstName</th>
+                                <th>@deOROWeb.Resources.Strings.LastName</th>
+                                <th>@deOROWeb.Resources.Strings.EmailAddress</th>
+                                <th>@deOROWeb.Resources.Strings.UserName</th>
+                                <th>@deOROWeb.Resources.Strings.AccountBalance</th>
+                                <th>@deOROWeb.Resources.Strings.LastLogin</th>
+                                <th>@deOROWeb.Resources.Strings.Edit</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr id="@m.id">
+                                    <td>@m.customername</td>
+                                    <td>@m.locationname</td>
+                                    <td>@m.first_name</td>
+                                    <td>@m.last_name</td>
+                                    <td>@m.email</td>
+                                    <td>@m.username</td>
+                                    <td>@m.account_balance</td>
+                                    <td>@m.lastlogindate</td>
+                                    <td><i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal-user-add"  id="@m.id-edit">Edit</a></i></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<div class="modal fade" id="popup-modal-user-add" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                @*  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>*@
+                <h4 class="modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.NewUserRegistration</h4>
+            </div>
+            <form action="#" method="post" id="form-user-add">
+                <div class="modal-body">
+                    <input id="input_hidden_action" type="hidden" />
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.FirstName:</span>
+                            <input id="input_user_first_name" name="input_user_first_name" class="form-control" placeholder="User First Name" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.LastName:</span>
+                            <input id="input_user_last_name" name="input_user_last_name" class="form-control" placeholder="User Last Name" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.EmailAddress:</span>
+                            <input id="input_user_email_address" name="input_user_email_address" class="form-control" placeholder="User Email Address" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.LoginUserName:</span>
+                            <input id="input_user_username" name="input_user_username" class="form-control" placeholder="Username" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.NewPassword<a style="cursor: pointer;" class="simptip-position-top" data-tooltip="Fill 'New Password' and 'New Password Confirmation' fields just if you want to change the user's password.">(?)</a> :</span>
+                            <input id="input_user_password" name="input_user_password" type="text" class="form-control" placeholder="New User Password" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.NewPasswordConfirmation<a style="cursor: pointer;" class="simptip-position-top" data-tooltip="Fill 'New Password' and 'New Password Confirmation' fields just if you want to change the user's password.">(?)</a> :</span>
+                            <input id="input_user_confirm_password" name="input_user_confirm_password" type="text" class="form-control" placeholder="New User Password Confirmation" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.UserBarcode:</span>
+                            <input id="input_user_barcode" name="input_user_barcode" class="form-control" placeholder="User Barcode" required="required">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.AccountBalance <a style="cursor: pointer; font-weight: normal;" class="simptip-position-top simptip-multiline" data-tooltip="Actual user's account balance, a change will be reflected on the kiosk after the next sync.">(?)</a></label>
+
+                                <input id="input_user_accountbalance" name="input_user_accountbalance" class="form-control" placeholder="User Barcode" required="required">
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label>Active <a style="cursor: pointer; font-weight: normal;" class="simptip-position-top simptip-multiline" data-tooltip="Select 'Yes' to allow this user to login in the kiosk, otherwise select 'No'.">(?)</a></label>
+                                <select class="form-control" id="combo-active">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Administrator <a style="cursor: pointer; font-weight: normal;" class="simptip-position-top simptip-multiline" data-tooltip="Select 'Yes' to bring administration permissions to the user in the kiosk, otherwise select 'No'.">(?)</a></label>
+                                <select class="form-control" id="combo-administrator">
+                                    <option value='1'>@deOROWeb.Resources.Strings.Yes</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" id="button-cancel-user" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save-user"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+            $(element).closest('.input-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+            $(element).closest('.input-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#form-user-add').validate({
+        onkeyup: false,
+        rules: {
+            "input_user_first_name": {
+                required: true
+            },
+            "input_user_last_name": {
+                required: true
+            },
+            "input_user_email_address": {
+                required: true,
+                minlength: 6,
+                email: true
+            },
+            "input_user_username": {
+                required: true,
+                remote: {
+                    url: "@Request.ApplicationPath/User/IsLoginUsernameAvailable/",
+                    type: "post",
+                    data: {
+                        input_hidden_action: function () {
+                            return $('#input_hidden_action').val();
+                        }
+                    }
+
+                }
+            },
+            "input_user_password": {
+                required: false,
+            },
+            "input_user_confirm_password": {
+                required: false,
+                equalTo: "#input_user_password"
+            },
+            "input_user_accountbalance": {
+                required: true,
+                number: true
+            },
+            "input_user_barcode": {
+                required: false,
+                remote: {
+                    url: "@Request.ApplicationPath/User/IsBarcodeAvailable/",
+                    type: "post",
+                    data: {
+                        input_hidden_action: function () {
+                            return $('#input_hidden_action').val();
+                        }
+                    }
+
+                }
+            }
+        },
+        messages: {
+            "input_user_username": {
+                remote: "User Name already in use"
+            },
+            "input_user_confirm_password": {
+                remote: "These passwords don't match. Try Again?"
+            }
+        }
+    });
+
+    $('#button-add').click(function (event) {
+        $("#input_hidden_action").val('');
+    });
+
+    $('#popup-modal-user-add').on('show.bs.modal', function (e) {
+
+        $('.form-control').val('').prop('readonly', false);
+        $("#form-user-add").validate().resetForm();
+        $(".form-group").removeClass("has-error");
+        $(".input").prop('readonly', false);
+        $('#combo-active').val('1');
+        $('#combo-administrator').val('0');
+        $('#input_user_accountbalance').val('0.00');
+
+
+    })
+
+
+    $('#button-save-user').click(function () {
+
+        if (!$("#form-user-add").valid()) return;
+
+        var hidden = $("#input_hidden_action").val();
+
+        var UserID = null;
+
+        UserID = hidden;
+
+        var postData_Users;
+
+        postData_Users = {
+            'id': UserID,
+            'first_name': $('#input_user_first_name').val(),
+            'last_name': $('#input_user_last_name').val(),
+            'email': $('#input_user_email_address').val(),
+            'username': $('#input_user_username').val(),
+            'password': $('#input_user_password').val(),
+            'barcode': $('#input_user_barcode').val(),
+            'is_staff': $('#combo-administrator  option:selected').val(),
+            'is_active': $('#combo-active  option:selected').val(),
+            'is_superuser': $('#combo-administrator  option:selected').val(),
+            'is_approved': 1,
+            "locationid": $('#input_hidden_action_locationid').val(),
+            "customerid": $('#input_hidden_action_customerid').val(),
+            'last_updated_on': new Date(),
+            'created_date_time': new Date(),
+            'applicationname': '',
+            'account_balance': $('#input_user_accountbalance').val(),
+            'lastaccountbalancechangeddescription': ''
+        };
+
+
+        if (hidden.length > 0) { //Edit
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/User/Edit",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ user_Data: postData_Users }),
+                async: false,
+                success: function (result) {
+                    //$("#popup-modal-user-add").modal("hide");
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+
+            //$("#popup-modal-user-add").modal("hide");
+        } else { // Add
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/User/Create",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ user_Data: postData_Users }),
+                async: false,
+                success: function (result) {
+
+                    //$("#popup-modal-user-add").modal("hide");
+
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+            //$("#popup-modal-user-add").modal("hide");
+
+        }
+
+    });
+
+
+
+    $('#grid tbody').on('click', 'tr', function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('edit') >= 0) {
+
+            var id = target.substring(0, target.indexOf('edit') - 1);
+            var postData = '{"id":' + id + '}';
+
+            $("#input_hidden_action").val(id);
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/User/GetUserDetails/",
+                dataType: "json",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+                    $('#input_user_first_name').val(result.first_name);
+                    $('#input_user_last_name').val(result.last_name);
+                    $('#input_user_email_address').val(result.email);
+                    $('#input_user_username').val(result.username);
+                    $('#input_user_barcode').val(result.barcode);
+                    //$("#combo-active > [value='" + result.is_active + "']").attr("selected", "true");
+                    //$("#combo-administrator > [value='" + result.is_staff + "']").attr("selected", "true");
+                    $('#combo-active').val(result.is_active);
+                    $('#combo-administrator').val(result.is_staff);
+                    $('#input_user_accountbalance').val(result.account_balance);
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+
+    })
+
+    $('#grid').dataTable({
+        "dom": 'BC<"clear">T<"clear">lfrtip',
+        "tableTools": {
+            "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf"
+        },
+        buttons: [
+          'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+        "language": {
+            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+            "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+            "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+            "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+            "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+            "sSearch": "@deOROWeb.Resources.Strings.Search:",
+            "oPaginate": {
+                "sFirst": "@deOROWeb.Resources.Strings.First",
+            "sLast": "@deOROWeb.Resources.Strings.Last",
+            "sNext": "@deOROWeb.Resources.Strings.Next",
+            "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+        },
+        }
+    });
+
+</script>
+
+@foreach (var m in Model)
+{
+    <input id="input_hidden_action_locationid" value="@m.locationid" type="hidden" /> 
+    <input id="input_hidden_action_customerid" value="@m.customerid" type="hidden" />  
+    return;
+}

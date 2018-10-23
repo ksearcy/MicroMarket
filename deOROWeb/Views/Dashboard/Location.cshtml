@@ -1,0 +1,197 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<script src="~/Scripts/js/plugins/blockUI/jquery.blockUI.js"></script>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.LocationDashboard</h1>
+        <ol class="breadcrumb">
+            <li><a href="@Request.ApplicationPath/"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.Dashboard</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body table-responsive">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Customers</label>
+                                @Html.DropDownList("Customers", new SelectList(ViewBag.Customers, "id", "name"),"All Customers", new { id = "combo-customers", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Locations</label>
+                                <select class="form-control" multiple id="list-locations" style="height: 120px">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label>@deOROWeb.Resources.Strings.DateRange</label>
+                            <div class="form-group">
+                                <input id="input-from-date" class="form-control" placeholder="From Date">
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <input id="input-to-date" class="form-control" placeholder="To Date">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary pull-left" id="button-process">@deOROWeb.Resources.Strings.Process</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs" id="nav-tabs">
+                                </ul>
+                                <div class="tab-content" id="tab-content">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</aside>
+
+<script>
+
+    $('#input-to-date').datetimepicker({
+        timepicker: false, format: 'm/d/Y'
+    });
+
+    $('#input-from-date').datetimepicker({
+        timepicker: false, format: 'm/d/Y'
+    });
+
+    $('#input-from-date').val(new Date().getMonth() + 1 + '/1/' + new Date().getFullYear());
+    $('#input-to-date').val(new Date().getMonth() + 1 + '/' + new Date().getDate() + '/' + new Date().getFullYear());
+
+    $('#nav-tabs').empty();
+    $('#tab-content').empty();
+
+    $(function () {
+        processButtonClick();
+    });
+        
+    
+    $("#combo-customers").change(function () {
+        var id = $(this).val();
+        loadLocations(id);
+    });
+
+    function loadLocations(id) {
+
+        $('#list-locations').empty();
+        $('#list-locations').prop("disabled", true);
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Location/GetLocations/" + id,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                $('#list-locations').empty();
+                $.each(result, function (i, val) {
+                    $('#list-locations').append(new Option(val.name, val.id));
+                });
+
+                $('#list-locations').prop("disabled", false);
+            },
+            error: function (error) {
+            }
+        })
+    }
+
+    function processButtonClick() {
+
+        $('#nav-tabs').empty();
+        $('#tab-content').empty();
+
+        var locationids = new Array();
+
+        $('#list-locations :selected').each(function (i, selected) {
+            locationids[i] = $(selected).val();
+            locid = $(selected).val();
+            locname = $(selected).text();
+
+            $('#nav-tabs').append('<li><a href="#' + locid + '" role="tab" data-toggle="tab">' + locname + '</a></li>');
+            $('#tab-content').append('<div class="tab-pane" id="' + locid + '"></div>');
+
+        });
+
+        //alert($('#combo-customers').val());
+        if ($('#combo-customers').val() == '') {
+            $('#nav-tabs').append('<li><a href="#0" role="tab" data-toggle="tab">@deOROWeb.Resources.Strings.AllCustomers / @deOROWeb.Resources.Strings.AllLocations</a></li>');
+            $('#tab-content').append('<div class="tab-pane" id="0"></div>');
+        }
+
+        $('.nav-tabs a:first').tab('show')
+    }
+
+    $('#button-process').click(function () {
+        processButtonClick();
+    });
+
+    $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
+
+        var target = $(e.target).attr("href")
+        var locid;
+
+        if (target.indexOf('#') >= 0) {
+            locid = target.substring(1);
+        }
+        else {
+            locid = 0;
+        }
+
+        var postData = JSON.stringify({
+            'id': locid,
+            'fromDate': $('#input-from-date').val(),
+            'toDate': $('#input-to-date').val()
+        });
+
+        if ($(target).is(':empty')) {
+
+            $.blockUI({
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#3c8dbc',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .75,
+                    color: '#fff'
+                }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Dashboard/GetLocationDashboardData/",
+                cache: false,
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+                    $(target).html(result);
+                    $.unblockUI();
+                },
+                error: function (error) {
+                    $.unblockUI();
+                }
+            })
+
+        }
+        else {
+
+        }
+    })
+
+</script>

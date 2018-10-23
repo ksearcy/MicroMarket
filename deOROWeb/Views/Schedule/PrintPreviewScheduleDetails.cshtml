@@ -1,0 +1,60 @@
+﻿@using deOROWeb.Helper;
+@model IEnumerable<deORODataAccess.DTO.ScheduleDetailItemDTO>
+
+<div class="col-xs-12 table-responsive">
+    <table class="table">
+        @* <thead>
+            <tr>
+                <th style="text-align: left">Category</th>
+                <th style="text-align: left">Item Name</th>
+                <th style="text-align: center">Quantity at Schedule</th>
+                <th style="text-align: center">Quantity to Refill</th>
+                <th style="text-align: center">Tote #</th>
+                <th style="text-align: center">Item Pulled</th>
+                <th style="text-align: center">Over / Under</th>
+            </tr>
+        </thead>*@
+        @* <tfoot>
+            <tr>
+                <th style="text-align: left">Category</th>
+                <th style="text-align: left">Item Name</th>
+                <th style="text-align: center">Quantity at Schedule</th>
+                <th style="text-align: center">Quantity to Refill</th>
+                <th style="text-align: center">Tote #</th>
+                <th style="text-align: center">Item Pulled</th>
+                <th style="text-align: center">Over / Under</th>
+            </tr>
+        </tfoot>*@
+        <tbody>
+            <tr>
+                <th style="text-align: left">@deOROWeb.Resources.Strings.Category</th>
+                <th style="text-align: left">@deOROWeb.Resources.Strings.ItemName</th>
+                <th style="text-align: center">@deOROWeb.Resources.Strings.QuantityatSchedule</th>
+                <th style="text-align: center">@deOROWeb.Resources.Strings.QuantitytoRefill</th>
+                <th style="text-align: center">Tote #</th>
+                <th style="text-align: center">Item Pulled</th>
+                <th style="text-align: center">Over / Under</th>
+            </tr>
+            @foreach (var m in Model)
+            {
+                <tr class="page-break">
+                    <td style="text-align: left">@m.category</td>
+                    <td style="text-align: left">@m.name</td>
+                    <td style="text-align: center">@m.quantity_at_schedule</td>
+                    <td style="text-align: center">@m.quantity_to_refill</td>
+                    <td style="text-align: center">@m.tote</td>
+                    <td style="text-align: center">@Html.Image(m.id + "-status", m.status == "1" ? "check.png" : "close.png")</td>
+                    <td style="text-align: center">@m.over_under</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+@*<style>
+    table.print-friendly tr td, table.print-friendly tr th
+    {
+        page-break-inside: avoid;
+    }
+</style>*@

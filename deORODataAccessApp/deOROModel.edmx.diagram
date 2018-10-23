@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ee9b78cb6ff4292831e5fd7b4febd5f" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="deORO_LocalModel.accountbalancehistory" Width="1.5" PointX="6.1811385351145365" PointY="30.324693604523638" />
+        <EntityTypeShape EntityType="deORO_LocalModel.cash_collection" Width="1.5" PointX="9.3334291397283913" PointY="2.0181129435161655" />
+        <EntityTypeShape EntityType="deORO_LocalModel.cash_counter" Width="1.5" PointX="2.5172727641264316" PointY="26.583813322048549" />
+        <EntityTypeShape EntityType="deORO_LocalModel.cash_dispense" Width="1.5" PointX="11.350334778125554" PointY="7.925609786028792" />
+        <EntityTypeShape EntityType="deORO_LocalModel.cash_status" Width="1.5" PointX="6.9676361861488019" PointY="0.95488788231969246" />
+        <EntityTypeShape EntityType="deORO_LocalModel.category" Width="1.5" PointX="4.593686780237447" PointY="1.7064115711052024" />
+        <EntityTypeShape EntityType="deORO_LocalModel.combo_discount" Width="1.5" PointX="0.48662965581129752" PointY="29.441124616861867" />
+        <EntityTypeShape EntityType="deORO_LocalModel.combo_discount_detail" Width="1.5" PointX="10.357867815698436" PointY="13.396052396575014" />
+        <EntityTypeShape EntityType="deORO_LocalModel.credit" Width="1.5" PointX="10.496801029190795" PointY="15.712479971215352" />
+        <EntityTypeShape EntityType="deORO_LocalModel.credit_activity" Width="1.5" PointX="11.138820385159375" PointY="12.95739710934339" />
+        <EntityTypeShape EntityType="deORO_LocalModel.credit_user" Width="1.5" PointX="4.0968357455436308" PointY="1.3147247737807803" />
+        <EntityTypeShape EntityType="deORO_LocalModel.device_error" Width="1.5" PointX="8.6616554300587882" PointY="21.609952593971954" />
+        <EntityTypeShape EntityType="deORO_LocalModel.discount" Width="1.5" PointX="5.5022437728486224" PointY="29.821131377397631" />
+        <EntityTypeShape EntityType="deORO_LocalModel.event_log" Width="1.5" PointX="11.551418741956082" PointY="22.4287647858396" />
+        <EntityTypeShape EntityType="deORO_LocalModel.fast_touch" Width="1.5" PointX="11.161332998034235" PointY="4.016158731661811" />
+        <EntityTypeShape EntityType="deORO_LocalModel.help" Width="1.5" PointX="11.15571834666455" PointY="23.043405588270819" />
+        <EntityTypeShape EntityType="deORO_LocalModel.item" Width="1.5" PointX="7.616439502507653" PointY="30.05687960891839" />
+        <EntityTypeShape EntityType="deORO_LocalModel.item_group" Width="1.5" PointX="4.5486462770722085" PointY="11.535489192016184" />
+        <EntityTypeShape EntityType="deORO_LocalModel.item_group_activity" Width="1.5" PointX="9.2617711542461869" PointY="22.333203177122961" />
+        <EntityTypeShape EntityType="deORO_LocalModel.item_snapshot" Width="1.5" PointX="1.7652535241866731" PointY="2.0590074667981861" />
+        <EntityTypeShape EntityType="deORO_LocalModel.location_service" Width="1.5" PointX="8.3386124504444243" PointY="15.601587451808895" />
+        <EntityTypeShape EntityType="deORO_LocalModel.login_activity" Width="1.5" PointX="6.240267659649378" PointY="27.268851218404645" />
+        <EntityTypeShape EntityType="deORO_LocalModel.manufacturer" Width="1.5" PointX="11.286126751120261" PointY="18.49582094815365" />
+        <EntityTypeShape EntityType="deORO_LocalModel.payment" Width="1.5" PointX="10.552704322409213" PointY="4.7150199137232356" />
+        <EntityTypeShape EntityType="deORO_LocalModel.planogram_item" Width="1.5" PointX="11.256451058786572" PointY="25.738983985846389" />
+        <EntityTypeShape EntityType="deORO_LocalModel.promotion" Width="1.5" PointX="9.70662596901256" PointY="7.1684971634151866" />
+        <EntityTypeShape EntityType="deORO_LocalModel.promotion_detail" Width="1.5" PointX="10.54502913660604" PointY="7.6572452819241423" />
+        <EntityTypeShape EntityType="deORO_LocalModel.promotion_user" Width="1.5" PointX="11.061597128893061" PointY="15.168311319857981" />
+        <EntityTypeShape EntityType="deORO_LocalModel.shoppingcart" Width="1.5" PointX="2.7101046716375765" PointY="3.2791917786370925" />
+        <EntityTypeShape EntityType="deORO_LocalModel.shoppingcartdetail" Width="1.5" PointX="7.25454858096994" PointY="8.8915959936061864" />
+        <EntityTypeShape EntityType="deORO_LocalModel.subsidy" Width="1.5" PointX="10.417511253812123" PointY="7.8387946224952092" />
+        <EntityTypeShape EntityType="deORO_LocalModel.subsidy_detail" Width="1.5" PointX="3.8107706717265635" PointY="14.564204431401661" />
+        <EntityTypeShape EntityType="deORO_LocalModel.sync_data" Width="1.5" PointX="1.2023646092053337" PointY="21.206425825695707" />
+        <EntityTypeShape EntityType="deORO_LocalModel.synclog" Width="1.5" PointX="5.0234648366567978" PointY="3.2407994732450693" />
+        <EntityTypeShape EntityType="deORO_LocalModel.transaction_error" Width="1.5" PointX="6.4917754542509911" PointY="16.085491649846311" />
+        <EntityTypeShape EntityType="deORO_LocalModel.transactionerror" Width="1.5" PointX="7.7617484944694439" PointY="5.6582662340524914" />
+        <EntityTypeShape EntityType="deORO_LocalModel.user" Width="1.5" PointX="4.1269264650190838" PointY="27.644513560293483" />
+        <EntityTypeShape EntityType="deORO_LocalModel.user_snapshot" Width="1.5" PointX="8.5204114655593468" PointY="27.323307869640789" />
+        <EntityTypeShape EntityType="deORO_LocalModel.users_deleted" Width="1.5" PointX="6.2527541305184151" PointY="27.828896595085457" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,327 @@
+﻿@{
+    ViewBag.Title = "Dashboards";
+}
+
+
+<script src="~/Scripts/js/AdminLTE/dashboard.js"></script>
+<link href="~/Content/css/gridster/jquery.gridster.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/gridster/jquery.gridster.js"></script>
+
+
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>Dashboards</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">Dashboards</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="pull-right box-tools">
+                        <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#dashboard-modal"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;Add Dashboard</button>
+                        <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#widget-modal"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;Add Widget</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs" id="nav-tabs">
+                    @{Html.RenderAction("GetHeader");}
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-content">
+                        @{Html.RenderAction("GetContent");}
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+    </section>
+</aside>
+
+<div class="modal fade" id="dashboard-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-plus"></i>Dashboard</h4>
+            </div>
+            <form action="#" method="post" id="form-dashboard">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Title:</span>
+                            <input id="input-dashboard-title" class="form-control" placeholder="Dashboard Title" required="required" name="input-dashboard-title">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save-dashboard"><i class="fa fa-save"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="widget-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-plus"></i>Widget</h4>
+            </div>
+            <form action="#" method="post" id="form-widget">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Dasboard</label>
+                        <select class="form-control" id="combo-dashboard">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Title:</span>
+                            <input id="input-widget-title" class="form-control" placeholder="Widget Title" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Widget Type</label>
+                        <select class="form-control" id="combo-widget-type">
+                            @*<optgroup label="Charts">
+                                <option value="Area Chart">Area</option>
+                                <option value="Bar Chart">Bar</option>
+                                <option value="Line Chart">Line</option>
+                                <option value="Pie Chart">Pie</option>
+                            </optgroup>*@
+                            <optgroup label="Data">
+                                <option>Grid</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save-widget"><i class="fa fa-save"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#form-widget').validate();
+    $('#form-dashboard').validate(
+        {
+            rules: {
+                "input-dashboard-title": {
+                    required: true
+                }
+            }
+        });
+
+    $.extend({
+        getUrlVars: function () {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        },
+        getUrlVar: function (name) {
+            return $.getUrlVars()[name];
+        }
+    });
+
+    $(".nav-tabs").on("click", "a", function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+  .on("click", "span", function () {
+
+      var id = this.id;
+      var target = $(this);
+
+      if (id.indexOf('span') >= 0) {
+
+          if ($(".nav-tabs li").length == 3) {
+              bootbox.alert("Unable to delete the dashboard.");
+              return;
+          }
+          else {
+
+              bootbox.confirm("Are you sure you want to delete the Dashboard?", function (result) {
+                  if (result) {
+                      deleteTab(id, target);
+                      return;
+                  }
+              });
+          }
+      }
+  });
+
+    function deleteTab(id, target) {
+
+        var anchor = target.siblings('a');
+        $(anchor.attr('href')).remove();
+        target.parent().remove();
+        $(".nav-tabs li").children('a').first().click();
+
+        if (id.indexOf('span') >= 0) {
+
+            var postData = '{"id":' + id.substring(0, id.indexOf('span') - 1) + '}';
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Dashboard/Delete",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                }
+            });
+        }
+
+    }
+
+
+
+    $("#nav-tabs-custom").ready(function () {
+
+        var allVars = $.getUrlVars();
+        id = allVars['id'];
+
+        if (id != null) {
+            $("#" + id + "-anchor").click();
+        }
+        else {
+            $(".nav-tabs li").children('a').first().click();
+        }
+    });
+
+
+    $("#button-save-dashboard").click(function () {
+
+        if (!$("#form-dashboard").valid()) return;
+
+        var input = $("#input-dashboard-title").val();
+
+        var postData = JSON.stringify({
+            'title': $('#input-dashboard-title').val(),
+            'userid': 0,
+            'order': 1
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Dashboard/Create",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+                window.location.href = result.redirectToUrl;
+            },
+            error: function (error) {
+                //alert("There was an error posting the data to the server: " + error.responseText);
+            }
+        })
+
+    });
+
+    $('#dashboard-modal').on('show.bs.modal', function (e) {
+        $("#form-dashboard").validate().resetForm();
+        $(".form-group").removeClass("has-error");
+    });
+
+    $('#widget-modal').on('show.bs.modal', function (e) {
+
+        $("#form-widget").validate().resetForm();
+        $(".form-group").removeClass("has-error");
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Dashboard/GetDashboards",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                $('#combo-dashboard').empty();
+                $.each(result, function (i, val) {
+                    $('#combo-dashboard').append(new Option(val.name, val.id));
+                });
+                $("#combo-dashboard > [value='" + id + "']").attr("selected", "true");
+            },
+            error: function (error) {
+                //alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    })
+
+    $("#button-save-widget").click(function () {
+
+        if (!$("#form-widget").valid()) return;
+
+        var postData = JSON.stringify({
+            'dashboardid': $("#combo-dashboard option:selected").val(),
+            'title': $("#input-widget-title").val(),
+            'type': $("#combo-widget-type option:selected").val(),
+            'settings': '',
+            'order': 1
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Widget/Create",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+                window.location.href = result.redirectToUrl;
+                return false;
+            },
+            error: function (error) {
+                //alert("There was an error posting the data to the server: " + error.responseText);
+            }
+        })/*.always(function () {
+            $("#row-smallboxes").load("/Widget/GetBoxWidgets");
+            $("#row-content").load("/Widget/GetCommonWidgets");
+        })*/;
+
+    });
+
+
+</script>

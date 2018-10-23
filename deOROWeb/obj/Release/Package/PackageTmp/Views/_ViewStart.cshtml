@@ -1,0 +1,27 @@
+﻿@{
+    
+    if (Request.IsAuthenticated)
+    {
+        var user = Session["UserRole"] as MembershipUser;
+        
+        if(user != null)
+        {
+            if (user.Comment == "1")
+            {
+                Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+            }
+            else
+            {
+                Layout = "~/Views/Shared/_LayoutUser.cshtml";
+            }
+        }
+        else
+        {
+            Layout = "~/Views/Shared/_LayoutLanding.cshtml";
+        }
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutLanding.cshtml";
+    }
+}

@@ -1,0 +1,240 @@
+﻿@using deOROWeb.Helper;
+@model deORODataAccess.widget
+
+<script src="~/Scripts/js/plugins/flot/jquery.flot.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.pie.js"></script>
+<script src="~/Scripts/js/plugins/flot/excanvas.js"></script>
+<script src="~/Scripts/js/plugins/flot/jquery.flot.categories.js"></script>
+
+<div class="col-lg-6 connectedSortable">
+    <div class="box box-success" id="@Html.DisplayFor(modelItem => Model.id)-widget">
+        <div class="box-header">
+            <h3 class="box-title">@Html.DisplayFor(modelItem => Model.title)</h3>
+            <div class="box-tools pull-right">
+                <button class="btn btn-primary btn-sm refresh-btn" data-toggle="modal" title="Settings" data-target="#@Html.DisplayFor(modelItem => Model.id)-settings-modal"><i class="fa fa-gear"></i></button>
+                <button class="btn btn-primary btn-sm refresh-btn" data-toggle="tooltip" title="Refresh"><i class="fa fa-refresh"></i></button>
+                <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-primary btn-sm" data-widget="remove" id="@Html.DisplayFor(modelItem => Model.id)-remove"><i class="fa fa-trash-o"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div id="@Model.id-chart" style="width: 800px; margin: 0 auto; height:492px">
+            </div>
+        </div>
+        <div class="overlay" id="@Html.DisplayFor(modelItem => Model.id)-overlay"></div>
+        <div class="loading-img" id="@Html.DisplayFor(modelItem => Model.id)-loading-img"></div>
+        <div class="callout callout-info" id="@Html.DisplayFor(modelItem => Model.id)-not-configured">
+            <h4 class="text-center">Widget is not configured. Click on settings icon and select a metric.</h4>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="@Html.DisplayFor(modelItem => Model.id)-settings-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-globe-o"></i>Chart Settings</h4>
+            </div>
+            <form action="#" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Title:</span>
+                            <input id="@Html.DisplayFor(modelItem => Model.id)-grid-title" class="form-control" placeholder="Widget Title" value="@Html.DisplayFor(modelItem => Model.title)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Metric</label>
+                        <select class="form-control" id="@Html.DisplayFor(modelItem => Model.id)-combo-metric">
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label>Customer</label>
+                        <select class="form-control" id="@Model.id-combo-customer">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <select class="form-control" id="@Model.id-combo-location">
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Date From:</span>
+                                    <input id="@Model.id-input-date-from" class="form-control" placeholder="Date From"  value="@MvcHelper.DateFormatHelper.ToShortDate(Model.from_date)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Date To:</span>
+                                    <input id="@Model.id-input-date-to" class="form-control" placeholder="Date To"  value="@MvcHelper.DateFormatHelper.ToShortDate(Model.to_date)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="@Html.DisplayFor(modelItem => Model.id)-button-save-setttings"><i class="fa fa-save"></i>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $('#@Model.id-not-configured').hide();
+
+    var postData = JSON.stringify({
+        'metricid': '@Model.metricid',
+         'customerid': '@Model.customerid',
+         'locationid': '@Model.locationid',
+         'fromdate': '@Model.from_date',
+         'todate': '@Model.to_date'
+     });
+
+    if ('@Model.type' == 'Pie Chart') {
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "@Request.ApplicationPath/Widget/GetPieChartData",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: true,
+            success: function (result) {
+                if (result != null) {
+                    plotPieChart(result);
+                }
+                else {
+                    $('#@Model.id-not-configured').show();
+                }
+
+                $('#@Model.id-overlay').hide();
+                $('#@Model.id-loading-img').hide();
+            },
+            error: function (error) {
+                $('#@Model.id-not-configured').show();
+                $('#@Model.id-overlay').hide();
+                $('#@Model.id-loading-img').hide();
+            }
+        });
+        }
+        else if ('@Model.type' == 'Bar Chart') {
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "@Request.ApplicationPath/Widget/GetBarChartData",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: true,
+            success: function (result) {
+                if (result != null) {
+                    plotBarChart(result);
+                }
+                else {
+                    $('#@Model.id-not-configured').show();
+                }
+
+                $('#@Model.id-overlay').hide();
+                $('#@Model.id-loading-img').hide();
+            },
+            error: function (error) {
+                $('#@Model.id-not-configured').show();
+                $('#@Model.id-overlay').hide();
+                $('#@Model.id-loading-img').hide();
+            }
+        });
+        }
+
+
+    function plotPieChart(data) {
+
+        if (data.length == 0) return;
+        
+        $.plot("#@Model.id-chart", data, {
+            series: {
+                pie: {show: true}
+            },
+            legend: {
+                show: false
+            }
+        });
+    }
+
+    function plotBarChart(data) {
+
+        $.plot("#@Model.id-chart", [data], {
+            grid: {
+                borderWidth: 1,
+                borderColor: "#f3f3f3",
+                tickColor: "#f3f3f3"
+            },
+            series: {
+                bars: {
+                    show: true,
+                    barWidth: 0.5,
+                    align: "center",
+                }
+
+            },
+            xaxis: {
+                mode: "categories",
+                tickLength: 0
+            }
+        });
+    }
+
+   @* $('#@Model.id-button-save-setttings').click(function () {
+
+        var postData = JSON.stringify({
+            'id': '@Model.id',
+            'metricid': $("#@Model.id-combo-metric option:selected").val(),
+            'title': $("#@Model.id-grid-title").val(),
+            'order': 1
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Widget/SaveSettings",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+            }
+        });
+    });*@
+
+    @*$('#@Model.id-remove').click(function () {
+
+        var postData = JSON.stringify({
+            'id': '@Model.id'
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Widget/Delete",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+            }
+        });
+    });*@
+
+</script>

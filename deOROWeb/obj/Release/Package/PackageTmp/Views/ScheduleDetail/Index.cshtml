@@ -1,0 +1,237 @@
+﻿@using deOROWeb.Helper;
+@model IEnumerable<deORODataAccess.DTO.ScheduleDetailDTO>
+
+
+<script src="~/Scripts/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="~/Scripts/js/plugins/datatables/jquery.dataTables.editable.js"></script>
+
+<script src="~/Scripts/js/plugins/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+<link href="~/Content/css/bootstrap-multiselect/bootstrap-multiselect.css" rel="stylesheet" />
+
+
+<div class="margin">
+    <table class="table table-bordered table-striped" id="grid-schedule-detail">
+        <thead>
+            <tr>
+                <th style="text-align: center">
+                    <input type="checkbox" id="checkall" /></th>
+                <th>@deOROWeb.Resources.Strings.Customer</th>
+                <th>@deOROWeb.Resources.Strings.Location</th>
+                <th>@deOROWeb.Resources.Strings.Driver</th>
+                <th>@deOROWeb.Resources.Strings.Status</th>
+                <th># Items to Refill</th>
+                <th>Last Service</th>
+                <th>Next Service</th>
+                @*<th>Cash Status</th>*@
+                <th>Exclude By Category</th>
+                <th>Exclude By Planogram</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr id="@m.locationid">
+                    <td style="text-align: center" id="@m.id">@Html.CheckBox("check-box-" + @m.locationid, Convert.ToBoolean(m.id))</td>
+                    <td id="@m.customerid">@m.customername</td>
+                    <td id="@m.locationid">@m.locationname</td>
+                    <td>
+                        @Html.DropDownListSelected("Users", m.driverid, new SelectList(ViewBag.Users, "pkid", "username", 0))
+                    @* @Html.DropDownListSelected("Users", "", new SelectList(ViewBag.Users, "id", "username", 0))*@
+                    </td>
+                    <td>
+                        @*@Html.DropDownList("Status", new SelectList(ViewBag.Status, "id", "name", 3))*@
+                        @Html.DropDownListSelected("Status", m.status, new SelectList(ViewBag.Status, "id", "name", 0))
+                    </td>
+                    <td>@m.count</td>
+                    <td></td>
+                    <td></td>
+                    @* <td>
+                        <a id="@m.id-hide-show">Hide / Show</a>
+                        <div id="@m.id-location-cash-status" class="div-location-cash-status">
+                            @{Html.RenderAction("Index", "LocationCashStatus", new { locationid = m.locationid });}
+                        </div>
+                    </td>*@
+                    <td>
+                        @*<select class="category-filter" multiple="multiple" id="@m.locationid-combo-category"></select>*@
+                        @*@Html.DropDownList(@m.locationid + "-combo-category", new SelectList(ViewBag.Categories, "id", "name", 0), new { @class = "category-filter", @multiple = "multiple", @id = @m.locationid + "-combo-category" })*@
+                        @Html.DropDownListSelected(@m.locationid + "-combo-category", @m.excluded_categories, new SelectList(ViewBag.Categories, "id", "name", 0), new { @class = "category-filter", @multiple = "multiple", @id = @m.locationid + "-combo-category" })
+                    </td>
+                    <td>
+                        @*@Html.DropDownList(@m.locationid + "-combo-planogram", new SelectList((ViewBag.Planograms as ICollection<deORODataAccess.planogram>).Where(x => x.locationid == @m.locationid).ToList(), "id", "name", 0), new { @class = "planogram-filter", @multiple = "multiple", @id = @m.locationid + "-combo-planogram" })*@
+                        @Html.DropDownListSelected(@m.locationid + "-combo-planogram", @m.excluded_planograms, new SelectList((ViewBag.Planograms as ICollection<deORODataAccess.planogram>).Where(x => x.locationid == @m.locationid).ToList(), "id", "name", 0), new { @class = "planogram-filter", @multiple = "multiple", @id = @m.locationid + "-combo-planogram" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+
+    $(document).ready(function () {
+        $('.div-location-cash-status').hide();
+
+
+        computeNextServiceAndSetDefaultDriver();
+    });
+
+    $('a').click(function (event) {
+        event.preventDefault();
+        var target = event.target.id;
+
+        if (target.indexOf('hide-show') >= 0) {
+            var id = target.substring(0, target.indexOf('hide-show') - 1);
+            $('#' + id + '-location-cash-status').toggle("slow");
+        }
+    });
+
+
+    $("#grid-schedule-detail #checkall").click(function () {
+        if ($("#grid-schedule-detail #checkall").is(':checked')) {
+            $("#grid-schedule-detail input[type=checkbox]").each(function () {
+                $(this).prop("checked", true);
+            });
+
+        } else {
+            $("#grid-schedule-detail input[type=checkbox]").each(function () {
+                $(this).prop("checked", false);
+            });
+        }
+    });
+
+    $('#input-schedule-date').datetimepicker({
+        timepicker: false,
+        onChangeDateTime: function (dp, $input) {
+            computeNextServiceAndSetDefaultDriver();
+            return;
+        }
+    });
+
+    function computeNextServiceAndSetDefaultDriver() {
+        $("#grid-schedule-detail tr").each(function () {
+
+            var $td = $('td', this);
+            var locationid = $td.eq(2).attr('id');
+            var postData = '{"id":' + locationid + '}';
+
+            if (locationid != null) {
+                $.ajax({
+                    type: "POST",
+                    url: "@Request.ApplicationPath/Location/Details/",
+                    dataType: "json",
+                    cache: false,
+                    async: false,
+                    contentType: "application/json; charset=utf-8",
+                    data: postData,
+                    success: function (result) {
+
+                        var lastService = ToJavaScriptDate(result.last_service_date_time);
+
+                        if (lastService == "1/1/1" || lastService == null) {
+                            $td.eq(6).text("N/A");
+                        }
+                        else {
+
+                            $td.eq(6).text(lastService);
+                            var scheduledDate = $('#input-schedule-date').val();
+                            var diff = dateDiff(scheduledDate, lastService);
+                            var interval = parseInt(result.service_interval);
+
+                            if (interval == 0) {
+                                $td.eq(7).text("Service Interval is not set.").css('color', 'red');
+                            }
+                            else if (scheduledDate != "") {
+                                if (interval - diff < 0) {
+                                    $td.eq(7).text("Overdue by " + -(interval - diff) + " day(s)").css('color', 'red');
+                                }
+                                else if (interval - diff == 0) {
+                                    $td.eq(7).text("Due Today").css('color', 'red');
+                                }
+                                else {
+                                    $td.eq(7).text("Due in " + (interval - diff) + " day(s)").css('color', 'green');
+                                }
+                            }
+                        }
+
+                        if ($td.eq(3).find('option:selected').val() == 0) {
+                            $td.eq(3).find('select').val(result.driverid);
+                        }
+
+                    },
+                    error: function (error) {
+                    }
+                });
+            }
+
+        });
+
+        function dateDiff(date1, date2) {
+            var date1 = new Date(date1);
+            var date2 = new Date(date2);
+            return parseInt((date1 - date2) / (1000 * 60 * 60 * 24));
+        }
+    }
+
+    function applyFilter(tr) {
+
+        var locationid = tr.attr('id');
+        var categories = $('#' + locationid + '-combo-category').val();
+        var planograms = $('#' + locationid + '-combo-planogram').val();
+
+        if (planograms == null) {
+            planograms = new Array(0);
+            planograms.push(0);
+        }
+
+        if (categories == null) {
+            categories = new Array(0);
+            categories.push(0);
+        }
+
+        var postData = JSON.stringify({
+            'locationid': locationid,
+            'categories': String(categories),
+            'planograms': String(planograms)
+        });
+
+        if (categories != null && planograms != null) {
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Schedule/ApplyFilter/",
+                dataType: "json",
+                cache: false,
+                async: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+                    var $td = $('td', tr);
+                    $td.eq(5).text(result).css('color', 'red');
+                }
+            });
+        }
+    }
+
+    $('.category-filter').multiselect({
+        enableFiltering: true, maxHeight: 400,
+        onDropdownHide: function (event) {
+            var $tr = $(event.target).closest('tr');
+            applyFilter($tr);
+        }
+    });
+
+    $('.planogram-filter').multiselect({
+        enableFiltering: true, maxHeight: 400,
+        onDropdownHide: function (event) {
+            var $tr = $(event.target).closest('tr');
+            applyFilter($tr);
+        }
+    });
+
+
+    //=====POSITION CHANGE OF CONVERTION OF TABLE TO JQUERY DATA TABLE AFTER ADD ALL PROPERTIES TO THE CONTROLS TO AVOID ISSUES. By Luis Ruiz
+
+    $('#grid-schedule-detail').dataTable();
+
+
+</script>

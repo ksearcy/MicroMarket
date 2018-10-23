@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="deORO.Views.UsersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Command="{Binding AddUserCommand}">
+            <Image Grid.Row="0" Source="..\\Images\Add.png"></Image>
+        </Button>
+        <DataGrid Grid.Row="1"  AutoGenerateColumns="False" ItemsSource="{Binding Users}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" RowHeaderWidth="0" 
+                       RowHeaderStyle="{x:Null}" GridLinesVisibility="None" CanUserResizeColumns="False" CanUserReorderColumns="False" 
+                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" AlternationCount="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding username}" Header="User Name" HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_LeftAlignmentCellStyle}"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding email}" HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_LeftAlignmentCellStyle}" Header="Email Address" ></DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding is_approved}" HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_CenterAlignmentCellStyle}" Header="Approved"></DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn Binding="{Binding is_active}" HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_CenterAlignmentCellStyle}" Header="Active"></DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn Binding="{Binding is_superuser}" HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_CenterAlignmentCellStyle}" Header="Super User"></DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn Binding="{Binding is_staff}" HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_CenterAlignmentCellStyle}" Header="Staff"></DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn Binding="{Binding is_lockedout}" HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_CenterAlignmentCellStyle}" Header="Locked Out"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Binding="{Binding account_balance,StringFormat=C2}" HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_RightAlignmentCellStyle}" Header="Account Balance" ></DataGridTextColumn>
+                <DataGridTemplateColumn HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_CenterAlignmentCellStyle}" Header="Edit"  Width="70">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button ToolTip="Edit" 
+                                        HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding DataContext.EditUserCommand,
+                                        RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}}" CommandParameter="{Binding id}">
+                                <Image Source="/Images/Edit.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="48" Height="48" Stretch="None"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_CenterAlignmentCellStyle}" Header="Delete"  Width="70">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button ToolTip="Delete" 
+                                        HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding DataContext.DeleteUserCommand,
+                                        RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}}" CommandParameter="{Binding id}">
+                                <Image Source="/Images/Delete.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="48" Height="48" Stretch="None"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

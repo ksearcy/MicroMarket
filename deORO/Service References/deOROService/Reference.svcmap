@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4f3b7c0a-80b4-47e4-a03c-c636f0f95e7a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:61942/SyncDataService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SyncDataService.xsd" MetadataType="Schema" ID="69d4a6cd-0ac8-443c-96d8-f200fc8accdd" SourceId="1" SourceUrl="http://localhost:61942/SyncDataService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SyncDataService.wsdl" MetadataType="Wsdl" ID="057a0fda-d2c6-4739-8ef8-56e706a765fd" SourceId="1" SourceUrl="http://localhost:61942/SyncDataService.svc?wsdl" />
+    <MetadataFile FileName="SyncDataService.disco" MetadataType="Disco" ID="d4a8d6f9-e722-4a14-bfb4-c9a18a1c9d09" SourceId="1" SourceUrl="http://localhost:61942/SyncDataService.svc?disco" />
+    <MetadataFile FileName="SyncDataService1.xsd" MetadataType="Schema" ID="ef42c92c-c994-4b49-a036-5895c5174c79" SourceId="1" SourceUrl="http://localhost:61942/SyncDataService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SyncDataService2.xsd" MetadataType="Schema" ID="a4470f70-5cd7-41d1-9c07-621bc80c6790" SourceId="1" SourceUrl="http://localhost:61942/SyncDataService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,313 @@
+﻿@model deORODataAccess.planogram
+
+<link href="~/Content/css/gridster/jquery.gridster.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/gridster/jquery.gridster.js"></script>
+<script src="~/Scripts/js/encoder.js"></script>
+<script src="~/Scripts/js/plugins/sparkline/jquery.sparkline.js"></script>
+
+@*<script src="~/Scripts/js/plugins/jquery.bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<link href="~/Content/css/jquery.bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" />*@
+
+
+
+<div class="span" style="margin-left: 5px; margin-right: 5px;">
+    <section id="@Model.id">
+        <div class="box box-success">
+            <div class="box-header">
+                <h3 class="box-title">@Html.DisplayFor(modelItem => Model.name)</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal-item" id="button-add" data-modal="@Model.id"><i class="fa  fa-plus"></i></button>
+                    <button class="btn btn-primary btn-sm" id="@Model.id-save"><i class="fa fa-save"></i></button>
+                    <button class="btn btn-danger btn-sm" data-widget="remove" id="@Model.id-remove"><i class="fa fa-trash-o"></i></button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div id="gridster-@Model.id" class="gridster">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<style>
+    .gridster li header
+    {
+        /*display: block;
+        font-size: 20px;
+        line-height: normal;
+        cursor: default;
+        margin-bottom: 20px;*/
+    }
+</style>
+
+<script>
+
+
+    var g = $("#gridster-@Model.id ul").gridster({
+        namespace: '#gridster-@Model.id',
+        widget_base_dimensions: [15, 75],
+        widget_margins: [5, 5], autogrow_cols: true,
+        serialize_params: function ($w, wgd) {
+
+            if (wgd != null) {
+                return {
+                    col: wgd.col,
+                    row: wgd.row,
+                    size_x: wgd.size_x,
+                    size_y: wgd.size_y,
+                    htmlContent: $($w).html()
+                };
+            }
+        },
+        resize: {
+            enabled: true,
+            max_size: [60, 3],
+            min_size: [4, 3]
+        }
+    }).data('gridster');
+
+    g.$el.on('click', '> li > footer', function () {
+        g.remove_widget($(this).parent());
+    });
+
+    if ('@Model.data' != '') {
+
+        var data = '@Model.data';
+        data = data.replace(/&lt;/g, '<');
+        data = data.replace(/&gt;/g, '>');
+        data = data.replace(/&quot;/g, '"');
+        data = JSON.parse(data);
+
+        g.remove_all_widgets();
+        $.each(data, function () {
+            //g.add_widget('<li><header><button class="btn btn-danger btn-flat"><i class="fa fa-times"></i></button></header><img src="' + this.htmlContent + '" height="42" width="42"></li>', this.size_x, this.size_y, this.col, this.row);
+            //g.add_widget('<li><header><div class="small-box bg-red"><a href="#" class="small-box-footer btn-xs"><i class="fa fa-trash-o"></i></a></div></header><img src="' + this.htmlContent + '" height="42" width="42"></li>', this.size_x, this.size_y, this.col, this.row);
+
+            //g.add_widget('<li><header><div class="small-box bg-red"><a href="#" class="small-box-footer btn-xs"><i class="fa fa-trash-o"></i></a></div></header><img src="' + this.htmlContent + '" height="42" width="42"></li>', this.size_x, this.size_y, this.col, this.row);
+            //g.add_widget('<li><header><div class="small-box bg-red"><a href="#" class="small-box-footer btn-xs"><i class="fa fa-trash-o"></i></a></div></header><img src="' + this.htmlContent + '" height="42" width="42"></li>', this.size_x, this.size_y, this.col, this.row);
+
+            var elements = $(Encoder.htmlDecode(this.htmlContent));
+            var div = $(".sparklines", elements);
+            var input = $(".spinner", elements);
+            var price = $(".a-price", elements);
+
+            var id = input[0].id.substring(0, input[0].id.indexOf('qty') - 1);
+
+            if (id != null) {
+
+                var postData = JSON.stringify({
+                    'id': id,
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Request.ApplicationPath/LocationItem/GetParQuantity",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: postData,
+                    async: false,
+                    success: function (result) {
+                        input[0].value = result.quantity;
+                        input[0].defaultValue = result.quantity;
+
+                        input[1].value = result.par;
+                        input[1].defaultValue = result.par;
+
+                        price[0].innerHTML = '$' + result.price_tax_included.toFixed(2);
+                    },
+                    error: function (error) {
+                    }
+                });
+            }
+
+            $.each(div, function (i, val) {
+
+                if (val.id != null) {
+
+                    var postData = JSON.stringify({
+                        'locationid': '@Model.locationid',
+                        'itemid': val.id,
+                        'days': 15
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        url: "@Request.ApplicationPath/LocationItem/GetSalesData",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            data: postData,
+                            async: false,
+                            success: function (result) {
+                                val.innerHTML = result;
+                            },
+                            error: function (error) {
+                            }
+                        });
+
+                    }
+
+                //var div = $("#" + id);
+                //div.sparkline('html', { type: 'bar', barColor: 'green' });
+
+                //$(val).sparkline('html', { type: 'bar', barColor: 'green' });
+                //val.innerHTML = "<!-- 1,2,3,4,5,4,3,2,1 -->";
+            });
+
+            //g.add_widget(this.htmlContent, this.size_x, this.size_y, this.col, this.row);
+            //g.add_widget(Encoder.htmlDecode(this.htmlContent), this.size_x, this.size_y, this.col, this.row);
+            g.add_widget(elements[0].outerHTML, this.size_x, this.size_y, this.col, this.row);
+
+            //$(".selector").spinner("destroy");
+            //$('.spinner').spinner();
+        });
+        }
+
+        //$('.sparklines').sparkline('html', { type: 'bar', barColor: 'green' });
+        //$('#sparklines-@Model.id').show();
+
+    //$(".spinner").spinedit();
+
+    //$(".spinner").TouchSpin({
+    //    buttondown_class: "btn btn-link",
+    //    buttonup_class: "btn btn-link",
+    //    verticalbuttons: true
+    //});
+
+    $('#@Model.id-remove').click(function (event) {
+
+        bootbox.confirm("Are you sure you want to delete this item?", function (result) {
+            if (result) {
+                $.ajax({
+                    type: "GET",
+                    url: "@Request.ApplicationPath/Planogram/Delete/" + '@Model.id',
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+                    success: function (result) {
+                        window.location = "@Request.ApplicationPath/Planogram/Index/@Model.locationid"
+                    },
+                    error: function (error) {
+                    }
+                });
+            }
+        });
+        
+        
+    });
+
+    $('#@Model.id-save').click(function (event) {
+
+        var g = $("#gridster-@Model.id ul").gridster().data('gridster');
+        var data = JSON.stringify(g.serialize());
+
+        var postData = JSON.stringify({
+
+            'id': '@Model.id',
+            'locationid': '@Model.locationid',
+            'name': '@Model.name',
+            'type': '@Model.type',
+            'order': '@Model.order',
+            'data': data
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Planogram/Edit",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+            }
+        });
+
+        loadPlanogramData(@Model.id);
+        //window.location = "@Request.ApplicationPath/Planogram/GetItems/@Model.locationid"
+
+    });
+
+
+    $('.small-box-footer').click(function (event) {
+
+        var target = event.target.parentNode.id;
+
+        if (target.indexOf('save') >= 0) {
+
+            var id = target.substring(0, target.indexOf('save') - 1);
+            var qty = $('#' + id + '-qty').val();
+            var par = $('#' + id + '-par').val();
+
+            var postData = JSON.stringify({
+                'id': id,
+                'quantity': qty,
+                'par': par
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/LocationItem/UpdateParQuantity",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                }
+            });
+
+            //window.location = "@Request.ApplicationPath/Planogram/GetItems/@ViewBag.LocationId"
+        };
+    });
+
+    $('.a-price').click(function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('price') >= 0) {
+
+            var id = target.substring(0, target.indexOf('price') - 1);
+            if (id != null) {
+
+                $('#input-hidden-id').val(id);
+                $('#popup-modal-price').modal('show');
+
+                var postData = JSON.stringify({
+                    'id': id,
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Request.ApplicationPath/LocationItem/GetParQuantity",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: postData,
+                    async: false,
+                    success: function (result) {
+
+                        if (result.price != null)
+                            $('#input-price').val(result.price.toFixed(2));
+
+                        if (result.crv != null)
+                            $('#input-crv').val(result.crv.toFixed(2));
+
+                        if (result.tax_percent != null)
+                            $('#input-tax-percent').val(result.tax_percent.toFixed(3));
+
+                        if (result.tax != null)
+                            $('#input-tax').val(result.tax.toFixed(2));
+
+                        if (result.price_tax_included != null)
+                            $('#input-price-tax').val(result.price_tax_included.toFixed(2));
+                    },
+                    error: function (error) {
+                        //alert("There was an error posting the data to the server: " + error.responseText);
+                    }
+                });
+            }
+        };
+    });
+
+</script>

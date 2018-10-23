@@ -1,0 +1,12 @@
+C:\deORO\Rama\Code\deOROAlerts\bin\Debug\EmailTemplate.html
+C:\deORO\Rama\Code\deOROAlerts\bin\Debug\deOROAlerts.exe.config
+C:\deORO\Rama\Code\deOROAlerts\bin\Debug\deOROAlerts.exe
+C:\deORO\Rama\Code\deOROAlerts\bin\Debug\deOROAlerts.pdb
+C:\deORO\Rama\Code\deOROAlerts\bin\Debug\deORODataAccess.dll
+C:\deORO\Rama\Code\deOROAlerts\bin\Debug\EntityFramework.dll
+C:\deORO\Rama\Code\deOROAlerts\bin\Debug\NLog.dll
+C:\deORO\Rama\Code\deOROAlerts\bin\Debug\deORODataAccess.pdb
+C:\deORO\Rama\Code\deOROAlerts\obj\Debug\deOROAlerts.csprojResolveAssemblyReference.cache
+C:\deORO\Rama\Code\deOROAlerts\obj\Debug\deOROAlerts.exe
+C:\deORO\Rama\Code\deOROAlerts\obj\Debug\deOROAlerts.pdb
+C:\deORO\Rama\Code\deOROAlerts\bin\Debug\ExcelLibrary.dll

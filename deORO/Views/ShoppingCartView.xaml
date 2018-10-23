@@ -1,0 +1,199 @@
+﻿<UserControl x:Class="deORO.Views.ShoppingCartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:deORO.ViewModels"
+             xmlns:views="clr-namespace:deORO.Views"
+             mc:Ignorable="d"
+             xmlns:conv="clr-namespace:deORO.Converters" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:extensions="http://wpflocalizeextension.codeplex.com"
+             xmlns:lex ="clr-namespace:WPFLocalizeExtension.Engine;assembly=WPFLocalizeExtension"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             lex:LocalizeDictionary.DesignCulture="fr"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             extensions:ResxLocalizationProvider.DefaultAssembly="deORO"
+             extensions:ResxLocalizationProvider.DefaultDictionary="Strings"
+             d:DesignHeight="300" d:DesignWidth="800" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded">
+    <UserControl.Resources>
+        <Style x:Key="rightAlignedColumn" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Right"></Setter>
+        </Style>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisible"></conv:BoolToVisibilityConverter>
+        <conv:YesNoConverter x:Key="YesNo"></conv:YesNoConverter>
+        <conv:IntToVisibilityConverter x:Key="IntToVisible"></conv:IntToVisibilityConverter>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.50*"></ColumnDefinition>
+            <ColumnDefinition Width="0.50*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--<StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="1">
+            <Border Background="#12549E" Height="40">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource DefaultTextBlock}" Foreground="White">Barcode</TextBlock>
+            </Border>
+            <TextBox x:Name="TextBoxBarCode" Style="{StaticResource DefaultTextBox}" Width="140">050428262559</TextBox>
+            <Button Command="{Binding AddItemCommand}" CommandParameter="{Binding Text,ElementName=TextBoxBarCode}" Margin="5,5">
+                <Image Source="/Images/AddToCart.png" Height="65" Width="65" Stretch="Fill"></Image>
+            </Button>
+            <Button Command="{Binding NoBarcodeCommand}" Margin="10,5" Grid.Row="0" Grid.Column="2">
+                <Image Source="/Images/NoBarcode.png" Height="65" Width="65" Stretch="Fill"></Image>
+            </Button>
+        </StackPanel>-->
+
+       
+        
+            <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="5" Grid.RowSpan="2" Grid.Column="0">
+            <!--<ScrollViewer.Resources>
+                <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">25</sys:Double>
+            </ScrollViewer.Resources>-->
+            <DataGrid  AutoGenerateColumns="False" ItemsSource="{Binding Items}" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" RowHeaderWidth="0" 
+                       RowHeaderStyle="{x:Null}" GridLinesVisibility="None" CanUserResizeColumns="False" CanUserReorderColumns="False" VerticalAlignment="Stretch" 
+                       HorizontalAlignment="Stretch" AlternationCount="2" HeadersVisibility="None">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" 
+                                            CellStyle="{StaticResource DataGridCell_CenterAlignmentCellStyle}" Header="Item Details"  
+                                            Width="285">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Margin="5">
+                                    <Grid.RowDefinitions>
+                                        <!--<RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>-->
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                        <RowDefinition Height="0.10*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="95"></ColumnDefinition>
+                                        <ColumnDefinition Width="130"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <!--<TextBlock Grid.Row="0" Grid.Column="0" FontSize="15" Text="{extensions:Loc ShoppingCart.Barcode}"></TextBlock>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding BarCode}" Grid.ColumnSpan="2" FontSize="15"></TextBlock>-->
+                                    
+                                    <TextBlock Grid.Row="1" Grid.Column="0" FontSize="15" Text="{extensions:Loc ShoppingCart.Name}"></TextBlock>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Name}" Grid.ColumnSpan="2" FontSize="15"></TextBlock>
+                                    
+                                    <!--<TextBlock Grid.Row="2" Grid.Column="0" FontSize="15" Text="{extensions:Loc ShoppingCart.OriginalPrice}"></TextBlock>
+                                    <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding OriginalPrice,StringFormat=C2}" FontSize="15"></TextBlock>-->
+
+                                    <TextBlock Grid.Row="3" Grid.Column="0" FontSize="15" Text="{extensions:Loc ShoppingCart.Subsidy}" 
+                                               Visibility="{Binding SubsidyPrice, Converter={StaticResource IntToVisible}}"></TextBlock>
+                                    <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding SubsidyPrice,StringFormat=C2}" FontSize="15"
+                                               Visibility="{Binding SubsidyPrice, Converter={StaticResource IntToVisible}}"></TextBlock>
+                                    
+                                    <TextBlock Grid.Row="4" Grid.Column="0" FontSize="15" Text="{extensions:Loc ShoppingCart.Discount}"
+                                               Visibility="{Binding DiscountPrice, Converter={StaticResource IntToVisible}}"></TextBlock>
+                                    <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding DiscountPrice,StringFormat=C2}" FontSize="15"
+                                               Visibility="{Binding DiscountPrice, Converter={StaticResource IntToVisible}}"></TextBlock>
+                                    
+                                    <TextBlock Grid.Row="5" Grid.Column="0" FontSize="15" Text="{extensions:Loc ShoppingCart.Price}"></TextBlock>
+                                    <TextBlock Grid.Row="5" Grid.Column="2" Text="{Binding Price,StringFormat=C2}" FontSize="15"></TextBlock>
+                                    
+                                    <TextBlock Grid.Row="6" Grid.Column="0" FontSize="15" Text="{extensions:Loc ShoppingCart.CRV}"
+                                               Visibility="{Binding Crv, Converter={StaticResource IntToVisible}}"></TextBlock>
+                                    <TextBlock Grid.Row="6" Grid.Column="3" Text="{Binding Crv,StringFormat=C2}" FontSize="15"
+                                               Visibility="{Binding Crv, Converter={StaticResource IntToVisible}}"></TextBlock>
+                                    
+                                    <TextBlock Grid.Row="7" Grid.Column="0" FontSize="15" Text="{extensions:Loc ShoppingCart.Tax}"
+                                               Visibility="{Binding Tax, Converter={StaticResource IntToVisible}}"></TextBlock>
+                                    <TextBlock Grid.Row="7" Grid.Column="3" Text="{Binding Tax,StringFormat=C2}" FontSize="15"
+                                               Visibility="{Binding Tax, Converter={StaticResource IntToVisible}}"></TextBlock>
+                                    
+                                    <TextBlock Grid.Row="8" Grid.Column="0" FontSize="15" Grid.ColumnSpan="2" Text="{extensions:Loc ShoppingCart.ComboDiscountApplied}"
+                                               Visibility="{Binding CombodiscountApplied, Converter={StaticResource BoolToVisible}}"></TextBlock>
+                                    <TextBlock Grid.Row="8" Grid.Column="3" Text="{Binding CombodiscountApplied, Converter={StaticResource YesNo}}" FontSize="15"
+                                               Visibility="{Binding CombodiscountApplied, Converter={StaticResource BoolToVisible}}"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn HeaderStyle="{StaticResource DataGridColumnHeader_CenterAlignmentColumnHeaderStyle}" CellStyle="{StaticResource DataGridCell_CenterAlignmentCellStyle}" Header="Delete"  Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button ToolTip="Delete" 
+                                        HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding DataContext.DeleteItemCommand,
+                                        RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}}" CommandParameter="{Binding Guid}">
+                                    <Image Source="/Images/Trash.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="100" Stretch="Fill"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </ScrollViewer>
+        <Border Grid.Column="1" Grid.RowSpan="3" CornerRadius="5" Background="#F0F0F0" BorderBrush="#688CAF" BorderThickness="2" Margin="5">
+            <ContentControl Content="{Binding CurrentViewModel}" />
+        </Border>
+        <Grid Grid.Row="2" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.60*"></ColumnDefinition>
+                <ColumnDefinition Width="0.20*"></ColumnDefinition>
+                <ColumnDefinition Width="0.20*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.70*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.30*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.50*"></RowDefinition>
+                    <RowDefinition Height="0.50*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="0" Background="#12549E" CornerRadius="3,0,0,3" BorderBrush="white"  BorderThickness="1">
+                    <TextBlock Style="{StaticResource RightAlignTextBlock}" TextWrapping="Wrap" 
+                               Foreground="White" FontWeight="Bold" FontSize="14" Text="{extensions:Loc ShoppingCart.DiscountSavings}"></TextBlock>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="0" Background="#12549E" BorderBrush="white"  BorderThickness="1">
+                    <TextBlock Style="{StaticResource RightAlignTextBlock}" Text="{Binding TotalDiscount, StringFormat=C2}" Foreground="White" 
+                           FontWeight="Bold" FontSize="18"></TextBlock>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1" Background="#12549E" BorderBrush="white" BorderThickness="1">
+                    <TextBlock Style="{StaticResource RightAlignTextBlock}" TextWrapping="Wrap" 
+                               Foreground="White" FontWeight="Bold" FontSize="14" Text="{extensions:Loc ShoppingCart.SubsidySavings}"></TextBlock>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="1" Background="#12549E" CornerRadius="0,3,3,0" BorderBrush="white"  BorderThickness="1">
+                    <TextBlock Style="{StaticResource RightAlignTextBlock}" Text="{Binding TotalSubsidy,StringFormat=C2}" 
+                           Foreground="White" FontWeight="Bold" FontSize="18"></TextBlock>
+                </Border>
+            </Grid>
+            <Border Grid.Column="1" Background="#79C421" BorderBrush="White" BorderThickness="1">
+                <TextBlock Style="{StaticResource RightAlignTextBlock}" Foreground="White" FontWeight="Bold" FontSize="14" 
+                           Text="{extensions:Loc ShoppingCart.Total}"></TextBlock>
+            </Border>
+            <Border Grid.Column="2" Background="#79C421" CornerRadius="0,3,3,0" BorderBrush="White" BorderThickness="1">
+                <TextBlock Style="{StaticResource RightAlignTextBlock}" Text="{Binding TotalPrice,StringFormat=C2}" 
+                           Foreground="White" FontWeight="Bold" FontSize="18"></TextBlock>
+            </Border>
+        </Grid>
+
+    </Grid>
+</UserControl>
+
+    

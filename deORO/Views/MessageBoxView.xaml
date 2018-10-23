@@ -1,0 +1,33 @@
+﻿<Window x:Class="deORO.Views.MessageBoxView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MessageDialog" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Topmost="True"
+        xmlns:extensions="http://wpflocalizeextension.codeplex.com"
+        xmlns:lex ="clr-namespace:WPFLocalizeExtension.Engine;assembly=WPFLocalizeExtension"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        lex:LocalizeDictionary.DesignCulture="fr"
+        lex:LocalizeDictionary.OutputMissingKeys="True"
+        extensions:ResxLocalizationProvider.DefaultAssembly="deORO"
+        extensions:ResxLocalizationProvider.DefaultDictionary="Strings"
+        WindowStyle="None" Width="400" Height="400" Closing="Window_Closing">
+    
+    <Border Style="{StaticResource DefaultBorder}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="120" />
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="Orange" x:Name="TextBlockBorder">
+                <TextBlock x:Name="TextBlockHeader" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                           Foreground="White" FontSize="24" FontWeight="Bold"></TextBlock>
+            </Border>
+            <TextBlock Grid.Row="1" x:Name="TextBlockMessage" FontSize="20" TextWrapping="Wrap" Style="{StaticResource ErrorTextBlock}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <Button x:Name="CancelButton"  Content="{extensions:Loc MessageBox.Cancel}" Click="CancelButton_Click" Style="{StaticResource RedButton}" Margin="5,10,5,10" Width="108" Height="Auto"/>
+                <Button x:Name="OKButton" Content="{extensions:Loc MessageBox.OK}" Click="OKButton_Click" Style="{StaticResource GreenButton}" Margin="5,10,5,10" Width="108" Height="Auto"/>
+                <Button x:Name="PrintButton" Content="{extensions:Loc MessageBox.Print}" Click="PrintButton_Click" Style="{StaticResource BlueButton}" Margin="5,10,5,10" Width="108" Height="Auto" RenderTransformOrigin="0.491,0.5"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

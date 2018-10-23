@@ -1,0 +1,9 @@
+C:\deORO\Rama\Code\deORODataAccess\bin\Release\deORODataAccess.dll.config
+C:\deORO\Rama\Code\deORODataAccess\bin\Release\deORODataAccess.dll
+C:\deORO\Rama\Code\deORODataAccess\bin\Release\deORODataAccess.pdb
+C:\deORO\Rama\Code\deORODataAccess\bin\Release\DocumentFormat.OpenXml.dll
+C:\deORO\Rama\Code\deORODataAccess\bin\Release\EntityFramework.dll
+C:\deORO\Rama\Code\deORODataAccess\bin\Release\EntityFramework.xml
+C:\deORO\Rama\Code\deORODataAccess\obj\Release\deORODataAccess.csprojResolveAssemblyReference.cache
+C:\deORO\Rama\Code\deORODataAccess\obj\Release\deORODataAccess.dll
+C:\deORO\Rama\Code\deORODataAccess\obj\Release\deORODataAccess.pdb

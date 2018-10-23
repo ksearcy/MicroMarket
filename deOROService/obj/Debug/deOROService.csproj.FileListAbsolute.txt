@@ -1,0 +1,9 @@
+C:\deORO\Rama\Code\deOROService\bin\deOROService.dll
+C:\deORO\Rama\Code\deOROService\bin\deOROService.pdb
+C:\deORO\Rama\Code\deOROService\bin\deORODataAccess.dll
+C:\deORO\Rama\Code\deOROService\bin\EntityFramework.dll
+C:\deORO\Rama\Code\deOROService\bin\deORODataAccess.pdb
+C:\deORO\Rama\Code\deOROService\bin\EntityFramework.xml
+C:\deORO\Rama\Code\deOROService\obj\Debug\deOROService.csprojResolveAssemblyReference.cache
+C:\deORO\Rama\Code\deOROService\obj\Debug\deOROService.dll
+C:\deORO\Rama\Code\deOROService\obj\Debug\deOROService.pdb

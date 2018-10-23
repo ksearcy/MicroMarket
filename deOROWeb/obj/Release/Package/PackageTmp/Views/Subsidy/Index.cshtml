@@ -1,0 +1,409 @@
+﻿@using deOROWeb.Helper;
+@model IEnumerable<deORODataAccess.subsidy>
+
+@{
+    ViewBag.Title = @deOROWeb.Resources.Strings.Subsidies;
+}
+
+
+<link href="~/Content/css/duallistbox/bootstrap-duallistbox.css" rel="stylesheet" />
+<script src="~/Scripts/js/plugins/duallistbox/jquery.bootstrap-duallistbox.js"></script>
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.Subsidies</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.Subsidies</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="margin">
+                        <div class="pull-left box-tools">
+                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal" id="button-add"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.Subsidy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped" id="grid">
+                        <thead>
+                            <tr>
+                                <th>@deOROWeb.Resources.Strings.Category</th>
+                                <th>@deOROWeb.Resources.Strings.Type</th>
+                                <th>@deOROWeb.Resources.Strings.Description</th>
+                                <th>@deOROWeb.Resources.Strings.Active</th>
+                                <th>@deOROWeb.Resources.Strings.Percentage</th>
+                                <th>@deOROWeb.Resources.Strings.Amount</th>
+                                <th>@deOROWeb.Resources.Strings.Created</th>
+                                <th>@deOROWeb.Resources.Strings.Modified</th>
+                                <th></th>
+                                <th hidden="hidden"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model)
+                            {
+                                <tr>
+                                    <td>@m.category</td>
+                                    <td>@m.type</td>
+                                    <td>@m.description</td>
+                                    @if (@m.is_active == 1)
+                                    {
+                                        <td>@deOROWeb.Resources.Strings.True</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@deOROWeb.Resources.Strings.False</td>
+                                    }
+                                    <td>@m.percent</td>
+                                    <td>@m.amount</td>
+                                    <td>@m.created_date_time</td>
+                                    <td>@m.modified_date_time</td>
+                                    <td>
+                                        <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="@m.id-edit">@deOROWeb.Resources.Strings.Edit</a></i>
+                                    </td>
+                                    <td hidden="hidden">
+                                        <i class="fa fa-trash-o"><a class="btn btn-app-small" id="@m.id-delete">@deOROWeb.Resources.Strings.Delete</a></i>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.Subsidy</h4>
+            </div>
+            <form action="#" method="post" id="form-subsidy">
+                <div class="modal-body">
+                    <input id="input-hidden-action" type="hidden" />
+                    <input id="input-hidden-created-date" type="hidden" />
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.SubisdyCategory</label>
+                                <select class="form-control" id="combo-category">
+                                    <option value='Item Category' selected="selected">@deOROWeb.Resources.Strings.ItemCategory</option>
+                                    <option value='Item'>@deOROWeb.Resources.Strings.Item</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label>Active</label>
+                                <select class="form-control" id="combo-active">
+                                    <option value='1' selected="selected">@deOROWeb.Resources.Strings.True</option>
+                                    <option value='0'>@deOROWeb.Resources.Strings.False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Description:</span>
+                                    <input id="input-description" name="input-description" class="form-control" placeholder="@deOROWeb.Resources.Strings.Description">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="label-category">@deOROWeb.Resources.Strings.ItemCategories</label>
+                        <select multiple class="form-control" id="list-item" style="height: 175px">
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Type:</span>
+                                    <select class="form-control" id="combo-type">
+                                        <option value='AMOUNT' selected="selected">@deOROWeb.Resources.Strings.Amount</option>
+                                        <option value='PERCENT'>@deOROWeb.Resources.Strings.Percentage</option>
+                                        <option value='NO SUBSIDY'>@deOROWeb.Resources.Strings.NoSubsidy</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Percentage:</span>
+                                    <input id="input-percentage" class="form-control" placeholder="@deOROWeb.Resources.Strings.Percentage">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon">@deOROWeb.Resources.Strings.Amount:</span>
+                                    <input id="input-amount" class="form-control" placeholder="@deOROWeb.Resources.Strings.Amount">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $('#combo-category').change(function () {
+
+        if ($(this).val() == 'Item') {
+            LoadItems();
+            $('#label-category').text('Items');
+        }
+        else {
+            LoadSubCategories();
+            $('#label-category').text('Item Categories');
+        }
+
+    });
+
+    $('#popup-modal').on('show.bs.modal', function (e) {
+
+        $('.form-control').val('');
+        $("#form-subsidy").validate().resetForm();
+        $('#combo-type').val('NO SUBSIDY');
+        $('#combo-active').val('1');
+        $(".form-group").removeClass("has-error");
+        $('#combo-category').val('Item Category');
+
+        $('#list-item').bootstrapDualListbox({
+            preserveSelectionOnMove: 'moved',
+            moveOnSelect: false,
+        });
+
+        LoadSubCategories();
+
+    })
+
+    $('#button-add').click(function (event) {
+        $("#input-hidden-action").val('');
+        $("#input-hidden-created-date").val('');
+    });
+
+    function LoadItems() {
+
+        $('#list-item').empty();
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Item/GetItems",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                $.each(result, function (i, val) {
+                    $('#list-item').append(new Option(val.name, val.id));
+                });
+
+                $('#list-item').bootstrapDualListbox('refresh');
+            },
+            error: function (error) {
+                alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    }
+
+    function LoadSubCategories() {
+
+        $('#list-item').empty();
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Category/GetCategories",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                $.each(result.subcategories, function (i, val) {
+                    $('#list-item').append(new Option(val.name, val.id));
+                });
+
+                $('#list-item').bootstrapDualListbox('refresh');
+            },
+            error: function (error) {
+                alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+    }
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+
+    $('#form-subsidy').validate(
+     {
+         rules: {
+             "input-description": {
+                 required: true
+             }
+         }
+     });
+
+    $('#grid tbody').on('click', 'tr', function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('edit') >= 0) {
+
+            var id = target.substring(0, target.indexOf('edit') - 1);
+            var postData = '{"id":' + id + '}';
+
+            $("#input-hidden-action").val(id);
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Subsidy/Details/",
+                dataType: "json",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+
+                    $("#combo-category").val(result.category);
+                    $("#combo-type").val(result.type);
+                    $('#input-description').val(result.description);
+                    $("#combo-active").val(result.is_active);
+                    $("#input-hidden-created-date").val(ToJavaScriptDate(result.created_date_time));
+
+                    if (result.percent != null)
+                        $('#input-percentage').val(result.percent.toFixed(2));
+
+                    if (result.amount != null)
+                        $('#input-amount').val(result.amount.toFixed(2));
+
+                    if (result.category == 'Item') {
+                        LoadItems();
+                        $('#label-category').text('Items');
+                    }
+                    else {
+                        LoadSubCategories();
+                        $('#label-category').text('Item Categories');
+                    }
+
+                },
+                error: function (error) {
+
+                }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Subsidy/GetSubsidyDetails/" + id,
+                dataType: "json",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+
+                    $.each(result, function (i, val) {
+
+                        $("#list-item > option").each(function () {
+                            if (val.id == this.value) {
+                                $("#list-item > [value='" + this.value + "']").attr("selected", "true");
+                            }
+                        });
+                    });
+                },
+                error: function (error) {
+
+                }
+            });
+        }
+        
+    })
+
+
+$('#button-save').click(function () {
+
+    if (!$("#form-subsidy").valid()) return;
+
+    var hidden = $("#input-hidden-action").val();
+
+    var postData = {
+
+        'id': hidden,
+        'category': $('#combo-category  option:selected').val(),
+        'type': $('#combo-type  option:selected').val(),
+        'description': $('#input-description').val(),
+        'percent': $('#input-percentage').val(),
+        'is_active': $('#combo-active  option:selected').val(),
+        'amount': $('#input-amount').val(),
+        'created_date_time': $("#input-hidden-created-date").val()
+    };
+
+    if (hidden.length > 0) { //Edit
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Subsidy/Edit",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ 'subsidy': postData, 'ids': $('#list-item').val() }),
+            async: false,
+            success: function (result) {
+
+            },
+            error: function (error) {
+                //alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        });
+    }
+    else { // Add
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Subsidy/Create",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ 'subsidy': postData, 'ids': $('#list-item').val() }),
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+            }
+        });
+    }
+});
+
+</script>

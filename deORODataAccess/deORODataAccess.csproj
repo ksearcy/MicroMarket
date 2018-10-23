@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41A5AABF-7FCD-4CA9-9DDA-BFA9418B0C47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>deORODataAccess</RootNamespace>
+    <AssemblyName>deORODataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="accountbalancehistory.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="alert.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="alert_subscription.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cash_collection.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cash_counter.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cash_dispense.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cash_reconciliation.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cash_status.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="category.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="combo_discount.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="combo_discount_detail.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="deOROModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>deOROModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="deOROModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="deOROModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>deOROModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="device_error.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="discount.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="driver.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\AlertDTO.cs" />
+    <Compile Include="DTO\CashAccountabilityDTO.cs" />
+    <Compile Include="DTO\CashCounterDTO.cs" />
+    <Compile Include="DTO\CashReconciliationDTO.cs" />
+    <Compile Include="DTO\CashStatusDTO.cs" />
+    <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\LocationServiceDTO.cs" />
+    <Compile Include="DTO\CreditDTO.cs" />
+    <Compile Include="DTO\ItemDTO.cs" />
+    <Compile Include="DTO\LocationCreditActivityDTO.cs" />
+    <Compile Include="DTO\LocationDashboardDTO.cs" />
+    <Compile Include="DTO\LocationDTO.cs" />
+    <Compile Include="DTO\DeletedUserDTO.cs" />
+    <Compile Include="DTO\LocationItemDTO.cs" />
+    <Compile Include="DTO\ScheduleDetailDTO.cs" />
+    <Compile Include="DTO\ScheduleDetailItemDTO.cs" />
+    <Compile Include="DTO\ShoppingCartDTO.cs" />
+    <Compile Include="DTO\ShoppingCartItemDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="EntityRepository.cs" />
+    <Compile Include="event_log.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="IGenericRepository.cs" />
+    <Compile Include="item.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="location.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="location_combo_discount.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="location_credit.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="location_credit_activity.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="location_credit_user.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="location_item.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="location_item_deleted.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="location_service.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="location_subsidy.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="manufacturer.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="metric.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="payment.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="planogram.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="planogram_item.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportBuilder.cs" />
+    <Compile Include="schedule.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="schedule_detail.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="schedule_detail_item.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shoppingcart.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shoppingcartdetail.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subsidy.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subsidy_detail.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="synclog.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="transaction_error.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="user.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="users_deleted.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="user_snapshot.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webuser.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="widget.cs">
+      <DependentUpon>deOROModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="deOROModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>deOROModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="deOROModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>deOROModel.edmx</DependentUpon>
+      <LastGenOutput>deOROModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="deOROModel.edmx.diagram">
+      <DependentUpon>deOROModel.edmx</DependentUpon>
+    </None>
+    <None Include="deOROModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>deOROModel.edmx</DependentUpon>
+      <LastGenOutput>deOROModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<deORODataAccess.DTO.ScheduleDetailDTO>
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>Print Preview</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li><a href="@Request.ApplicationPath/Schedule/"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Schedule</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.PrintPreview</li>
+        </ol>
+    </section>
+
+    <section class="content">
+
+        @{ int i = 0;}
+        @foreach (var m in Model)
+        {
+            <div class="page">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="margin">
+                            <div class="box-header">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h3>
+                                            <i class="fa fa-calendar"></i>&nbsp; @deOROWeb.Resources.Strings.ScheduleName: <b>@ViewBag.Schedule.name</b>
+                                            <small class="pull-right">@deOROWeb.Resources.Strings.ScheduleDate: <b>@ViewBag.Schedule.date</b></small>
+                                        </h3>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="box">
+                                    <div class="margin">
+                                        <div class="box-head">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h3 class="page-header">
+                                                        @if (i == 0)
+                                                        {
+                                                            <button class="btn btn-default pull-right hidden-print" onclick="window.print();"><i class="fa fa-print"></i>@deOROWeb.Resources.Strings.Print</button>
+                                                        }
+                                                        <small class="pull-left">Customer Name: <b>@m.customername</b></small><br />
+                                                        <small class="pull-left">Location Name:<b> @m.locationname</b></small><br />
+                                                        <small class="pull-left">Driver Name: <b>@m.username</b></small><br />
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="row">
+                                                @{Html.RenderAction("PrintPreviewDetails", "Schedule", new { id = @m.id });}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+@*
+            <div style="page-break-after: always;page-break-inside: avoid;">
+            </div>*@
+    
+@*<div class="tabbed-content">
+                    <div class="break-after">Page 1</div>
+                    <div class="break-before">Page 2</div>
+                </div>*@
+           i++;
+        }
+    </section>
+</aside>
+<style type="text/css">
+   /*table { page-break-inside:auto }
+   tr    { page-break-inside:avoid; page-break-after:auto }*/
+
+    /*table tr.page-break{page-break-after:always} 
+    table.page-break{page-break-after:always}*/ 
+
+</style>
+

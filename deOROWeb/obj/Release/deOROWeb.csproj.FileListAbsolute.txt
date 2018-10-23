@@ -1,0 +1,190 @@
+C:\deORO\Rama\Code\deOROWeb\bin\deOROWeb.dll
+C:\deORO\Rama\Code\deOROWeb\bin\deOROWeb.pdb
+C:\deORO\Rama\Code\deOROWeb\bin\Antlr3.Runtime.dll
+C:\deORO\Rama\Code\deOROWeb\bin\deORODataAccess.dll
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.AspNet.dll
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.Core.dll
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.OAuth.dll
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.OpenId.dll
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\deORO\Rama\Code\deOROWeb\bin\EntityFramework.dll
+C:\deORO\Rama\Code\deOROWeb\bin\Microsoft.Data.Edm.dll
+C:\deORO\Rama\Code\deOROWeb\bin\Microsoft.Data.OData.dll
+C:\deORO\Rama\Code\deOROWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\deORO\Rama\Code\deOROWeb\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\deORO\Rama\Code\deOROWeb\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\deORO\Rama\Code\deOROWeb\bin\Newtonsoft.Json.dll
+C:\deORO\Rama\Code\deOROWeb\bin\PropertyChanged.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Net.Http.Formatting.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Spatial.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Helpers.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Http.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Http.OData.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Http.WebHost.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Mvc.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Optimization.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Razor.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.WebPages.Deployment.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.WebPages.dll
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.WebPages.Razor.dll
+C:\deORO\Rama\Code\deOROWeb\bin\WebGrease.dll
+C:\deORO\Rama\Code\deOROWeb\bin\WebMatrix.Data.dll
+C:\deORO\Rama\Code\deOROWeb\bin\WebMatrix.WebData.dll
+C:\deORO\Rama\Code\deOROWeb\bin\deORODataAccess.pdb
+C:\deORO\Rama\Code\deOROWeb\bin\Antlr3.Runtime.pdb
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.AspNet.xml
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.Core.xml
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.OAuth.xml
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.OpenId.xml
+C:\deORO\Rama\Code\deOROWeb\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\deORO\Rama\Code\deOROWeb\bin\EntityFramework.xml
+C:\deORO\Rama\Code\deOROWeb\bin\Microsoft.Data.Edm.xml
+C:\deORO\Rama\Code\deOROWeb\bin\Microsoft.Data.OData.xml
+C:\deORO\Rama\Code\deOROWeb\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\deORO\Rama\Code\deOROWeb\bin\Newtonsoft.Json.xml
+C:\deORO\Rama\Code\deOROWeb\bin\PropertyChanged.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Spatial.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Http.OData.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Mvc.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Net.Http.Formatting.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Helpers.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Http.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Http.WebHost.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.Razor.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.WebPages.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.WebPages.Deployment.xml
+C:\deORO\Rama\Code\deOROWeb\bin\System.Web.WebPages.Razor.xml
+C:\deORO\Rama\Code\deOROWeb\bin\WebMatrix.Data.xml
+C:\deORO\Rama\Code\deOROWeb\bin\WebMatrix.WebData.xml
+C:\deORO\Rama\Code\deOROWeb\bin\de\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\es\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\it\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\de\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\es\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\fr\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\it\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\ja\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\ko\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\ru\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\de\System.Spatial.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\es\System.Spatial.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\fr\System.Spatial.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\it\System.Spatial.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\ja\System.Spatial.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\ko\System.Spatial.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\ru\System.Spatial.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\zh-Hans\System.Spatial.resources.dll
+C:\deORO\Rama\Code\deOROWeb\bin\zh-Hant\System.Spatial.resources.dll
+C:\deORO\Rama\Code\deOROWeb\obj\Release\deOROWeb.csprojResolveAssemblyReference.cache
+C:\deORO\Rama\Code\deOROWeb\obj\Release\deOROWeb.dll
+C:\deORO\Rama\Code\deOROWeb\obj\Release\deOROWeb.pdb
+C:\deORO\Rama\Code\deOROWeb\bin\es\deOROWeb.resources.dll
+C:\deORO\Rama\Code\deOROWeb\obj\Release\deOROWeb.Resources.Strings.resources
+C:\deORO\Rama\Code\deOROWeb\obj\Release\deOROWeb.Resources.Strings.es.resources
+C:\deORO\Rama\Code\deOROWeb\obj\Release\deOROWeb.csproj.GenerateResource.Cache
+C:\deORO\Rama\Code\deOROWeb\obj\Release\es\deOROWeb.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\deOROWeb.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\deOROWeb.pdb
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\es\deOROWeb.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Antlr3.Runtime.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\deORODataAccess.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.AspNet.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.Core.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.OAuth.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.OpenId.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\EntityFramework.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Microsoft.Data.Edm.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Microsoft.Data.OData.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Newtonsoft.Json.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\PropertyChanged.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Net.Http.Formatting.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Spatial.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Helpers.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Http.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Http.OData.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Http.WebHost.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Mvc.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Optimization.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Razor.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.WebPages.Deployment.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.WebPages.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.WebPages.Razor.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\WebGrease.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\WebMatrix.Data.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\WebMatrix.WebData.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\deORODataAccess.pdb
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Antlr3.Runtime.pdb
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.AspNet.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.Core.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.OAuth.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.OpenId.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\EntityFramework.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Microsoft.Data.Edm.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Microsoft.Data.OData.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\Newtonsoft.Json.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\PropertyChanged.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Spatial.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Http.OData.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Mvc.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Net.Http.Formatting.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Helpers.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Http.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Http.WebHost.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.Razor.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.WebPages.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.WebPages.Deployment.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\System.Web.WebPages.Razor.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\WebMatrix.Data.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\WebMatrix.WebData.xml
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\de\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\es\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\it\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\de\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\es\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\fr\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\it\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\ja\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\ko\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\ru\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\de\System.Spatial.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\es\System.Spatial.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\fr\System.Spatial.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\it\System.Spatial.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\ja\System.Spatial.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\ko\System.Spatial.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\ru\System.Spatial.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\zh-Hans\System.Spatial.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\bin\zh-Hant\System.Spatial.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\obj\Release\deOROWeb.csprojResolveAssemblyReference.cache
+C:\deORO\Rama\Code -7_12_17\deOROWeb\obj\Release\deOROWeb.Resources.Strings.resources
+C:\deORO\Rama\Code -7_12_17\deOROWeb\obj\Release\deOROWeb.Resources.Strings.es.resources
+C:\deORO\Rama\Code -7_12_17\deOROWeb\obj\Release\deOROWeb.csproj.GenerateResource.Cache
+C:\deORO\Rama\Code -7_12_17\deOROWeb\obj\Release\es\deOROWeb.resources.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\obj\Release\deOROWeb.dll
+C:\deORO\Rama\Code -7_12_17\deOROWeb\obj\Release\deOROWeb.pdb

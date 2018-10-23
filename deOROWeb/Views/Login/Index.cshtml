@@ -1,0 +1,52 @@
+﻿@model deOROWeb.Models.LoginModel
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<html class="bg-light-sky-blue">
+<head>
+    <meta charset="UTF-8">
+    <title>deORO microMarket</title>
+
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/AdminLTE.css" rel="stylesheet" />
+
+</head>
+<body class="bg-light-sky-blue">
+
+    <div class="form-box" id="login-box">
+        <div class="header bg-white">
+            <p style="text-align: center; margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+                <img src="~/Images/Logo.jpg" alt="image" />
+            </p>
+        </div>
+        @using (Html.BeginForm())
+        {
+            <div class="body bg-dark-gray">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName)
+                    @*@Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @Value="deORO"})*@
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control"})
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "form-group text-red" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password)
+                    @*@Html.PasswordFor(m => m.Password, new { @class = "form-control",@Value="deORO" })*@
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "form-group text-red" })
+                </div>
+            </div>
+            <div class="footer">
+                <button type="submit" class="btn bg-olive btn-block">@deOROWeb.Resources.Strings.Signmein</button>
+                <p><a href="@Request.ApplicationPath/ForgotPassword/">@deOROWeb.Resources.Strings.Iforgotmypassword</a></p>
+                <div class="form-group text-red">
+                    <p>
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+

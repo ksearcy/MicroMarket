@@ -1,0 +1,1294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22F11AEC-9AA2-4BD7-AA9B-90B694E44891}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>deORO</RootNamespace>
+    <AssemblyName>deORO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>%24/deORO/deORO</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://rgangavalli.visualstudio.com</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PublishUrl>C:\deORO\App\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\App\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>deORO.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C6FAC66A84327A4E4F3653B5F182D7D34E48F725</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>deORO_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="CF7000 API">
+      <HintPath>..\Dependencies\CF7000 API.dll</HintPath>
+    </Reference>
+    <Reference Include="CommLib, Version=3.4.15.0, Culture=neutral, PublicKeyToken=456d26044b19da56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\CommLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DPCtlUruNet, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Users\deoro\DPCtlUruNet\bin\Debug\DPCtlUruNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DPUruNet, Version=1.0.0.1, Culture=neutral, PublicKeyToken=7f32ef930fec5e5f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\DigitalPersona\U.are.U SDK\Windows\Lib\.NET\DPUruNet.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Dependencies\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="HidGlobal.OK.Readers">
+      <HintPath>.\HidGlobal.OK.Readers.dll</HintPath>
+    </Reference>
+    <Reference Include="IDTechSDK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=dbf9f7fd0c4c4b4a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\IDTechSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="KbwToCcidSwitchApi">
+      <HintPath>.\KbwToCcidSwitchApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.PointOfService, Version=1.12.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Point Of Service\SDK\Microsoft.PointOfService.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.PointOfService.ControlBase, Version=1.12.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Point Of Service\SDK\Microsoft.PointOfService.ControlBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite">
+      <HintPath>..\Dependencies\Microsoft.Practices.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite.Presentation">
+      <HintPath>..\Dependencies\Microsoft.Practices.Composite.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="MPOST, Version=2.0.8.0, Culture=neutral, PublicKeyToken=c3d0ba8d3881c2f7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MPOST.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MTLIB, Version=1.0.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MTLIB.dll</HintPath>
+    </Reference>
+    <Reference Include="MTSCRANET, Version=1.0.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\MTSCRANET.dll</HintPath>
+    </Reference>
+    <Reference Include="NBitcoin, Version=4.0.0.50, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NBitcoin.4.0.0.50\lib\netstandard1.3\NBitcoin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PaymentEngine">
+      <HintPath>..\Dependencies\PaymentEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="Saturn, Version=1.0.0.35, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Saturn.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureSubmit">
+      <HintPath>..\Dependencies\SecureSubmit.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleUSB">
+      <HintPath>..\Dependencies\SimpleUSB.dll</HintPath>
+    </Reference>
+    <Reference Include="StarIO, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\StarIO.dll</HintPath>
+    </Reference>
+    <Reference Include="StreamPlayerControl">
+      <HintPath>..\Dependencies\StreamPlayerControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Dependencies\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="UtilitiesOTI, Version=2.8.9.0, Culture=neutral, PublicKeyToken=456d26044b19da56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\UtilitiesOTI.dll</HintPath>
+    </Reference>
+    <Reference Include="Vendi_config, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Vendi_config.dll</HintPath>
+    </Reference>
+    <Reference Include="Vendi_ctls, Version=1.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Vendi_ctls.dll</HintPath>
+    </Reference>
+    <Reference Include="Vendi_device, Version=1.2.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Vendi_device.dll</HintPath>
+    </Reference>
+    <Reference Include="Vendi_msr, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Vendi_msr.dll</HintPath>
+    </Reference>
+    <Reference Include="Vendi_parse, Version=1.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Vendi_parse.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WinSCPnet, Version=1.3.7.7441, Culture=neutral, PublicKeyToken=2271ec4a3c56d0bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinSCP.5.9.5\lib\WinSCPnet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>..\Dependencies\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFLocalizeExtension, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\WPFLocalizeExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="WpfScreenHelper, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfScreenHelper.0.3.0.0\lib\net40\WpfScreenHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XAMLMarkupExtensions, Version=1.2.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\XAMLMarkupExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\Dependencies\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="xCore">
+      <HintPath>..\Dependencies\xCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BarcodeScanner\BarcodeReaderFactory.cs" />
+    <Compile Include="BarcodeScanner\Honeywell.cs" />
+    <Compile Include="BarcodeScanner\IBarcodeScanner.cs" />
+    <Compile Include="BarcodeScanner\POSBarcodeScanner.cs" />
+    <Compile Include="BillAcceptor\MEI.cs" />
+    <Compile Include="CardProcessor\CardKnox.cs" />
+    <Compile Include="CardProcessor\CreditCardData.cs" />
+    <Compile Include="CardProcessor\CreditCardProcessorFactory.cs" />
+    <Compile Include="CardProcessor\Heartland.cs" />
+    <Compile Include="CardProcessor\ICreditCardProcessor.cs" />
+    <Compile Include="CardProcessor\Demo.cs" />
+    <Compile Include="CardProcessor\Nayax.cs" />
+    <Compile Include="CardProcessor\USAT.cs" />
+    <Compile Include="CardReader\CardKnox.cs" />
+    <Compile Include="CardReader\CardReaderFactory.cs" />
+    <Compile Include="CardReader\IDTECH.cs" />
+    <Compile Include="CardReader\ICardReader.cs" />
+    <Compile Include="CardReader\MagTek.cs" />
+    <Compile Include="CardReader\NayaxE2C.cs" />
+    <Compile Include="CardReader\NayaxMarshall.cs" />
+    <Compile Include="CardReader\OTI.cs" />
+    <Compile Include="CardReader\POSCardReader.cs" />
+    <Compile Include="Card\HIDCard.cs" />
+    <Compile Include="Card\ReaderHelper.cs" />
+    <Compile Include="CashStatus\CashStatus.cs" />
+    <Compile Include="CoinAcceptor\MEI.cs" />
+    <Compile Include="Communication\DeviceController.cs" />
+    <Compile Include="Communication\Ftp.cs" />
+    <Compile Include="Communication\CommuncationTypeFactory.cs" />
+    <Compile Include="Communication\EventDriverTcpClient.cs" />
+    <Compile Include="Communication\ICommunicationType.cs" />
+    <Compile Include="Communication\MBDFactory.cs" />
+    <Compile Include="Helpers\Printer.cs" />
+    <Compile Include="Communication\PrinterRepo.cs" />
+    <Compile Include="EventAggregation\deOROEventAggregator.cs" />
+    <Compile Include="EventAggregation\deOROEvents.cs" />
+    <Compile Include="FingerprintReader\DigitalPersona.cs" />
+    <Compile Include="Helpers\ConfigFile.cs" />
+    <Compile Include="Helpers\DisableHardware.cs" />
+    <Compile Include="Helpers\Email.cs" />
+    <Compile Include="Helpers\Enum.cs" />
+    <Compile Include="EventAggregation\deOROEventArgs.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\Global.cs" />
+    <Compile Include="Helpers\DialogService.cs" />
+    <Compile Include="Helpers\LocalizationProvider.cs" />
+    <Compile Include="Helpers\ObjectArrEventArgs.cs" />
+    <Compile Include="Helpers\PasswordBoxAssistant.cs" />
+    <Compile Include="Helpers\RegexValidator.cs" />
+    <Compile Include="Helpers\RewardHelper.cs" />
+    <Compile Include="Helpers\Util.cs" />
+    <Compile Include="Helpers\ValidationRules.cs" />
+    <Compile Include="Marshall\MachineContext.cs" />
+    <Compile Include="Marshall\MarshallCardDataMessage.cs" />
+    <Compile Include="Marshall\MarshallHal.cs" />
+    <Compile Include="Marshall\MarshallMain.cs" />
+    <Compile Include="Marshall\MarshallMessage.cs" />
+    <Compile Include="Marshall\StartUpStateMachine.cs" />
+    <Compile Include="Marshall\Utils.cs" />
+    <Compile Include="Marshall\VendStateMachine.cs" />
+    <Compile Include="MDB\CoincoMBD.cs" />
+    <Compile Include="MDB\E2CMDB.cs" />
+    <Compile Include="MDB\None.cs" />
+    <Compile Include="MDB\ThinkChipMDB.cs" />
+    <Compile Include="MEI\MEI.cs" />
+    <Compile Include="Helpers\NLogConfig.cs" />
+    <Compile Include="Templates\Constants.cs" />
+    <Compile Include="Templates\PrinterTemplate.cs" />
+    <Compile Include="Resources\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\deOROService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ePortConnect\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="USBRelay\KMTronic.cs" />
+    <Compile Include="ViewModels\AddMoneyViewModel.cs" />
+    <Compile Include="ViewModels\AdministationViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationSettingsViewModel.cs" />
+    <Compile Include="ViewModels\AutoLogoffViewModel.cs" />
+    <Compile Include="ViewModels\BarcodeViewModel.cs" />
+    <Compile Include="ViewModels\BusyViewModel.cs" />
+    <Compile Include="ViewModels\CameraFeedViewModel.cs" />
+    <Compile Include="ViewModels\ComboDiscountsViewModel.cs" />
+    <Compile Include="ViewModels\BitcoinViewModel.cs" />
+    <Compile Include="ViewModels\MyPayrollPaymentViewModel.cs" />
+    <Compile Include="ViewModels\UnlockViewModel.cs" />
+    <Compile Include="ViewModels\CreditViewModel.cs" />
+    <Compile Include="ViewModels\DamagedBarcodeViewModel.cs" />
+    <Compile Include="ViewModels\DiscountsMarqueeViewModel.cs" />
+    <Compile Include="ViewModels\DispenseChangeViewModel.cs" />
+    <Compile Include="ViewModels\FastTouchViewModel.cs" />
+    <Compile Include="ViewModels\FileTransferViewModel.cs" />
+    <Compile Include="ViewModels\ForgotPasswordViewModel.cs" />
+    <Compile Include="ViewModels\FtpViewModel.cs" />
+    <Compile Include="ViewModels\HardwareViewModel.cs" />
+    <Compile Include="ViewModels\HelpViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\MissingBarcodeItemViewModel.cs" />
+    <Compile Include="ViewModels\BillingViewModel.cs" />
+    <Compile Include="ViewModels\CashPaymentViewModel.cs" />
+    <Compile Include="ViewModels\CashRefillViewModel.cs" />
+    <Compile Include="ViewModels\MissingBarcodeCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\MissingBarcodeItemsViewModel.cs" />
+    <Compile Include="ViewModels\MissingBarcodeViewModel.cs" />
+    <Compile Include="ViewModels\NavigationViewModel.cs" />
+    <Compile Include="ViewModels\PasswordViewModel.cs" />
+    <Compile Include="ViewModels\DiscountViewModel.cs" />
+    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\ResetBillRecyclerEnable.cs" />
+    <Compile Include="ViewModels\ReturnChangeOptionsViewModel.cs" />
+    <Compile Include="ViewModels\SyncDataViewModel.cs" />
+    <Compile Include="ViewModels\SyncLogViewModel.cs" />
+    <Compile Include="ViewModels\TransactionHistoryViewModel.cs" />
+    <Compile Include="ViewModels\USBRelayViewModel.cs" />
+    <Compile Include="ViewModels\UsersViewModel.cs" />
+    <Compile Include="ViewModels\DiscountsViewModel.cs" />
+    <Compile Include="ViewModels\CreditCardPaymentViewModel.cs" />
+    <Compile Include="ViewModels\CreditCardRefilViewModel.cs" />
+    <Compile Include="ViewModels\CycleThruImagesViewModel.cs" />
+    <Compile Include="ViewModels\DeleteMeViewModel.cs" />
+    <Compile Include="ViewModels\EmailViewModel.cs" />
+    <Compile Include="ViewModels\FingerPrintViewModel.cs" />
+    <Compile Include="ViewModels\ItemsViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MyAccountPaymentViewModel.cs" />
+    <Compile Include="ViewModels\MyAccountViewModel.cs" />
+    <Compile Include="ViewModels\NewUserViewModel.cs" />
+    <Compile Include="ViewModels\PaymentOptionsViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
+    <Compile Include="ViewModels\UserRegistrationViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\AddMoneyView.xaml.cs">
+      <DependentUpon>AddMoneyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdministationView.xaml.cs">
+      <DependentUpon>AdministationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ApplicationSettingsView.xaml.cs">
+      <DependentUpon>ApplicationSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AutoLogoffView.xaml.cs">
+      <DependentUpon>AutoLogoffView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BarcodeView.xaml.cs">
+      <DependentUpon>BarcodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BusyView.xaml.cs">
+      <DependentUpon>BusyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CameraFeedView.xaml.cs">
+      <DependentUpon>CameraFeedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CashPaymentView.xaml.cs">
+      <DependentUpon>CashPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CashRefillView.xaml.cs">
+      <DependentUpon>CashRefillView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComboDiscountsView.xaml.cs">
+      <DependentUpon>ComboDiscountsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BitcoinPaymentView.xaml.cs">
+      <DependentUpon>BitcoinPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyPayrollPaymentView.xaml.cs">
+      <DependentUpon>MyPayrollPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UnlockView.xaml.cs">
+      <DependentUpon>UnlockView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FtpView.xaml.cs">
+      <DependentUpon>FtpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KeypadDateView.xaml.cs">
+      <DependentUpon>KeypadDateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreditView.xaml.cs">
+      <DependentUpon>CreditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DamagedBarcodeView.xaml.cs">
+      <DependentUpon>DamagedBarcodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiscountsMarqueeView.xaml.cs">
+      <DependentUpon>DiscountsMarqueeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DispenseChangeView.xaml.cs">
+      <DependentUpon>DispenseChangeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FastTouchView.xaml.cs">
+      <DependentUpon>FastTouchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileTransferView.xaml.cs">
+      <DependentUpon>FileTransferView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ForgotPasswordView.xaml.cs">
+      <DependentUpon>ForgotPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HardwareView.xaml.cs">
+      <DependentUpon>HardwareView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImageWithTextControl.xaml.cs">
+      <DependentUpon>ImageWithTextControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Keypad.xaml.cs">
+      <DependentUpon>Keypad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageBoxMainView.xaml.cs">
+      <DependentUpon>MessageBoxMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageBoxViewComplete.xaml.cs">
+      <DependentUpon>MessageBoxViewComplete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MissingBarcodeCategoriesView.xaml.cs">
+      <DependentUpon>MissingBarcodeCategoriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MissingBarcodeItemsView.xaml.cs">
+      <DependentUpon>MissingBarcodeItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MissingBarcodeItemView.xaml.cs">
+      <DependentUpon>MissingBarcodeItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MissingBarcodeView.xaml.cs">
+      <DependentUpon>MissingBarcodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NavigationView.xaml.cs">
+      <DependentUpon>NavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PasswordView.xaml.cs">
+      <DependentUpon>PasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreditCardPaymentView.xaml.cs">
+      <DependentUpon>CreditCardPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreditCardRefilView.xaml.cs">
+      <DependentUpon>CreditCardRefilView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CycleThruImagesView.xaml.cs">
+      <DependentUpon>CycleThruImagesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeleteMeView.xaml.cs">
+      <DependentUpon>DeleteMeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiscountView.xaml.cs">
+      <DependentUpon>DiscountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiscountsView.xaml.cs">
+      <DependentUpon>DiscountsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FingerPrintView.xaml.cs">
+      <DependentUpon>FingerPrintView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemsView.xaml.cs">
+      <DependentUpon>ItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemView.xaml.cs">
+      <DependentUpon>ItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageBoxView.xaml.cs">
+      <DependentUpon>MessageBoxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyAccountPaymentView.xaml.cs">
+      <DependentUpon>MyAccountPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyAccountView.xaml.cs">
+      <DependentUpon>MyAccountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BillingView.xaml.cs">
+      <DependentUpon>BillingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmailView.xaml.cs">
+      <DependentUpon>EmailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewUserView.xaml.cs">
+      <DependentUpon>NewUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PaymentOptionsView.xaml.cs">
+      <DependentUpon>PaymentOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopupView.xaml.cs">
+      <DependentUpon>PopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReturnChangeOptionsView.xaml.cs">
+      <DependentUpon>ReturnChangeOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShoppingCartView.xaml.cs">
+      <DependentUpon>ShoppingCartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SyncDataView.xaml.cs">
+      <DependentUpon>SyncDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SyncLogView.xaml.cs">
+      <DependentUpon>SyncLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionHistoryView.xaml.cs">
+      <DependentUpon>TransactionHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\USBRelayView.xaml.cs">
+      <DependentUpon>USBRelayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserRegistrationView.xaml.cs">
+      <DependentUpon>UserRegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsersView.xaml.cs">
+      <DependentUpon>UsersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserView.xaml.cs">
+      <DependentUpon>UserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VirtualKeyboard.xaml.cs">
+      <DependentUpon>VirtualKeyboard.xaml</DependentUpon>
+    </Compile>
+    <Resource Include="Images\PurchaseComplete.gif" />
+    <Resource Include="Images\Check.gif" />
+    <Resource Include="Images\Fail.gif" />
+    <Content Include="cai_mdb_w32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DPCtlUruNet.dll" />
+    <Resource Include="Images\Banana.png" />
+    <Resource Include="Images\Orange.png" />
+    <Resource Include="Images\Addfunds.png" />
+    <Resource Include="Images\PayrollBalance.png" />
+    <Content Include="StarIOPort.dll" />
+    <Content Include="WinSCP.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Page Include="Resources\BlueGreenOrange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\deORODictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Images\Mexico.png" />
+    <Content Include="Images\AddItems.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CloseItems.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Refresh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Right.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\File.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Fruit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Meal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Search.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Soda.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Coffee.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Soup.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\deOROSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Page Include="Resources\MainWindowResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\Converter.cs" />
+    <Compile Include="Helpers\DelegateCommand.cs" />
+    <Compile Include="Helpers\NotificationObject.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Page Include="Resources\TabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddMoneyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdministationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ApplicationSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AutoLogoffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BarcodeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BusyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CameraFeedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CashPaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CashRefillView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ComboDiscountsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CircularProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BitcoinPaymentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MyPayrollPaymentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UnlockView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FtpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KeypadDateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CreditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DamagedBarcodeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiscountsMarqueeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DispenseChangeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FastTouchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FileTransferView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ForgotPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HardwareView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HelpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ImageWithTextControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Keypad.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MessageBoxMainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageBoxViewComplete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MissingBarcodeCategoriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MissingBarcodeItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MissingBarcodeItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MissingBarcodeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PasswordView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CreditCardPaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreditCardRefilView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CycleThruImagesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeleteMeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiscountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiscountsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FingerPrintView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MyAccountPaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MyAccountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BillingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PaymentOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReturnChangeOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShoppingCartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SyncDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SyncLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TransactionHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\USBRelayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserRegistrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VirtualKeyboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings.es.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings.pt.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings.fr.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="deORO.snk" />
+    <None Include="deORO_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Service References\deOROService\deORO.deOROService.DownloadDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\deOROService\deORO.deOROService.GetScheduleAndItemsQuantityInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\deOROService\deORO.deOROService.UpdateScheduledStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\deOROService\deORO.deOROService.UploadDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\deOROService\SyncDataService.wsdl" />
+    <None Include="Service References\deOROService\SyncDataService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\deOROService\SyncDataService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\deOROService\SyncDataService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.authV3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.authV3_1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.batchV3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.cashV3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.chargeV3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.chargeV3_1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.ECAuthResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.ECProcessUpdatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.ECResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.processUpdatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\deORO.ePortConnect.uploadFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ePortConnect\ec.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\CloseHelp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Brazil.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Discount.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ForgotPassword.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Discounts.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\France.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Main.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\NoImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Password.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\RedSpecial.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\USA.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\Kiosk_myaccount.avi">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\Kiosk_myaccount.mov">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\Kiosk_register.mov">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Videos\Kiosk_shopping.mov">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\deOROService\SyncDataService.disco" />
+    <None Include="Service References\deOROService\configuration91.svcinfo" />
+    <None Include="Service References\deOROService\configuration.svcinfo" />
+    <None Include="Service References\deOROService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Images\Barcode.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Video.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Sync.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\SwipeCard.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Piggie.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Register.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Shopping.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\AddToCart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\DamagedBarcode.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\NoBarcode.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Cash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Trash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Register_big.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Shopping_big.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\AccountBalance.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CashLarge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CreditCardLarge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MyAccountLarge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Logout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Help.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CreditCard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Save.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Login.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\deOROLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\UserNamePassword.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\EmailTemplate.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Edit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Service References\ePortConnect\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ePortConnect\configuration.svcinfo" />
+    <None Include="Service References\ePortConnect\configuration91.svcinfo" />
+    <Content Include="Images\Delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.4.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 4.0 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\deOROService\" />
+    <WCFMetadataStorage Include="Service References\ePortConnect\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\deORODataAccessApp\deORODataAccessApp.csproj">
+      <Project>{071de910-4aeb-420a-8c9b-a6dffd65dc95}</Project>
+      <Name>deORODataAccessApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\deORORichHtmlTextBlock\deORORichHtmlTextBlock.csproj">
+      <Project>{0fe10aa6-d73e-4c3d-a331-258f21b220e3}</Project>
+      <Name>deORORichHtmlTextBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\deOROSyncData\deOROSyncData.csproj">
+      <Project>{4df54940-1516-4f79-be0a-8bad6196e906}</Project>
+      <Name>deOROSyncData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

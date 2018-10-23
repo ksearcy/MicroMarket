@@ -1,0 +1,590 @@
+﻿@model IEnumerable<deORODataAccess.DTO.CategoryDTO>
+
+@{
+    ViewBag.Title = @deOROWeb.Resources.Strings.Categories;
+}
+
+<link href="~/Scripts/js/plugins/tooltips/simptip.css" rel="stylesheet" />
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.Categories / @deOROWeb.Resources.Strings.SubCategories</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">@deOROWeb.Resources.Strings.Categories / @deOROWeb.Resources.Strings.SubCategories</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs" id="nav-tabs">
+                        <li class="active">
+                            <a href="#tab-1" data-toggle="tab">@deOROWeb.Resources.Strings.Category</a>
+                        </li>
+                        <li>
+                            <a href="#tab-2" data-toggle="tab">@deOROWeb.Resources.Strings.SubCategory</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-1">
+                            <div class="box">
+                                <div class="box-header">
+                                    <div class="margin">
+                                        <div class="pull-left box-tools">
+                                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-modal"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.Category</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-body table-responsive">
+                                    <table class="table table-bordered table-striped" id="grid">
+                                        <thead>
+                                            <tr>
+                                                <th>@deOROWeb.Resources.Strings.Name</th>
+                                                <th>@deOROWeb.Resources.Strings.Code</th>
+                                                <th>@deOROWeb.Resources.Strings.Description</th>
+                                                <th>@deOROWeb.Resources.Strings.PickOrder</th>
+                                                <th></th>
+                                                <th hidden="hidden"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var m in Model)
+                                            {
+                                                if (m.parentname == "")
+                                                {
+                                                <tr>
+                                                    <td>@m.name</td>
+                                                    <td>@m.code</td>
+                                                    <td>@m.description</td>
+                                                    <td>@m.pick_order</td>
+                                                    <td>
+                                                        <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-modal" id="@m.id-edit">@deOROWeb.Resources.Strings.Edit</a></i>
+                                                    </td>
+                                                    <td hidden="hidden">
+                                                        <i class="fa fa-trash-o"><a class="btn btn-app-small" id="@m.id-delete">@deOROWeb.Resources.Strings.Delete</a></i>
+                                                    </td>
+                                                </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-2">
+                            <div class="box">
+                                <div class="box-header">
+                                    <div class="margin">
+                                        <div class="pull-left box-tools">
+                                            <button class="btn btn-primary btn-flat btn-sm" data-toggle="modal" data-target="#popup-sub-modal"><i class="fa  fa-plus-square"></i>&nbsp;&nbsp;@deOROWeb.Resources.Strings.Add @deOROWeb.Resources.Strings.SubCategory</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-body table-responsive">
+                                    <table class="table table-bordered table-striped" id="sub-grid">
+                                        <thead>
+                                            <tr>
+                                                <th>@deOROWeb.Resources.Strings.Category</th>
+                                                <th>@deOROWeb.Resources.Strings.Name</th>
+                                                <th>@deOROWeb.Resources.Strings.Code</th>
+                                                <th>@deOROWeb.Resources.Strings.Description</th>
+                                                <th>@deOROWeb.Resources.Strings.PickOrder</th>
+                                                <th>@deOROWeb.Resources.Strings.DepletionLevel</th>
+                                                <th></th>
+                                                <th hidden="hidden"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var m in Model)
+                                            {
+                                                if (m.parentname != "")
+                                                {
+                                                <tr>
+                                                    <td>@m.parentname</td>
+                                                    <td>@m.name</td>
+                                                    <td>@m.code</td>
+                                                    <td>@m.description</td>
+                                                    <td>@m.pick_order</td>
+                                                    <td>@m.depletion_level</td>
+                                                    <td>
+                                                        <i class="fa fa-edit"><a class="btn btn-app-small" data-toggle="modal" data-target="#popup-sub-modal" id="@m.id-sub-edit">@deOROWeb.Resources.Strings.Edit</a></i>
+                                                    </td>
+                                                    <td hidden="hidden">
+                                                        <i class="fa fa-edit"><a class="btn btn-app-small" id="@m.id-sub-delete">@deOROWeb.Resources.Strings.Delete</a></i>
+                                                    </td>
+                                                </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<div class="modal fade" id="popup-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.Category</h4>
+            </div>
+            <form action="#" method="post" id="form-category">
+                <div class="modal-body">
+                    <input id="input-hidden-action" type="hidden" />
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.CategoryName <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Category's Name">(?)</a> :</span>
+                            <input id="input-category-name" name="input-category-name" class="form-control" placeholder="@deOROWeb.Resources.Strings.CategoryName" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.CategoryCode <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Category's identificator code for your company">(?)</a> :</span>
+                            <input id="input-category-code" name="input-category-code" class="form-control" placeholder="@deOROWeb.Resources.Strings.CategoryCode" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.Description <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Category's Description">(?)</a> :</span>
+                            <input id="input-description" name="input-description" class="form-control" placeholder="@deOROWeb.Resources.Strings.Description" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.PickOrder <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Category's order in refill list of drivers">(?)</a> :</span>
+                            <input id="input-pick-order" name="input-pick-order" class="form-control" placeholder="@deOROWeb.Resources.Strings.PickOrder" required="required">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="popup-sub-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="sub-modal-title"><i class="fa fa-user"></i>&nbsp;@deOROWeb.Resources.Strings.SubCategory</h4>
+            </div>
+            <form action="#" method="post" id="form-subcategory">
+                <div class="modal-body">
+                    <input id="sub-input-hidden-action" type="hidden" />
+                    <div class="form-group">
+                        <label>@deOROWeb.Resources.Strings.Category</label>
+                        <select class="form-control" id="combo-parent-category">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.SubCategoryName <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Sub Category's Name"">(?)</a> :</span>
+                            <input id="input-subcategory-name" name="input-subcategory-name" class="form-control" placeholder="@deOROWeb.Resources.Strings.SubCategoryName" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.SubCategoryCode <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Sub category's identificator code for your company">(?)</a> :</span>
+                            <input id="input-subcategory-code" name="input-subcategory-code" class="form-control" placeholder="@deOROWeb.Resources.Strings.SubCategoryCode" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.Description<a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Sub Category's Description">(?)</a> :</span>
+                            <input id="input-subdescription" name="input-subdescription" class="form-control" placeholder="@deOROWeb.Resources.Strings.Description" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.PickOrder <a style="cursor:pointer; font-weight:normal;" class="simptip-position-top" data-tooltip="Sub Category's order in refill list of drivers">(?)</a> :</span>
+                            <input id="input-subpick-order" name="input-subpick-order" class="form-control" placeholder="@deOROWeb.Resources.Strings.PickOrder" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">@deOROWeb.Resources.Strings.DepletionLevel:</span>
+                            <input id="input-depletion-level" name="input-depletion-level" class="form-control" placeholder="@deOROWeb.Resources.Strings.DepletionLevel" required="required">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>@deOROWeb.Resources.Strings.Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-left" id="button-save-subcategory"><i class="fa fa-save"></i>@deOROWeb.Resources.Strings.Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {
+            if (element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    $('#form-category').validate(
+       {
+           rules: {
+               "input-category-name": {
+                   required: true
+               },
+               "input-category-code": {
+                   required: true
+               },
+               "input-description": {
+                   required: true
+               },
+               "input-pick-order": {
+                   required: true,
+                   //ONLY DIGITS IN INPUT. By Luis Ruiz
+                   number: true
+                   
+               }
+           }
+       });
+
+
+    $('#form-subcategory').validate(
+      {
+          rules: {
+              "input-subcategory-name": {
+                  required: true
+              },
+              "input-subcategory-code": {
+                  required: true
+              },
+              "input-subdescription": {
+                  required: true
+              },
+              "input-subpick-order": {
+                  required: true,
+                  //ONLY DIGITS IN INPUT. By Luis Ruiz
+                  digits: true
+              },
+              "input-depletion-level": {
+                  required: true,
+                  //ONLY DIGITS IN INPUT. By Luis Ruiz
+                  digits: true
+              }
+          }
+      });
+
+    $('#popup-modal').on('show.bs.modal', function (e) {
+        $('.form-control').val('');
+        $("#form-category").validate().resetForm();
+        $(".form-group").removeClass("has-error");
+    })
+
+
+  
+
+    $('#popup-sub-modal').on('show.bs.modal', function (e) {
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Category/GetCategories",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+                $('#combo-parent-category').empty();
+                $.each(result.categories, function (i, val) {
+                    $('#combo-parent-category').append(new Option(val.name, val.id));
+                });
+            },
+            error: function (error) {
+                alert("There was an error getting the data from the server: " + error.responseText);
+            }
+        })
+
+        $('.form-control').val('');
+    })
+
+    $('.btn').click(function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('sub') >= 0) {
+            processSubCategoryEvents(event);
+            return;
+        }
+        else {
+            processCategoryEvents(event);
+            return;
+        }
+    })
+
+    function processSubCategoryEvents(event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('sub-edit') >= 0) {
+
+            var id = target.substring(0, target.indexOf('sub-edit') - 1);
+            var postData = '{"id":' + id + '}';
+
+            $("#sub-input-hidden-action").val(id);
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Category/Details/",
+                dataType: "json",
+                cache: false,
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                success: function (result) {
+                    $("#combo-parent-category > [value='" + result.parentid + "']").attr("selected", "true");
+                    $('#input-subcategory-name').val(result.name);
+                    $('#input-subcategory-code').val(result.code);
+                    $('#input-subdescription').val(result.description);
+                    $('#input-subpick-order').val(result.pick_order);
+                    $('#input-depletion-level').val(result.depletion_level);
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+        else if (target.indexOf('delete') >= 0) {
+
+            bootbox.confirm("Are you sure you want to delete this Sub Category?", function (result) {
+
+                if (result) {
+                    var id = target.substring(0, target.indexOf('sub-delete') - 1);
+                    var postData = '{"id":' + id + '}';
+
+                    $.ajax({
+                        type: "POST",
+                        url: "@Request.ApplicationPath/Category/Delete/",
+                        dataType: "json",
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        data: postData,
+                        success: function (result) {
+                        },
+                        error: function (error) {
+                            //alert("There was an error posting the data to the server: " + error.responseText);
+                        }
+                    });
+                }
+            });
+        }
+}
+
+function processCategoryEvents(event) {
+
+    var target = event.target.id;
+
+    if (target.indexOf('edit') >= 0) {
+
+        var id = target.substring(0, target.indexOf('edit') - 1);
+        var postData = '{"id":' + id + '}';
+
+        $("#input-hidden-action").val(id);
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Category/Details/",
+            dataType: "json",
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            success: function (result) {
+                $('#input-category-name').val(result.name);
+                $('#input-category-code').val(result.code);
+                $('#input-description').val(result.description);
+                $('#input-pick-order').val(result.pick_order);
+            },
+            error: function (error) {
+                //alert("There was an error posting the data to the server: " + error.responseText);
+            }
+        });
+    }
+    else if (target.indexOf('delete') >= 0) {
+
+        bootbox.confirm("Are you sure you want to delete this Category?", function (result) {
+
+            if (result) {
+                var id = target.substring(0, target.indexOf('delete') - 1);
+                var postData = '{"id":' + id + '}';
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Request.ApplicationPath/Category/Delete/",
+                        dataType: "json",
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        data: postData,
+                        success: function (result) {
+                        },
+                        error: function (error) {
+                            //alert("There was an error posting the data to the server: " + error.responseText);
+                        }
+                    });
+                }
+            });
+        }
+}
+
+$('#button-save').click(function () {
+
+    if (!$("#form-category").valid()) return;
+
+    var hidden = $("#input-hidden-action").val();
+
+    var postData = JSON.stringify({
+        'id': hidden,
+        'name': $('#input-category-name').val(),
+        'code': $('#input-category-code').val(),
+        'description': $('#input-description').val(),
+        'pick_order': $('#input-pick-order').val(),
+    });
+
+    if (hidden.length > 0) { //Edit
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Category/Edit",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: postData,
+            async: false,
+            success: function (result) {
+            },
+            error: function (error) {
+                //alert("There was an error posting the data to the server: " + error.responseText);
+            }
+        });
+    } else { // Add
+
+        $.ajax({
+            type: "POST",
+            url: "@Request.ApplicationPath/Category/Create",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+});
+
+    $('#button-save-subcategory').click(function () {
+
+        if (!$("#form-subcategory").valid()) return;
+
+        var hidden = $("#sub-input-hidden-action").val();
+
+        var postData = JSON.stringify({
+
+            'id': hidden,
+            'name': $('#input-subcategory-name').val(),
+            'code': $('#input-subcategory-code').val(),
+            'description': $('#input-subdescription').val(),
+            'pick_order': $('#input-subpick-order').val(),
+            'parentid': $('#combo-parent-category  option:selected').val(),
+            'depletion_level': $('#input-depletion-level').val(),
+        });
+
+        if (hidden.length > 0) { //Edit
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Category/Edit",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        } else { // Add
+
+            $.ajax({
+                type: "POST",
+                url: "@Request.ApplicationPath/Category/Create",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: postData,
+                async: false,
+                success: function (result) {
+                },
+                error: function (error) {
+                    //alert("There was an error posting the data to the server: " + error.responseText);
+                }
+            });
+        }
+    });
+
+    //=====POSITION CHANGE OF CONVERTION OF TABLE TO JQUERY DATA TABLE AFTER ADD ALL PROPERTIES TO THE CONTROLS TO AVOID ISSUES. By Luis Ruiz
+
+    $('#grid').dataTable({
+        "language": {
+            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+            "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+            "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+            "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+            "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+            "sSearch": "@deOROWeb.Resources.Strings.Search:",
+            "oPaginate": {
+                "sFirst": "@deOROWeb.Resources.Strings.First",
+                "sLast": "@deOROWeb.Resources.Strings.Last",
+                "sNext": "@deOROWeb.Resources.Strings.Next",
+                "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+            },
+        }
+    });
+    $('#sub-grid').dataTable({
+        "language": {
+            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+            "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+            "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+            "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+            "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+            "sSearch": "@deOROWeb.Resources.Strings.Search:",
+            "oPaginate": {
+                "sFirst": "@deOROWeb.Resources.Strings.First",
+                "sLast": "@deOROWeb.Resources.Strings.Last",
+                "sNext": "@deOROWeb.Resources.Strings.Next",
+                "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+            },
+        }
+    });
+
+
+</script>

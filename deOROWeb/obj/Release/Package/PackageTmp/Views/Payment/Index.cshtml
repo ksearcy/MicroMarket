@@ -1,0 +1,21 @@
+﻿@model IEnumerable<deORODataAccess.payment>
+
+<div class="box-body table-responsive">
+    <table class="table table-bordered table-striped" id="grid">
+        <thead>
+            <tr>
+                <th>@deOROWeb.Resources.Strings.Source</th>
+                <th>@deOROWeb.Resources.Strings.Amount</th>
+                <th>@deOROWeb.Resources.Strings.Routing</th>
+            </tr>
+        </thead>
+
+        @foreach (var m in Model)
+        { <tr>
+            <td style="width:33%">@m.source</td>
+            <td style="width:33%">@m.amount</td>
+            <td style="width:33%">@m.routing</td>
+        </tr>
+        }
+    </table>
+</div>

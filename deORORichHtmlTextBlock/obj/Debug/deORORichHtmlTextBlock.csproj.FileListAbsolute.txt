@@ -1,0 +1,5 @@
+C:\deORO\Rama\Code\deORORichHtmlTextBlock\bin\Debug\deORORichHtmlTextBlock.dll
+C:\deORO\Rama\Code\deORORichHtmlTextBlock\bin\Debug\deORORichHtmlTextBlock.pdb
+C:\deORO\Rama\Code\deORORichHtmlTextBlock\obj\Debug\deORORichHtmlTextBlock.csprojResolveAssemblyReference.cache
+C:\deORO\Rama\Code\deORORichHtmlTextBlock\obj\Debug\deORORichHtmlTextBlock.dll
+C:\deORO\Rama\Code\deORORichHtmlTextBlock\obj\Debug\deORORichHtmlTextBlock.pdb

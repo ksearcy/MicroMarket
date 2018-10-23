@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="deORO.Views.MissingBarcodeCategoriesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converter="clr-namespace:deORO.Converters"
+             xmlns:extensions="http://wpflocalizeextension.codeplex.com"
+             xmlns:lex ="clr-namespace:WPFLocalizeExtension.Engine;assembly=WPFLocalizeExtension"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             lex:LocalizeDictionary.DesignCulture="fr"
+             lex:LocalizeDictionary.OutputMissingKeys="True"
+             extensions:ResxLocalizationProvider.DefaultAssembly="deORO"
+             extensions:ResxLocalizationProvider.DefaultDictionary="Strings"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <converter:MissingImageConverter x:Key="MissingImage"/>
+        <Style TargetType="{x:Type ListBox}">
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border BorderBrush="Orange" BorderThickness="2" CornerRadius="5" Margin="6">
+                            <Button Command="{Binding DataContext.CategorySelectCommand, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}}" CommandParameter="{Binding id}">
+                                <StackPanel Orientation="Vertical">
+                                    <!--<Image Source="{Binding Path=image, Converter={StaticResource FullImagePath}}" Stretch="Fill" Width="150" Height="150"/>-->
+                                    <Image Source="{Binding Path=image, Converter={StaticResource MissingImage}}" Stretch="Fill" Width="150" Height="150"/>
+                                    <TextBlock Text="{Binding Path=name}" HorizontalAlignment="Center" Style="{StaticResource DefaultTextBlock}"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#12549E" Margin="5,5,5,0">
+            <TextBlock Text="{extensions:Loc MissingBarcodeCategories.Title}" Style="{StaticResource TitleTextBlock}" Grid.ColumnSpan="2" Foreground="White"></TextBlock>
+        </Border>
+        <ListBox ItemsSource="{Binding Categories}" Grid.Row="1" Margin="5,0,5,5">
+        </ListBox>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button FontFamily="Marlett" Content="3" Margin="5" Command="{Binding PreviousPageCommand}" Height="60" Width="60" Style="{StaticResource BlueButton}"></Button>
+            <Button FontFamily="Marlett" Content="4" Margin="5" Command="{Binding NextPageCommand}" Height="60" Width="60" Style="{StaticResource BlueButton}"></Button>
+        </StackPanel>
+        <Button Command="{Binding CancelCommand}" Style="{StaticResource RedButton}" Grid.Column="0" Grid.Row="3" Content="{extensions:Loc MissingBarcodeCategories.Cancel}" Height="Auto"></Button>
+    </Grid>
+</UserControl>

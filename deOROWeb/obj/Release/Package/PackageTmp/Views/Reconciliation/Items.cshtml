@@ -1,0 +1,242 @@
+﻿@{
+    ViewBag.Title = "Items";
+}
+
+<script src="~/Scripts/js/plugins/sparkline/jquery.sparkline.js"></script>
+<script src="~/Scripts/js/plugins/blockUI/jquery.blockUI.js"></script>
+
+<aside class="right-side">
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.ItemsReconciliation</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li>@deOROWeb.Resources.Strings.Reconciliation</li>
+            <li class="active">@deOROWeb.Resources.Strings.Items</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body table-responsive">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Customers</label>
+                                @Html.DropDownList("Customers", new SelectList(ViewBag.Customers, "id", "name"), "Select One", new { id = "combo-customers", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>@deOROWeb.Resources.Strings.Locations</label>
+                                <select class="form-control" id="list-locations" disabled="disabled">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <label>@deOROWeb.Resources.Strings.DateRange</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-from-date" disabled="disabled">
+                                </select>
+                            </div>
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <select class="form-control" id="combo-to-date" disabled="disabled">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <label>&nbsp;</label>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary pull-left" id="button-process">@deOROWeb.Resources.Strings.Process</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title"></h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-primary btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="box-body table-responsive">
+                                        <table id="grid" class="table table-bordered table-striped">
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</aside>
+<script>
+
+    var customerid;
+    var locationid;
+
+    $("#combo-customers").change(function () {
+        customerid = $(this).val();
+        loadLocations();
+    });
+
+    $("#list-locations").change(function () {
+        locationid = $(this).val();
+        loadLocationServicedDates();
+    });
+
+    function loadLocations() {
+
+        $('#list-locations').prop("disabled", true);
+        $('#list-locations').empty();
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@Request.ApplicationPath/Location/GetLocations/" + customerid,
+            contentType: "application/json; charset=utf-8",
+            success: function (result) {
+
+                if (result.length > 0) {
+                    $.each(result, function (i, val) {
+                        $('#list-locations').append(new Option(val.name, val.id));
+                    });
+
+                    $('#list-locations').prop("disabled", false);
+                }
+
+                $("#list-locations").trigger("change");
+            },
+            error: function (error) {
+            }
+        })
+    }
+
+    function loadLocationServicedDates() {
+
+        $('#combo-from-date').prop("disabled", true);
+        $('#combo-to-date').prop("disabled", true);
+
+        $('#combo-from-date').empty();
+        $('#combo-to-date').empty();
+
+        var postData = JSON.stringify({
+            'customerid': customerid,
+            'locationid': locationid
+        });
+
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "@Request.ApplicationPath/Reconciliation/loadLocationServicedDates/",
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            dataType: "json",
+            data: postData,
+            success: function (result) {
+
+                $.each(result, function (i, val) {
+                    $('#combo-from-date').append(new Option(ToJavaScriptDateTime(val.name), val.name));
+                    $('#combo-to-date').append(new Option(ToJavaScriptDateTime(val.name), val.name));
+                });
+
+
+                if (result.length > 0) {
+                    $('#combo-from-date').prop("disabled", false);
+                    $('#combo-to-date').prop("disabled", false);
+                }
+
+            },
+            error: function (error) {
+
+            }
+        })
+    }
+
+    $('#button-process').click(function () {
+
+        var postData = JSON.stringify({
+            'customerid': customerid,
+            'locationids': locationid,
+            'reportCategory': 'Sales',
+            'reportType': 'Items',
+            'reportView': 'Default',
+            'fromDate': ToJavaScriptDateTime($('#combo-from-date').val()),
+            'toDate': ToJavaScriptDateTime($('#combo-to-date').val())
+        });
+
+        $.blockUI({
+            css: {
+                border: 'none',
+                padding: '15px',
+                backgroundColor: '#3c8dbc',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .75,
+                color: '#fff'
+            }
+        });
+
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "@Request.ApplicationPath/Reports/ProcessReport/",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: postData,
+            success: function (result) {
+                if (result != null) {
+
+                    $('#grid').dataTable({
+                        "dom": 'C<"clear">T<"clear">lfrtip',
+                        "tableTools": {
+                            "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf"
+                        },
+                        "aaData": result.rows,
+                        "aoColumns": result.columns,
+                        "bDestroy": true,
+
+                        "language": {
+                            "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+                             "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+                             "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+                             "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+                             "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+                             "sSearch": "@deOROWeb.Resources.Strings.Search:",
+                             "oPaginate": {
+                                 "sFirst": "@deOROWeb.Resources.Strings.First",
+                                 "sLast": "@deOROWeb.Resources.Strings.Last",
+                                 "sNext": "@deOROWeb.Resources.Strings.Next",
+                                 "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+                             },
+                         },
+
+                        "rowCallback": function (row, data, index) {
+
+                            if (result.showSparkLines)
+                                $('td:eq(4)', row).html('<span class="spark">' + data[4] + '</span>');
+                        },
+                        "drawCallback": function (Settings) {
+
+                            if (result.showSparkLines)
+                                $('.spark').sparkline('html', {
+                                    type: 'bar', barColor: '#3366CC'
+                                });
+                        },
+                    });
+                 }
+
+                $.unblockUI();
+            },
+            error: function (error) {
+                $.unblockUI();
+            }
+        })
+    });
+
+</script>

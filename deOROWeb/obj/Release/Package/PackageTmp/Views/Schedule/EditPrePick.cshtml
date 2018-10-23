@@ -1,0 +1,297 @@
+﻿@model IEnumerable<deORODataAccess.DTO.ScheduleDetailDTO>
+
+
+<script src="~/Scripts/js/plugins/jquery.bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<link href="~/Content/css/jquery.bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" />
+
+<script src="~/Scripts/js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="~/Scripts/js/plugins/datatables/jquery.dataTables.editable.js"></script>
+
+<aside class="right-side">
+
+    <section class="content-header">
+        <h1>@deOROWeb.Resources.Strings.Edit Pre-Pick</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Home</a></li>
+            <li><a href="@Request.ApplicationPath/Schedule/"><i class="fa fa-dashboard"></i>@deOROWeb.Resources.Strings.Schedule</a></li>
+            <li class="active">Pre-Pick</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        @foreach (var m in Model)
+        {
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="margin">
+                        <div class="box-header">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h3>
+                                        <i class="fa fa-calendar"></i>&nbsp; @deOROWeb.Resources.Strings.ScheduleName: <b>@ViewBag.Schedule.name</b>
+                                        <small class="pull-right">@deOROWeb.Resources.Strings.ScheduleDate: <b>@ViewBag.Schedule.date</b></small>
+                                    </h3>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="box">
+                                <div class="margin">
+                                    <div class="box-head" style="background-color: #f3f4f5">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="box-body with-border">
+                                                    <div class="form-group">
+                                                        <p>@deOROWeb.Resources.Strings.CustomerName: <b>@m.customername</b></p>
+                                                        <p>@deOROWeb.Resources.Strings.LocationName:<b> @m.locationname</b></p>
+                                                        <p>@deOROWeb.Resources.Strings.DriverName: <b>@m.username</b></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="box-body with-border">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">Tote #</span>
+                                                            <span class="input-group-addon">
+                                                                <input id="@m.id-input-tote" name="input-tote" class="form-control" placeholder="Tote" required="required">
+                                                            </span>
+                                                            <span class="input-group-addon">
+                                                                <button type="submit" class="btn btn-primary pull-left bath-update-tote" id="@m.id-batch-tote">@deOROWeb.Resources.Strings.BatchUpdate</button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">@deOROWeb.Resources.Strings.MarkItemsasPulled</span>
+                                                            <span class="input-group-addon">
+                                                                <input type="checkbox" id="@m.id-checkbox-pulled"></span>
+                                                            <span class="input-group-addon">
+                                                                <button type="submit" class="btn btn-primary pull-left bath-update-items-pulled" id="@m.id-batch-pulled">Batch Update</button>
+                                                            </span>
+                                                        </div>
+
+                                                        @*<div class="input-group">
+                                                            <span class="form-control">Item Pulled:</span>
+                                                            <span class="input-group-addon" id="basic-addon2">
+                                                                <input type="checkbox"></span>
+                                                            <span class="input-group-addon" id="basic-addon2">
+                                                                <button type="submit" class="btn btn-primary pull-left" id="button-process">Batch Update</button></span>
+                                                        </div>*@
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-xs-12 table-responsive">
+                                                <table class="table table-striped" id="@m.id-table-prepick-list">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align: left">@deOROWeb.Resources.Strings.Category</th>
+                                                            <th style="text-align: left">@deOROWeb.Resources.Strings.ItemName</th>
+                                                            <th style="text-align: center">@deOROWeb.Resources.Strings.QuantityatSchedule</th>
+                                                            <th style="text-align: center">@deOROWeb.Resources.Strings.QuantitytoRefill</th>
+                                                            <th style="text-align: center">Tote #</th>
+                                                            <th style="text-align: center">@deOROWeb.Resources.Strings.Item @deOROWeb.Resources.Strings.Pulled</th>
+                                                            <th style="text-align: center"></th>
+                                                            <th style="text-align: center"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    @{Html.RenderAction("PrePickList", "Schedule", new { id = @m.id });}
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            
+            
+            <script>
+
+
+        @*var table = $('#@m.id-table-prepick-list').DataTable();*@
+
+                //$('.btn').click(function (event) {
+                $('#@m.id-table-prepick-list tbody').on('click', 'tr', function (event) {
+
+
+                    var target = event.target.id;
+
+                    if (target.indexOf('edit') >= 0) {
+
+                        var id = target.substring(0, target.indexOf('edit') - 1);
+                        var qtyRefill = $('#' + id + '-qty-refill').val();
+                        var tote = $('#' + id + '-tote').val();
+
+                        var postData = JSON.stringify({
+                            'id': id,
+                            'qtyRefill': qtyRefill,
+                            'tote': tote,
+                            'status': '1',
+                        });
+
+                        $.ajax({
+                            type: "POST",
+                            url: "@Request.ApplicationPath/ScheduleDetail/EditScheduleDetailItem/",
+                            dataType: "json",
+                            cache: false,
+                            contentType: "application/json; charset=utf-8",
+                            data: postData,
+                            async: false,
+                            success: function (result) {
+                            },
+                            error: function (error) {
+                            }
+                        });
+
+                        $('#' + id + '-status').attr("src", "@Request.ApplicationPath/Images/check.png");
+
+                    }
+                    else if (target.indexOf('delete') >= 0) {
+
+                        var id = target.substring(0, target.indexOf('delete') - 1);
+                        var postData = JSON.stringify({
+                            'id': id,
+                        });
+
+                        $.ajax({
+                            type: "POST",
+                            url: "@Request.ApplicationPath/ScheduleDetail/DeleteScheduleDetailItem/",
+                            dataType: "json",
+                            cache: false,
+                            contentType: "application/json; charset=utf-8",
+                            data: postData,
+                            async: false,
+                            success: function (result) {
+                                if (result != 0) {
+                                    //table.row('#' + id + '-prepick').remove().draw(false);
+                                    $('#@m.id-table-prepick-list').DataTable().row('#' + id + '-prepick').remove().draw(false);
+                                   }
+                               },
+                            error: function (error) {
+                            }
+                        });
+                       }
+                });
+
+               $('#@m.id-table-prepick-list').dataTable(
+                                {
+                                    "language": {
+                                        "lengthMenu": "@deOROWeb.Resources.Strings.Display _MENU_ @deOROWeb.Resources.Strings.Recordsperpage",
+                            "zeroRecords": "@deOROWeb.Resources.Strings.Nothingfound - @deOROWeb.Resources.Strings.Sorry",
+                            "info": "@deOROWeb.Resources.Strings.Showingpage _PAGE_ @deOROWeb.Resources.Strings.of _PAGES_",
+                            "infoEmpty": "@deOROWeb.Resources.Strings.Norecordsavailable",
+                            "infoFiltered": "(@deOROWeb.Resources.Strings.filteredfrom _MAX_ @deOROWeb.Resources.Strings.totalrecords)",
+                            "sSearch": "@deOROWeb.Resources.Strings.Search:",
+                            "oPaginate": {
+                                "sFirst": "@deOROWeb.Resources.Strings.First",
+                                "sLast": "@deOROWeb.Resources.Strings.Last",
+                                "sNext": "@deOROWeb.Resources.Strings.Next",
+                                "sPrevious": "@deOROWeb.Resources.Strings.Previous"
+                            },
+                        }
+
+                    }
+
+                    ).on('draw.dt', function () {
+                        $(".spinner").TouchSpin({
+                            min: 0,
+                            max: 999,
+                            stepinterval: 1,
+                            verticalbuttons: true
+                        });
+                    });
+
+
+            </script>
+            
+        }
+    </section>
+</aside>
+
+
+<script>
+
+    $(".bath-update-tote").click(function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('batch-tote') >= 0) {
+
+            bootbox.confirm("Are you sure you want to do a batch update. This will update all items in the pre-pick list?", function (result) {
+
+                if (result) {
+
+                    var id = target.substring(0, target.indexOf('batch-tote') - 1);
+                    var postData = JSON.stringify({
+                        'detailid': id,
+                        'tote': $('#' + id + '-input-tote').val()
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        url: "@Request.ApplicationPath/ScheduleDetail/EditScheduleDetailItems/",
+                        dataType: "json",
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        data: postData,
+                        async: false,
+                        success: function (result) {
+                            if (result != 0)
+                                window.location = "@Request.ApplicationPath/Schedule/EditPrePick/" + result;
+                        },
+                        error: function (error) {
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    $(".bath-update-items-pulled").click(function (event) {
+
+        var target = event.target.id;
+
+        if (target.indexOf('batch-pulled') >= 0) {
+
+            bootbox.confirm("Are you sure you want to do a batch update. This will update all items in the pre-pick list?", function (result) {
+
+                if (result) {
+
+                    var id = target.substring(0, target.indexOf('batch-pulled') - 1);
+                    var postData = JSON.stringify({
+                        'detailid': id,
+                        'status': $('#' + id + '-checkbox-pulled').is(":checked")
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        url: "@Request.ApplicationPath/ScheduleDetail/EditScheduleDetailItems/",
+                                dataType: "json",
+                                cache: false,
+                                contentType: "application/json; charset=utf-8",
+                                data: postData,
+                                async: false,
+                                success: function (result) {
+                                    if (result != 0)
+                                        window.location = "@Request.ApplicationPath/Schedule/EditPrePick/" + result;
+                            },
+                                error: function (error) {
+                                }
+                            });
+                    }
+                    })
+            }
+            });
+
+</script>
+
