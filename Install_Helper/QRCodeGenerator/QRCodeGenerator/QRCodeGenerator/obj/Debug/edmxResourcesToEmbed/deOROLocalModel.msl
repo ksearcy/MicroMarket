@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="deORO_LocalModelStoreContainer" CdmEntityContainer="deORO_LocalEntities">
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="deORO_LocalModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pkid" ColumnName="pkid" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="is_staff" ColumnName="is_staff" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_superuser" ColumnName="is_superuser" />
+          <ScalarProperty Name="last_login" ColumnName="last_login" />
+          <ScalarProperty Name="date_joined" ColumnName="date_joined" />
+          <ScalarProperty Name="applicationname" ColumnName="applicationname" />
+          <ScalarProperty Name="is_approved" ColumnName="is_approved" />
+          <ScalarProperty Name="is_online" ColumnName="is_online" />
+          <ScalarProperty Name="created_date_time" ColumnName="created_date_time" />
+          <ScalarProperty Name="last_updated_on" ColumnName="last_updated_on" />
+          <ScalarProperty Name="last_updated_by_id" ColumnName="last_updated_by_id" />
+          <ScalarProperty Name="is_lockedout" ColumnName="is_lockedout" />
+          <ScalarProperty Name="lastlockedoutdate" ColumnName="lastlockedoutdate" />
+          <ScalarProperty Name="failedpasswordattemptcount" ColumnName="failedpasswordattemptcount" />
+          <ScalarProperty Name="lastlogindate" ColumnName="lastlogindate" />
+          <ScalarProperty Name="lastpasswordchangedate" ColumnName="lastpasswordchangedate" />
+          <ScalarProperty Name="lastlogintype" ColumnName="lastlogintype" />
+          <ScalarProperty Name="enrolled_fmd1" ColumnName="enrolled_fmd1" />
+          <ScalarProperty Name="finger_id1" ColumnName="finger_id1" />
+          <ScalarProperty Name="enrolled_fmd2" ColumnName="enrolled_fmd2" />
+          <ScalarProperty Name="finger_id2" ColumnName="finger_id2" />
+          <ScalarProperty Name="enrolled_fmd3" ColumnName="enrolled_fmd3" />
+          <ScalarProperty Name="finger_id3" ColumnName="finger_id3" />
+          <ScalarProperty Name="enrolled_fmd4" ColumnName="enrolled_fmd4" />
+          <ScalarProperty Name="finger_id4" ColumnName="finger_id4" />
+          <ScalarProperty Name="lastfmdchangeddate" ColumnName="lastfmdchangeddate" />
+          <ScalarProperty Name="account_balance" ColumnName="account_balance" />
+          <ScalarProperty Name="lastaccountbalancechangedamount" ColumnName="lastaccountbalancechangedamount" />
+          <ScalarProperty Name="lastaccountbalancechangeddate" ColumnName="lastaccountbalancechangeddate" />
+          <ScalarProperty Name="lastaccountbalancechangeddescription" ColumnName="lastaccountbalancechangeddescription" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

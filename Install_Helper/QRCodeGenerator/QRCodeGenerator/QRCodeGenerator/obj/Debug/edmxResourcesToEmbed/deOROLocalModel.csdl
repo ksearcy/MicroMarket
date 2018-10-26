@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="deORO_LocalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pkid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="last_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="is_staff" Type="Byte" Nullable="false" />
+    <Property Name="is_active" Type="Byte" />
+    <Property Name="is_superuser" Type="Byte" />
+    <Property Name="last_login" Type="DateTime" Precision="3" />
+    <Property Name="date_joined" Type="DateTime" Precision="3" />
+    <Property Name="applicationname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="is_approved" Type="Byte" />
+    <Property Name="is_online" Type="Byte" />
+    <Property Name="created_date_time" Type="DateTime" Precision="3" />
+    <Property Name="last_updated_on" Type="DateTime" Precision="3" />
+    <Property Name="last_updated_by_id" Type="Int32" />
+    <Property Name="is_lockedout" Type="Byte" />
+    <Property Name="lastlockedoutdate" Type="DateTime" Precision="3" />
+    <Property Name="failedpasswordattemptcount" Type="Int32" />
+    <Property Name="lastlogindate" Type="DateTime" Precision="3" />
+    <Property Name="lastpasswordchangedate" Type="DateTime" Precision="3" />
+    <Property Name="lastlogintype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="enrolled_fmd1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="finger_id1" Type="Int32" />
+    <Property Name="enrolled_fmd2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="finger_id2" Type="Int32" />
+    <Property Name="enrolled_fmd3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="finger_id3" Type="Int32" />
+    <Property Name="enrolled_fmd4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="finger_id4" Type="Int32" />
+    <Property Name="lastfmdchangeddate" Type="DateTime" Precision="3" />
+    <Property Name="account_balance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="lastaccountbalancechangedamount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="lastaccountbalancechangeddate" Type="DateTime" Precision="3" />
+    <Property Name="lastaccountbalancechangeddescription" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="barcode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="deORO_LocalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="users" EntityType="Self.user" />
+  </EntityContainer>
+</Schema>

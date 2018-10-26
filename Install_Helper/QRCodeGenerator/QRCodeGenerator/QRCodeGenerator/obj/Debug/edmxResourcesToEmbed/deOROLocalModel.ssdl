@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="deORO_LocalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pkid" Type="nvarchar" MaxLength="255" />
+    <Property Name="username" Type="nvarchar" MaxLength="255" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="30" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="30" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" MaxLength="128" />
+    <Property Name="is_staff" Type="tinyint" Nullable="false" />
+    <Property Name="is_active" Type="tinyint" />
+    <Property Name="is_superuser" Type="tinyint" />
+    <Property Name="last_login" Type="datetime" />
+    <Property Name="date_joined" Type="datetime" />
+    <Property Name="applicationname" Type="nvarchar" MaxLength="255" />
+    <Property Name="is_approved" Type="tinyint" />
+    <Property Name="is_online" Type="tinyint" />
+    <Property Name="created_date_time" Type="datetime" />
+    <Property Name="last_updated_on" Type="datetime" />
+    <Property Name="last_updated_by_id" Type="int" />
+    <Property Name="is_lockedout" Type="tinyint" />
+    <Property Name="lastlockedoutdate" Type="datetime" />
+    <Property Name="failedpasswordattemptcount" Type="int" />
+    <Property Name="lastlogindate" Type="datetime" />
+    <Property Name="lastpasswordchangedate" Type="datetime" />
+    <Property Name="lastlogintype" Type="nvarchar" MaxLength="50" />
+    <Property Name="enrolled_fmd1" Type="nvarchar(max)" />
+    <Property Name="finger_id1" Type="int" />
+    <Property Name="enrolled_fmd2" Type="nvarchar(max)" />
+    <Property Name="finger_id2" Type="int" />
+    <Property Name="enrolled_fmd3" Type="nvarchar(max)" />
+    <Property Name="finger_id3" Type="int" />
+    <Property Name="enrolled_fmd4" Type="nvarchar(max)" />
+    <Property Name="finger_id4" Type="int" />
+    <Property Name="lastfmdchangeddate" Type="datetime" />
+    <Property Name="account_balance" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="lastaccountbalancechangedamount" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="lastaccountbalancechangeddate" Type="datetime" />
+    <Property Name="lastaccountbalancechangeddescription" Type="nvarchar" MaxLength="4000" />
+    <Property Name="barcode" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="deORO_LocalModelStoreContainer">
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

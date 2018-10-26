@@ -1,0 +1,254 @@
+; MagTek Standard (VCP) USB Driver
+; Copyright (C) 2009 by MagTek Inc
+; All rights reserved
+;Part Number :300XXXXX-100.0001
+
+[Version]
+signature="$Chicago$"
+Class=Ports
+ClassGuid={4d36e978-e325-11ce-bfc1-08002be10318}
+Provider=%MT.Inc%
+DriverVer=10/19/2010,1.00.0004.0
+CatalogFile=MTSTDUVC.cat
+
+[Manufacturer]
+%MT.Mfg%=MT.Section,NTx86,NTamd64,NTia64
+
+;-----------------------------------------------------------------------------
+; Device directory
+;-----------------------------------------------------------------------------
+[MT.Section]
+%PID_0004.DeviceDesc%=MT0004,USB\VID_0801&PID_0004
+%PID_0005.DeviceDesc%=MT0005,USB\VID_0801&PID_0005
+%PID_000A.DeviceDesc%=MT000A,USB\VID_0801&PID_000A
+%PID_000B.DeviceDesc%=MT000B,USB\VID_0801&PID_000B
+%PID_2252.DeviceDesc%=MT2252,USB\VID_0801&PID_2252
+
+
+[MT.Section.NTx86]
+%PID_0004.DeviceDesc%=MT0004,USB\VID_0801&PID_0004
+%PID_0005.DeviceDesc%=MT0005,USB\VID_0801&PID_0005
+%PID_000A.DeviceDesc%=MT000A,USB\VID_0801&PID_000A
+%PID_000B.DeviceDesc%=MT000B,USB\VID_0801&PID_000B
+%PID_2252.DeviceDesc%=MT2252,USB\VID_0801&PID_2252
+
+
+[MT.Section.NTamd64]
+%PID_0004.DeviceDesc%=MT0004,USB\VID_0801&PID_0004
+%PID_0005.DeviceDesc%=MT0005,USB\VID_0801&PID_0005
+%PID_000A.DeviceDesc%=MT000A,USB\VID_0801&PID_000A
+%PID_000B.DeviceDesc%=MT000B,USB\VID_0801&PID_000B
+%PID_2252.DeviceDesc%=MT2252,USB\VID_0801&PID_2252
+
+[MT.Section.NTia64]
+%PID_0004.DeviceDesc%=MT0004,USB\VID_0801&PID_0004
+%PID_0005.DeviceDesc%=MT0005,USB\VID_0801&PID_0005
+%PID_000A.DeviceDesc%=MT000A,USB\VID_0801&PID_000A
+%PID_000B.DeviceDesc%=MT000B,USB\VID_0801&PID_000B
+%PID_2252.DeviceDesc%=MT2252,USB\VID_0801&PID_2252
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[DestinationDirs]
+DefaultDestDir=11               ; LDID_SYS
+
+MTSTDUVC.CopyFiles.NT   = 10, system32\drivers
+MT0004.CopyFiles.NT     = 10, system32\drivers
+MT0005.CopyFiles.NT     = 10, system32\drivers
+MT000A.CopyFiles.NT     = 10, system32\drivers
+MT000B.CopyFiles.NT     = 10, system32\drivers
+MT2252.CopyFiles.NT     = 10, system32\drivers
+
+MTSTDUVCPP.CopyFiles.NT   	= 10, system32
+
+
+
+; =================== Class Sections ===========================
+
+; =================== Class Sections ===========================
+
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+;   MT0004 --IS380
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+[MT0004.NT]
+Include=msports.inf
+Needs=SerialEnumerator.NT
+CopyFiles=MTSTDUVC.CopyFiles.NT,MT0004.CopyFiles.NT,MTSTDUVCPP.CopyFiles.NT
+AddReg=MT0004.AddReg.NT
+
+[MT0004.NT.HW]
+AddReg=MT0004.AddReg.NT.HW
+
+[MT0004.AddReg.NT]
+HKR,,EnumPropPages32,,"MTSTDUVC.dll,EnumPropPages"
+
+[MT0004.AddReg.NT.HW]
+HKR,,"UpperFilters",0x00010000,"serenum"
+HKR,,FriendlyName,,%PID_0004.DeviceDesc%
+
+[MT0004.CopyFiles.NT]
+
+[MT0004.NT.Services]
+Include=msports.inf
+Needs=SerialEnumerator.NT.Services
+AddService =%SVCNAME%, 0x00000002, StandardMTSTDUVC.AddService
+
+
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+;   MT0005 --IPSPT
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+[MT0005.NT]
+Include=msports.inf
+Needs=SerialEnumerator.NT
+CopyFiles=MTSTDUVC.CopyFiles.NT,MT0005.CopyFiles.NT,MTSTDUVCPP.CopyFiles.NT
+AddReg=MT0005.AddReg.NT
+
+[MT0005.NT.HW]
+AddReg=MT0005.AddReg.NT.HW
+
+[MT0005.AddReg.NT]
+HKR,,EnumPropPages32,,"MTSTDUVC.dll,EnumPropPages"
+
+[MT0005.AddReg.NT.HW]
+HKR,,"UpperFilters",0x00010000,"serenum"
+HKR,,FriendlyName,,%PID_0005.DeviceDesc%
+
+[MT0005.CopyFiles.NT]
+
+[MT0005.NT.Services]
+Include=msports.inf
+Needs=SerialEnumerator.NT.Services
+AddService = %SVCNAME%, 0x00000002, StandardMTSTDUVC.AddService
+
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+;   MT000A --S65
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+[MT000A.NT]
+Include=msports.inf
+Needs=SerialEnumerator.NT
+CopyFiles=MTSTDUVC.CopyFiles.NT,MT000A.CopyFiles.NT,MTSTDUVCPP.CopyFiles.NT
+AddReg=MT000A.AddReg.NT
+
+[MT000A.NT.HW]
+AddReg=MT000A.AddReg.NT.HW
+
+[MT000A.AddReg.NT]
+HKR,,EnumPropPages32,,"MTSTDUVC.dll,EnumPropPages"
+
+[MT000A.AddReg.NT.HW]
+HKR,,"UpperFilters",0x00010000,"serenum"
+HKR,,FriendlyName,,%PID_000A.DeviceDesc%
+
+[MT000A.CopyFiles.NT]
+
+[MT000A.NT.Services]
+Include=msports.inf
+Needs=SerialEnumerator.NT.Services
+AddService = %SVCNAME%, 0x00000002, StandardMTSTDUVC.AddService
+
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+;   MT000B --IS320
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+[MT000B.NT]
+Include=msports.inf
+Needs=SerialEnumerator.NT
+CopyFiles=MTSTDUVC.CopyFiles.NT,MT000B.CopyFiles.NT,MTSTDUVCPP.CopyFiles.NT
+AddReg=MT000B.AddReg.NT
+
+[MT000B.NT.HW]
+AddReg=MT000B.AddReg.NT.HW
+
+[MT000B.AddReg.NT]
+HKR,,EnumPropPages32,,"MTSTDUVC.dll,EnumPropPages"
+
+[MT000B.AddReg.NT.HW]
+HKR,,"UpperFilters",0x00010000,"serenum"
+HKR,,FriendlyName,,%PID_000B.DeviceDesc%
+
+[MT000B.CopyFiles.NT]
+
+[MT000B.NT.Services]
+Include=msports.inf
+Needs=SerialEnumerator.NT.Services
+AddService = %SVCNAME%, 0x00000002, StandardMTSTDUVC.AddService
+
+
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+;   MT2252 --MICR
+;----------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+[MT2252.NT]
+Include=msports.inf
+Needs=SerialEnumerator.NT
+CopyFiles=MTSTDUVC.CopyFiles.NT,MT2252.CopyFiles.NT,MTSTDUVCPP.CopyFiles.NT
+AddReg=MT2252.AddReg.NT
+
+[MT2252.NT.HW]
+AddReg=MT2252.AddReg.NT.HW
+
+[MT2252.AddReg.NT]
+HKR,,EnumPropPages32,,"MTSTDUVC.dll,EnumPropPages"
+
+[MT2252.AddReg.NT.HW]
+HKR,,"UpperFilters",0x00010000,"serenum"
+HKR,,FriendlyName,,%PID_2252.DeviceDesc%
+
+[MT2252.CopyFiles.NT]
+
+[MT2252.NT.Services]
+Include=msports.inf
+Needs=SerialEnumerator.NT.Services
+AddService = %SVCNAME%, 0x00000002, StandardMTSTDUVC.AddService
+
+
+[StandardMTSTDUVC.AddService]
+DisplayName    = %StandardMTSTDUVC.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\%SYSFILENAME%
+LoadOrderGroup = Extended Base
+
+[MTSTDUVCPP.CopyFiles.NT]
+MTSTDUVC.dll,,,0x00000004
+ 
+; =================== Global ==================================
+[MTSTDUVC.CopyFiles.NT]
+%SYSFILENAME%,,,0x00000004
+
+;-----------------------------------------------------------------------------
+; Copy files instructions
+;-----------------------------------------------------------------------------
+[SourceDisksNames]
+1=%Str.DriverDiskName%,""
+
+[SourceDisksFiles]
+MTSTDUVC.SYS=1
+MTSTDUVC.dll=1
+; =================== Strings ==================================
+
+[Strings]
+MT.Inc="MagTek"
+MT.Mfg="MagTek"
+
+StandardMTSTDUVC.SvcDesc="MagTek Standard (VCP) USB Device Driver"
+Str.DriverDiskName  ="MagTek USB Device Installation Diskette" 
+PID_0004.DeviceDesc="IntelliStripe 380"
+PID_0005.DeviceDesc="IntelliPIN SPT"
+PID_000A.DeviceDesc="IntelliStripe 65"
+PID_000B.DeviceDesc="IntelliStripe 320"
+PID_2252.DeviceDesc="MagneSafe MiniMICR"
+SVCNAME="MTSTDUVC"
+SYSFILENAME="MTSTDUVC.SYS"
+
+

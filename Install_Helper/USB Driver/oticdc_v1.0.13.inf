@@ -1,0 +1,55 @@
+
+[Version]
+Signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%OTI%
+CatalogFile=oti_cdc.cat
+DriverVer=02/09/2015,1.0.13
+
+
+[SourceDisksFiles]
+
+[Manufacturer]
+%MFGNAME%=VirComDevice,NT,NTamd64
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[VirComDevice.NT]
+%DESCRIPTION%=DriverInstall,USB\VID_1089&PID_0021
+%DESCRIPTION%=DriverInstall,USB\VID_1089&PID_0022
+%DESCRIPTION%=DriverInstall,USB\VID_1089&PID_0023
+
+[VirComDevice.NTamd64]
+%DESCRIPTION%=DriverInstall,USB\VID_1089&PID_0021
+%DESCRIPTION%=DriverInstall,USB\VID_1089&PID_0022
+%DESCRIPTION%=DriverInstall,USB\VID_1089&PID_0023
+
+[DriverInstall.NT]
+Include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=DriverInstall.NT.AddReg
+
+[DriverInstall.NT.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[DriverInstall.NT.Services]
+AddService=usbser, 0x00000002, DriverServiceInst
+
+[DriverServiceInst]
+DisplayName=%SERVICE%
+ServiceType = 1 ; SERVICE_KERNEL_DRIVER
+StartType = 3 ; SERVICE_DEMAND_START
+ErrorControl = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary= %12%\usbser.sys
+LoadOrderGroup = Base
+
+[Strings]
+OTI      = "On-Track Innovations LTD"
+MFGNAME     = "On-Track Innovations LTD."
+DESCRIPTION = "OTI Reader CDC"
+SERVICE     = "OTI Reader CDC driver"
+DriversDisk = "OTI SDK Drivers Disk"

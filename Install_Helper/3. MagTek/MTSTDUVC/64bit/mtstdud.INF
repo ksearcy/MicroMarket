@@ -1,0 +1,115 @@
+; MagTek Standard (VCP) USB Driver
+; Copyright (C) 2009 by MagTek Inc
+; All rights reserved
+; Part Number:300XXXXX-100.0001
+
+[Version]
+
+Signature="$WINDOWS NT$"
+ClassGUID={36fc9e60-c465-11cf-8056-444553540000}
+Class=USB
+Provider=%MAGTEK%
+DriverVer=10/10/2010,1.00.0004.0
+CatalogFile=MTMCPUVC.cat
+
+[Manufacturer]
+
+%Std%=Std,NTx86,NTamd64,NTia64
+
+[Std]
+
+%SrlPrtIS65.DeviceDesc% = SrlPrtIS65,mtport\is65
+%SrlPrtIS320.DeviceDesc% = SrlPrtIS320,mtport\is320
+%SrlPrtIS380.DeviceDesc% = SrlPrtIS380,mtport\is380
+%SrlPrtIPSPT.DeviceDesc% = SrlPrtIPSPT,mtport\ipspt
+%SrlPrtMINIMICR.DeviceDesc% = SrlPrtMINIMICR,mtport\mmicr
+
+[Std.NTx86]
+
+%SrlPrtIS65.DeviceDesc% = SrlPrtIS65,mtport\is65
+%SrlPrtIS320.DeviceDesc% = SrlPrtIS320,mtport\is320
+%SrlPrtIS380.DeviceDesc% = SrlPrtIS380,mtport\is380
+%SrlPrtIPSPT.DeviceDesc% = SrlPrtIPSPT,mtport\ipspt
+%SrlPrtMINIMICR.DeviceDesc% = SrlPrtMINIMICR,mtport\mmicr
+
+[Std.NTamd64]
+%SrlPrtIS65.DeviceDesc% = SrlPrtIS65,mtport\is65
+%SrlPrtIS320.DeviceDesc% = SrlPrtIS320,mtport\is320
+%SrlPrtIS380.DeviceDesc% = SrlPrtIS380,mtport\is380
+%SrlPrtIPSPT.DeviceDesc% = SrlPrtIPSPT,mtport\ipspt
+%SrlPrtMINIMICR.DeviceDesc% = SrlPrtMINIMICR,mtport\mmicr
+
+[Std.NTia64]
+
+%SrlPrtIS65.DeviceDesc% = SrlPrtIS65,mtport\is65
+%SrlPrtIS320.DeviceDesc% = SrlPrtIS320,mtport\is320
+%SrlPrtIS380.DeviceDesc% = SrlPrtIS380,mtport\is380
+%SrlPrtIPSPT.DeviceDesc% = SrlPrtIPSPT,mtport\ipspt
+%SrlPrtMINIMICR.DeviceDesc% = SrlPrtMINIMICR,mtport\mmicr
+
+
+[ControlFlags]
+ExcludeFromSelect = *
+ 
+
+[SRLPRTIS65.NT]
+CopyFiles=SRLPRTIS65.CopyFiles.NT
+AddReg=SRLPRTIS65.AddReg.NT
+
+[SRLPRTIS65.CopyFiles.NT]
+
+[SRLPRTIS65.AddReg.NT]
+
+[SRLPRTIS320.NT]
+CopyFiles=SRLPRTIS320.CopyFiles.NT
+AddReg=SRLPRTIS320.AddReg.NT
+
+[SRLPRTIS320.CopyFiles.NT]
+
+[SRLPRTIS320.AddReg.NT]
+
+[SRLPRTIS380.NT]
+CopyFiles=SRLPRTIS380.CopyFiles.NT
+AddReg=SRLPRTIS380.AddReg.NT
+
+[SRLPRTIS380.CopyFiles.NT]
+
+[SRLPRTIS380.AddReg.NT]
+
+[SRLPRTMINIMICR.NT]
+CopyFiles=SRLPRTMINIMICR.CopyFiles.NT
+AddReg=SRLPRTMINIMICR.AddReg.NT
+
+[SRLPRTMINIMICR.CopyFiles.NT]
+
+[SRLPRTMINIMICR.AddReg.NT]
+
+[SRLPRTIPSPT.NT]
+CopyFiles=SRLPRTIPSPT.CopyFiles.NT
+AddReg=SRLPRTIPSPT.AddReg.NT
+
+[SRLPRTIPSPT.CopyFiles.NT]
+
+[SRLPRTIPSPT.AddReg.NT]
+
+[SourceDisksNames]
+1=%Str.DriverDiskName%,""
+
+[SourceDisksFiles]
+
+;----------------------------------------------------------
+
+[DestinationDirs]
+DefaultDestDir=11               ; LDID_SYS
+
+[Strings]
+
+MAGTEK = "MAGTEK"
+Std = "(Standard port types)"
+
+SrlPrtIS65.DeviceDesc = "IntelliStripe 65"
+SrlPrtIS320.DeviceDesc = "IntelliStripe 320"
+SrlPrtIS380.DeviceDesc = "IntelliStripe 380"
+SrlPrtIPSPT.DeviceDesc = "IntellPIN SPT"
+SrlPrtMINIMICR.DeviceDesc = "MagneSafe MiniMICR"
+Str.DriverDiskName  ="MagTek USB Device Installation Diskette" 

@@ -1,0 +1,19 @@
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\QRCodeGenerator.exe.config
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\QRCodeGenerator.exe
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\QRCodeGenerator.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\EntityFramework.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\EntityFramework.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\obj\Debug\QRCodeGenerator.exe
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\obj\Debug\QRCodeGenerator.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\EmailTemplate.html
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\zxing.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\zxing.presentation.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\zxing.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\zxing.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\zxing.presentation.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\zxing.presentation.xml
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\NLog.dll
+c:\users\administrator\documents\visual studio 2015\Projects\QRCodeGenerator\QRCodeGenerator\bin\Debug\NLog.xml
+C:\Users\kevin\Desktop\QRCodeGenerator\QRCodeGenerator\QRCodeGenerator\bin\Debug\QRCodeGenerator.exe.config
+C:\Users\kevin\Desktop\QRCodeGenerator\QRCodeGenerator\QRCodeGenerator\obj\Debug\QRCodeGenerator.exe
+C:\Users\kevin\Desktop\QRCodeGenerator\QRCodeGenerator\QRCodeGenerator\obj\Debug\QRCodeGenerator.pdb
