@@ -1,0 +1,21 @@
+CashlessPay:GetCommandList
+CashlessPay:GetName
+CashlessPay:GetSerialNumber
+CashlessPay:Enable
+Pause=1
+
+CashlessPay:Display=Hello
+
+Wait:Cashless Pay: Card inserted
+CashlessPay:VendRequest=1.00,2
+
+Wait:Cashless Pay: Vend approved
+CashlessPay:VendSuccess
+
+Wait:Cashless Pay: Card removed
+Pause=3
+
+CashlessPay:CashSale=2.00,3
+Pause=3
+
+CashlessPay:Disable

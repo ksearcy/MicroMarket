@@ -1,0 +1,20 @@
+Version: 4.15
+Date:    13th September 2017
+
+Purpose of release
+===================
+
+- bug fix for ReadIntervalTimeout being set incorrectly.  It was being set to a small value therefore causing incomplete messages in CCTalk responses.
+
+- incorporates a new SoftwareTerms.txt file as part of the Software licence terms and agreement.
+
+- added SetupDevice functionality for Generic MDB CashlessPay and NoteRecycler.
+
+- bug fix for SetupDevice on CC200 for MDB as it used to set port to #USB1 but it is now #USB2.
+
+- added a MaxClients setting that goes in the [Socket] section of ther configuration to limit the number of clients allowed to connect.
+
+Dependencies
+============
+
+- None.

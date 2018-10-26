@@ -1,0 +1,156 @@
+SOFTWARE LICENCE & RELEASE AGREEMENT dated <Day> of <Month> <Year>
+Between
+ePOINT Embedded Computing Limited, a company incorporated and registered in Scotland with Registered Number SC340421 and having its Registered Office at Williamton House, Low causeway, Culross, Fife, Scotland, United Kingdom, KY12 8HL (“E2C”);
+And
+The Company who by installing the Software agree to the following terms and conditions in this agreement (the “Company”).
+WHEREAS
+(A)	E2C and/or its group companies are the owner of the Software, excluding any Third Party IPRs.
+(B)	The Company wishes to be granted a licence to access and use the Software and E2C wishes to grant such a licence to the Company on the terms and conditions set out in this Agreement.
+1.	DEFINITIONS AND INTERPRETATION
+1.1	The following words and expressions shall have the following meanings :-
+Agreement means this agreement including any amendments to it; 
+	Commencement Date means the date of execution of this Agreement;
+Confidential Information is defined in the executed Non Disclosure Agreement between E2C and the Company;
+Customer Solution Summary means summary of the Firmware, Hardware, Software provided to the Company, together with the Peripheral Support, at Appendix 1;
+Change Control means the procedure for controlling changes to the Firmware, Hardware, Software solution provided to the Company by E2C, together with the Peripheral Support, by amendments to Customer Solution Summary;
+Error means the Software is not operating materially in compliance with the Software Specification;
+Engineering means Hardware, Firmware and Software engineering provided by E2C at the discounted rate specified in the Software Support Agreement between E2C and the Company;
+Maintenance and Support means support and maintenances services provided by E2C in the Software Support Agreement between E2C and the Company;
+Fees means the fee(s) for the supply of the Software and the provision of Engineering under this Agreement as specified in Clause 4 and Maintenance and Support services Fees for the provision of Maintenance and Support Services are detailed in a separate Support and Maintenance Agreement;
+	Initial Period means the period of [     1    ] years commencing on the Commencement Date;
+	Intellectual Property Rights means patents, unpatented inventions, registered and unregistered designs and design rights, copyrights (including, without limitation, rights in computer software), database rights, topography rights, domain names, trade marks, service marks, trade names, rights in trade secrets, know-how including applications and the right to apply for the foregoing and all other intellectual property rights of any nature whatsoever, and all rights of a similar nature or having similar effect, throughout the world whether registered or unregistered;
+Peripheral Support means the support for the third party peripheral devices, listed in the Customer Solution Summary, provided by E2C’s Firmware, Hardware and Software solution; 
+	Software means the software runtime executable;
+Runtime Licence Fee means the element of the total fee paid by the Company to purchase the Hardware, Firmware and Software solution from E2C, which relates to the licence to install and use the Software in accordance with the terms of this Agreement;
+Software Specification/Firmware Specification means the Firmware and Software version defined in the Customer Solution Summary (attached to this Agreement in Appendix 1);Hardware means the ancillary hardware components;
+Firmware means any embedded Software programmed on to the Hardware;
+	Peripheral Support means the support provided by Software, Firmware and Hardware for the peripheral transaction handling device(s);
+	Source Code means the source code of the Software and Firmware;
+Third Party IPRs means any and all Intellectual Property Rights associated with any part of the Software which are owned by a third party and licensed to E2C;
+Software Development Kit (SDK) means a solution bundle comprising Software, Firmware and Hardware provided for the purposes of software development and integration.
+Software Configuration means a distinct build of software reflecting supported devices and features.
+Beta Software means software which at the time of release is not fully tested or approved for final production release;
+Production Release Software means non-expiring, executable derived from Beta Software approved and verified by the Company;
+Product means the integrated software product or solution incorporating the Software;
+Licence Key means an alphanumeric encrypted key used to unlock the Software on the target platform;
+Corporate Licence means a licence code which allows replication of the Production Release Software for the purposes of deployment on production machines;
+Documentation  means all information, data, drawings, specifications, documentation, software listings, source or object code which E2C may have imparted to the Company relating to the Software.
+Copyright Notice means the following text “Product contains software owned and copyrighted by ePOINT Embedded Computing Limited, Scotland, UK.  ALL RIGHTS RESERVED”.
+1.2	In this Agreement, unless the context otherwise requires :-
+1.2.1	References to clauses are references to the clauses of this Agreement;
+1.2.2	The masculine gender shall be deemed to include the feminine and neuter and vice versa and the singular shall be deemed to include references in the plural and vice versa; 
+1.2.3	The clause headings are for convenience of reference only and shall not affect the construction or interpretation of this Agreement; and
+1.2.4	Any reference to an Scottish legal term for any action, remedy, method of judicial proceeding, legal document, legal status, court, official or any legal concept or thing shall, in respect of any jurisdiction other than Scotland, be deemed to include a reference to what most nearly approximates in that jurisdiction to the Scottish legal term.
+2.	COMMENCEMENT AND DURATION OF THE AGREEMENT
+Notwithstanding the date or dates of execution, this Agreement will commence on the Commencement Date and, subject to earlier termination under Clause 13, will continue in full force and effect for the Initial Period and thereafter shall automatically renew for additional [     1    ] year terms unless and until either E2C or the Company gives the other written notice of non-renewal no later than three (3) months prior to expiration of the Initial Term or any renewal term of this Agreement.
+3.	GRANT OF RIGHTS
+3.1	E2C hereby grants to the Company, subject to the terms and conditions of this Agreement, a non-exclusive, non-transferable licence, 	
+3.1.1	To use and include in the Product, the Software for the purposes of development, technical support, maintenance, and warranty service of the product;
+3.1.2	To use, reproduce, display or otherwise distribute or transfer copies of Software, as an integral part of the Product application, in executable form only.
+3.2	The Company shall permit E2C to inspect and have access to any premises, and to the computer equipment located there, at or on which the Software is being kept or used, and any records kept pursuant to this licence, for the purposes of ensuring that the Company is complying with the terms of this licence, provided that E2C provides reasonable advance notice to the Company of such inspections, which shall take place at reasonable times. 
+4.	FEES
+4.1	The Company will pay a Runtime Licence Fee as detailed on commercial quotations to the Company, subject to : -
+4.1.1 If the price of the Firmware, Hardware and Software solution provided to the Company by E2C increases by 10% or more during any twelve month period of this Agreement, the Company may terminate this Agreement by giving three months written notice to E2C; 
+4.1.2 Termination of this Agreement pursuant to Clause 4.1.1 shall have no affect whatsoever on the Company’s rights under this Agreement to the licence and use the copies of the Software purchased by the Company prior to the date of termination of this Agreement.
+4.2	Fees for Maintenance and Support are specified in a separate Maintenance and Support Agreement. If the Company chooses not purchase an E2C Maintenance and Support package, E2C’s Standard Engineering Day Rate Fee of £750 will apply to all support requests.  All support requests will require a valid purchase order from the Company and payment in advance.
+4.3	The Company shall pay the Fees in the amount and at such times as agreed in separate commercial quotations.
+4.4	Any amounts payable by the Company to E2C under this Agreement shall be paid within the payment terms stated on E2C’s Sales Invoice(s) on the date(s) on which they become due.
+4.5	Without prejudice to any other rights accruing to E2C, if any amounts payable by the Company to E2C under this Agreement remain unpaid on the due date for payment, interest at the rate of four (4) per cent per annum above the base rate from time to time of the Bank of England shall be payable by the Company on such amounts from the due date for payment until the date of actual payment in full of such amounts (whether before or after judgement).
+4.6	All amounts payable by the Company under this Agreement are exclusive of any VAT or other applicable taxes or duties which shall be paid (if applicable) by the Company at the appropriate rate.
+4.7	All amounts due under this Agreement shall be paid in full without any deduction or withholding other than as required by law and the Company shall not be entitled to assert any credit set-off or counterclaim against E2C in order to justify withholding payment of any such amount in whole or in part.
+5.	COMPANY OBLIGATIONS
+5.1	The Company undertakes to E2C that it shall :-
+5.1.1	Use the Software solely for the purposes of its own business operations;
+5.1.2	Not make any copies of the Software apart from copies that are necessary to test the Software, to deploy the Software or for backup purposes and that the number of copies does not exceed the number of runtime licences purchased from E2C;
+5.1.3	Maintain accurate and up-to-date records of the number and location of any copies of the Software;
+5.1.4	Reproduce and include the Copyright Notice of E2C on any copies in any form, including partial copies or modifications of the Software; and
+5.1.5	Not provide or otherwise make available the Software in whole or in part to any person other than its employees, contractors or customers, without the prior written consent of E2C.
+5.2	Subject to Clause 5.1 the Company shall not itself or through any subsidiary, agent or third party copy, reproduce, translate, adapt, vary, modify, decompile, disassemble or reverse engineer the Software except :-
+5.2.1	to the extent that any reduction of the Software to human readable form (whether by reverse engineering, decompilation or disassembly) is necessary for the purposes of integrating the operation of the Software with the operation of other software or systems used by the Company, unless E2C is prepared to carry out such action at a reasonable commercial fee or has provided the information necessary to achieve such integration within a reasonable period, and the Company shall request E2C to carry out such action or to provide such information (and shall meet E2C’s reasonable costs in providing that information) before undertaking any such reduction.
+6.	INTELLECTUAL PROPERTY RIGHTS
+6.1	The Company acknowledges that all Intellectual Property Rights associated with the Software including all documentation and manuals relating to the Software belong to E2C.  The Company shall not, by virtue of this Agreement or otherwise, acquire any right, title or interest in or to these rights or any Third Party IPRs. 
+6.2	E2C hereby warrants that, to the best of its knowledge and belief, the exercise by the Company of the rights granted to it pursuant to this Agreement shall not infringe the Intellectual Property Rights of any third party. 
+6.3	In the event of a breach of E2C's warranty in Clause 6.2 then, so long as such breach has not arisen as a consequence of the Company’s unauthorised use of the Software or as a result of the use of the Software in combination with any other software or systems, then E2C shall at its sole option either:-
+	6.3.1	Make any necessary modification to the Software in order to rectify such breach; or
+	6.3.2	Replace the Software with software of similar functionality and performance; or
+	6.3.3	If the remedies under Clause 6.3.1 and 6.3.2 are not commercially viable then E2C may terminate this Agreement and, following such termination, E2C will, subject to Clauses 6.4 and 8.4, indemnify the Company from and against any costs, expenses and liabilities incurred by the Company as a direct consequence of a breach of E2C's warranty in Clause 6.2.
+6.4	The indemnity in Clause 6.3.3 shall only apply if the Company :-
+6.4.1 	Gives E2C prompt written notice of the third party claim to which the indemnity relates;
+6.4.2	Grants E2C the right to prosecute the third party claim including the right to determine the basis on which the claim is to be settled; and
+6.4.3	Provides E2C with all reasonable assistance and information in relation to the handling of the claim.
+6.5	The remedies as set out in clause 6.3 are the sole and exclusive remedy of the Company in respect of a breach of E2C's warranty in Clause 6.2.
+6.6	If the Company becomes aware of any actual, threatened, suspected or alleged infringement or any unauthorised use of the Software or any Intellectual Property Rights associated with the Software by any third party, then the Company shall as soon as reasonably practicable provide details of any such actual, threatened, suspected or alleged infringement or unauthorised use to E2C.  The Company shall give E2C all reasonable assistance to prevent such infringement and/or unauthorised use, and/or to commence infringement or other proceedings in relation thereto.  
+7.	MAINTENANCE AND SUPPORT 
+7.1	The Company may purchase Maintenance and Support services from E2C during the term of this Agreement and E2C will provide the Company with Maintenance and Support services for the Software for the period of a Software Support Agreement between E2C and the Company, subject to Clause 7.2.   
+7.2	E2C shall provide the Company with Maintenance and Support in relation to the Software on the terms set out in the Support and Maintenance Agreement, subject to :-
+7.2.1	The payment of the relevant Fees for Maintenance and Support services by the Company as and when they fall due; and
+7.2.2	E2C continuing to provide Maintenance and Support services for the Software (which support may only be discontinued by E2C by giving three months notice to the Company prior to the renewal date of a Software Support Agreement between E2C and the Company;
+7.3	If the Company chooses not to purchase one of E2C’s Commercial Maintenance and Support packages any maintenance and support required by the Company will be billed at the Standard E2C Engineering Day Rate specified in Clause 4.2, which must be procured by a valid Company Purchase Order, payable in advance.
+8.	LIABILITY AND INDEMNITY
+8.1	Neither party shall, nor shall they purport to, exclude or restrict liability for death or personal injury resulting from the negligence of that party or its employees, servants or agents acting in the course of their employment or for any fraud by that party or its employees, servants or agents acting in the course of their employment.
+8.2	Subject to Clause 8.1, each party hereby expressly excludes any and all liability to the other party for loss of profit, loss of contracts, loss of business, loss of revenue, loss of goodwill, loss of anticipated savings or any special, indirect or consequential loss which may arise in or in relation to the subject matter of this Agreement. 
+8.3	The Company and E2C warrant to each other that each has effected and shall maintain for the period of this Agreement suitable and sufficient insurance to cover the liabilities not excluded in Clause 8.2 that may arise under this Agreement.
+8.4	Subject to clauses 8.1 or 8.2, and only insofar as any liability may be limited or excluded by law, the total liability of E2C to the Company in respect of any and all claims, whether in contract, delict/tort or otherwise, arising from or in relation to this Agreement, shall be limited to an amount equal to the Fees paid by the Company to E2C under this Agreement in the previous 12 month period.
+9.	WARRANTIES AND ACCEPTANCE
+9.1	The Company acknowledges that software in general is not error-free and agrees that the existence of any errors shall not constitute a breach of this Agreement.  The Software will be deemed to be accepted by the Company on the earlier of:
+9.1.1	90 days after it receives delivery of the Software unless the Company has given E2C notice within such period that there is a material deficiency in the operation of the Software; or 
+9.1.3	The Software is non compliant with Software/Firmware Specification.
+9.2	If the Company discovers a material Error in the Software which substantially affects the Company's use of the same and notifies E2C of the Error within ninety (90) days from the Commencement Date, E2C shall at its sole option either refund the licence fee or use reasonable endeavours to correct the Error provided that such error has not been caused by any modification, variation or abuse or corruption of the Software or by use of the Software with any other software or on equipment with which it is incompatible.
+9.3	To the extent permitted by the applicable law, E2C disclaims all other warranties with respect to the Software, either express or implied, including but not limited to any implied warranties of satisfactory quality or fitness for any particular purpose.
+9.4	Although E2C does not warrant that the Software is free from all known viruses, it will use commercially reasonable efforts to check for the most commonly known viruses prior to providing the Company with the Software.
+10.	CONFIDENTIALITY
+10.1	All information, data, drawings, specifications, documentation, software listings, source or object code which E2C may have imparted to the Company and may from time to time impart to the Company relating to the Software (other than the ideas and principles which underlie the Software) ("Confidential Information") is proprietary and confidential.  The Company shall and shall procure that any Sub-Licensees shall only use such information in accordance with the terms of this Agreement and not disclose the same to any third party without the prior written consent of E2C.
+10.2 	Subject to Clause 10.1, the Company shall not, and shall procure that any sub-licensee shall not, itself or through any subsidiary, agent or third party use any Confidential Information to copy, reproduce, translate, adapt, vary, modify, decompile, disassemble or reverse engineer the Software.
+10.3	The provisions of this Clause 10 shall not prevent the disclosure or use by the Company of any Confidential Information which is or through no fault of the Company becomes public knowledge or to the extent required by law.
+11.	ENTIRE AGREEMENT
+This Agreement constitutes the entire agreement between the parties in relation to its subject matter and supersedes all previous proposals, representations, agreements and arrangements whether oral, written or implied between the parties in relation to its subject matter.
+12.	ANNOUNCEMENTS
+	Neither party shall make or issue at any time any announcement, press release or other publicity relating to this Agreement or any matter referred to in this Agreement without the prior written approval of the other party as to the form and content of such announcement, press release or other publicity. 
+13.	TERMINATION
+13.1	This Agreement may be terminated forthwith by notice in writing from E2C to the Company if :-
+13.1.1	Any amounts payable under this Agreement by the Company are not paid on or before the due date for payment and remain unpaid thirty (30) days after the due date for payment; or
+13.1.2	The Company is in material breach of or fails to perform or observe any of its obligations under this Agreement and such breach or failure continues for thirty (30) days after notice from E2C requiring the Company to rectify such breach or failure; or
+13.1.3	The Company has a receiver, administrative receiver or similar officer appointed in respect of the whole or any substantial part of its assets in any part of the world, or an order is made or a resolution is passed for the winding up of the Company or a petition is presented for the appointment of an administrator or similar officer to the Company; or
+13.1.4	The Company enters into any form of insolvency proceedings in any part of the world or is unable to pay its debts or certifies that it is unable to pay its debts or the Company makes or enters into any arrangement or compromise with any of its creditors; or
+13.1.5	The Company’s premises or business shall be so damaged, impeded, interrupted or interfered with by force majeure as to render it unlikely that it will be able to continue to comply strictly with the requirements of this Agreement for a period in excess of thirty (30) days
+13.2	This Agreement may be terminated by the Company forthwith by notice in writing to E2C if :-
+13.2.1 	E2C is in material breach of its obligations under this Agreement and such breach or failure continues for thirty (30) days after notice from the Company requiring E2C to rectify such breach or failure; or
+13.2.2	E2C has a receiver, administrative receiver or similar officer appointed in respect of the whole or any substantial part of its assets in any part of the world, or an order is made or a resolution is passed for the winding up of E2C or a petition is presented for the appointment of an administrator or similar officer to E2C; or 
+13.2.3	E2C enters into any form of insolvency proceedings in any part of the world or is unable to pay its debts or certifies that it is unable to pay its debts or the Company makes or enters into any arrangement or compromise with any of its creditors.
+13.3	No compensation or damages shall be payable by E2C or the Company if this Agreement is terminated by E2C or the Company pursuant to the terms of this Agreement. 
+14.	CONSEQUENCES OF TERMINATION 
+14.1	On termination for whatever reason or expiry of this Agreement :-
+14.1.1	Subject to Clause 4.1.2, the rights licensed to the Company pursuant to this Agreement shall, unless otherwise agreed by E2C in writing terminate from the date of termination or expiry of this Agreement; 
+14.1.2	Subject to Clause 4.1.2, the Company shall within fourteen (14) days after termination return or at E2C's request destroy, the Software and any updates, upgrades or copies (whether in whole or in part) in any form received from E2C or made in connection with this Agreement and all documentation relating thereto; and
+14.1.3	The Company shall immediately pay to E2C any sums due to E2C under this Agreement.
+14.2	The terms of this Agreement that are capable of surviving the termination of this Agreement will do so including, without limitation, Clauses 1 (Definitions and Interpretation), 4 (Fees), 8 (Liability), 10 (Confidentiality), 14 (Consequences of Termination) and 15.8 (General).    
+14.3	The termination or expiry of this Agreement shall not prejudice or affect any accrued rights or liabilities of any of the parties and the exercise by any of the parties of any rights or remedies under the terms of this Agreement shall be without prejudice to any other rights or remedies to which such party may be entitled.
+15.	GENERAL
+15.1	The Company shall not, without the prior consent in writing of E2C, sub-licence or assign any of its rights or obligations under this Agreement.
+15.2	E2C may assign its rights and obligations under this Agreement to any related body corporate of E2C subject only to a requirement to promptly notify the Company of such assignment. 
+15.3	The failure of either party at any time to enforce any provision of this Agreement shall not imply the waiver or abandonment of its rights to enforce such provision and shall in no way affect its rights thereafter to require complete performance by the other party of any provision of this Agreement nor shall a waiver of any breach of any provision of this Agreement be taken or held to be a waiver of any subsequent breach of any such provision or be a waiver of the provision itself.
+15.4	All notices to be given and other documentation to be sent under the terms of this Agreement may be delivered personally, or sent by facsimile or first class recorded delivery post, to the address of each party as set out above. Any notice or other documentation shall be deemed to have been served:-
+15.4.1	If delivered personally on the day of delivery; or
+15.4.2	If sent by facsimile within twelve (12) hours of the sending of the facsimile; and
+15.4.3	If posted, on the expiry of five (5) working days after posting.
+15.5	If any one or more of the provisions contained in this Agreement is, in whole or in part, invalid, illegal or unenforceable in any respect, the validity, legality or enforceability of the remaining provisions shall not in any way be affected or impaired thereby and the provision in question shall, to the extent it is invalid, illegal or unenforceable be deemed not to form part of this Agreement and shall be replaced with another provision which achieves the result of the invalid, illegal or unenforceable provision to the greatest extent permitted by law.
+15.6 	No amendment, modification, alteration or variation to the terms of this Agreement shall be validly made unless in writing and signed by or on behalf of the parties.
+15.7	Nothing in this Agreement shall constitute or be deemed to constitute a partnership or joint venture between the parties or the relationship between any of the parties of principal and agent.
+15.8	The construction, validity and performance of this Agreement shall be governed in all respects in accordance with the Law of Scotland and the parties hereby submit to the jurisdiction of the Scottish Courts.
+16.	SOFTWARE DEVELOPMENT LICENCE
+16.1	The software version supplied with each Software Development Kit (SDK) is licensed solely for the purposes of development and integration testing.  This may not be used for operational deployment. 
+16.2	The SDK Software will be provided in the form of :-
+16.2.1	A non-expiring release in the case where all requested devices are already in standard release at date of order, or
+16.2.2	A time-limited beta version, where one or more of the devices or features are not in release at the time of order.
+17.	BETA SOFTWARE
+17.1	Beta versions of the Software are time-limited, executables for the target operating system, together with appropriate Firmware, where required, for external interconnect boards.  
+17.3	Beta Software will generally expire 60 days from the date of release.
+17.4	Beta Software is made available for the purpose of testing and verification of new functions only, subject to the terms of this agreement.   
+18.  	PRODUCTION RELEASE SOFTWARE
+18.2	E2C provides Production Release Software as a non-expiring, executable for the target operating system, together with appropriate Firmware, where required, for external interconnect boards.  Production Release Software will only be issued on completion of the Customer Solution Summary, together with a signed copy of this agreement.
+18.3	Licence Key. The Software will be protected by appropriate software protection algorithms. For perpetual licences, a non-expiring, unique Licence Key will be provided which unlocks and enables the Production Release software.  
+18.3	Change Control.  Future changes to the Software specification of the Production Release Software will be managed through E2C’s Change Control procedure. Production Release Software updates will retain the original licence number.
+18.4	Where the Company requires multiple Software configurations, each unique configuration will be designated with a unique licence serial number and unique Licence Key. 
+#CED2DECADBBFDAB5C7A884C085D69DC986D6FBAEEABAE8B8F4BB
+#
+#
