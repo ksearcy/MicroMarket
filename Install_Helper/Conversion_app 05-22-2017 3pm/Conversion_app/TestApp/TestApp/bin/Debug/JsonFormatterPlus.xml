@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JsonFormatterPlus</name>
+    </assembly>
+    <members>
+        <member name="T:JsonFormatterPlus.JsonFormatter">
+            <summary>
+            Provides JSON formatting functionality.
+            </summary>
+        </member>
+        <member name="M:JsonFormatterPlus.JsonFormatter.Format(System.String)">
+            <summary>
+            Returns a 'pretty printed' version of the specified JSON string, formatted for human
+            consumption.
+            </summary>
+            <param name="json">A valid JSON string.</param>
+            <returns>A 'pretty printed' version of the specified JSON string.</returns>
+        </member>
+        <member name="M:JsonFormatterPlus.JsonFormatter.Minify(System.String)">
+            <summary>
+            Returns a 'minified' version of the specified JSON string, stripped of all 
+            non-essential characters.
+            </summary>
+            <param name="json">A valid JSON string.</param>
+            <returns>A 'minified' version of the specified JSON string.</returns>
+        </member>
+    </members>
+</doc>
