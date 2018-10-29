@@ -14,15 +14,15 @@ Honeywell 3320g,
 Codecorp cr1000
 
 Fingerprint Readers
-Digital Persona 4500
+Digital Persona 4500(All digital person readers are supported but not fully tested end to end)
 
-Credit Card Reader
+Credit Card Reader(UATech and Nayax)
 Magtek Dynamag(USATech Injection key), 
 OTI Trio(USATech Injection key), 
 IDTech Vendi(USATech Injection key), 
 Nayax VPOS(ePoint cc200 required), 
 
-A large number of bill and coin acceptors including MDB, ccTalk, and priority protocol
+A large number of bill and coin acceptors including MDB, ccTalk, and proprietary protocols
 
 Bill Acceptor
 MEI MPOST 110v and 24v, 
