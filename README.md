@@ -1,5 +1,5 @@
 # MicroMarket
-micro market kiosk for the vending sector developed in c#
+micro market kiosk for the vending sector developed in c#(WPF)
 
 A micro market is a custom designed vending market or mart with a self-checkout kiosk. Micro markets can replace current vending programs, or act as a supplementary option for employees and staff. Micro markets provide users with a convenience store feel with vending options and prices.
 
